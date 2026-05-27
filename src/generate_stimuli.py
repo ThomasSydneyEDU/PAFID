@@ -38,6 +38,7 @@ PROCESSED_KWS = [
     "ice cream", "chocolate", "jam", "juice", "soda", "beer", "milkshake",
     "smoothie", "muffin", "donut", "pudding", "casserole", "stew", "curry",
     "taco", "pizza", "burrito", "wrap", "noodle", "dumpling", "rice", "lasagna",
+    "bowl", "mixed",
 ]
 
 SWEET_CATS = {"Dessert", "Fruit"}
@@ -45,6 +46,7 @@ SWEET_KWS = [
     "sweet", "chocolate", "cake", "cookie", "pie", "ice cream", "candy",
     "jam", "honey", "sugar", "pudding", "dessert", "syrup", "fruit",
     "donut", "brownie", "cupcake", "muffin", "milkshake", "smoothie",
+    "acai", "baklava",
 ]
 
 
@@ -61,7 +63,7 @@ def _sweet_vs_savory(food: str, category: str) -> str:
 # PAFID Root is one level up from src/
 ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "data" / "food_list_initial_seed.csv"
-OUT_DIR = ROOT / "output"
+OUT_DIR = ROOT / "rendered_images"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Defaults
@@ -174,7 +176,7 @@ class RenderSpec:
 BOWL_KWS = [
     "soup", "stew", "ramen", "pho", "laksa", "miso soup", "tom yum", "tom yum soup",
     "noodles", "udon", "vermicelli", "cereal", "oatmeal", "porridge", "risotto",
-    "curry", "dahl", "custard", "pudding", "gelato", "sorbet", "ice cream",
+    "curry", "dahl", "custard", "pudding", "gelato", "sorbet", "ice cream", "bowl",
 ]
 
 def needs_bowl(food: str, category: str) -> bool:
@@ -855,6 +857,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         # By default, skip if image exists. 
         # Only re-render if --overwrite is set OR if there is an additional prompt 
         # (which implies the user wants a new version with the new instructions).
+        has_extra = bool(spec.additional_prompt.strip())
         if not args.overwrite and spec.image_path.exists():
             if not has_extra:
                 print(f"[SKIP] Already exists: {spec.image_path}")

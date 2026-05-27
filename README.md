@@ -134,6 +134,9 @@ python src/rate_images.py --stimuli-dir rendered_images/
 *   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
 
 ## Extending the Database
+
+**Demo Items:** The end of `data/food_list_initial_seed.csv` includes 3 example items ("Acai Bowl", "Peking Duck", "Baklava"). If you run the pipeline, it will generate images for these items as a demonstration. You can delete them from the CSV if you prefer to start fresh, or use them as a template for adding your own items.
+
 To add new foods:
 1.  Append new rows to `data/food_list_initial_seed.csv`.
 2.  Specify the `Food`, `Category`, `Natural_vs_transformed`, and `Sweet_vs_savory` labels.

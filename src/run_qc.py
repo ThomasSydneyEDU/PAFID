@@ -8,8 +8,7 @@ Writes: captions + QC fields back into stimuli_master.json (in-place), with a .b
 Outputs: QC issues summary to stdout AND writes <stimuli_dir>/qc_issues.json
 
 Additionally:
-- Writes stim_generation/food_list_labeled_QC_plusAIjudgements.csv (merged from the input list CSV + AI QC/judgements),
-  if stim_generation/food_list_labeled_chatGPTlist_CORE.csv exists.
+- Writes data/Foodpictures_information_dynamic.csv (merged from the input list CSV + AI QC/judgements).
 
 Requires:
   pip install -U google-genai
@@ -419,7 +418,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "Food": food_name,
 
                 # From stimuli_master (if present)
-                "image_file": e.get("image_file", ""),
+                "filename": e.get("image_file", ""),
                 "caption": e.get("caption", ""),
                 "aware_observed_food": e.get("observed_food", ""),
                 "aware_observed_prep": e.get("observed_prep", ""),
@@ -451,7 +450,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
             rows_out.append(out)
 
     # Warn about unmatched foods from the input list
-    unmatched = [r for r in rows_out if not r.get("image_file") and (r.get("Food") or "").strip()]
+    unmatched = [r for r in rows_out if not r.get("filename") and (r.get("Food") or "").strip()]
     if unmatched:
         print(f"[WARN] QC+AI CSV: {len(unmatched)} rows from input list did not match any stimuli_master entry (by Food).")
         for ex in unmatched[:10]:
@@ -462,7 +461,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
     fieldnames = [
         "Category",
         "Food",
-        "image_file",
+        "filename",
         "caption",
         "aware_observed_food",
         "aware_observed_prep",
