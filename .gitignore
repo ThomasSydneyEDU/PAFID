@@ -1,0 +1,16 @@
+# Ignore generated outputs
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+# Ignore environment files
+.env
+.venv/
+env/
+venv/
+# Ignore DS_Store
+.DS_Store
+**/.DS_Store

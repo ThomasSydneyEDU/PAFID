@@ -1,0 +1,12 @@
+# PAFID Core Pipeline Dependencies
+pandas
+google-genai
+openai
+requests
+pillow
+numpy
+opencv-python
+scikit-image
+scipy
+tqdm
+openpyxl
