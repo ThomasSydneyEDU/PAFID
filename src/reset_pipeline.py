@@ -13,6 +13,7 @@ Usage:
 
 import os
 import shutil
+import json
 from pathlib import Path
 import pandas as pd
 
@@ -39,7 +40,7 @@ def get_canonical_filenames():
     return set(df['filename'].tolist())
 
 def prune_rendered_images(safe_list):
-    print("Pruning non-canonical files in rendered_images/...")
+    print("Pruning non-canonical files and metadata in rendered_images/...")
     count = 0
     # Core files to always keep
     core_files = {"stimuli_master.json", "original master json"}
@@ -59,7 +60,29 @@ def prune_rendered_images(safe_list):
             elif item.is_dir():
                 shutil.rmtree(item)
                 count += 1
-    print(f"Removed {count} extra items from rendered_images/.")
+    
+    # Also prune the stimuli_master.json itself
+    master_path = RENDERED_DIR / "stimuli_master.json"
+    if master_path.exists():
+        try:
+            with master_path.open("r") as f:
+                data = json.load(f)
+            
+            if isinstance(data, list):
+                original_len = len(data)
+                # Keep only entries that are in the safe list
+                data = [entry for entry in data if entry.get("image_file") in safe_list]
+                
+                with master_path.open("w") as f:
+                    json.dump(data, f, indent=2)
+                
+                pruned_json = original_len - len(data)
+                if pruned_json > 0:
+                    print(f"Pruned {pruned_json} non-canonical entries from stimuli_master.json.")
+        except Exception as e:
+            print(f"Warning: Could not prune stimuli_master.json: {e}")
+
+    print(f"Removed {count} extra items from rendered_images/ directory.")
 
 def clear_resized_cache():
     print("Clearing resized_images/ cache...")

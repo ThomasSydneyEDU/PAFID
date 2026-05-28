@@ -512,6 +512,10 @@ def write_meta(
     with master_path.open("w") as f:
         json.dump(data, f, indent=2)
 
+    # Also write a per-item JSON file for redundant tracking
+    with spec.meta_path.open("w") as f:
+        json.dump(entry, f, indent=2)
+
 
 def backoff_sleep(attempt: int) -> None:
     # exponential backoff with jitter
