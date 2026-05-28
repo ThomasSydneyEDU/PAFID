@@ -69,7 +69,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # Defaults
 DEFAULT_MODEL = "gpt-image-1"
 # Default Gemini image model. Must match a model name returned by the Gemini API.
-DEFAULT_GEMINI_MODEL = "imagen-3.0-generate-001"
+DEFAULT_GEMINI_MODEL = "gemini-3-pro-image-preview"
 
 # Accept common truthy encodings from CSV cells (strings and numeric flags)
 TRUTHY = {"1", "1.0", "true", "t", "yes", "y", "on"}
@@ -789,8 +789,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             "gpt-image-1",
             "gemini-3-pro-image",
             "gemini-3-pro-image-preview",
-            "gemini-3-pro-image-preview-v1",
-            "imagen-3.0-generate-001-preview",
+            "imagen-4.0-fast-generate-001",
         )
         if requested_model in placeholder_models:
             args.model = DEFAULT_GEMINI_MODEL
