@@ -72,7 +72,8 @@ pip install -r requirements.txt
 ### 4. Set Your API Keys
 The pipeline requires an API key to generate and evaluate images. By default, it uses the **Google Gemini API**. 
 
-*   **How to get a Gemini API Key:** Go to [Google AI Studio](https://aistudio.google.com/app/apikey), sign in with a Google account, and click "Create API Key".
+*   **Detailed Guide**: For step-by-step instructions on setting up your account and getting a key, see [GOOGLE_API_SETUP.md](GOOGLE_API_SETUP.md).
+*   **Quick Start**: Go to [Google AI Studio](https://aistudio.google.com/app/apikey), sign in, and click "Create API Key".
 
 Once you have your key, set it as an environment variable in your terminal:
 
