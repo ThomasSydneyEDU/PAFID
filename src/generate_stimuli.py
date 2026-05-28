@@ -69,7 +69,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # Defaults
 DEFAULT_MODEL = "gpt-image-1"
 # Default Gemini image model. Must match a model name returned by the Gemini API.
-DEFAULT_GEMINI_MODEL = "gemini-3-pro-image-preview"
+DEFAULT_GEMINI_MODEL = "imagen-3.0-generate-001"
 
 # Accept common truthy encodings from CSV cells (strings and numeric flags)
 TRUTHY = {"1", "1.0", "true", "t", "yes", "y", "on"}
@@ -417,10 +417,12 @@ def generate_image_b64_gemini(client, prompt: str, size: str, quality: str, mode
         dict_parts.append({"text": prompt})
         contents = [{"role": "user", "parts": dict_parts}]
 
+    print(f"      [DEBUG] Calling Gemini API (model: {model})...")
     response = client.models.generate_content(
         model=model,
         contents=contents,
     )
+    print("      [DEBUG] API response received.")
 
     # ---- Extract first inline image part from common response shapes ----
     # Shape A: response.parts
@@ -783,7 +785,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             "gpt-image-1",
             "gemini-3-pro-image",
             "gemini-3-pro-image-preview",
-            "imagen-4.0-fast-generate-001",
+            "gemini-3-pro-image-preview-v1",
+            "imagen-3.0-generate-001-preview",
         )
         if requested_model in placeholder_models:
             args.model = DEFAULT_GEMINI_MODEL
@@ -834,10 +837,35 @@ def main(argv: Optional[List[str]] = None) -> int:
     if args.one_per_category:
         cats = ", ".join(sorted(df["Category"].unique()))
         print(f"[INFO] One-per-category mode. Categories: {cats}")
-    print(f"[INFO] Items to render: {total}")
-
-    success = 0
+    
+    # Pre-calculate skips to keep logging clean
+    to_render = []
+    skipped_count = 0
     for _, row in df.iterrows():
+        spec = RenderSpec(
+            food=row["Food"],
+            category=row["Category"],
+            nat_vs_trans=row["Natural_vs_transformed"],
+            sweet_vs_savory=row["Sweet_vs_savory"],
+            additional_prompt=str(row.get("Additional Prompt", "") or ""),
+        )
+        has_extra = bool(spec.additional_prompt.strip())
+        if not args.overwrite and spec.image_path.exists() and not has_extra:
+            skipped_count += 1
+        else:
+            to_render.append(row)
+
+    if skipped_count > 0:
+        print(f"[INFO] {skipped_count} images skipped as they already exist.")
+    
+    active_count = len(to_render)
+    print(f"[INFO] Items to render: {active_count}")
+
+    success = skipped_count
+    for i, row in enumerate(to_render, 1):
+        food_name = row["Food"]
+        print(f"[INFO] ({i}/{active_count}) Processing: {food_name}")
+        
         # Base spec
         spec = RenderSpec(
             food=row["Food"],
@@ -854,17 +882,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             plate_image=plate_image_path,
         )
 
-        # By default, skip if image exists. 
-        # Only re-render if --overwrite is set OR if there is an additional prompt 
-        # (which implies the user wants a new version with the new instructions).
-        has_extra = bool(spec.additional_prompt.strip())
-        if not args.overwrite and spec.image_path.exists():
-            if not has_extra:
-                print(f"[SKIP] Already exists: {spec.image_path}")
-                success += 1
-                continue
-            else:
-                print(f"[INFO] Re-rendering {spec.food} because Additional Prompt is present.")
+        if not args.overwrite and spec.image_path.exists() and bool(spec.additional_prompt.strip()):
+            print(f"      [INFO] Re-rendering {spec.food} because Additional Prompt is present.")
 
         ok = render_one(spec, client=client, dry_run=args.dry_run, overwrite=args.overwrite, backend=backend)
         success += int(ok)
