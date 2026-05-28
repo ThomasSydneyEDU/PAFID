@@ -12,7 +12,8 @@ PAFID/
 │   ├── prepare_images.py      # Resizes and packages images for experiments
 │   └── rate_images.py         # Conducts blind AI ratings
 ├── data/                      # Input lists and metadata
-│   └── Foodpictures_information_canonical.csv
+│   ├── Foodpictures_information_dynamic.csv
+│   └── Foodpictures_information_reference.csv
 ├── assets/                    # Reference assets
 │   └── plates/                # Reference plate images for visual consistency
 ├── rendered_images/           # Generated high-res images and metadata
@@ -126,12 +127,12 @@ python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-can
 ```
 *   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
 
-### 5. Blind AI Ratings
-Conduct a rigorous blind evaluation:
+### 5. Reset Pipeline
+If you want to undo your changes and return the database to the 350-item baseline:
 ```bash
-python src/rate_images.py --stimuli-dir rendered_images/
+python src/reset_pipeline.py
 ```
-*   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
+*   **Safety**: This script will ask for confirmation before deleting any non-canonical images or metadata you have generated.
 
 ## Extending the Database
 

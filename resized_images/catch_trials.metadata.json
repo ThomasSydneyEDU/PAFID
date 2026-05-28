@@ -1,7 +1,0 @@
-{
-  "generated_at": "2026-01-18T10:52:53",
-  "model": "gemini-2.5-pro",
-  "n": 5,
-  "image_list": "/Users/tcar5787/Documents/GitHub/foodtriplets2/expt_stimuli/Filtered_ImageList.json",
-  "out_js": "/Users/tcar5787/Documents/GitHub/foodtriplets2/expt_stimuli/catch_trials.js"
-}
