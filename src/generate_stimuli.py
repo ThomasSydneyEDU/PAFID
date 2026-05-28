@@ -788,7 +788,6 @@ def main(argv: Optional[List[str]] = None) -> int:
             DEFAULT_MODEL,
             "gpt-image-1",
             "gemini-3-pro-image",
-            "gemini-3-pro-image-preview",
             "imagen-4.0-fast-generate-001",
         )
         if requested_model in placeholder_models:
