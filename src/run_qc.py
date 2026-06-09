@@ -478,7 +478,20 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
 
     import pandas as pd
     new_df = pd.DataFrame(rows_out)
-    
+
+    # 1. Merge human ratings if available
+    human_csv = input_list_csv.parent / "human_ratings.csv"
+    if human_csv.exists():
+        try:
+            human_df = pd.read_csv(human_csv)
+            # Ensure no overlapping columns except filename
+            cols_to_use = [c for c in human_df.columns if c not in new_df.columns or c == 'filename']
+            new_df = pd.merge(new_df, human_df[cols_to_use], on='filename', how='left')
+            print(f"[INFO] Integrated empirical human ratings from {human_csv.name}")
+        except Exception as e:
+            print(f"[WARN] Failed to merge human_ratings.csv: {e}")
+            
+    # 2. Merge with existing output (to preserve blind_ai and ll_metrics)
     if out_csv.exists():
         old_df = pd.read_csv(out_csv)
         if 'filename' in old_df.columns and 'filename' in new_df.columns:
