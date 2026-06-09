@@ -201,14 +201,19 @@ python src/reset_pipeline.py
 
 ## Extending the Database
 
-To add new foods, simply append rows to `data/food_list_initial_seed.csv` with a single `Food` column. All labels (category, natural/transformed, transformation score) are assigned automatically by Gemini when you run the generation script.
+To add new foods to the database, follow these steps:
 
-```csv
-Food
-Acai Bowl
-Peking Duck
-Baklava
-```
+1. **Add to the Seed List:** Append new food names to the bottom of `data/food_list_initial_seed.csv`. The only required column is `Food`.
+    ```csv
+    Food
+    Acai Bowl
+    Peking Duck
+    Baklava
+    ```
+2. **Generate Images and Classifications:** Run `python src/generate_stimuli.py` (you can use `--limit N` or `--food "Specific Food"` to only generate the new items). The script will automatically use Gemini to classify the food into WHO and Simple categories, determine if it is Natural or Transformed, and then generate the image.
+3. **Generate AI Ratings:** Run `python src/run_qc.py --stimuli-dir rendered_images/` followed by `python src/rate_images.py --stimuli-dir rendered_images/`. This will merge the new AI aware and blind ratings into the dynamic CSV without overwriting existing data.
+4. **Calculate Visual Features:** Run `python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical` to compute and append the low-level CV metrics (`ll_`).
+5. **(Optional) Add Empirical Human Data:** If you have collected human psychophysics data for the new images, format your raw participant data matching the expected schema, drop it into the `Food survey/` folder (which is git-ignored for privacy), and run `python Food\ survey/export_human_ratings.py`. Then, re-run Step 3 (`run_qc.py`) to safely inject the new `human_*` means into your master dataset.
 
 The seed list includes 3 demo items at the end as an example. You can remove them or use them as a template.
 
