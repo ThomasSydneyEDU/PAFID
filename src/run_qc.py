@@ -418,10 +418,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "Food": food_name,
 
                 # Classification labels from stimuli_master (written by classify_food_gemini)
-                "Category_WHO_10": e.get("Category_WHO_10", ""),
-                "Category_Simple_6": e.get("Category_Simple_6", ""),
-                "Natural_vs_transformed": e.get("Natural_vs_transformed", ""),
-                "Transformation_score": e.get("Transformation_score", ""),
+                
 
                 # From stimuli_master (if present)
                 "filename": e.get("image_file", ""),
@@ -431,6 +428,9 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "food_classification": e.get("category", ""),
                 "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
                 "sweet_vs_savory": e.get("Sweet_vs_savory", ""),
+                "Category_WHO_10": e.get("Category_WHO_10", ""),
+                "Category_Simple_6": e.get("Category_Simple_6", ""),
+                "Transformation_score": e.get("Transformation_score", ""),
                 "prompt": e.get("prompt", ""),
                 "model": e.get("model", ""),
                 "seed": e.get("seed", ""),
@@ -487,6 +487,30 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
             # Ensure no overlapping columns except filename
             cols_to_use = [c for c in human_df.columns if c not in new_df.columns or c == 'filename']
             new_df = pd.merge(new_df, human_df[cols_to_use], on='filename', how='left')
+            
+    # Apply column ordering
+    col_order = [
+        'filename', 'food', 'base_food', 'prep_form', 
+        'food_classification', 'Category_WHO_10', 'Category_Simple_6', 
+        'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory', 
+        'prompt', 'model', 'seed', 'created', 'style_version', 'plate_reference', 
+        'human_calorie_density', 'human_healthiness', 'human_appeal', 
+        'human_sweetness', 'human_saltiness', 'human_sourness', 'human_bitterness', 
+        'human_savoriness', 'human_fattiness', 'human_spiciness',
+        'caption', 'aware_observed_food', 'aware_observed_prep', 'label_match', 'label_confidence', 
+        'portion_size_ok', 'plate_rim_visible', 'qc_issues', 'qc_reasons', 'qc_model', 'qc_at',
+        'aware_ai_calorie_density', 'aware_ai_healthiness', 'aware_ai_sweetness', 
+        'aware_ai_saltiness', 'aware_ai_sourness', 'aware_ai_bitterness', 
+        'aware_ai_savoriness', 'aware_ai_fattiness', 'aware_ai_spiciness', 
+        'blind_model', 'blind_observed_food', 'blind_guess_similarity', 
+        'blind_ai_calorie_density', 'blind_ai_healthiness', 'blind_ai_sweetness', 
+        'blind_ai_saltiness', 'blind_ai_sourness', 'blind_ai_bitterness', 
+        'blind_ai_savoriness', 'blind_ai_fattiness', 'blind_ai_spiciness', 
+        'll_mean_luminance', 'll_rms_contrast', 
+        'll_lab_L_mean', 'll_lab_L_std', 'll_lab_a_mean', 'll_lab_a_std', 
+        'll_lab_b_mean', 'll_lab_b_std', 'll_hsv_s_mean', 'll_edge_energy'
+    ] + [f"ll_hog_pc{j+1:02d}" for j in range(10)]
+    
             print(f"[INFO] Integrated empirical human ratings from {human_csv.name}")
         except Exception as e:
             print(f"[WARN] Failed to merge human_ratings.csv: {e}")
@@ -504,6 +528,10 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
         final_df = pd.merge(new_df, old_df, on=merge_key, how='left')
     else:
         final_df = new_df
+        
+    final_order = [c for c in col_order if c in final_df.columns]
+    final_order += [c for c in final_df.columns if c not in final_order]
+    final_df = final_df[final_order]
 
     final_df.to_csv(out_csv, index=False, encoding="utf-8-sig")
     print(f"[OK] Wrote QC+AI judgements CSV to: {out_csv}")
