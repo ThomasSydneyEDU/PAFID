@@ -7,7 +7,8 @@ import pandas as pd
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 SURVEY_CSV = SCRIPT_DIR / "extracted_survey_data.csv"
-OUTPUT_CSV = SCRIPT_DIR.parent / "data" / "human_ratings.csv"
+OUTPUT_MEANS_CSV = SCRIPT_DIR.parent / "data" / "human_ratings.csv"
+OUTPUT_INDIVIDUAL_CSV = SCRIPT_DIR.parent / "data" / "human_ratings_individual.csv"
 
 QUALITY_THRESHOLD = 80.0  # drop participants whose QualityCheck % is below this
 
@@ -22,6 +23,7 @@ HUMAN_COLUMN_MAP = {
     "Umami":          "human_savoriness",
     "Fatty":          "human_fattiness",
     "Spicy":          "human_spiciness",
+    "Familiarity":    "human_familiarity"
 }
 
 def extract_leading_digit(value):
@@ -41,13 +43,27 @@ def main():
     n_participants_raw = survey["ParticipantNumber"].nunique()
     print(f"        {len(survey):,} rows, {n_participants_raw} participants")
 
+    # ---- Quality filter ----
     survey["QualityCheck"] = pd.to_numeric(survey["QualityCheck"], errors="coerce")
     survey = survey[survey["QualityCheck"] >= QUALITY_THRESHOLD].copy()
-    n_kept = survey["ParticipantNumber"].nunique()
+    
+    # ---- Anonymize Subject IDs ----
+    # Combine DataSource + ParticipantNumber to ensure uniqueness across platforms, then map to anonymous ID
+    if "DataSource" in survey.columns and "ParticipantNumber" in survey.columns:
+        survey["_subject_str"] = survey["DataSource"].astype(str) + "_" + survey["ParticipantNumber"].astype(str)
+    else:
+        survey["_subject_str"] = survey["ParticipantNumber"].astype(str)
+        
+    unique_subjects = survey["_subject_str"].unique()
+    subject_map = {orig: i+1 for i, orig in enumerate(unique_subjects)}
+    survey["anon_subject_id"] = survey["_subject_str"].map(subject_map)
+    
+    n_kept = len(unique_subjects)
     print(f"[INFO] Quality filter (>= {QUALITY_THRESHOLD:g}%): "
           f"kept {n_kept}/{n_participants_raw} participants "
           f"({n_participants_raw - n_kept} dropped)")
 
+    # ---- Clean Rating Data ----
     if "Familiarity" in survey.columns:
         survey["Familiarity"] = survey["Familiarity"].apply(extract_leading_digit)
     
@@ -55,14 +71,28 @@ def main():
         if survey_col in survey.columns:
             survey[survey_col] = pd.to_numeric(survey[survey_col], errors="coerce")
 
-    grouped = survey.groupby("ImageName")[[c for c in HUMAN_COLUMN_MAP.keys() if c in survey.columns]].mean()
-    grouped.rename(columns=HUMAN_COLUMN_MAP, inplace=True)
-    grouped = grouped.round(2)
-    grouped.index.name = "filename"
+    # ---- Rename and Export Individual Data ----
+    survey.rename(columns={"ImageName": "filename"}, inplace=True)
+    survey.rename(columns=HUMAN_COLUMN_MAP, inplace=True)
     
-    OUTPUT_CSV.parent.mkdir(exist_ok=True, parents=True)
-    grouped.to_csv(OUTPUT_CSV)
-    print(f"[OK] Wrote aggregated human ratings to: {OUTPUT_CSV}")
+    # Select only the de-identified tracking and rating columns
+    cols_to_keep = ["anon_subject_id", "filename"] + [v for k, v in HUMAN_COLUMN_MAP.items() if v in survey.columns]
+    individual_df = survey[cols_to_keep].copy()
+    
+    # Drop rows where all actual ratings are NaN (just in case)
+    rating_cols = [v for k, v in HUMAN_COLUMN_MAP.items() if v in individual_df.columns]
+    individual_df.dropna(subset=rating_cols, how="all", inplace=True)
+    
+    OUTPUT_INDIVIDUAL_CSV.parent.mkdir(exist_ok=True, parents=True)
+    individual_df.to_csv(OUTPUT_INDIVIDUAL_CSV, index=False)
+    print(f"[OK] Wrote anonymized individual ratings to: {OUTPUT_INDIVIDUAL_CSV}")
+
+    # ---- Compute and Export Means ----
+    grouped = individual_df.groupby("filename")[rating_cols].mean()
+    grouped = grouped.round(2)
+    
+    grouped.to_csv(OUTPUT_MEANS_CSV)
+    print(f"[OK] Wrote aggregated human ratings to: {OUTPUT_MEANS_CSV}")
 
 if __name__ == "__main__":
     main()
