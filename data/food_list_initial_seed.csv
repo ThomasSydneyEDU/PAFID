@@ -1,355 +1,355 @@
-Food,Category,Natural_vs_transformed,Sweet_vs_savory,Prep Form,Additional Prompt
-Alfalfa sprouts,Vegetable,Natural,Savory,,
-Almonds,Protein,Natural,Savory,,
-Anchovies,Protein,Natural,Savory,,
-Apple (prepared),Fruit,Natural,Sweet,,
-Apple (raw),Fruit,Natural,Sweet,,
-Apple pear (nashi),Fruit,Natural,Sweet,,
-Apple pie,Dessert,Transformed,Sweet,,
-Apricot (prepared),Fruit,Natural,Sweet,,
-Apricot (raw),Fruit,Natural,Sweet,,
-Artichoke,Vegetable,Natural,Savory,,
-Asparagus (prepared),Vegetable,Natural,Savory,,
-Asparagus (raw),Vegetable,Natural,Savory,,
-Avocado,Vegetable,Natural,Savory,,
-Bacon,Protein,Natural,Savory,,
-Bagel,Grain,Natural,Savory,,
-Baguette,Grain,Natural,Savory,,
-Baked salmon fillet,Dish,Transformed,Savory,,
-Bamboo shoots,Vegetable,Natural,Savory,,
-Banana,Fruit,Natural,Sweet,,
-Banana chips,Fruit,Transformed,Sweet,,
-Barley,Grain,Transformed,Savory,,
-Barramundi,Protein,Transformed,Savory,,
-Beef steak,Protein,Natural,Savory,,
-Beef stir fry,Dish,Transformed,Savory,,
-Beetroot (prepared),Vegetable,Natural,Savory,,
-Bell pepper (capsicum),Vegetable,Natural,Savory,,
-Bibimbap,Dish,Natural,Savory,,
-Biryani,Dish,Natural,Savory,,
-Biscuit (US),Grain,Natural,Savory,,
-Black beans,Protein,Natural,Savory,,
-Blackberry,Fruit,Natural,Sweet,,
-Blueberry,Fruit,Natural,Sweet,,
-Bok choy,Vegetable,Natural,Savory,,
-borrito bowl,Dish,Transformed,Savory,,
-Bread (white),Grain,Transformed,Savory,,
-Bread (wholegrain),Grain,Transformed,Savory,,
-Breadstick,Grain,Transformed,Savory,,
-Brioche,Grain,Natural,Savory,,
-Broccoli (prepared),Vegetable,Natural,Savory,,
-Broccoli (raw),Vegetable,Natural,Savory,,
-Brownie,Dessert,Natural,Sweet,,
-Brussels sprouts,Vegetable,Natural,Savory,,
-Bulgogi,Dish,Natural,Savory,,
-Burrito,Dish,Transformed,Savory,,
-Butter chicken,Dish,Natural,Savory,,
-Cabbage (prepared),Vegetable,Natural,Savory,,
-Cabbage (raw),Vegetable,Natural,Savory,,
-Caesar salad,Dish,Transformed,Savory,,
-Calamari,Protein,Natural,Savory,,
-Candy,Dessert,Natural,Sweet,,
-Cannellini beans,Protein,Natural,Savory,,
-Carbonara,Dish,Natural,Savory,,
-Carrot (cooked),Vegetable,Transformed,Savory,,
-Carrot (raw),Vegetable,Natural,Savory,,
-Cashews,Protein,Natural,Savory,,
-Casserole,Dish,Transformed,Savory,,
-Cauliflower (prepared),Vegetable,Natural,Savory,,
-Cauliflower (raw),Vegetable,Natural,Savory,,
-Celery,Vegetable,Natural,Savory,,
-Cereal flakes,Grain,Natural,Sweet,,
-Chapati,Grain,Natural,Savory,,
-Chayote,Vegetable,Natural,Savory,,
-Cheese (brie),Protein,Natural,Savory,,
-Cheese (cheddar),Protein,Natural,Savory,,
-Cheese (feta),Protein,Natural,Savory,,
-Cheese (mozzarella),Protein,Natural,Savory,,
-Cheesecake,Dessert,Transformed,Sweet,,
-Cherry,Fruit,Natural,Sweet,,
-Chicken breast,Protein,Natural,Savory,,
-Chicken noodle soup,Dish,Transformed,Savory,,
-Chicken parmesan,Dish,Transformed,Savory,,
-Chicken thigh,Protein,Natural,Savory,,
-Chicken tikka wrap,Dish,Transformed,Savory,,
-Chicken wings,Protein,Natural,Savory,,
-Chickpeas,Protein,Natural,Savory,,
-Chili con carne,Dish,Natural,Savory,,
-Chilli pepper,Vegetable,Natural,Savory,,
-Chocolate cake,Dessert,Transformed,Sweet,,
-chocolate peanut butter pie,Dessert,Transformed,sweet,,
-Coconut,Fruit,Natural,Sweet,,
-Cod,Protein,Natural,Savory,,
-Coleslaw,Dish,Natural,Savory,,
-Collard greens,Vegetable,Natural,Savory,,
-Cookie,Dessert,Transformed,Sweet,,
-Corn,Vegetable,Natural,Savory,,
-Cornbread,Grain,Transformed,Savory,,
-Couscous,Grain,Natural,Savory,,
-Crab,Protein,Natural,Savory,,
-Cracker,Grain,Natural,Savory,,
-Cranberry,Fruit,Natural,Sweet,,
-Croissant,Grain,Natural,Savory,,
-Cucumber,Vegetable,Natural,Savory,,
-Cupcake,Dessert,Transformed,Sweet,,
-Currant,Fruit,Natural,Sweet,,
-Curry (Indian),Dish,Transformed,Savory,,
-Custard,Dessert,Natural,Sweet,,
-Dahl,Dish,Natural,Savory,,
-Dark chocolate,Dessert,Transformed,Sweet,,
-Date,Fruit,Natural,Sweet,,
-Deli ham (sliced),Protein,Transformed,Savory,,
-Doner kebab,Dish,Transformed,Savory,,
-Donut,Grain,Transformed,Sweet,,
-Dragon fruit,Fruit,Natural,Sweet,,
-Dried apple,Fruit,Natural,Sweet,,
-Dried apricot,Fruit,Natural,Sweet,,
-Dried cherry,Fruit,Natural,Sweet,,
-Dried fig,Fruit,Natural,Sweet,,
-Dried mango,Fruit,Natural,Sweet,,
-Duck,Protein,Natural,Savory,,
-Dumplings,Dish,Transformed,Savory,,
-Durian,Fruit,Natural,Sweet,,
-Edamame,Vegetable,Natural,Savory,,
-Eggplant (prepared),Vegetable,Natural,Savory,,
-Eggplant (raw),Vegetable,Natural,Savory,,
-Eggs (chicken),Protein,Natural,Savory,,
-Elderberry,Fruit,Natural,Sweet,,
-Empanada,Dish,Natural,Savory,,
-Endive,Vegetable,Natural,Savory,,
-Falafel,Dish,Transformed,Savory,,
-Fennel,Vegetable,Natural,Savory,,
-Fig (raw),Fruit,Natural,Sweet,,
-Fish and chips,Dish,Transformed,Savory,,
-Flatbread,Grain,Transformed,Savory,,
-French fries (chips),Vegetable,Natural,Savory,,
-Fried chicken,Dish,Transformed,Savory,,
-Fried noodles,Dish,Transformed,Savory,,
-Fried rice,Dish,Transformed,Savory,,
-Fried tofu bowl,Dish,Transformed,Savory,,
-Fruit leather,Fruit,Natural,Sweet,,
-Fudge,Dessert,Natural,Sweet,,
-Garden salad,Dish,Transformed,Savory,,
-Garlic,Vegetable,Natural,Savory,,
-Gelato,Dessert,Natural,Sweet,,
-Gooseberry,Fruit,Natural,Sweet,,
-Granola,Grain,Natural,Sweet,,
-Granola bar,Dessert,Transformed,Sweet,,
-Grapefruit,Fruit,Natural,Sweet,,
-Grapes (green),Fruit,Natural,Sweet,,
-Grapes (red),Fruit,Natural,Sweet,,
-Greek salad,Dish,Transformed,Savory,,
-Green beans (raw),Vegetable,Natural,Savory,,
-Grilled salmon,Dish,Natural,Savory,,
-Ground beef,Protein,Natural,Savory,,
-Guava,Fruit,Natural,Sweet,,
-Gyoza,Dish,Natural,Savory,,
-Ham,Protein,Natural,Savory,,
-Hamburger,Dish,Transformed,Savory,,
-Honeydew,Fruit,Natural,Sweet,,
-Hot dog,Dish,Natural,Savory,,
-Ice cream,Dessert,Transformed,Sweet,,
-Injera,Grain,Natural,Savory,,
-Jackfruit,Fruit,Natural,Sweet,,
-Jalapeno,Vegetable,Natural,Savory,,
-Jelly,Dessert,Natural,Sweet,,
-Kale (prepared),Vegetable,Natural,Savory,,
-Katsu,Dish,Natural,Savory,,
-Kidney beans,Protein,Natural,Savory,,
-Kimchi stew,Dish,Transformed,Savory,,
-Kiwi,Fruit,Natural,Sweet,,
-Kohlrabi,Vegetable,Natural,Savory,,
-Kumquat,Fruit,Natural,Sweet,,
-Laksa,Dish,Natural,Savory,,
-Lamb chop,Protein,Natural,Savory,,
-Lasagna,Dish,Transformed,Savory,,
-Lavash,Grain,Natural,Savory,,
-Leek,Vegetable,Natural,Savory,,
-Lemon,Fruit,Natural,Sweet,,
-Lentil stew,Dish,Transformed,Savory,,
-Lentils,Protein,Natural,Savory,,
-Lettuce,Vegetable,Natural,Savory,,
-Lima beans,Protein,Natural,Savory,,
-Lime,Fruit,Natural,Sweet,,
-Lobster,Protein,Natural,Savory,,
-Lollipop,Dessert,Natural,Sweet,,
-Lotus root,Vegetable,Natural,Savory,,
-Lychee,Fruit,Natural,Sweet,,
-Mac and cheese,Dish,Natural,Savory,,
-Macaroni pasta,Grain,Natural,Savory,,
-Mackerel,Protein,Natural,Savory,,
-Mandarin,Fruit,Natural,Sweet,,
-Mango (raw),Fruit,Natural,Sweet,,
-Matzo,Grain,Natural,Savory,,
-Meatballs,Dish,Natural,Savory,,
-Meatloaf,Dish,Transformed,Savory,,
-Microgreens,Vegetable,Natural,Savory,,
-Milk chocolate,Dessert,Transformed,Sweet,,
-Miso soup,Dish,Transformed,Savory,,
-Mortadella,Protein,Transformed,Savory,,
-Muesli,Grain,Natural,Sweet,,
-Muffin,Dessert,Transformed,Sweet,,
-Muffin (English),Grain,Transformed,Savory,,
-Mulberry,Fruit,Natural,Sweet,,
-Mushrooms (button),Vegetable,Natural,Savory,,
-Mussels,Protein,Natural,Savory,,
-Mustard greens,Vegetable,Natural,Savory,,
-Naan,Grain,Natural,Savory,,
-Nachos,Dish,Natural,Savory,,
-Napa cabbage,Vegetable,Natural,Savory,,
-Nasi goreng,Dish,Natural,Savory,,
-Navy beans,Protein,Natural,Savory,,
-Nectarine,Fruit,Natural,Sweet,,
-Noodles (wheat),Grain,Transformed,Savory,,
-Oats,Grain,Natural,Savory,,
-Octopus,Protein,Natural,Savory,,
-Okra,Vegetable,Natural,Savory,,
-Olive,Fruit,Natural,Savory,,
-Omelette,Dish,Natural,Savory,,
-Onion (prepared),Vegetable,Natural,Savory,,
-Onion (raw),Vegetable,Natural,Savory,,
-Orange,Fruit,Natural,Sweet,,
-Oysters,Protein,Natural,Savory,,
-Pad Thai,Dish,Natural,Savory,,
-Paella,Dish,Natural,Savory,,
-Pancake,Grain,Transformed,Sweet,,
-Paneer,Protein,Natural,Savory,,
-Papaya,Fruit,Natural,Sweet,,
-Parsnip,Vegetable,Natural,Savory,,
-Passionfruit,Fruit,Natural,Sweet,,
-Pasta (spaghetti),Grain,Transformed,Savory,,
-Pastry,Dessert,Natural,Sweet,,
-Peach (prepared),Fruit,Natural,Sweet,,
-Peach (raw),Fruit,Natural,Sweet,,
-Pear (prepared),Fruit,Natural,Sweet,,
-Pear (raw),Fruit,Natural,Sweet,,
-Peas,Protein,Natural,Savory,,
-Penne,Grain,Natural,Savory,,
-Persimmon,Fruit,Natural,Sweet,,
-Pesto chicken,Dish,Transformed,Savory,,
-Pesto pasta,Dish,Transformed,Savory,,
-Pho,Dish,Natural,Savory,,
-Pickled cucumber,Vegetable,Transformed,Savory,,
-Pineapple (prepared),Fruit,Natural,Sweet,,
-Pineapple (raw),Fruit,Natural,Sweet,,
-Pinto beans,Protein,Natural,Savory,,
-Pita,Grain,Natural,Savory,,
-Pizza,Dish,Transformed,Savory,,
-Plain Bagel ,Dish,Transformed,Savory,,
-Plantain,Fruit,Natural,Sweet,,
-Plum (prepared),Fruit,Natural,Sweet,,
-Plum (raw),Fruit,Natural,Sweet,,
-Polenta,Grain,Natural,Savory,,
-Polenta cake,Grain,Transformed,Sweet,,
-Pomegranate,Fruit,Natural,Sweet,,
-Popcorn,Grain,Natural,Savory,,
-Pork chop,Protein,Natural,Savory,,
-Portobello mushrooms,Vegetable,Natural,Savory,,
-Potato (prepared),Vegetable,Natural,Savory,,
-Potato chips,Grain,Transformed,Savory,,
-Potato salad,Dish,Transformed,Savory,,
-Prawns,Protein,Natural,Savory,,
-Pretzel,Grain,Natural,Savory,,
-Prosciutto,Protein,Natural,Savory,,
-Prune,Fruit,Natural,Sweet,,
-Pudding,Dessert,Transformed,Sweet,,
-Puff pastry,Grain,Natural,Savory,,
-Pumpkin,Vegetable,Natural,Savory,,
-Pumpkin pie,Dessert,Transformed,Sweet,,
-Pumpkin soup,Dish,Transformed,Savory,,
-Quail eggs,Protein,Natural,Savory,,
-Quesadilla,Dish,Natural,Savory,,
-Quinoa,Grain,Natural,Savory,,
-Radicchio,Vegetable,Natural,Savory,,
-Radish,Vegetable,Natural,Savory,,
-Raisin,Fruit,Natural,Sweet,,
-Ramen,Dish,Natural,Savory,,
-Raspberry,Fruit,Natural,Sweet,,
-Rendang,Dish,Natural,Savory,,
-Rice (brown),Grain,Transformed,Savory,,
-Rice (white),Grain,Transformed,Savory,,
-Rice noodles,Grain,Transformed,Savory,,
-Risotto,Dish,Natural,Savory,,
-Roast beef,Dish,Transformed,Savory,,
-Roast chicken,Dish,Transformed,Savory,,
-Roast lamb,Dish,Transformed,Savory,,
-Rocket (arugula),Vegetable,Natural,Savory,,
-Rockmelon (cantaloupe),Fruit,Natural,Sweet,,
-Rogan josh,Dish,Natural,Savory,,
-Roti,Grain,Natural,Savory,,
-Rye,Grain,Natural,Savory,,
-Salami,Protein,Natural,Savory,,
-Salmon,Protein,Natural,Savory,,
-Sandwich,Dish,Transformed,Savory,,
-Sardines,Protein,Natural,Savory,,
-Sashimi,Dish,Natural,Savory,,
-Satay,Dish,Natural,Savory,,
-Sausage,Protein,Natural,Savory,,
-Scallops,Protein,Natural,Savory,,
-Scone,Grain,Natural,Savory,,
-Seaweed,Vegetable,Natural,Savory,,
-Shallot,Vegetable,Natural,Savory,,
-Shepherds pie,Dish,Transformed,Savory,,
-Shiitake mushrooms,Vegetable,Natural,Savory,,
-Shrimp,Protein,Natural,Savory,,
-shrimp spring rolls,Grain,Transformed,Savory,,
-Snapper,Protein,Natural,Savory,,
-Snow peas,Vegetable,Natural,Savory,,
-Soba noodles,Grain,Transformed,Savory,,
-Sorbet,Dessert,Natural,Sweet,,
-Sorghum,Grain,Natural,Savory,,
-Sourdough,Grain,Natural,Savory,,
-Soursop,Fruit,Natural,Sweet,,
-Spaghetti bolognese,Dish,Natural,Savory,,
-Spinach (prepared),Vegetable,Natural,Savory,,
-Spinach (raw),Vegetable,Natural,Savory,,
-Split peas,Protein,Natural,Savory,,
-Spring rolls,Dish,Natural,Savory,,
-Squid,Protein,Natural,Savory,,
-Starfruit,Fruit,Natural,Sweet,,
-Stew,Dish,Transformed,Savory,,
-Stir fry,Dish,Natural,Savory,,
-Strawberry,Fruit,Natural,Sweet,,
-Sugar snap peas,Vegetable,Natural,Sweet,,
-Sushi,Dish,Natural,Savory,,
-Sweet and sour chicken,Dish,Transformed,Savory,,
-sweet breakfast cereal,Grain,Transformed,sweet,,
-Sweet potato (prepared),Vegetable,Natural,Sweet,,
-Swiss chard,Vegetable,Natural,Savory,,
-Taco,Dish,Transformed,Savory,,
-Tamarind,Fruit,Natural,Sweet,,
-Taro,Vegetable,Natural,Savory,,
-Tart,Dessert,Natural,Sweet,,
-Tempeh,Protein,Natural,Savory,,
-Tempura,Dish,Natural,Savory,,
-Teriyaki chicken,Dish,Transformed,Savory,,
-Tikka masala,Dish,Natural,Savory,,
-Toffee,Dessert,Natural,Sweet,,
-Tofu,Protein,Natural,Savory,,
-Tom yum soup,Dish,Transformed,Savory,,
-Tomato (culinary fruit),Fruit,Natural,Savory,,
-Tomato bruschetta,Dish,Transformed,Savory,,
-Tomato soup,Dish,Transformed,Savory,,
-Tortilla (corn),Grain,Natural,Savory,,
-Tortilla (flour),Grain,Natural,Savory,,
-Trout,Protein,Natural,Savory,,
-Tuna,Protein,Natural,Savory,,
-Turkey,Protein,Natural,Savory,,
-Turnip,Vegetable,Natural,Savory,,
-Udon,Grain,Natural,Savory,,
-Vegetable curry,Dish,Transformed,Savory,,
-Venison,Protein,Natural,Savory,,
-Vermicelli,Grain,Natural,Savory,,
-Waffle,Grain,Natural,Savory,,
-Walnuts,Protein,Natural,Savory,,
-Water chestnut,Vegetable,Natural,Savory,,
-Watermelon,Fruit,Natural,Sweet,,
-Wheat,Grain,Natural,Savory,,
-Yam,Vegetable,Natural,Savory,,
-Yogurt (plain),Protein,Natural,Savory,,
-Zucchini (prepared),Vegetable,Natural,Savory,,
-Zucchini (raw),Vegetable,Natural,Savory,,
-Spring rolls,Dish,Transformed,Savory,,
-Acai Bowl,Dish,Transformed,Sweet,,
-Peking Duck,Dish,Transformed,Savory,,
-Baklava,Dessert,Transformed,Sweet,,
+Food
+Alfalfa sprouts
+Almonds
+Anchovies
+Apple (prepared)
+Apple (raw)
+Apple pear (nashi)
+Apple pie
+Apricot (prepared)
+Apricot (raw)
+Artichoke
+Asparagus (prepared)
+Asparagus (raw)
+Avocado
+Bacon
+Bagel
+Baguette
+Baked salmon fillet
+Bamboo shoots
+Banana
+Banana chips
+Barley
+Barramundi
+Beef steak
+Beef stir fry
+Beetroot (prepared)
+Bell pepper (capsicum)
+Bibimbap
+Biryani
+Biscuit (US)
+Black beans
+Blackberry
+Blueberry
+Bok choy
+borrito bowl
+Bread (white)
+Bread (wholegrain)
+Breadstick
+Brioche
+Broccoli (prepared)
+Broccoli (raw)
+Brownie
+Brussels sprouts
+Bulgogi
+Burrito
+Butter chicken
+Cabbage (prepared)
+Cabbage (raw)
+Caesar salad
+Calamari
+Candy
+Cannellini beans
+Carbonara
+Carrot (cooked)
+Carrot (raw)
+Cashews
+Casserole
+Cauliflower (prepared)
+Cauliflower (raw)
+Celery
+Cereal flakes
+Chapati
+Chayote
+Cheese (brie)
+Cheese (cheddar)
+Cheese (feta)
+Cheese (mozzarella)
+Cheesecake
+Cherry
+Chicken breast
+Chicken noodle soup
+Chicken parmesan
+Chicken thigh
+Chicken tikka wrap
+Chicken wings
+Chickpeas
+Chili con carne
+Chilli pepper
+Chocolate cake
+chocolate peanut butter pie
+Coconut
+Cod
+Coleslaw
+Collard greens
+Cookie
+Corn
+Cornbread
+Couscous
+Crab
+Cracker
+Cranberry
+Croissant
+Cucumber
+Cupcake
+Currant
+Curry (Indian)
+Custard
+Dahl
+Dark chocolate
+Date
+Deli ham (sliced)
+Doner kebab
+Donut
+Dragon fruit
+Dried apple
+Dried apricot
+Dried cherry
+Dried fig
+Dried mango
+Duck
+Dumplings
+Durian
+Edamame
+Eggplant (prepared)
+Eggplant (raw)
+Eggs (chicken)
+Elderberry
+Empanada
+Endive
+Falafel
+Fennel
+Fig (raw)
+Fish and chips
+Flatbread
+French fries (chips)
+Fried chicken
+Fried noodles
+Fried rice
+Fried tofu bowl
+Fruit leather
+Fudge
+Garden salad
+Garlic
+Gelato
+Gooseberry
+Granola
+Granola bar
+Grapefruit
+Grapes (green)
+Grapes (red)
+Greek salad
+Green beans (raw)
+Grilled salmon
+Ground beef
+Guava
+Gyoza
+Ham
+Hamburger
+Honeydew
+Hot dog
+Ice cream
+Injera
+Jackfruit
+Jalapeno
+Jelly
+Kale (prepared)
+Katsu
+Kidney beans
+Kimchi stew
+Kiwi
+Kohlrabi
+Kumquat
+Laksa
+Lamb chop
+Lasagna
+Lavash
+Leek
+Lemon
+Lentil stew
+Lentils
+Lettuce
+Lima beans
+Lime
+Lobster
+Lollipop
+Lotus root
+Lychee
+Mac and cheese
+Macaroni pasta
+Mackerel
+Mandarin
+Mango (raw)
+Matzo
+Meatballs
+Meatloaf
+Microgreens
+Milk chocolate
+Miso soup
+Mortadella
+Muesli
+Muffin
+Muffin (English)
+Mulberry
+Mushrooms (button)
+Mussels
+Mustard greens
+Naan
+Nachos
+Napa cabbage
+Nasi goreng
+Navy beans
+Nectarine
+Noodles (wheat)
+Oats
+Octopus
+Okra
+Olive
+Omelette
+Onion (prepared)
+Onion (raw)
+Orange
+Oysters
+Pad Thai
+Paella
+Pancake
+Paneer
+Papaya
+Parsnip
+Passionfruit
+Pasta (spaghetti)
+Pastry
+Peach (prepared)
+Peach (raw)
+Pear (prepared)
+Pear (raw)
+Peas
+Penne
+Persimmon
+Pesto chicken
+Pesto pasta
+Pho
+Pickled cucumber
+Pineapple (prepared)
+Pineapple (raw)
+Pinto beans
+Pita
+Pizza
+Plain Bagel 
+Plantain
+Plum (prepared)
+Plum (raw)
+Polenta
+Polenta cake
+Pomegranate
+Popcorn
+Pork chop
+Portobello mushrooms
+Potato (prepared)
+Potato chips
+Potato salad
+Prawns
+Pretzel
+Prosciutto
+Prune
+Pudding
+Puff pastry
+Pumpkin
+Pumpkin pie
+Pumpkin soup
+Quail eggs
+Quesadilla
+Quinoa
+Radicchio
+Radish
+Raisin
+Ramen
+Raspberry
+Rendang
+Rice (brown)
+Rice (white)
+Rice noodles
+Risotto
+Roast beef
+Roast chicken
+Roast lamb
+Rocket (arugula)
+Rockmelon (cantaloupe)
+Rogan josh
+Roti
+Rye
+Salami
+Salmon
+Sandwich
+Sardines
+Sashimi
+Satay
+Sausage
+Scallops
+Scone
+Seaweed
+Shallot
+Shepherds pie
+Shiitake mushrooms
+Shrimp
+shrimp spring rolls
+Snapper
+Snow peas
+Soba noodles
+Sorbet
+Sorghum
+Sourdough
+Soursop
+Spaghetti bolognese
+Spinach (prepared)
+Spinach (raw)
+Split peas
+Spring rolls
+Squid
+Starfruit
+Stew
+Stir fry
+Strawberry
+Sugar snap peas
+Sushi
+Sweet and sour chicken
+sweet breakfast cereal
+Sweet potato (prepared)
+Swiss chard
+Taco
+Tamarind
+Taro
+Tart
+Tempeh
+Tempura
+Teriyaki chicken
+Tikka masala
+Toffee
+Tofu
+Tom yum soup
+Tomato (culinary fruit)
+Tomato bruschetta
+Tomato soup
+Tortilla (corn)
+Tortilla (flour)
+Trout
+Tuna
+Turkey
+Turnip
+Udon
+Vegetable curry
+Venison
+Vermicelli
+Waffle
+Walnuts
+Water chestnut
+Watermelon
+Wheat
+Yam
+Yogurt (plain)
+Zucchini (prepared)
+Zucchini (raw)
+Spring rolls
+Acai Bowl
+Peking Duck
+Baklava
