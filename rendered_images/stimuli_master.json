@@ -38,8 +38,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874860,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "almonds.png",
@@ -80,8 +81,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874875,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "anchovies.png",
@@ -126,8 +128,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874893,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Transformation_score": 58,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "apple-prepared.png",
@@ -171,8 +174,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874909,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 30
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "apple-raw.png",
@@ -213,8 +217,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874920,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "apple-pear-nashi.png",
@@ -255,8 +260,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874934,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "apple-pie.png",
@@ -297,8 +303,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874946,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "apricot-prepared.png",
@@ -346,8 +353,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874963,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 20
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "apricot-raw.png",
@@ -388,8 +396,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874976,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "artichoke.png",
@@ -432,8 +441,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770874992,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "asparagus-prepared.png",
@@ -479,8 +489,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875004,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "asparagus-raw.png",
@@ -521,8 +532,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875017,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "avocado.png",
@@ -562,9 +574,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875032,
-    "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Category_WHO_10": "Vegetables",
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "bacon.png",
@@ -607,8 +620,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875047,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "bagel.png",
@@ -651,8 +665,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875063,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "baguette.png",
@@ -695,8 +710,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875077,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "baked-salmon-fillet.png",
@@ -739,8 +755,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875090,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "bamboo-shoots.png",
@@ -783,8 +800,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875104,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "banana.png",
@@ -825,8 +843,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875118,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "banana-chips.png",
@@ -869,8 +888,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875132,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 60
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "barley.png",
@@ -914,8 +934,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875146,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 15
+    "Transformation_score": 25,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "barramundi.png",
@@ -958,8 +979,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875161,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 15
+    "Transformation_score": 18,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "beef-steak.png",
@@ -1002,8 +1024,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875175,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "beef-stir-fry.png",
@@ -1049,8 +1072,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875191,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "beetroot-prepared.png",
@@ -1091,8 +1115,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875203,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "bell-pepper-capsicum.png",
@@ -1133,8 +1158,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875216,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "bibimbap.png",
@@ -1180,8 +1206,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875232,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "biryani.png",
@@ -1222,8 +1249,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875247,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "biscuit-us.png",
@@ -1266,8 +1294,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875261,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "black-beans.png",
@@ -1313,8 +1342,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875276,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "blackberry.png",
@@ -1355,8 +1385,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875288,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "blueberry.png",
@@ -1399,8 +1430,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875302,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "bok-choy.png",
@@ -1444,8 +1476,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875318,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "borrito-bowl.png",
@@ -1491,8 +1524,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875336,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "bread-white.png",
@@ -1535,8 +1569,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875353,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "bread-wholegrain.png",
@@ -1579,8 +1614,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875368,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "breadstick.png",
@@ -1623,8 +1659,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875384,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "brioche.png",
@@ -1664,9 +1701,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875397,
-    "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Category_WHO_10": "Confectionery and sweets",
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "broccoli-prepared.png",
@@ -1707,8 +1745,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875411,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "broccoli-raw.png",
@@ -1749,8 +1788,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875425,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "brownie.png",
@@ -1793,8 +1833,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875439,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "brussels-sprouts.png",
@@ -1837,8 +1878,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875454,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "bulgogi.png",
@@ -1883,8 +1925,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875470,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "burrito.png",
@@ -1927,8 +1970,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875483,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "butter-chicken.png",
@@ -1973,8 +2017,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875499,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "cabbage-prepared.png",
@@ -2017,8 +2062,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875518,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cabbage-raw.png",
@@ -2059,8 +2105,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875532,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "caesar-salad.png",
@@ -2105,8 +2152,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875549,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "calamari.png",
@@ -2149,8 +2197,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875565,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "candy.png",
@@ -2198,8 +2247,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875580,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 95
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "cannellini-beans.png",
@@ -2240,8 +2290,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875595,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "carbonara.png",
@@ -2284,8 +2335,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875610,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "carrot-cooked.png",
@@ -2331,8 +2383,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875627,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "carrot-raw.png",
@@ -2373,8 +2426,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875640,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cashews.png",
@@ -2415,8 +2469,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875660,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "casserole.png",
@@ -2462,8 +2517,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875675,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "cauliflower-prepared.png",
@@ -2506,8 +2562,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875690,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cauliflower-raw.png",
@@ -2548,8 +2605,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875703,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "celery.png",
@@ -2592,8 +2650,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875717,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cereal-flakes.png",
@@ -2636,8 +2695,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875730,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "chapati.png",
@@ -2678,8 +2738,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875745,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "chayote.png",
@@ -2723,8 +2784,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875766,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cheese-brie.png",
@@ -2767,8 +2829,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875781,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "cheese-cheddar.png",
@@ -2813,8 +2876,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875793,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "cheese-feta.png",
@@ -2857,8 +2921,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875807,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "cheese-mozzarella.png",
@@ -2901,8 +2966,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875820,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "cheesecake.png",
@@ -2943,8 +3009,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875831,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "cherry.png",
@@ -2985,8 +3052,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875846,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "chicken-breast.png",
@@ -3029,8 +3097,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875859,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "chicken-noodle-soup.png",
@@ -3076,8 +3145,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875871,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "chicken-parmesan.png",
@@ -3122,8 +3192,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875884,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 85
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "chicken-thigh.png",
@@ -3166,8 +3237,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875898,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "chicken-tikka-wrap.png",
@@ -3210,8 +3282,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875915,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "chicken-wings.png",
@@ -3258,8 +3331,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875930,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "chickpeas.png",
@@ -3302,8 +3376,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875947,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "chili-con-carne.png",
@@ -3348,8 +3423,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875962,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "chilli-pepper.png",
@@ -3394,8 +3470,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875974,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "chocolate-cake.png",
@@ -3436,8 +3513,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770875988,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "chocolate-peanut-butter-pie.png",
@@ -3483,8 +3561,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876002,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "coconut.png",
@@ -3525,8 +3604,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876018,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "cod.png",
@@ -3569,8 +3649,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876036,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "coleslaw.png",
@@ -3615,8 +3696,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876049,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "collard-greens.png",
@@ -3659,8 +3741,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876065,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cookie.png",
@@ -3701,8 +3784,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876078,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "corn.png",
@@ -3745,8 +3829,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876092,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "cornbread.png",
@@ -3789,8 +3874,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876110,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "couscous.png",
@@ -3833,8 +3919,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876122,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "crab.png",
@@ -3875,8 +3962,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876136,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "cracker.png",
@@ -3922,8 +4010,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876148,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 85
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Snacks & Savory Junk"
   },
   {
     "image_file": "cranberry.png",
@@ -3966,8 +4055,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876160,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "croissant.png",
@@ -4010,8 +4100,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876174,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "cucumber.png",
@@ -4054,8 +4145,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876190,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "cupcake.png",
@@ -4096,8 +4188,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876203,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "currant.png",
@@ -4143,8 +4236,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876214,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "curry-indian.png",
@@ -4192,8 +4286,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876228,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "custard.png",
@@ -4239,8 +4334,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876245,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 88
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "dahl.png",
@@ -4286,8 +4382,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876260,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "dark-chocolate.png",
@@ -4328,8 +4425,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876272,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "date.png",
@@ -4370,8 +4468,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876287,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 20
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "deli-ham-sliced.png",
@@ -4412,8 +4511,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876301,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 90
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "doner-kebab.png",
@@ -4460,8 +4560,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876323,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 88
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "donut.png",
@@ -4504,8 +4605,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876339,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "dragon-fruit.png",
@@ -4546,8 +4648,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876352,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "dried-apple.png",
@@ -4588,8 +4691,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876366,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "dried-apricot.png",
@@ -4630,8 +4734,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876379,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "dried-cherry.png",
@@ -4674,8 +4779,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876398,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "dried-fig.png",
@@ -4716,8 +4822,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876411,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "dried-mango.png",
@@ -4760,8 +4867,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876425,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "duck.png",
@@ -4804,8 +4912,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876438,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "dumplings.png",
@@ -4848,8 +4957,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876453,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "durian.png",
@@ -4892,8 +5002,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876472,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "edamame.png",
@@ -4934,8 +5045,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876486,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "eggplant-prepared.png",
@@ -4943,7 +5055,7 @@
     "base_food": "Eggplant (prepared)",
     "prep_form": null,
     "category": "Vegetable",
-    "Natural_vs_transformed": "Transformed",
+    "Natural_vs_transformed": "Natural",
     "Sweet_vs_savory": "Savory",
     "prompt": "A photorealistic studio photograph of Eggplant (prepared), single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting.  Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of Eggplant (prepared) as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The Eggplant (prepared) is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing no bowls.",
     "model": "gemini-3-pro-image-preview",
@@ -4980,9 +5092,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876501,
-    "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Category_WHO_10": "Vegetables",
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "eggplant-raw.png",
@@ -5023,8 +5136,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876513,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "eggs-chicken.png",
@@ -5070,8 +5184,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876526,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "elderberry.png",
@@ -5114,8 +5229,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876541,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "empanada.png",
@@ -5158,8 +5274,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876555,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 85
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "endive.png",
@@ -5205,8 +5322,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876573,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "falafel.png",
@@ -5247,8 +5365,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876590,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 90
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "fennel.png",
@@ -5291,8 +5410,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876605,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "fig-raw.png",
@@ -5333,8 +5453,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876620,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "fish-and-chips.png",
@@ -5377,8 +5498,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876636,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "flatbread.png",
@@ -5419,8 +5541,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876649,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "french-fries-chips.png",
@@ -5461,8 +5584,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876664,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 90
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Snacks & Savory Junk"
   },
   {
     "image_file": "fried-chicken.png",
@@ -5508,8 +5632,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876681,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "fried-noodles.png",
@@ -5558,8 +5683,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876697,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "fried-rice.png",
@@ -5602,8 +5728,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876710,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "fried-tofu-bowl.png",
@@ -5650,8 +5777,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876728,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "fruit-leather.png",
@@ -5693,9 +5821,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876744,
-    "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 60
+    "Category_WHO_10": "Fruits",
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "fudge.png",
@@ -5741,8 +5870,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876759,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "garden-salad.png",
@@ -5787,8 +5917,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876773,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "garlic.png",
@@ -5834,8 +5965,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876789,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "gelato.png",
@@ -5881,8 +6013,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876808,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "gooseberry.png",
@@ -5925,8 +6058,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876822,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "granola.png",
@@ -5969,8 +6103,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876836,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "granola-bar.png",
@@ -6012,9 +6147,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876852,
-    "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 90
+    "Category_WHO_10": "Confectionery and sweets",
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "grapefruit.png",
@@ -6055,8 +6191,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876863,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "grapes-green.png",
@@ -6097,8 +6234,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876876,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "grapes-red.png",
@@ -6139,8 +6277,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876891,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "greek-salad.png",
@@ -6183,8 +6322,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876906,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "green-beans-raw.png",
@@ -6227,8 +6367,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876918,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "grilled-salmon.png",
@@ -6271,8 +6412,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876929,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "ground-beef.png",
@@ -6318,8 +6460,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876943,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 45
+    "Transformation_score": 45,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "guava.png",
@@ -6363,8 +6506,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876956,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "gyoza.png",
@@ -6407,8 +6551,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876972,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "ham.png",
@@ -6449,8 +6594,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876984,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 88
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "hamburger.png",
@@ -6493,8 +6639,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770876998,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "honeydew.png",
@@ -6537,8 +6684,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877015,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "hot-dog.png",
@@ -6583,8 +6731,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877029,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "ice-cream.png",
@@ -6630,8 +6779,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877044,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "injera.png",
@@ -6674,8 +6824,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877061,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "jackfruit.png",
@@ -6716,8 +6867,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877074,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "jalapeno.png",
@@ -6758,8 +6910,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877091,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "jelly.png",
@@ -6802,8 +6955,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877104,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "kale-prepared.png",
@@ -6849,8 +7003,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877122,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "katsu.png",
@@ -6893,8 +7048,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877136,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "kidney-beans.png",
@@ -6937,8 +7093,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877153,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "kimchi-stew.png",
@@ -6985,8 +7142,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877168,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "kiwi.png",
@@ -7027,8 +7185,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877186,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "kohlrabi.png",
@@ -7072,8 +7231,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877204,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "kumquat.png",
@@ -7114,8 +7274,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877217,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "laksa.png",
@@ -7162,8 +7323,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877238,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "lamb-chop.png",
@@ -7209,8 +7371,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877254,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "lasagna.png",
@@ -7253,8 +7416,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877266,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "lavash.png",
@@ -7297,8 +7461,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877283,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "leek.png",
@@ -7341,8 +7506,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877303,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "lemon.png",
@@ -7388,8 +7554,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877320,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "lentil-stew.png",
@@ -7436,8 +7603,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877335,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "lentils.png",
@@ -7480,8 +7648,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877351,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "lettuce.png",
@@ -7524,8 +7693,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877364,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "lima-beans.png",
@@ -7568,8 +7738,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877379,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "lime.png",
@@ -7610,8 +7781,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877393,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "lobster.png",
@@ -7652,8 +7824,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877408,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "lollipop.png",
@@ -7696,8 +7869,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877418,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 95
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "lotus-root.png",
@@ -7740,8 +7914,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877431,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 15
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "lychee.png",
@@ -7784,8 +7959,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877448,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "mac-and-cheese.png",
@@ -7830,8 +8006,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877464,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "macaroni-pasta.png",
@@ -7875,8 +8052,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877476,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "mackerel.png",
@@ -7920,8 +8098,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877491,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "mandarin.png",
@@ -7962,8 +8141,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877504,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "mango-raw.png",
@@ -8006,8 +8186,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877517,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "matzo.png",
@@ -8050,8 +8231,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877532,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "meatballs.png",
@@ -8095,8 +8277,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877546,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 90
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "meatloaf.png",
@@ -8142,8 +8325,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877560,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "microgreens.png",
@@ -8189,8 +8373,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877578,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "milk-chocolate.png",
@@ -8231,8 +8416,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877592,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 95
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "miso-soup.png",
@@ -8278,8 +8464,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877606,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "mortadella.png",
@@ -8322,8 +8509,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877620,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "muesli.png",
@@ -8364,8 +8552,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877634,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 90
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "muffin.png",
@@ -8408,8 +8597,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877649,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "muffin-english.png",
@@ -8450,8 +8640,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877662,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "mulberry.png",
@@ -8494,8 +8685,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877679,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "mushrooms-button.png",
@@ -8539,8 +8731,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877694,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "mussels.png",
@@ -8583,8 +8776,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877708,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "mustard-greens.png",
@@ -8627,8 +8821,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877724,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "naan.png",
@@ -8669,8 +8864,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877739,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "nachos.png",
@@ -8716,8 +8912,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877754,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 88
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "napa-cabbage.png",
@@ -8760,8 +8957,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877774,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "nasi-goreng.png",
@@ -8804,8 +9002,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877792,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "navy-beans.png",
@@ -8848,8 +9047,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877807,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "nectarine.png",
@@ -8890,8 +9090,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877819,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "noodles-wheat.png",
@@ -8937,8 +9138,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877836,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "oats.png",
@@ -8981,8 +9183,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877856,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 50
+    "Transformation_score": 50,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "octopus.png",
@@ -9028,8 +9231,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877870,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "okra.png",
@@ -9070,8 +9274,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877885,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "olive.png",
@@ -9112,8 +9317,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877897,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 60
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "omelette.png",
@@ -9156,8 +9362,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877911,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "onion-prepared.png",
@@ -9200,8 +9407,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877933,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "onion-raw.png",
@@ -9246,8 +9454,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877953,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "orange.png",
@@ -9290,8 +9499,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877969,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "oysters.png",
@@ -9334,8 +9544,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877983,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "pad-thai.png",
@@ -9380,8 +9591,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770877999,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "paella.png",
@@ -9426,8 +9638,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878016,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "pancake.png",
@@ -9472,9 +9685,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878030,
-    "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 90
+    "Category_WHO_10": "Confectionery and sweets",
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "paneer.png",
@@ -9517,8 +9731,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878048,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "papaya.png",
@@ -9562,8 +9777,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878062,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "parsnip.png",
@@ -9606,8 +9822,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878083,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "passionfruit.png",
@@ -9648,8 +9865,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878113,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pasta-spaghetti.png",
@@ -9692,8 +9910,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878139,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "pastry.png",
@@ -9736,8 +9955,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878182,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 88
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "peach-prepared.png",
@@ -9784,8 +10004,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878270,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 45
+    "Transformation_score": 28,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "peach-raw.png",
@@ -9826,8 +10047,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878297,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pear-prepared.png",
@@ -9872,8 +10094,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878337,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 30
+    "Transformation_score": 25,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pear-raw.png",
@@ -9914,8 +10137,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878352,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "peas.png",
@@ -9958,8 +10182,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878405,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 25
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "penne.png",
@@ -10000,8 +10225,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878423,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "persimmon.png",
@@ -10042,8 +10268,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878442,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pesto-chicken.png",
@@ -10089,8 +10316,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878456,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "pesto-pasta.png",
@@ -10135,8 +10363,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878471,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "pho.png",
@@ -10181,8 +10410,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878488,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "pickled-cucumber.png",
@@ -10225,8 +10455,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878502,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "pineapple-prepared.png",
@@ -10269,8 +10500,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878515,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pineapple-raw.png",
@@ -10311,8 +10543,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878529,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pinto-beans.png",
@@ -10359,8 +10592,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878546,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "pita.png",
@@ -10403,8 +10637,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878562,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "pizza.png",
@@ -10447,8 +10682,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878580,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "plain-bagel.png",
@@ -10489,8 +10725,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878593,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "plantain.png",
@@ -10533,8 +10770,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878610,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "plum-prepared.png",
@@ -10542,7 +10780,7 @@
     "base_food": "Plum (prepared)",
     "prep_form": null,
     "category": "Fruit",
-    "Natural_vs_transformed": "Natural",
+    "Natural_vs_transformed": "Transformed",
     "Sweet_vs_savory": "Sweet",
     "prompt": "A photorealistic studio photograph of Plum (prepared), single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting.  Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of Plum (prepared) as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The Plum (prepared) is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing no bowls.",
     "model": "gemini-3-pro-image-preview",
@@ -10580,8 +10818,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878624,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 30
+    "Transformation_score": 40,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "plum-raw.png",
@@ -10622,8 +10861,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878637,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "polenta.png",
@@ -10666,8 +10906,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878654,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 58,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "polenta-cake.png",
@@ -10710,8 +10951,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878670,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "pomegranate.png",
@@ -10754,8 +10996,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878683,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "popcorn.png",
@@ -10763,7 +11006,7 @@
     "base_food": "Popcorn",
     "prep_form": null,
     "category": "Grain",
-    "Natural_vs_transformed": "Natural",
+    "Natural_vs_transformed": "Transformed",
     "Sweet_vs_savory": "Savory",
     "prompt": "A photorealistic studio photograph of Popcorn, single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting.  Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of Popcorn as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The Popcorn is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing no bowls.",
     "model": "gemini-3-pro-image-preview",
@@ -10796,8 +11039,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878699,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 35
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Snacks & Savory Junk"
   },
   {
     "image_file": "pork-chop.png",
@@ -10838,8 +11082,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878713,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "portobello-mushrooms.png",
@@ -10880,8 +11125,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878728,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "potato-prepared.png",
@@ -10889,7 +11135,7 @@
     "base_food": "Potato (prepared)",
     "prep_form": null,
     "category": "Vegetable",
-    "Natural_vs_transformed": "Transformed",
+    "Natural_vs_transformed": "Natural",
     "Sweet_vs_savory": "Savory",
     "prompt": "A photorealistic studio photograph of Potato (prepared), single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting.  Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of Potato (prepared) as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The Potato (prepared) is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing no bowls.",
     "model": "gemini-3-pro-image-preview",
@@ -10922,8 +11168,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878742,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 45
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "potato-chips.png",
@@ -10967,8 +11214,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878757,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Snacks & Savory Junk"
   },
   {
     "image_file": "potato-salad.png",
@@ -11011,8 +11259,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878773,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "prawns.png",
@@ -11053,8 +11302,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878788,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "pretzel.png",
@@ -11095,8 +11345,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878804,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Snacks & Savory Junk"
   },
   {
     "image_file": "prosciutto.png",
@@ -11139,8 +11390,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878826,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 65
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "prune.png",
@@ -11186,8 +11438,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878840,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "pudding.png",
@@ -11233,8 +11486,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878855,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "puff-pastry.png",
@@ -11277,8 +11531,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878871,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "pumpkin.png",
@@ -11321,8 +11576,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878892,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "pumpkin-pie.png",
@@ -11365,8 +11621,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878906,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 92,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "pumpkin-soup.png",
@@ -11412,8 +11669,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878921,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "quail-eggs.png",
@@ -11454,8 +11712,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878939,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "quesadilla.png",
@@ -11498,8 +11757,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878957,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "quinoa.png",
@@ -11542,8 +11802,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878975,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 20
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "radicchio.png",
@@ -11589,8 +11850,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770878990,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "radish.png",
@@ -11631,8 +11893,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879003,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "raisin.png",
@@ -11673,8 +11936,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879016,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "ramen.png",
@@ -11721,8 +11985,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879032,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 90
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "raspberry.png",
@@ -11763,8 +12028,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879043,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "rendang.png",
@@ -11809,8 +12075,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879060,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "rice-brown.png",
@@ -11851,8 +12118,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879072,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "rice-white.png",
@@ -11893,8 +12161,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879085,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "rice-noodles.png",
@@ -11940,8 +12209,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879101,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "risotto.png",
@@ -11987,8 +12257,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879120,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "roast-beef.png",
@@ -12034,8 +12305,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879133,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "roast-chicken.png",
@@ -12076,8 +12348,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879147,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "roast-lamb.png",
@@ -12125,8 +12398,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879163,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "rocket-arugula.png",
@@ -12170,8 +12444,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879181,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "rockmelon-cantaloupe.png",
@@ -12214,8 +12489,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879196,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "rogan-josh.png",
@@ -12260,8 +12536,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879218,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "roti.png",
@@ -12304,8 +12581,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879231,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "rye.png",
@@ -12348,8 +12626,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879245,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 20
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "salami.png",
@@ -12392,8 +12671,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879257,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "salmon.png",
@@ -12436,8 +12716,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879273,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "sandwich.png",
@@ -12483,8 +12764,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879290,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "sardines.png",
@@ -12525,8 +12807,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879302,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 55
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "sashimi.png",
@@ -12572,8 +12855,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879317,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "satay.png",
@@ -12622,8 +12906,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879332,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "sausage.png",
@@ -12667,8 +12952,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879346,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "scallops.png",
@@ -12714,8 +13000,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879363,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "scone.png",
@@ -12761,8 +13048,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879377,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 88
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "seaweed.png",
@@ -12805,8 +13093,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879394,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 20
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "shallot.png",
@@ -12852,8 +13141,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879409,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "shepherds-pie.png",
@@ -12898,8 +13188,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879426,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "shiitake-mushrooms.png",
@@ -12940,8 +13231,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879440,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 15
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "shrimp.png",
@@ -12984,8 +13276,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879453,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "shrimp-spring-rolls.png",
@@ -13030,8 +13323,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879471,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "snapper.png",
@@ -13074,8 +13368,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879483,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "snow-peas.png",
@@ -13116,8 +13411,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879498,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "soba-noodles.png",
@@ -13163,8 +13459,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879513,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "sorbet.png",
@@ -13210,8 +13507,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879528,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 88,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "sorghum.png",
@@ -13254,8 +13552,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879544,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "sourdough.png",
@@ -13298,8 +13597,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879561,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "soursop.png",
@@ -13342,8 +13642,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879578,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "spaghetti-bolognese.png",
@@ -13388,8 +13689,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879596,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "spinach-prepared.png",
@@ -13435,8 +13737,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879610,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "spinach-raw.png",
@@ -13479,8 +13782,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879626,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 0
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "split-peas.png",
@@ -13526,8 +13830,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879644,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 45,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "spring-rolls.png",
@@ -13572,8 +13877,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879661,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "squid.png",
@@ -13616,8 +13922,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879678,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 15
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "starfruit.png",
@@ -13661,8 +13968,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879694,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "stew.png",
@@ -13709,8 +14017,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879707,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "stir-fry.png",
@@ -13756,8 +14065,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879723,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "strawberry.png",
@@ -13800,8 +14110,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879738,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "sugar-snap-peas.png",
@@ -13844,8 +14155,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879756,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 15,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "sushi.png",
@@ -13891,8 +14203,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879774,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "sweet-and-sour-chicken.png",
@@ -13938,8 +14251,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879792,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 80
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "sweet-breakfast-cereal.png",
@@ -13985,8 +14299,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879805,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "sweet-potato-prepared.png",
@@ -14027,8 +14342,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879819,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "swiss-chard.png",
@@ -14074,8 +14390,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879834,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "taco.png",
@@ -14121,8 +14438,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879850,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 85
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "tamarind.png",
@@ -14165,8 +14483,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879933,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 15
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "taro.png",
@@ -14210,8 +14529,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879953,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "tart.png",
@@ -14252,8 +14572,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879968,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 85
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "tempeh.png",
@@ -14295,9 +14616,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770879986,
-    "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 65
+    "Category_WHO_10": "Vegetables",
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "tempura.png",
@@ -14343,8 +14665,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880005,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "teriyaki-chicken.png",
@@ -14389,8 +14712,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880023,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "tikka-masala.png",
@@ -14433,8 +14757,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880051,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 78,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "toffee.png",
@@ -14477,8 +14802,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880092,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "tofu.png",
@@ -14520,9 +14846,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880177,
-    "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Category_WHO_10": "Vegetables",
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "tom-yum-soup.png",
@@ -14567,8 +14894,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880195,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 78
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "tomato-culinary-fruit.png",
@@ -14608,9 +14936,10 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880214,
-    "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Category_WHO_10": "Vegetables",
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "tomato-bruschetta.png",
@@ -14656,8 +14985,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880234,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "tomato-soup.png",
@@ -14702,8 +15032,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880248,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "tortilla-corn.png",
@@ -14749,8 +15080,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880263,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 65,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "tortilla-flour.png",
@@ -14791,8 +15123,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880277,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 65
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "trout.png",
@@ -14835,8 +15168,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880298,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "tuna.png",
@@ -14844,7 +15178,7 @@
     "base_food": "Tuna",
     "prep_form": null,
     "category": "Protein",
-    "Natural_vs_transformed": "Transformed",
+    "Natural_vs_transformed": "Natural",
     "Sweet_vs_savory": "Savory",
     "prompt": "A photorealistic studio photograph of Tuna, single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting.  Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of Tuna as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The Tuna is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing no bowls.",
     "model": "gemini-3-pro-image-preview",
@@ -14880,8 +15214,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880316,
     "Category_WHO_10": "Fish",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 45
+    "Transformation_score": 35,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "turkey.png",
@@ -14928,8 +15263,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880332,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 30
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "turnip.png",
@@ -14972,8 +15308,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880350,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "udon.png",
@@ -15021,8 +15358,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880370,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "vegetable-curry.png",
@@ -15069,8 +15407,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880388,
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
-    "Transformation_score": 75
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "image_file": "venison.png",
@@ -15116,8 +15455,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880406,
     "Category_WHO_10": "Meat",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 35
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Animal Protein"
   },
   {
     "image_file": "vermicelli.png",
@@ -15163,8 +15503,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880423,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "waffle.png",
@@ -15207,8 +15548,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880438,
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
-    "Transformation_score": 90
+    "Transformation_score": 90,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   },
   {
     "image_file": "walnuts.png",
@@ -15251,8 +15593,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880453,
     "Category_WHO_10": "Ready-to-eat savories",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 20
+    "Transformation_score": 20,
+    "Category_Intuitive_7": "Plant protein",
+    "Category_Culinary_9": "Plant Protein"
   },
   {
     "image_file": "water-chestnut.png",
@@ -15298,8 +15641,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880469,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 15
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "watermelon.png",
@@ -15342,8 +15686,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880484,
     "Category_WHO_10": "Fruits",
-    "Category_Simple_6": "Fruit",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Fruit",
+    "Category_Culinary_9": "Produce - Sweet"
   },
   {
     "image_file": "wheat.png",
@@ -15384,8 +15729,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880502,
     "Category_WHO_10": "Bakery wares and cereals",
-    "Category_Simple_6": "Grain",
-    "Transformation_score": 18
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "yam.png",
@@ -15426,8 +15772,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880519,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 5,
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples"
   },
   {
     "image_file": "yogurt-plain.png",
@@ -15473,8 +15820,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880535,
     "Category_WHO_10": "Dairy and eggs",
-    "Category_Simple_6": "Protein",
-    "Transformation_score": 60
+    "Transformation_score": 60,
+    "Category_Intuitive_7": "Animal protein",
+    "Category_Culinary_9": "Dairy"
   },
   {
     "image_file": "zucchini-prepared.png",
@@ -15517,8 +15865,9 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880550,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 30
+    "Transformation_score": 30,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "image_file": "zucchini-raw.png",
@@ -15559,31 +15908,35 @@
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880565,
     "Category_WHO_10": "Vegetables",
-    "Category_Simple_6": "Vegetable",
-    "Transformation_score": 5
+    "Transformation_score": 0,
+    "Category_Intuitive_7": "Vegetable",
+    "Category_Culinary_9": "Produce - Savory"
   },
   {
     "food": "Acai Bowl",
     "image_file": "acai-bowl.png",
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
     "Natural_vs_transformed": "Transformed",
-    "Transformation_score": 80
+    "Transformation_score": 75,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "food": "Peking Duck",
     "image_file": "peking-duck.png",
     "Category_WHO_10": "Prepared foods",
-    "Category_Simple_6": "Dish",
     "Natural_vs_transformed": "Transformed",
-    "Transformation_score": 80
+    "Transformation_score": 80,
+    "Category_Intuitive_7": "Dish",
+    "Category_Culinary_9": "Composite Meals"
   },
   {
     "food": "Baklava",
     "image_file": "baklava.png",
     "Category_WHO_10": "Confectionery and sweets",
-    "Category_Simple_6": "Dessert",
     "Natural_vs_transformed": "Transformed",
-    "Transformation_score": 90
+    "Transformation_score": 85,
+    "Category_Intuitive_7": "Dessert",
+    "Category_Culinary_9": "Desserts & Sweets"
   }
 ]

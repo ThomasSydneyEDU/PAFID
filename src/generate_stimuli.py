@@ -4,8 +4,8 @@ LLM Image Render Pipeline for Food Stimuli
 
 - Reads: data/food_list_initial_seed.csv
   (columns expected: Food)
-- Uses Gemini text API to assign Category_WHO_10, Category_Simple_6,
-  Natural_vs_transformed, and Transformation_score per food item
+- Uses Gemini text API to assign Category_WHO_10, Category_Intuitive_7,
+  Category_Culinary_9, Natural_vs_transformed, and Transformation_score per food item
 - Generates: one photorealistic, brand-free image per Food using OpenAI or Gemini image generation APIs
 - Saves: PNG images and per-item JSON metadata under rendered_images/{slug}.png|.json
 
@@ -46,7 +46,7 @@ DEFAULT_MODEL = "gpt-image-1"
 # Default Gemini image model. Must match a model name returned by the Gemini API.
 DEFAULT_GEMINI_MODEL = "gemini-3-pro-image-preview"
 # Gemini text model used for food classification.
-DEFAULT_GEMINI_TEXT_MODEL = "gemini-2.0-flash"
+DEFAULT_GEMINI_TEXT_MODEL = "gemini-2.5-flash"
 
 # Accept common truthy encodings from CSV cells (strings and numeric flags)
 TRUTHY = {"1", "1.0", "true", "t", "yes", "y", "on"}
@@ -119,7 +119,8 @@ class RenderSpec:
 
     # Labels assigned by Gemini classification (populated before image generation)
     who10_category: str = ""
-    simple6_category: str = ""
+    intuitive7_category: str = ""
+    culinary9_category: str = ""
     nat_vs_trans: str = ""
     transformation_score: int = -1
 
@@ -325,13 +326,26 @@ WHO10_CATEGORIES = [
     "Prepared foods",
 ]
 
-SIMPLE6_CATEGORIES = [
-    "Fruit",
+INTUITIVE7_CATEGORIES = [
     "Vegetable",
-    "Protein",
-    "Grain",
+    "Plant protein",
+    "Animal protein",
+    "Fruit",
     "Dessert",
+    "Grain",
     "Dish",
+]
+
+CULINARY9_CATEGORIES = [
+    "Produce - Sweet",
+    "Produce - Savory",
+    "Carbohydrates & Staples",
+    "Animal Protein",
+    "Plant Protein",
+    "Dairy",
+    "Composite Meals",
+    "Desserts & Sweets",
+    "Snacks & Savory Junk",
 ]
 
 CLASSIFY_PROMPT_TEMPLATE = (
@@ -347,13 +361,38 @@ CLASSIFY_PROMPT_TEMPLATE = (
     "- Beverages: any drink — juice, alcohol, coffee, tea, soda, water\n"
     "- Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation\n"
     "- Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates (e.g. pizza, curry, stir-fry, sushi, salad with multiple components)\n\n"
-    "Simple 6 categories — pick exactly one:\n"
-    "- Fruit: any fruit\n"
-    "- Vegetable: any vegetable\n"
-    "- Protein: meat, fish, seafood, eggs, dairy, nuts, legumes\n"
-    "- Grain: bread, pasta, rice, cereals, and grain-based products\n"
-    "- Dessert: sweets, confectionery, cakes, pastries, ice cream\n"
-    "- Dish: multi-ingredient prepared meals and dishes\n\n"
+    "AI Intuitive 7 categories — pick exactly one:\n"
+    "- Vegetable: Savory produce and plant foods typically used as vegetables in meals. Include culinary vegetables even if botanically fruits, such as tomato, avocado, cucumber, capsicum/pepper, eggplant.\n"
+    "- Plant protein: Plant-derived foods primarily treated as protein sources, such as tofu, tempeh, beans, lentils, chickpeas, edamame, legumes, nuts where they function as a protein-rich food.\n"
+    "- Animal protein: Meat, poultry, fish, seafood, eggs, and other animal-derived foods primarily treated as protein sources. A plain cooked fish fillet or grilled chicken breast should be Animal protein, not Dish.\n"
+    "- Fruit: Sweet fruits typically eaten as fruit, snacks, or desserts, such as apples, berries, bananas, oranges, grapes, melon.\n"
+    "- Dessert: Sweet prepared foods and treats, including cake, cookies, pastries, chocolate, ice cream, donuts, sweets/candy, sweet puddings.\n"
+    "- Grain: Grain/starch/carbohydrate staples when not primarily sweet or composite dishes, such as rice, plain pasta, plain bread, oats, noodles, cereals, tortillas, potatoes if being treated as a staple carbohydrate.\n"
+    "- Dish: Composite prepared foods/meals made from multiple ingredients or presented as a named recipe/meal, such as pizza, curry, stir-fry, burger, sandwich, lasagna, sushi, burrito, salad bowl, rice bowl.\n"
+    "Decision rules for Intuitive 7:\n"
+    "  * Use the food name, including any parenthetical preparation information.\n"
+    "  * Prefer culinary/common-sense categorisation over botanical classification.\n"
+    "  * Simple cooking alone does not make something a Dish. For example, grilled salmon is Animal protein; steamed broccoli is Vegetable; plain rice is Grain.\n"
+    "  * Multi-ingredient named meals should usually be Dish unless they are clearly desserts.\n"
+    "  * Sweet treats are Dessert even if they are grain-based.\n"
+    "  * Savory fruits like tomato and avocado should usually be Vegetable.\n\n"
+    "Culinary 9 categories — pick exactly one:\n"
+    "- Produce - Sweet: Sweet fruits typically eaten as fruit/snacks/dessert. Examples: apple, banana, berries, orange, grapes, melon, mango.\n"
+    "- Produce - Savory: Vegetables and savory produce used in meals/salads. Include botanically-fruit-but-culinarily-savory items. Examples: broccoli, carrot, lettuce, spinach, tomato, avocado, cucumber, capsicum/pepper, eggplant.\n"
+    "- Carbohydrates & Staples: Starchy or grain-based meal bases, especially when plain or single-dominant. Examples: rice, plain pasta, plain noodles, bread, oats, tortillas, potatoes, sweet potato, corn, porridge.\n"
+    "- Animal Protein: Meat, poultry, fish, seafood, eggs when the food is a single-dominant animal-protein item. Examples: steak, chicken breast, salmon fillet, prawns/shrimp, boiled egg.\n"
+    "- Plant Protein: Plant foods treated primarily as protein sources. Examples: tofu, tempeh, lentils, beans, chickpeas, edamame, nuts if functioning as protein-rich food.\n"
+    "- Dairy: Dairy products when not clearly desserts or composite meals. Examples: milk, cheese, plain yoghurt/yogurt, cottage cheese.\n"
+    "- Composite Meals: Multi-ingredient prepared foods or named dishes/meals. Examples: pizza, curry, stir-fry, burger, sandwich, sushi, burrito, lasagna, salad bowl, rice bowl, pasta dish with sauce/multiple ingredients.\n"
+    "- Desserts & Sweets: Sweet treats and desserts, regardless of whether they are baked, dairy-based, frozen, or grain-based. Examples: cake, cookies, pastries, donuts, chocolate, ice cream, candy/sweets, pudding.\n"
+    "- Snacks & Savory Junk: Savory snack foods, often processed, salty, crunchy, or eaten outside meals. Examples: potato chips/crisps, popcorn, pretzels, crackers, corn chips, savory snack mix.\n"
+    "Decision rules for Culinary 9:\n"
+    "  * Use culinary/common-sense categories, not botanical categories.\n"
+    "  * Simple cooking alone does not make something Composite Meals.\n"
+    "  * Multi-ingredient named meals should be Composite Meals unless they are clearly desserts/sweets.\n"
+    "  * Sweet treats should always be Desserts & Sweets.\n"
+    "  * Savory snack foods should be Snacks & Savory Junk, even if grain- or potato-based.\n"
+    "  * Dairy-based desserts, such as ice cream, should be Desserts & Sweets, not Dairy.\n\n"
     "Natural vs Transformed — pick exactly one:\n"
     "- Natural: the food is still visually and conceptually identifiable as a single biological food source, "
     "even if it has undergone minor preparation such as washing, peeling, cutting, drying, freezing, or simple cooking\n"
@@ -367,9 +406,10 @@ CLASSIFY_PROMPT_TEMPLATE = (
     " 55–70:  Biochemically or structurally transformed (e.g. cheese, yoghurt, tofu, bread, pasta)\n"
     " 70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)\n"
     " 85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)\n\n"
-    "Reply in exactly this format — four lines, no explanation:\n"
+    "Reply in exactly this format — five lines, no explanation:\n"
     "WHO10: <category>\n"
-    "SIMPLE6: <category>\n"
+    "INTUITIVE7: <category>\n"
+    "CULINARY9: <category>\n"
     "NAT_TRANS: <Natural or Transformed>\n"
     "SCORE: <integer 0-100>"
 )
@@ -378,17 +418,7 @@ CLASSIFY_PROMPT_TEMPLATE = (
 NAT_TRANS_VALUES = {"Natural", "Transformed"}
 
 
-def classify_food_gemini(client, food: str, retries: int = 3, model: str = DEFAULT_GEMINI_TEXT_MODEL) -> tuple:
-    """
-    Use Gemini text API to classify a food item across four schemes:
-      - WHO10 category
-      - Simple6 category
-      - Natural vs Transformed
-      - Transformation score (0–100)
-
-    Returns (who10, simple6, nat_trans, score).
-    Falls back to empty strings / -1 on failure.
-    """
+def classify_food_gemini(client, food: str, retries: int = 5, model: str = "gemini-2.5-flash") -> tuple:
     prompt = CLASSIFY_PROMPT_TEMPLATE.format(food=food)
 
     for attempt in range(retries):
@@ -398,44 +428,32 @@ def classify_food_gemini(client, food: str, retries: int = 3, model: str = DEFAU
                 contents=prompt,
             )
             text = response.text.strip()
-            who10, simple6, nat_trans, score_str = "", "", "", ""
+            who10, intuitive7, culinary9, nat_trans, score_str = "unknown", "unknown", "unknown", "unknown", ""
             for line in text.splitlines():
                 upper = line.upper()
                 if upper.startswith("WHO10:"):
                     who10 = line.split(":", 1)[1].strip()
-                elif upper.startswith("SIMPLE6:"):
-                    simple6 = line.split(":", 1)[1].strip()
+                elif upper.startswith("INTUITIVE7:"):
+                    intuitive7 = line.split(":", 1)[1].strip()
+                elif upper.startswith("CULINARY9:"):
+                    culinary9 = line.split(":", 1)[1].strip()
                 elif upper.startswith("NAT_TRANS:"):
                     nat_trans = line.split(":", 1)[1].strip()
                 elif upper.startswith("SCORE:"):
                     score_str = line.split(":", 1)[1].strip()
 
-            # Validate all fields
-            who10_match = next((c for c in WHO10_CATEGORIES if c.lower() == who10.lower()), "")
-            simple6_match = next((c for c in SIMPLE6_CATEGORIES if c.lower() == simple6.lower()), "")
-            nat_trans_match = next((v for v in NAT_TRANS_VALUES if v.lower() == nat_trans.lower()), "")
             try:
-                score = int(score_str)
+                score = int(re.sub(r'\D', '', score_str))
                 score = max(0, min(100, score))  # clamp to 0–100
             except (ValueError, TypeError):
                 score = -1
-
-            if who10_match and simple6_match and nat_trans_match and score >= 0:
-                return who10_match, simple6_match, nat_trans_match, score
-
-            print(
-                f"[WARN] Incomplete classification for '{food}': "
-                f"WHO10='{who10}' SIMPLE6='{simple6}' NAT_TRANS='{nat_trans}' SCORE='{score_str}' — retrying..."
-            )
-
+            
+            return who10, intuitive7, culinary9, nat_trans, score
         except Exception as e:
-            print(f"[WARN] Classification attempt {attempt + 1} failed for '{food}': {e}")
-            if attempt < retries - 1:
-                backoff_sleep(attempt)
-
-    print(f"[WARN] Classification failed for '{food}'; leaving labels empty.")
-    return "", "", "", -1
-
+            print(f"[WARN] Classification API error: {e}. Retrying...")
+            import time
+            time.sleep(min(60, (2 ** attempt)) + 0.25 * attempt)
+    return "unknown", "unknown", "unknown", "unknown", -1
 
 def generate_image_b64_openai(client, prompt: str, size: str, quality: str, model: str, seed: Optional[int]) -> str:
     """
@@ -573,7 +591,8 @@ def write_meta(
         "image_file": spec.image_path.name,
         "food": spec.food,
         "Category_WHO_10": spec.who10_category,
-        "Category_Simple_6": spec.simple6_category,
+        "Category_Intuitive_7": spec.intuitive7_category,
+        "Category_Culinary_9": spec.culinary9_category,
         "Natural_vs_transformed": spec.nat_vs_trans,
         "Transformation_score": spec.transformation_score,
         "prompt": prompt,
@@ -687,7 +706,8 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
             "image_file",
             "food",
             "Category_WHO_10",
-            "Category_Simple_6",
+            "Category_Intuitive_7",
+            "Category_Culinary_9",
             "Natural_vs_transformed",
             "Transformation_score",
             "prompt",
@@ -708,7 +728,8 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
             "image_file",
             "food",
             "Category_WHO_10",
-            "Category_Simple_6",
+            "Category_Intuitive_7",
+            "Category_Culinary_9",
             "Natural_vs_transformed",
             "Transformation_score",
             "prompt",
@@ -726,7 +747,8 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
             "image_file",
             "food",
             "Category_WHO_10",
-            "Category_Simple_6",
+            "Category_Intuitive_7",
+            "Category_Culinary_9",
             "Natural_vs_transformed",
             "Transformation_score",
             "prompt",
@@ -815,14 +837,14 @@ def run_classify_only(df: pd.DataFrame, client, out_dir: Path = OUT_DIR, text_mo
     for i, (_, row) in enumerate(df.iterrows(), 1):
         food = row["Food"]
         print(f"[INFO] ({i}/{total}) Classifying: {food}")
-        who10, simple6, nat_trans, score = classify_food_gemini(client, food, model=text_model)
+        who10, intuitive7, culinary9, nat_trans, score = classify_food_gemini(client, food, model=text_model)
 
         if not who10:
             print(f"[FAIL] Could not classify: {food}")
             failures += 1
             continue
 
-        print(f"      [CLASSIFY] WHO10='{who10}' | Simple6='{simple6}' | {nat_trans} | Score={score}")
+        print(f"      [CLASSIFY] WHO10='{who10}' | Intuitive7='{intuitive7}' | Culinary9='{culinary9}' | {nat_trans} | Score={score}")
 
         key = norm(food)
         if key in master_index:
@@ -836,9 +858,12 @@ def run_classify_only(df: pd.DataFrame, client, out_dir: Path = OUT_DIR, text_mo
             master_index[key] = len(master) - 1
 
         entry["Category_WHO_10"] = who10
-        entry["Category_Simple_6"] = simple6
+        entry["Category_Intuitive_7"] = intuitive7
+        entry["Category_Culinary_9"] = culinary9
         entry["Natural_vs_transformed"] = nat_trans
         entry["Transformation_score"] = score
+        if "Category_Simple_6" in entry:
+            del entry["Category_Simple_6"]
 
     # Back up existing master before overwriting
     if master_path.exists():
@@ -943,7 +968,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     # --- Classify-only mode: classify foods and update metadata, skip image generation ---
     if args.classify_only:
-        text_model = args.model if args.model != DEFAULT_MODEL else DEFAULT_GEMINI_TEXT_MODEL
+        # Always force a text model for classification to avoid 429 Image model quotas
+        text_model = DEFAULT_GEMINI_TEXT_MODEL
         print(f"[INFO] Classify-only mode — using text model '{text_model}'")
         gemini_client = get_gemini_client()
         classify_df = df.copy()
@@ -1005,18 +1031,19 @@ def main(argv: Optional[List[str]] = None) -> int:
         food_name = row["Food"]
         print(f"[INFO] ({i}/{active_count}) Processing: {food_name}")
 
-        # Classify food across all four schemes via Gemini text API
+        # Classify food across all schemes via Gemini text API
         if not args.dry_run and backend == "gemini":
-            who10, simple6, nat_trans, score = classify_food_gemini(client, food_name)
-            print(f"      [CLASSIFY] WHO10='{who10}' | Simple6='{simple6}' | {nat_trans} | Score={score}")
+            who10, intuitive7, culinary9, nat_trans, score = classify_food_gemini(client, food_name)
+            print(f"      [CLASSIFY] WHO10='{who10}' | Intuitive7='{intuitive7}' | Culinary9='{culinary9}' | {nat_trans} | Score={score}")
         else:
-            who10, simple6, nat_trans, score = "", "", "", -1
+            who10, intuitive7, culinary9, nat_trans, score = "", "", "", "", -1
 
         # Base spec
         spec = RenderSpec(
             food=row["Food"],
             who10_category=who10,
-            simple6_category=simple6,
+            intuitive7_category=intuitive7,
+            culinary9_category=culinary9,
             nat_vs_trans=nat_trans,
             transformation_score=score,
             additional_prompt=str(row.get("Additional Prompt", "") or ""),

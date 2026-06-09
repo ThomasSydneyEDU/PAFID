@@ -1,0 +1,20 @@
+[
+  {
+    "image_file": "acai-bowl.png",
+    "food": "Acai Bowl",
+    "base_food": null,
+    "category": null
+  },
+  {
+    "image_file": "peking-duck.png",
+    "food": "Peking Duck",
+    "base_food": null,
+    "category": null
+  },
+  {
+    "image_file": "baklava.png",
+    "food": "Baklava",
+    "base_food": null,
+    "category": null
+  }
+]

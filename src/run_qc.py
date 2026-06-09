@@ -47,6 +47,20 @@ def get_gemini_client():
     except Exception:
         print("[ERROR] Missing google-genai. Install with: pip install -U google-genai", file=sys.stderr)
         raise
+
+    use_vertex = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in {"true", "1", "yes"}
+
+    if use_vertex:
+        project = os.getenv("GOOGLE_CLOUD_PROJECT")
+        location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+        if not project:
+            raise RuntimeError(
+                "GOOGLE_CLOUD_PROJECT is not set. "
+                "Export it first, e.g., 'export GOOGLE_CLOUD_PROJECT=usyd-llm'"
+            )
+        print(f"[INFO] Using Gemini via Vertex AI: project={project}, location={location}")
+        return genai.Client(vertexai=True, project=project, location=location)
+
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError("GEMINI_API_KEY is not set. Export it first, e.g. 'export GEMINI_API_KEY=...'.")
@@ -74,10 +88,8 @@ SYSTEM_INSTRUCTIONS = (
 def build_qc_prompt(
     expected_food: str,
     expected_base_food: str,
-    expected_prep_form: Optional[str],
     expected_category: Optional[str],
 ) -> str:
-    exp_prep = (expected_prep_form or "unknown").strip().lower()
     exp_cat = expected_category or "unknown"
 
     return f"""You will be shown an image of food on a plate.
@@ -85,12 +97,11 @@ def build_qc_prompt(
 EXPECTED LABELS (from dataset):
 - expected_food: "{expected_food}"
 - expected_base_food: "{expected_base_food}"
-- expected_prep_form: "{exp_prep}"   (raw/prepared/unknown)
 - expected_category: "{exp_cat}"
 
 Tasks:
 1) Write a brief neutral caption (1 sentence, <= 20 words) describing what is visible.
-2) Identify the observed food and observed preparation (raw/prepared/unknown).
+2) Identify the observed food.
 3) Compare observed vs expected and rate label match.
 4) Flag obvious visual QC issues.
 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity (best-effort inferences from visible cues + typical culinary expectations).
@@ -98,7 +109,6 @@ Tasks:
 Return ONLY valid JSON with exactly these keys:
 - caption: string (1 sentence, <= 20 words)
 - observed_food: short noun phrase (e.g., "apple slices", "steamed broccoli florets")
-- observed_prep: one of ["raw","prepared","unknown"]
 - label_match: one of ["match","partial","mismatch","unclear"]
 - label_confidence: number between 0 and 1 (your confidence in label_match)
 - portion_size_ok: boolean (true if it looks like a typical single adult serving)
@@ -120,7 +130,7 @@ Return ONLY valid JSON with exactly these keys:
 - spiciness_0_100: number 0-100 (subjective perceived chilli heat; 0=not spicy, 100=very spicy)
 
 Guidance:
-- If uncertain, set observed_prep="unknown" and label_match="unclear".
+- If uncertain, set label_match="unclear".
 - Use "partial" if it's clearly related but not exact (e.g., wrong cut/prep form).
 - Do NOT invent brands or extra items.
 - For 0–100 ratings: these are subjective judgements of *perceived flavour/mouthfeel intensity* (not objective facts).
@@ -191,7 +201,6 @@ def _normalize_qc_json(data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Normalize and validate the JSON fields we expect.
     """
-    allowed_prep = {"raw", "prepared", "unknown"}
     allowed_match = {"match", "partial", "mismatch", "unclear"}
     allowed_issues = {
         "sauce_present","multiple_items","bowl_present","text_present","odd_perspective",
@@ -202,9 +211,6 @@ def _normalize_qc_json(data: Dict[str, Any]) -> Dict[str, Any]:
     out: Dict[str, Any] = {}
     out["caption"] = str(data.get("caption", "")).strip()
     out["observed_food"] = str(data.get("observed_food", "")).strip()
-
-    observed_prep = str(data.get("observed_prep", "unknown")).strip().lower()
-    out["observed_prep"] = observed_prep if observed_prep in allowed_prep else "unknown"
 
     label_match = str(data.get("label_match", "unclear")).strip().lower()
     out["label_match"] = label_match if label_match in allowed_match else "unclear"
@@ -424,12 +430,12 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "filename": e.get("image_file", ""),
                 "food": food_name,
                 "base_food": e.get("base_food", ""),
-                "prep_form": e.get("prep_form", ""),
                 "food_classification": e.get("category", ""),
                 "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
                 "sweet_vs_savory": e.get("Sweet_vs_savory", ""),
                 "Category_WHO_10": e.get("Category_WHO_10", ""),
-                "Category_Simple_6": e.get("Category_Simple_6", ""),
+                "Category_Intuitive_7": e.get("Category_Intuitive_7", ""),
+                "Category_Culinary_9": e.get("Category_Culinary_9", ""),
                 "Transformation_score": e.get("Transformation_score", ""),
                 "prompt": e.get("prompt", ""),
                 "model": e.get("model", ""),
@@ -439,7 +445,6 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "plate_reference": e.get("plate_reference", ""),
                 "caption": e.get("caption", ""),
                 "aware_observed_food": e.get("observed_food", ""),
-                "aware_observed_prep": e.get("observed_prep", ""),
                 "label_match": e.get("label_match", ""),
                 "label_confidence": e.get("label_confidence", ""),
                 "portion_size_ok": e.get("portion_size_ok", ""),
@@ -487,17 +492,19 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
             # Ensure no overlapping columns except filename
             cols_to_use = [c for c in human_df.columns if c not in new_df.columns or c == 'filename']
             new_df = pd.merge(new_df, human_df[cols_to_use], on='filename', how='left')
-            
+            print(f"[INFO] Integrated empirical human ratings from {human_csv.name}")
+        except Exception as e:
+            print(f"[WARN] Failed to merge human_ratings.csv: {e}")
+
     # Apply column ordering
     col_order = [
-        'filename', 'food', 'base_food', 'prep_form', 
-        'food_classification', 'Category_WHO_10', 'Category_Simple_6', 
+        'filename', 'food', 'base_food', 'food_classification', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9', 
         'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory', 
         'prompt', 'model', 'seed', 'created', 'style_version', 'plate_reference', 
         'human_calorie_density', 'human_healthiness', 'human_appeal', 
         'human_sweetness', 'human_saltiness', 'human_sourness', 'human_bitterness', 
         'human_savoriness', 'human_fattiness', 'human_spiciness',
-        'caption', 'aware_observed_food', 'aware_observed_prep', 'label_match', 'label_confidence', 
+        'caption', 'aware_observed_food', 'label_match', 'label_confidence', 
         'portion_size_ok', 'plate_rim_visible', 'qc_issues', 'qc_reasons', 'qc_model', 'qc_at',
         'aware_ai_calorie_density', 'aware_ai_healthiness', 'aware_ai_sweetness', 
         'aware_ai_saltiness', 'aware_ai_sourness', 'aware_ai_bitterness', 
@@ -511,10 +518,6 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
         'll_lab_b_mean', 'll_lab_b_std', 'll_hsv_s_mean', 'll_edge_energy'
     ] + [f"ll_hog_pc{j+1:02d}" for j in range(10)]
     
-            print(f"[INFO] Integrated empirical human ratings from {human_csv.name}")
-        except Exception as e:
-            print(f"[WARN] Failed to merge human_ratings.csv: {e}")
-            
     # 2. Merge with existing output (to preserve blind_ai and ll_metrics)
     if out_csv.exists():
         old_df = pd.read_csv(out_csv)
@@ -593,11 +596,9 @@ def collect_qc_issues(data: List[Dict[str, Any]],
                 "image_file": e.get("image_file"),
                 "food": e.get("food"),
                 "base_food": e.get("base_food"),
-                "prep_form": e.get("prep_form"),
                 "category": e.get("category"),
                 "caption": e.get("caption"),
                 "observed_food": e.get("observed_food"),
-                "observed_prep": e.get("observed_prep"),
                 "label_match": e.get("label_match"),
                 "label_confidence": e.get("label_confidence"),
                 "portion_size_ok": e.get("portion_size_ok"),
@@ -684,10 +685,9 @@ def main(argv: Optional[List[str]] = None) -> int:
 
         expected_food = str(entry.get("food", "")).strip() or str(entry.get("image_file", "")).strip()
         expected_base = str(entry.get("base_food", "")).strip() or expected_food
-        expected_prep = entry.get("prep_form", None)
         expected_cat = entry.get("category", None)
 
-        prompt = build_qc_prompt(expected_food, expected_base, expected_prep, expected_cat)
+        prompt = build_qc_prompt(expected_food, expected_base, expected_cat)
 
         try:
             qc = qc_one_image(client, img_path, prompt=prompt, model=args.model)
@@ -695,7 +695,6 @@ def main(argv: Optional[List[str]] = None) -> int:
             # Store into entry
             entry["caption"] = qc["caption"]
             entry["observed_food"] = qc["observed_food"]
-            entry["observed_prep"] = qc["observed_prep"]
             entry["label_match"] = qc["label_match"]
             entry["label_confidence"] = qc["label_confidence"]
             entry["portion_size_ok"] = qc["portion_size_ok"]
@@ -770,7 +769,6 @@ def main(argv: Optional[List[str]] = None) -> int:
                 "image_file": e.get("image_file"),
                 "food": e.get("food"),
                 "base_food": e.get("base_food"),
-                "prep_form": e.get("prep_form"),
                 "category": e.get("category"),
             })
     missing_path = stimuli_dir / "missing_images.json"

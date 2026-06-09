@@ -131,7 +131,8 @@ Rather than requiring labels to be specified manually in the seed list, the pipe
 | Column | Description |
 |---|---|
 | `Category_WHO_10` | WHO/FAO food category (10 classes: Fruits, Vegetables, Meat, Fish, Dairy and eggs, Bakery wares and cereals, Confectionery and sweets, Beverages, Ready-to-eat savories, Prepared foods) |
-| `Category_Simple_6` | Simplified food category (6 classes: Fruit, Vegetable, Protein, Grain, Dessert, Dish) |
+| `Category_Intuitive_7` | AI-assigned 7-group intuitive category (e.g., Vegetable, Dessert) |
+| `Category_Culinary_9` | AI-assigned 9-group culinary category (e.g., Produce - Sweet, Composite Meals) |
 | `Natural_vs_transformed` | Whether the food is **Natural** (identifiable as a single biological source, even if minimally prepared) or **Transformed** (substantially altered through processing, combination, or cooking) |
 | `Transformation_score` | Continuous score 0–100 reflecting degree of processing (0–10 = raw/whole; 85–100 = highly manufactured) |
 
@@ -208,12 +209,12 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`filename`**: The exact filename of the generated image (e.g., `apple-raw.png`).
 * **`food`**: The primary name/label of the food item.
 * **`base_food`**: The underlying ingredient or dish name before preparation.
-* **`prep_form`**: How the food was prepared (e.g., raw, sliced, prepared).
 
 ### 2. Categorical Labels
 * **`food_classification`**: Legacy high-level food category (e.g., Fruit, Vegetable, Protein).
 * **`Category_WHO_10`**: AI-assigned classification based on the 10 WHO food groups.
-* **`Category_Simple_6`**: AI-assigned simplified 6-group category (e.g., Staples, Vegetables).
+* **`Category_Intuitive_7`**: AI-assigned 7-group intuitive category.
+* **`Category_Culinary_9`**: AI-assigned 9-group culinary category.
 * **`natural_vs_transformed`**: Binary classification: 'Natural' (whole/unprocessed) or 'Transformed' (cooked/milled/processed).
 * **`Transformation_score`**: AI-assigned 1-10 rating of how processed or altered the food is from its natural state.
 * **`sweet_vs_savory`**: Primary flavor profile categorization.
@@ -305,8 +306,11 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > - Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation
 > - Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates
 > 
-> **Simple 6 categories** — pick exactly one:
-> - Fruit, Vegetable, Protein, Grain, Dessert, Dish
+> **AI Intuitive 7 categories** — pick exactly one:
+> - Vegetable, Plant protein, Animal protein, Fruit, Dessert, Grain, Dish
+>
+> **Culinary 9 categories** — pick exactly one:
+> - Produce - Sweet, Produce - Savory, Carbohydrates & Staples, Animal Protein, Plant Protein, Dairy, Composite Meals, Desserts & Sweets, Snacks & Savory Junk
 > 
 > **Natural vs Transformed** — pick exactly one:
 > - Natural: the food is still visually and conceptually identifiable as a single biological food source
@@ -321,10 +325,11 @@ To ensure full transparency, below are the core system prompts utilized by the p
 >  70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)
 >  85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)
 > 
-> Reply in exactly this format — four lines, no explanation:
+> Reply in exactly this format — five lines, no explanation:
 > WHO10: <category>
-> SIMPLE6: <category>
-> NATURAL: <category>
+> INTUITIVE7: <category>
+> CULINARY9: <category>
+> NAT_TRANS: <Natural or Transformed>
 > SCORE: <score>"
 
 ### 3. Aware AI Ratings / Quality Control (`run_qc.py`)
@@ -336,12 +341,11 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > EXPECTED LABELS (from dataset):
 > - expected_food: **{expected_food}**
 > - expected_base_food: **{expected_base_food}**
-> - expected_prep_form: **{expected_prep_form}**
 > - expected_category: **{expected_category}**
 > 
 > Tasks:
 > 1) Write a brief neutral caption (1 sentence, <= 20 words) describing what is visible.
-> 2) Identify the observed food and observed preparation.
+> 2) Identify the observed food.
 > 3) Compare observed vs expected and rate label match.
 > 4) Flag obvious visual QC issues.
 > 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes."
