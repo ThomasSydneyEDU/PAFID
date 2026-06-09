@@ -14,3 +14,4 @@ venv/
 # Ignore DS_Store
 .DS_Store
 **/.DS_Store
+Food survey/
