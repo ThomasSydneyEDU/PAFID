@@ -282,3 +282,77 @@ The seed list includes 3 demo items at the end as an example. You can remove the
 ## Citation
 If you use this database or pipeline in your research, please cite:
 (Insert Citation Here)
+
+## Appendix: AI System Prompts
+
+To ensure full transparency, below are the core system prompts utilized by the pipeline to interact with the LLMs.
+
+### 1. Image Generation Prompt (`generate_stimuli.py`)
+> "A photorealistic studio photograph of **{food}**, single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting. **{vessel_clause}** Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of **{food}** as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The **{food}** is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing **{no_bowl_clause}**"
+
+### 2. Text Classification Prompt (`generate_stimuli.py`)
+> "Classify the food item **{food}** using all four schemes below.
+> 
+> **WHO 10 categories** — pick exactly one:
+> - Dairy and eggs: milk, cheese, yogurt, butter, cream, eggs
+> - Fruits: fresh, dried, or minimally processed fruit
+> - Vegetables: fresh, dried, or minimally processed vegetables
+> - Confectionery and sweets: chocolate, candy, cake, cookies, pastries, ice cream, desserts
+> - Bakery wares and cereals: bread, crackers, pasta, rice, oats, cereals, grains
+> - Meat: beef, pork, lamb, poultry, game, and processed meats
+> - Fish: fish and all seafood
+> - Beverages: any drink — juice, alcohol, coffee, tea, soda, water
+> - Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation
+> - Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates
+> 
+> **Simple 6 categories** — pick exactly one:
+> - Fruit, Vegetable, Protein, Grain, Dessert, Dish
+> 
+> **Natural vs Transformed** — pick exactly one:
+> - Natural: the food is still visually and conceptually identifiable as a single biological food source
+> - Transformed: the food has been substantially altered from its original biological source
+> 
+> **Transformation score** — assign a single integer from 0 to 100 using this scale:
+>   0–10:  Whole, raw, unmodified (e.g. apple, banana, carrot, tomato)
+>  10–25:  Minimally prepared but source-identifiable (e.g. sliced fruit, peeled orange, roasted nuts, dried fruit)
+>  25–40:  Simply cooked single-source food (e.g. boiled egg, steamed vegetables, grilled fish, plain rice)
+>  40–55:  Mechanically altered single-source food (e.g. mashed potato, minced meat, fruit puree, smoothie)
+>  55–70:  Biochemically or structurally transformed (e.g. cheese, yoghurt, tofu, bread, pasta)
+>  70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)
+>  85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)
+> 
+> Reply in exactly this format — four lines, no explanation:
+> WHO10: <category>
+> SIMPLE6: <category>
+> NATURAL: <category>
+> SCORE: <score>"
+
+### 3. Aware AI Ratings / Quality Control (`run_qc.py`)
+**System Instruction:**
+> "You are doing neutral, visual quality control for experimental food stimuli. Be factual. Do not mention brands. Do not mention the prompt. Do not add opinions beyond the requested ratings. For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* based only on what is visually inferable from the image and typical culinary expectations (ingredients, cooking method, portion, sauces). These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
+
+**Task Prompt (Image included):**
+> "You will be shown an image of food on a plate.
+> EXPECTED LABELS (from dataset):
+> - expected_food: **{expected_food}**
+> - expected_base_food: **{expected_base_food}**
+> - expected_prep_form: **{expected_prep_form}**
+> - expected_category: **{expected_category}**
+> 
+> Tasks:
+> 1) Write a brief neutral caption (1 sentence, <= 20 words) describing what is visible.
+> 2) Identify the observed food and observed preparation.
+> 3) Compare observed vs expected and rate label match.
+> 4) Flag obvious visual QC issues.
+> 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes."
+
+### 4. Blind AI Ratings (`rate_images.py`)
+**System Instruction:**
+> "You are a neutral observer providing visual assessments of food stimuli. Be factual. Do not mention brands. Do not add opinions beyond the requested ratings. For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* based only on what is visually inferable from the image and typical culinary expectations. These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
+
+**Task Prompt (Image included - No text labels):**
+> "You will be shown an image of food on a plate.
+> Tasks:
+> 1) Identify the food visible in the image.
+> 2) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes (best-effort inferences from visible cues + typical culinary expectations).
+> Return ONLY valid JSON with exactly these keys: observed_food, calorie_density_0_100, healthiness_0_100, sweetness_0_100, saltiness_0_100, sourness_0_100, bitterness_0_100, savoriness_0_100, fatty_flavour_0_100, spiciness_0_100."
