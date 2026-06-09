@@ -417,8 +417,26 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "Category": cat,
                 "Food": food_name,
 
+                # Classification labels from stimuli_master (written by classify_food_gemini)
+                "Category_WHO_10": e.get("Category_WHO_10", ""),
+                "Category_Simple_6": e.get("Category_Simple_6", ""),
+                "Natural_vs_transformed": e.get("Natural_vs_transformed", ""),
+                "Transformation_score": e.get("Transformation_score", ""),
+
                 # From stimuli_master (if present)
                 "filename": e.get("image_file", ""),
+                "food": food_name,
+                "base_food": e.get("base_food", ""),
+                "prep_form": e.get("prep_form", ""),
+                "food_classification": e.get("category", ""),
+                "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
+                "sweet_vs_savory": e.get("Sweet_vs_savory", ""),
+                "prompt": e.get("prompt", ""),
+                "model": e.get("model", ""),
+                "seed": e.get("seed", ""),
+                "created": e.get("created", ""),
+                "style_version": e.get("style_version", ""),
+                "plate_reference": e.get("plate_reference", ""),
                 "caption": e.get("caption", ""),
                 "aware_observed_food": e.get("observed_food", ""),
                 "aware_observed_prep": e.get("observed_prep", ""),
@@ -458,38 +476,23 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
         if len(unmatched) > 10:
             print(f"  ...and {len(unmatched)-10} more")
 
-    fieldnames = [
-        "Category",
-        "Food",
-        "filename",
-        "caption",
-        "aware_observed_food",
-        "aware_observed_prep",
-        "label_match",
-        "label_confidence",
-        "portion_size_ok",
-        "plate_rim_visible",
-        "qc_issues",
-        "qc_reasons",
-        "aware_ai_calorie_density",
-        "aware_ai_healthiness",
-        "aware_ai_sweetness",
-        "aware_ai_saltiness",
-        "aware_ai_sourness",
-        "aware_ai_bitterness",
-        "aware_ai_savoriness",
-        "aware_ai_fattiness",
-        "aware_ai_spiciness",
-        "qc_model",
-        "qc_at",
-    ]
+    import pandas as pd
+    new_df = pd.DataFrame(rows_out)
+    
+    if out_csv.exists():
+        old_df = pd.read_csv(out_csv)
+        if 'filename' in old_df.columns and 'filename' in new_df.columns:
+            merge_key = 'filename'
+        else:
+            merge_key = 'Food'
+            
+        cols_to_update = [c for c in new_df.columns if c != merge_key]
+        old_df = old_df.drop(columns=[c for c in cols_to_update if c in old_df.columns])
+        final_df = pd.merge(new_df, old_df, on=merge_key, how='left')
+    else:
+        final_df = new_df
 
-    with out_csv.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for row in rows_out:
-            writer.writerow(row)
-
+    final_df.to_csv(out_csv, index=False, encoding="utf-8-sig")
     print(f"[OK] Wrote QC+AI judgements CSV to: {out_csv}")
     print(f"[INFO] CSV merged from input list: {input_list_csv}")
 
