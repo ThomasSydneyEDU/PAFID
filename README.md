@@ -199,6 +199,68 @@ python src/reset_pipeline.py
 ```
 *   **Safety**: This script will ask for confirmation before deleting any non-canonical images or metadata you have generated.
 
+
+## Dataset Schema (Data Dictionary)
+
+The generated `Foodpictures_information_dynamic.csv` contains the following columns, logically grouped:
+
+### 1. Primary Identifiers
+* **`filename`**: The exact filename of the generated image (e.g., `apple-raw.png`).
+* **`food`**: The primary name/label of the food item.
+* **`base_food`**: The underlying ingredient or dish name before preparation.
+* **`prep_form`**: How the food was prepared (e.g., raw, sliced, prepared).
+
+### 2. Categorical Labels
+* **`food_classification`**: Legacy high-level food category (e.g., Fruit, Vegetable, Protein).
+* **`Category_WHO_10`**: AI-assigned classification based on the 10 WHO food groups.
+* **`Category_Simple_6`**: AI-assigned simplified 6-group category (e.g., Staples, Vegetables).
+* **`natural_vs_transformed`**: Binary classification: 'Natural' (whole/unprocessed) or 'Transformed' (cooked/milled/processed).
+* **`Transformation_score`**: AI-assigned 1-10 rating of how processed or altered the food is from its natural state.
+* **`sweet_vs_savory`**: Primary flavor profile categorization.
+
+### 3. Generation Metadata
+* **`prompt`**: The exact text prompt sent to the LLM to generate the image.
+* **`model`**: The specific AI model used for generation (e.g., `gemini-3-pro-image-preview`).
+* **`seed`**: The RNG seed used during generation (if supported/applicable).
+* **`created`**: Unix timestamp of when the image was generated.
+* **`style_version`**: Identifier for the photographic styling parameters used.
+* **`plate_reference`**: Internal reference to any background plate assets utilized.
+
+### 4. Empirical Human Ground Truth
+*(Note: These 0-100 scales represent mean human ratings from real psychophysics surveys)*
+* **`human_calorie_density`**: Perceived caloric density.
+* **`human_healthiness`**: Perceived healthiness.
+* **`human_appeal`**: Visual appetizingness/appeal.
+* **`human_sweetness`, `human_saltiness`, `human_sourness`, `human_bitterness`, `human_savoriness`**: Perceived core taste profiles.
+* **`human_fattiness`, `human_spiciness`**: Perceived mouthfeel and heat.
+
+### 5. AI Quality Control (Aware)
+* **`caption`**: AI-generated descriptive caption of the image.
+* **`aware_observed_food`**: What the AI identifies in the image when prompted with the target label.
+* **`aware_observed_prep`**: How the AI identifies the preparation state.
+* **`label_match`**: 'match' or 'mismatch' determining if the image successfully represents the intended food.
+* **`label_confidence`**: AI's confidence (0.0 - 1.0) in the label match.
+* **`portion_size_ok` / `plate_rim_visible`**: Boolean checks ensuring photographic consistency.
+* **`qc_issues` / `qc_reasons`**: Lists of any visual artifacts or failures flagged by the AI.
+* **`qc_model` / `qc_at`**: The AI model used for the QC phase and the timestamp.
+
+### 6. AI Ratings (Aware)
+* **`aware_ai_*`**: (Calorie density, healthiness, and all 8 taste profiles on a 0-100 scale). The AI's subjective estimation of the food *when told what the food is*.
+
+### 7. AI Ratings (Blind)
+* **`blind_model`**: The AI model used for the blind rating phase.
+* **`blind_observed_food`**: The AI's best guess of the food without knowing the target label.
+* **`blind_guess_similarity`**: 0-100 score of how close the blind guess is to the true label.
+* **`blind_ai_*`**: (Calorie density, healthiness, and 8 taste profiles). The AI's subjective estimation based *purely on visual appearance*.
+
+### 8. Low-Level Vision Metrics
+*(Standard computer vision metrics matching historical `FoodTriplet-Analysis` baselines)*
+* **`ll_mean_luminance`, `ll_rms_contrast`**: Grayscale intensity and standard deviation.
+* **`ll_lab_L_mean`, `ll_lab_L_std`, `ll_lab_a_mean`, `ll_lab_a_std`, `ll_lab_b_mean`, `ll_lab_b_std`**: Mean and standard deviation values across the CIE LAB perceptual color space.
+* **`ll_hsv_s_mean`**: Mean saturation from the HSV color space.
+* **`ll_edge_energy`**: Mean magnitude of the Sobel gradients.
+* **`ll_hog_pc01` - `ll_hog_pc10`**: The first 10 Principal Components extracted from the Histogram of Oriented Gradients (HOG) features across the dataset.
+
 ## Extending the Database
 
 To add new foods to the database, follow these steps:
