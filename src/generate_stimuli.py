@@ -3,7 +3,9 @@
 LLM Image Render Pipeline for Food Stimuli
 
 - Reads: data/food_list_initial_seed.csv
-  (columns expected: Category, Food, Natural_vs_transformed, Sweet_vs_savory, Additional Prompt)
+  (columns expected: Food)
+- Uses Gemini text API to assign Category_WHO_10, Category_Simple_6,
+  Natural_vs_transformed, and Transformation_score per food item
 - Generates: one photorealistic, brand-free image per Food using OpenAI or Gemini image generation APIs
 - Saves: PNG images and per-item JSON metadata under rendered_images/{slug}.png|.json
 
@@ -31,33 +33,6 @@ from typing import Optional, Dict, Any, List
 
 import pandas as pd
 
-# ---- Auto-label helpers (used if certain columns are missing) ----
-PROCESSED_KWS = [
-    "bread", "cake", "cookie", "pie", "pasta", "burger", "fried", "roast",
-    "baked", "cooked", "soup", "salad", "sauce", "chips", "bar", "sandwich",
-    "ice cream", "chocolate", "jam", "juice", "soda", "beer", "milkshake",
-    "smoothie", "muffin", "donut", "pudding", "casserole", "stew", "curry",
-    "taco", "pizza", "burrito", "wrap", "noodle", "dumpling", "rice", "lasagna",
-    "bowl", "mixed",
-]
-
-SWEET_CATS = {"Dessert", "Fruit"}
-SWEET_KWS = [
-    "sweet", "chocolate", "cake", "cookie", "pie", "ice cream", "candy",
-    "jam", "honey", "sugar", "pudding", "dessert", "syrup", "fruit",
-    "donut", "brownie", "cupcake", "muffin", "milkshake", "smoothie",
-    "acai", "baklava",
-]
-
-
-def _natural_vs_transformed(food: str) -> str:
-    f = str(food).lower()
-    return "Transformed" if any(k in f for k in PROCESSED_KWS) else "Natural"
-
-def _sweet_vs_savory(food: str, category: str) -> str:
-    f = str(food).lower()
-    return "Sweet" if (category in SWEET_CATS or any(k in f for k in SWEET_KWS)) else "Savory"
-
 
 # --------- Configuration ---------
 # PAFID Root is one level up from src/
@@ -70,6 +45,8 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 DEFAULT_MODEL = "gpt-image-1"
 # Default Gemini image model. Must match a model name returned by the Gemini API.
 DEFAULT_GEMINI_MODEL = "gemini-3-pro-image-preview"
+# Gemini text model used for food classification.
+DEFAULT_GEMINI_TEXT_MODEL = "gemini-2.0-flash"
 
 # Accept common truthy encodings from CSV cells (strings and numeric flags)
 TRUTHY = {"1", "1.0", "true", "t", "yes", "y", "on"}
@@ -139,19 +116,19 @@ def slugify(name: str) -> str:
 class RenderSpec:
     # Required (non-default) fields must come first for dataclasses
     food: str
-    category: str
-    nat_vs_trans: str
-    sweet_vs_savory: str
+
+    # Labels assigned by Gemini classification (populated before image generation)
+    who10_category: str = ""
+    simple6_category: str = ""
+    nat_vs_trans: str = ""
+    transformation_score: int = -1
 
     # Optional / defaulted fields
-    base_food: Optional[str] = None
-    prep_form: Optional[str] = None  # "raw" or "prepared"
     additional_prompt: str = ""
     size: str = DEFAULT_SIZE
     quality: str = DEFAULT_QUALITY
     model: str = DEFAULT_MODEL
     seed: Optional[int] = None
-    plate_image: Optional[Path] = None
     out_dir_override: Optional[Path] = None
 
     @property
@@ -179,18 +156,13 @@ BOWL_KWS = [
     "curry", "dahl", "custard", "pudding", "gelato", "sorbet", "ice cream", "bowl",
 ]
 
-def needs_bowl(food: str, category: str) -> bool:
+def needs_bowl(food: str) -> bool:
     f = str(food).lower()
-    c = str(category).lower()
-    if c in {"dessert"} and any(k in f for k in ["ice cream", "gelato", "sorbet", "custard", "pudding"]):
-        return True
-    if any(k in f for k in BOWL_KWS):
-        return True
-    return False
+    return any(k in f for k in BOWL_KWS)
 
 def bowl_clause_for(spec: RenderSpec) -> str:
     """Return an instruction string for when the item is traditionally served in a bowl."""
-    if not needs_bowl(spec.food, spec.category):
+    if not needs_bowl(spec.food):
         return ""
 
     # If a plate reference image is used, the bowl must visually match that plate.
@@ -259,22 +231,6 @@ def build_prompt(spec: RenderSpec) -> str:
 
     vessel_clause = bowl_clause_for(spec)
 
-    # Explicit preparation control (preferred over relying solely on CSV free-text)
-    prep = (spec.prep_form or "").strip().lower() if spec.prep_form is not None else ""
-    if prep == "raw":
-        prep_clause = (
-            "Render the food RAW and UNCOOKED (no steam/roast/grill marks, no sauteing). "
-            "No sauces or heavy seasoning; if cutting is typical, show simple raw cuts (e.g., slices/florets)."
-        )
-    elif prep == "prepared":
-        prep_clause = (
-            "Render the food in a typical PLAIN PREPARED form (cooked if commonly cooked): "
-            "lightly steamed, roasted, boiled, or sauteed as appropriate. "
-            "No sauces; minimal visible seasoning (avoid garnishes)."
-        )
-    else:
-        prep_clause = ""
-
     # Granular food realism (e.g., rice, couscous)
     granular_kws = ["rice", "couscous", "quinoa", "bulgur", "millet"]
     granular_clause = ""
@@ -298,8 +254,6 @@ def build_prompt(spec: RenderSpec) -> str:
     # Conditional negatives: forbid bowls only when no bowl is requested
     no_bowl_clause = " no bowls." if not vessel_clause else ""
 
-    if prep_clause:
-        return f"{base} {prep_clause} {NEGATIVE_PROMPT}{no_bowl_clause}"
     return f"{base} {NEGATIVE_PROMPT}{no_bowl_clause}"
     # Optional flavor: reinforce sweet/savory with subtle styling hints (kept neutral)
     # We avoid explicit taste adjectives to remain purely visual and brand-free.
@@ -324,11 +278,11 @@ def get_openai_client():
 # --------- Gemini Client (Images API) ---------
 def get_gemini_client():
     """
-    Return a Gemini client for image generation.
+    Return a Gemini client.
 
-    Requires:
-      - google-genai package (pip install -U google-genai)
-      - GEMINI_API_KEY environment variable (or other configured auth)
+    If GOOGLE_GENAI_USE_VERTEXAI=True, uses Vertex AI with Application Default
+    Credentials (no API key required). Otherwise falls back to the Gemini
+    Developer API using GEMINI_API_KEY.
     """
     try:
         from google import genai  # type: ignore
@@ -336,12 +290,151 @@ def get_gemini_client():
         print("[ERROR] Missing google-genai package. Install with: pip install -U google-genai", file=sys.stderr)
         raise
 
+    use_vertex = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in {"true", "1", "yes"}
+
+    if use_vertex:
+        project = os.getenv("GOOGLE_CLOUD_PROJECT")
+        location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+        if not project:
+            raise RuntimeError(
+                "GOOGLE_CLOUD_PROJECT is not set. "
+                "Export it first, e.g., 'export GOOGLE_CLOUD_PROJECT=usyd-llm'"
+            )
+        print(f"[INFO] Using Gemini via Vertex AI: project={project}, location={location}")
+        return genai.Client(vertexai=True, project=project, location=location)
+
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError(
             "GEMINI_API_KEY is not set. Export it first, e.g., 'export GEMINI_API_KEY=...'"
         )
+    print("[INFO] Using Gemini Developer API with GEMINI_API_KEY")
     return genai.Client(api_key=api_key)
+
+
+WHO10_CATEGORIES = [
+    "Dairy and eggs",
+    "Fruits",
+    "Vegetables",
+    "Confectionery and sweets",
+    "Bakery wares and cereals",
+    "Meat",
+    "Fish",
+    "Beverages",
+    "Ready-to-eat savories",
+    "Prepared foods",
+]
+
+SIMPLE6_CATEGORIES = [
+    "Fruit",
+    "Vegetable",
+    "Protein",
+    "Grain",
+    "Dessert",
+    "Dish",
+]
+
+CLASSIFY_PROMPT_TEMPLATE = (
+    'Classify the food item "{food}" using all four schemes below.\n\n'
+    "WHO 10 categories — pick exactly one:\n"
+    "- Dairy and eggs: milk, cheese, yogurt, butter, cream, eggs\n"
+    "- Fruits: fresh, dried, or minimally processed fruit\n"
+    "- Vegetables: fresh, dried, or minimally processed vegetables\n"
+    "- Confectionery and sweets: chocolate, candy, cake, cookies, pastries, ice cream, desserts\n"
+    "- Bakery wares and cereals: bread, crackers, pasta, rice, oats, cereals, grains\n"
+    "- Meat: beef, pork, lamb, poultry, game, and processed meats\n"
+    "- Fish: fish and all seafood\n"
+    "- Beverages: any drink — juice, alcohol, coffee, tea, soda, water\n"
+    "- Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation\n"
+    "- Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates (e.g. pizza, curry, stir-fry, sushi, salad with multiple components)\n\n"
+    "Simple 6 categories — pick exactly one:\n"
+    "- Fruit: any fruit\n"
+    "- Vegetable: any vegetable\n"
+    "- Protein: meat, fish, seafood, eggs, dairy, nuts, legumes\n"
+    "- Grain: bread, pasta, rice, cereals, and grain-based products\n"
+    "- Dessert: sweets, confectionery, cakes, pastries, ice cream\n"
+    "- Dish: multi-ingredient prepared meals and dishes\n\n"
+    "Natural vs Transformed — pick exactly one:\n"
+    "- Natural: the food is still visually and conceptually identifiable as a single biological food source, "
+    "even if it has undergone minor preparation such as washing, peeling, cutting, drying, freezing, or simple cooking\n"
+    "- Transformed: the food has been substantially altered from its original biological source through combination, "
+    "reforming, refining, fermentation, baking, frying, industrial processing, or preparation into a dish or product\n\n"
+    "Transformation score — assign a single integer from 0 to 100 using this scale:\n"
+    "  0–10:  Whole, raw, unmodified (e.g. apple, banana, carrot, tomato)\n"
+    " 10–25:  Minimally prepared but source-identifiable (e.g. sliced fruit, peeled orange, roasted nuts, dried fruit)\n"
+    " 25–40:  Simply cooked single-source food (e.g. boiled egg, steamed vegetables, grilled fish, plain rice)\n"
+    " 40–55:  Mechanically altered single-source food (e.g. mashed potato, minced meat, fruit puree, smoothie)\n"
+    " 55–70:  Biochemically or structurally transformed (e.g. cheese, yoghurt, tofu, bread, pasta)\n"
+    " 70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)\n"
+    " 85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)\n\n"
+    "Reply in exactly this format — four lines, no explanation:\n"
+    "WHO10: <category>\n"
+    "SIMPLE6: <category>\n"
+    "NAT_TRANS: <Natural or Transformed>\n"
+    "SCORE: <integer 0-100>"
+)
+
+
+NAT_TRANS_VALUES = {"Natural", "Transformed"}
+
+
+def classify_food_gemini(client, food: str, retries: int = 3, model: str = DEFAULT_GEMINI_TEXT_MODEL) -> tuple:
+    """
+    Use Gemini text API to classify a food item across four schemes:
+      - WHO10 category
+      - Simple6 category
+      - Natural vs Transformed
+      - Transformation score (0–100)
+
+    Returns (who10, simple6, nat_trans, score).
+    Falls back to empty strings / -1 on failure.
+    """
+    prompt = CLASSIFY_PROMPT_TEMPLATE.format(food=food)
+
+    for attempt in range(retries):
+        try:
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+            )
+            text = response.text.strip()
+            who10, simple6, nat_trans, score_str = "", "", "", ""
+            for line in text.splitlines():
+                upper = line.upper()
+                if upper.startswith("WHO10:"):
+                    who10 = line.split(":", 1)[1].strip()
+                elif upper.startswith("SIMPLE6:"):
+                    simple6 = line.split(":", 1)[1].strip()
+                elif upper.startswith("NAT_TRANS:"):
+                    nat_trans = line.split(":", 1)[1].strip()
+                elif upper.startswith("SCORE:"):
+                    score_str = line.split(":", 1)[1].strip()
+
+            # Validate all fields
+            who10_match = next((c for c in WHO10_CATEGORIES if c.lower() == who10.lower()), "")
+            simple6_match = next((c for c in SIMPLE6_CATEGORIES if c.lower() == simple6.lower()), "")
+            nat_trans_match = next((v for v in NAT_TRANS_VALUES if v.lower() == nat_trans.lower()), "")
+            try:
+                score = int(score_str)
+                score = max(0, min(100, score))  # clamp to 0–100
+            except (ValueError, TypeError):
+                score = -1
+
+            if who10_match and simple6_match and nat_trans_match and score >= 0:
+                return who10_match, simple6_match, nat_trans_match, score
+
+            print(
+                f"[WARN] Incomplete classification for '{food}': "
+                f"WHO10='{who10}' SIMPLE6='{simple6}' NAT_TRANS='{nat_trans}' SCORE='{score_str}' — retrying..."
+            )
+
+        except Exception as e:
+            print(f"[WARN] Classification attempt {attempt + 1} failed for '{food}': {e}")
+            if attempt < retries - 1:
+                backoff_sleep(attempt)
+
+    print(f"[WARN] Classification failed for '{food}'; leaving labels empty.")
+    return "", "", "", -1
 
 
 def generate_image_b64_openai(client, prompt: str, size: str, quality: str, model: str, seed: Optional[int]) -> str:
@@ -378,7 +471,7 @@ def generate_image_b64_openai(client, prompt: str, size: str, quality: str, mode
 
 
 # Gemini image generation helper
-def generate_image_b64_gemini(client, prompt: str, size: str, quality: str, model: str, seed: Optional[int], plate_image: Optional[Path] = None) -> str:
+def generate_image_b64_gemini(client, prompt: str, size: str, quality: str, model: str, seed: Optional[int]) -> str:
     """
     Call the Gemini image generation API and return a base64 PNG string.
     """
@@ -479,11 +572,10 @@ def write_meta(
     entry: Dict[str, Any] = {
         "image_file": spec.image_path.name,
         "food": spec.food,
-        "base_food": spec.base_food if spec.base_food is not None else spec.food,
-        "prep_form": spec.prep_form,
-        "category": spec.category,
+        "Category_WHO_10": spec.who10_category,
+        "Category_Simple_6": spec.simple6_category,
         "Natural_vs_transformed": spec.nat_vs_trans,
-        "Sweet_vs_savory": spec.sweet_vs_savory,
+        "Transformation_score": spec.transformation_score,
         "prompt": prompt,
         "model": spec.model,
         "size": spec.size,
@@ -492,7 +584,7 @@ def write_meta(
         "created": int(time.time()),
         "source": f"ai-{backend}",
         "style_version": style_version,
-        "plate_reference": str(spec.plate_image) if spec.plate_image is not None else None,
+        "plate_reference": None,
     }
 
     # Load existing list if present
@@ -560,7 +652,7 @@ def render_one(spec: RenderSpec, client=None, dry_run: bool=False, overwrite: bo
             if backend == "openai":
                 b64 = generate_image_b64_openai(client, prompt, spec.size, spec.quality, spec.model, spec.seed)
             elif backend == "gemini":
-                b64 = generate_image_b64_gemini(client, prompt, spec.size, spec.quality, spec.model, spec.seed, plate_image=spec.plate_image)
+                b64 = generate_image_b64_gemini(client, prompt, spec.size, spec.quality, spec.model, spec.seed)
             else:
                 raise ValueError(f"Unknown backend: {backend}")
             write_png_b64(b64, spec.image_path)
@@ -594,9 +686,10 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
         cols = [
             "image_file",
             "food",
-            "category",
+            "Category_WHO_10",
+            "Category_Simple_6",
             "Natural_vs_transformed",
-            "Sweet_vs_savory",
+            "Transformation_score",
             "prompt",
             "model",
             "size",
@@ -614,9 +707,10 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
         cols = [
             "image_file",
             "food",
-            "category",
+            "Category_WHO_10",
+            "Category_Simple_6",
             "Natural_vs_transformed",
-            "Sweet_vs_savory",
+            "Transformation_score",
             "prompt",
             "model",
             "size",
@@ -631,9 +725,10 @@ def load_master_df(master_path: Optional[Path] = None) -> pd.DataFrame:
         cols = [
             "image_file",
             "food",
-            "category",
+            "Category_WHO_10",
+            "Category_Simple_6",
             "Natural_vs_transformed",
-            "Sweet_vs_savory",
+            "Transformation_score",
             "prompt",
             "model",
             "size",
@@ -679,6 +774,86 @@ def list_missing_images(df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
 
     return missing_df
 
+# --------- Classify-only utilities ---------
+
+def run_classify_only(df: pd.DataFrame, client, out_dir: Path = OUT_DIR, text_model: str = DEFAULT_GEMINI_TEXT_MODEL) -> int:
+    """
+    Classify all foods in df using Gemini text API and inject the four
+    classification labels directly into stimuli_master.json. Does not
+    touch any images.
+
+    Matching between df rows and master entries is done by normalised food name.
+    Returns 0 on full success, 1 if any items failed classification.
+    """
+    master_path = out_dir / "stimuli_master.json"
+
+    # Load existing master (may already have QC fields, ratings, etc. — preserve all)
+    if master_path.exists():
+        try:
+            with master_path.open("r") as f:
+                master = json.load(f)
+            if not isinstance(master, list):
+                master = []
+        except Exception as e:
+            print(f"[ERROR] Could not read stimuli_master.json: {e}")
+            return 1
+    else:
+        master = []
+
+    # Build a lookup from normalised food name -> index in master list
+    def norm(s: str) -> str:
+        return re.sub(r"[^a-z0-9]", "", str(s).lower())
+
+    master_index: Dict[str, int] = {}
+    for idx, entry in enumerate(master):
+        key = norm(entry.get("food", entry.get("Food", "")))
+        master_index[key] = idx
+
+    total = len(df)
+    failures = 0
+
+    for i, (_, row) in enumerate(df.iterrows(), 1):
+        food = row["Food"]
+        print(f"[INFO] ({i}/{total}) Classifying: {food}")
+        who10, simple6, nat_trans, score = classify_food_gemini(client, food, model=text_model)
+
+        if not who10:
+            print(f"[FAIL] Could not classify: {food}")
+            failures += 1
+            continue
+
+        print(f"      [CLASSIFY] WHO10='{who10}' | Simple6='{simple6}' | {nat_trans} | Score={score}")
+
+        key = norm(food)
+        if key in master_index:
+            # Update existing entry in-place, preserving all other fields
+            entry = master[master_index[key]]
+        else:
+            # Food not yet in master (e.g. newly added) — create minimal entry
+            print(f"      [INFO] No existing master entry for '{food}' — creating new entry.")
+            entry = {"food": food, "image_file": f"{slugify(food)}.png"}
+            master.append(entry)
+            master_index[key] = len(master) - 1
+
+        entry["Category_WHO_10"] = who10
+        entry["Category_Simple_6"] = simple6
+        entry["Natural_vs_transformed"] = nat_trans
+        entry["Transformation_score"] = score
+
+    # Back up existing master before overwriting
+    if master_path.exists():
+        bak_path = master_path.with_suffix(".json.bak")
+        import shutil
+        shutil.copy2(master_path, bak_path)
+        print(f"[INFO] Backed up existing master to {bak_path.name}")
+
+    with master_path.open("w") as f:
+        json.dump(master, f, indent=2)
+
+    print(f"[DONE] Classified {total - failures}/{total} foods. Master updated: {master_path}")
+    return 0 if failures == 0 else 1
+
+
 # --------- Main CLI ---------
 
 def load_items(csv_path: Path) -> pd.DataFrame:
@@ -686,38 +861,15 @@ def load_items(csv_path: Path) -> pd.DataFrame:
         raise FileNotFoundError(f"CSV not found: {csv_path}")
     df = pd.read_csv(csv_path)
 
-    required = {"Category", "Food", "Natural_vs_transformed", "Sweet_vs_savory"}
-    present = set(df.columns)
-
-    # Ensure Category/Food exist first
-    if not {"Category", "Food"}.issubset(present):
-        missing_cf = {"Category", "Food"} - present
-        raise ValueError(f"CSV missing required columns: {missing_cf}")
+    if "Food" not in df.columns:
+        raise ValueError("CSV missing required column: Food")
 
     changed = False
 
-    if "Natural_vs_transformed" not in present:
-        df["Natural_vs_transformed"] = df["Food"].apply(_natural_vs_transformed)
-        changed = True
-        print("[INFO] Added missing column: Natural_vs_transformed")
-
-    if "Sweet_vs_savory" not in present:
-        df["Sweet_vs_savory"] = df.apply(lambda x: _sweet_vs_savory(x["Food"], x["Category"]), axis=1)
-        changed = True
-        print("[INFO] Added missing column: Sweet_vs_savory")
-
+    # Additional Prompt is optional — add as empty in-memory column if absent,
+    # without writing it back to the seed CSV.
     if "Additional Prompt" not in df.columns:
         df["Additional Prompt"] = ""
-        changed = True
-        print("[INFO] Added missing column: Additional Prompt")
-
-    # Normalise any NaN values in Additional Prompt to empty strings so they
-    # are treated as "no extra instructions" rather than truthy values.
-    if "Additional Prompt" in df.columns:
-        if df["Additional Prompt"].isna().any():
-            df["Additional Prompt"] = df["Additional Prompt"].fillna("")
-            changed = True
-            print("[INFO] Normalised NaN values in Additional Prompt column to empty strings.")
 
     # Clear calories column for later processing elsewhere
     if "Calories_per_100g (kcal)" in df.columns:
@@ -728,19 +880,13 @@ def load_items(csv_path: Path) -> pd.DataFrame:
 
     if changed:
         df.to_csv(csv_path, index=False)
-        print(f"[INFO] Updated CSV written with missing columns: {csv_path}")
-
-    # Final check
-    missing_final = required - set(df.columns)
-    if missing_final:
-        raise ValueError(f"CSV still missing columns after augmentation: {missing_final}")
+        print(f"[INFO] Updated CSV written: {csv_path}")
 
     return df
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Generate representative images for food stimuli.")
-    p.add_argument("--category", type=str, default=None, help="Filter to a single Category (e.g., Fruit)")
     p.add_argument("--food", type=str, default=None, help="Render a single Food item (exact match)")
     p.add_argument("--limit", type=int, default=None, help="Render at most N items")
     p.add_argument("--offset", type=int, default=0, help="Start at row offset")
@@ -758,23 +904,14 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--n", type=int, default=1, help="Images per item (currently saves the first; extend as needed)")
     p.add_argument("--overwrite", action="store_true", help="Overwrite existing files (default: skip if PNG exists)")
     p.add_argument("--dry-run", action="store_true", help="Do not call API; just print prompts and write metadata")
-    p.add_argument("--one-per-category", action="store_true", help="Render only one item per Category (first alphabetical)")
-    p.add_argument(
-        "--plate-image",
-        type=str,
-        default=None,
-        help="Optional path to a reference plate image. If provided (Gemini backend), the model will place the food onto this exact plate.",
-    )
+    p.add_argument("--classify-only", action="store_true", help="Run Gemini text classification only — update per-item JSON metadata without generating or touching images")
+
     return p.parse_args(argv)
 
 
 def main(argv: Optional[List[str]] = None) -> int:
     args = parse_args(argv)
     args.size = normalize_size(args.size)
-    plate_image_path: Optional[Path] = Path(args.plate_image).expanduser().resolve() if args.plate_image else None
-    if plate_image_path is not None and not plate_image_path.exists():
-        print(f"[ERROR] Plate image not found: {plate_image_path}")
-        return 2
     
     backend = args.backend
     requested_model = args.model
@@ -804,20 +941,26 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"[ERROR] {e}")
         return 2
 
+    # --- Classify-only mode: classify foods and update metadata, skip image generation ---
+    if args.classify_only:
+        text_model = args.model if args.model != DEFAULT_MODEL else DEFAULT_GEMINI_TEXT_MODEL
+        print(f"[INFO] Classify-only mode — using text model '{text_model}'")
+        gemini_client = get_gemini_client()
+        classify_df = df.copy()
+        if args.food:
+            classify_df = classify_df[classify_df["Food"].str.lower() == args.food.lower()]
+        if args.offset:
+            classify_df = classify_df.iloc[args.offset:]
+        if args.limit is not None:
+            classify_df = classify_df.head(args.limit)
+        return run_classify_only(classify_df, gemini_client, text_model=text_model)
+
     # Keep an unfiltered copy of all items for final integrity checks
     full_df = df.copy()
 
     # Filtering
-    if args.category:
-        df = df[df["Category"].str.lower() == args.category.lower()]
     if args.food:
         df = df[df["Food"].str.lower() == args.food.lower()]
-
-    if args.one_per_category:
-        # Choose one representative per category (alphabetical by Food for determinism)
-        df = (df.sort_values(["Category", "Food"]) 
-                .drop_duplicates(subset=["Category"], keep="first")
-             )
 
     if args.offset:
         df = df.iloc[args.offset:]
@@ -836,19 +979,13 @@ def main(argv: Optional[List[str]] = None) -> int:
             raise ValueError(f"Unknown backend: {backend}")
 
     total = len(df)
-    if args.one_per_category:
-        cats = ", ".join(sorted(df["Category"].unique()))
-        print(f"[INFO] One-per-category mode. Categories: {cats}")
-    
+
     # Pre-calculate skips to keep logging clean
     to_render = []
     skipped_count = 0
     for _, row in df.iterrows():
         spec = RenderSpec(
             food=row["Food"],
-            category=row["Category"],
-            nat_vs_trans=row["Natural_vs_transformed"],
-            sweet_vs_savory=row["Sweet_vs_savory"],
             additional_prompt=str(row.get("Additional Prompt", "") or ""),
         )
         has_extra = bool(spec.additional_prompt.strip())
@@ -867,21 +1004,26 @@ def main(argv: Optional[List[str]] = None) -> int:
     for i, row in enumerate(to_render, 1):
         food_name = row["Food"]
         print(f"[INFO] ({i}/{active_count}) Processing: {food_name}")
-        
+
+        # Classify food across all four schemes via Gemini text API
+        if not args.dry_run and backend == "gemini":
+            who10, simple6, nat_trans, score = classify_food_gemini(client, food_name)
+            print(f"      [CLASSIFY] WHO10='{who10}' | Simple6='{simple6}' | {nat_trans} | Score={score}")
+        else:
+            who10, simple6, nat_trans, score = "", "", "", -1
+
         # Base spec
         spec = RenderSpec(
             food=row["Food"],
-            base_food=(str(row.get("Base Food", "") or "").strip() or None),
-            prep_form=(str(row.get("Prep Form", "") or "").strip() or None),
-            category=row["Category"],
-            nat_vs_trans=row["Natural_vs_transformed"],
-            sweet_vs_savory=row["Sweet_vs_savory"],
+            who10_category=who10,
+            simple6_category=simple6,
+            nat_vs_trans=nat_trans,
+            transformation_score=score,
             additional_prompt=str(row.get("Additional Prompt", "") or ""),
             size=args.size,
             quality=args.quality,
             model=args.model,
             seed=args.seed,
-            plate_image=plate_image_path,
         )
 
         if not args.overwrite and spec.image_path.exists() and bool(spec.additional_prompt.strip()):
@@ -895,11 +1037,9 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Final integrity check: only run when processing the full dataset
     # (no category/food filters, no offsets/limits, no one-per-category).
     if (
-        not args.category
-        and not args.food
+        not args.food
         and args.offset == 0
         and args.limit is None
-        and not args.one_per_category
     ):
         print("[INFO] Running final integrity check on stimuli directory...")
         try:
