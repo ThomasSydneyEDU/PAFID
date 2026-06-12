@@ -114,7 +114,11 @@ def main():
     parser = argparse.ArgumentParser(description="Extract low-level visual features from images.")
     parser.add_argument("--stimuli-dir", type=str, required=True, help="Folder containing images.")
     parser.add_argument("--output-csv", type=str, default=None, help="Path to save CSV output. Defaults to <stimuli-dir>/visual_metrics.csv")
-    parser.add_argument("--merge-canonical", action="store_true", help="Merge results into the canonical CSV in ../data/")
+    parser.add_argument("--merge-canonical", action="store_true", help="Merge results into data/Foodpictures_information_dynamic.csv")
+    parser.add_argument("--overwrite", action="store_true",
+                        help="Replace ll_ values for ALL rows when merging. Default is incremental: "
+                             "only rows with missing ll_ values (i.e. new stimuli) are filled, preserving "
+                             "the canonical baseline values for existing items.")
     args = parser.parse_args()
 
     stimuli_dir = Path(args.stimuli_dir).resolve()
@@ -200,18 +204,45 @@ def main():
         if canonical_path.exists():
             print(f"[INFO] Merging results into: {canonical_path}")
             try:
-                df_can = pd.read_csv(canonical_path)
+                # utf-8-sig: the dynamic CSV is written with a BOM by run_qc.py;
+                # reading without it breaks the 'filename' column lookup (the BOM
+                # becomes part of the first header) and the merge silently fails.
+                df_can = pd.read_csv(canonical_path, encoding="utf-8-sig")
                 if "filename" not in df_can.columns:
                     print(f"[ERROR] 'filename' column missing in {canonical_path}. Merge failed.")
                 else:
-                    # Drop existing ll_ columns to prevent duplicates
-                    cols_to_drop = [c for c in EXPECTED_COLS if c != 'filename' and c in df_can.columns]
-                    if cols_to_drop:
-                        df_can.drop(columns=cols_to_drop, inplace=True)
-                    # Left join on filename
-                    df_merged = df_can.merge(df_metrics, on="filename", how="left")
+                    ll_cols = [c for c in EXPECTED_COLS if c != 'filename']
+                    df_metrics_dedup = df_metrics.drop_duplicates(subset="filename", keep="first")
+
+                    if args.overwrite:
+                        # Replace ll_ values for all rows.
+                        df_can.drop(columns=[c for c in ll_cols if c in df_can.columns], inplace=True)
+                        df_merged = df_can.merge(df_metrics_dedup, on="filename", how="left")
+                        print(f"[INFO] --overwrite: replaced ll_ values for all rows.")
+                    else:
+                        # Incremental (default): only fill rows whose ll_ values are
+                        # missing (new stimuli). Existing values — e.g. the canonical
+                        # 350-item baseline — are preserved. NOTE: HOG PCs are
+                        # PCA-based and depend on the image set they were fit on,
+                        # so values from different runs are not in the same basis.
+                        df_merged = df_can.copy()
+                        for c in ll_cols:
+                            if c not in df_merged.columns:
+                                df_merged[c] = pd.NA
+                        lookup = df_metrics_dedup.set_index("filename")
+                        mask = df_merged[ll_cols[0]].isna()
+                        n_fill = 0
+                        for idx in df_merged.index[mask]:
+                            fn = str(df_merged.at[idx, "filename"])
+                            if fn in lookup.index:
+                                for c in ll_cols:
+                                    df_merged.at[idx, c] = lookup.at[fn, c]
+                                n_fill += 1
+                        print(f"[INFO] Incremental merge: filled ll_ values for {n_fill} new row(s); "
+                              f"{int((~mask).sum())} existing row(s) preserved. Use --overwrite to recompute all.")
+
                     # Save back
-                    df_merged.to_csv(canonical_path, index=False)
+                    df_merged.to_csv(canonical_path, index=False, encoding="utf-8-sig")
                     print("[OK] Merged results into canonical CSV.")
             except Exception as e:
                 print(f"[ERROR] Could not merge into canonical: {e}")

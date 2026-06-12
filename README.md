@@ -178,14 +178,19 @@ Acquire "blind" AI ratings (where the AI only sees the image and must guess what
 ```bash
 python src/rate_images.py --stimuli-dir rendered_images/
 ```
-*   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
+*   **Merges results** into `data/Foodpictures_information_dynamic.csv` (columns `blind_observed_food`, `blind_guess_similarity`, `blind_ai_*`, `blind_model`).
+*   **Incremental:** rows that already have blind ratings are skipped, so re-running the pipeline only rates newly added stimuli. Use `--overwrite` to re-rate everything.
+*   **Model:** defaults to `gemini-2.5-pro`, the model used for the canonical 350-item database — keep this default so ratings for new stimuli remain comparable. Override with `--model`.
+*   A second API call scores the similarity (0–100) between the AI's blind guess and the true food name (`blind_guess_similarity`).
 
 ### 5. Extract Visual Features
 Compute low-level visual statistics (luminance, contrast, edge energy, etc.):
 ```bash
 python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical
 ```
-*   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
+*   **Merges results** into `data/Foodpictures_information_dynamic.csv` (`ll_*` columns).
+*   **Incremental:** only rows with missing `ll_` values (newly added stimuli) are filled — the canonical 350-item baseline values are preserved. Use `--overwrite` to recompute every row.
+*   **Caveat (HOG PCs):** `ll_hog_pc01–10` are PCA components fit on the image set processed in that run, so values from different runs are not in a shared basis. Scalar features (luminance, contrast, Lab/HSV stats, edge energy) are directly comparable across runs; HOG PCs are not. For analyses mixing old and new stimuli, recompute HOG PCs across the full image set (`--overwrite`) or treat them per-run.
 
 ### 6. Prepare for Experiments
 Resize images and generate trial metadata:
@@ -211,7 +216,6 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`base_food`**: The underlying ingredient or dish name before preparation.
 
 ### 2. Categorical Labels
-* **`food_classification`**: Legacy high-level food category (e.g., Fruit, Vegetable, Protein).
 * **`Category_WHO_10`**: AI-assigned classification based on the 10 WHO food groups.
 * **`Category_Intuitive_7`**: AI-assigned 7-group intuitive category.
 * **`Category_Culinary_9`**: AI-assigned 9-group culinary category.
@@ -232,13 +236,13 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`human_calorie_density`**: Perceived caloric density.
 * **`human_healthiness`**: Perceived healthiness.
 * **`human_appeal`**: Visual appetizingness/appeal.
+* **`human_familiarity`**: Subjective familiarity with the food item.
 * **`human_sweetness`, `human_saltiness`, `human_sourness`, `human_bitterness`, `human_savoriness`**: Perceived core taste profiles.
 * **`human_fattiness`, `human_spiciness`**: Perceived mouthfeel and heat.
 
 ### 5. AI Quality Control (Aware)
 * **`caption`**: AI-generated descriptive caption of the image.
 * **`aware_observed_food`**: What the AI identifies in the image when prompted with the target label.
-* **`aware_observed_prep`**: How the AI identifies the preparation state.
 * **`label_match`**: 'match' or 'mismatch' determining if the image successfully represents the intended food.
 * **`label_confidence`**: AI's confidence (0.0 - 1.0) in the label match.
 * **`portion_size_ok` / `plate_rim_visible`**: Boolean checks ensuring photographic consistency.

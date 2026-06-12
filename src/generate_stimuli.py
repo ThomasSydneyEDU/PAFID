@@ -590,6 +590,7 @@ def write_meta(
     entry: Dict[str, Any] = {
         "image_file": spec.image_path.name,
         "food": spec.food,
+        "base_food": spec.food,
         "Category_WHO_10": spec.who10_category,
         "Category_Intuitive_7": spec.intuitive7_category,
         "Category_Culinary_9": spec.culinary9_category,

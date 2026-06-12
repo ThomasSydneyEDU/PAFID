@@ -419,6 +419,21 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
 
             e = by_food.get(food_key, {})
 
+            culinary9 = e.get("Category_Culinary_9", "")
+            intuitive7 = e.get("Category_Intuitive_7", "")
+            
+            # Dynamically resolve sweet_vs_savory if not explicitly present in master
+            sweet_savory = e.get("Sweet_vs_savory", "")
+            if not sweet_savory:
+                if culinary9 in ["Produce - Sweet", "Desserts & Sweets"]:
+                    sweet_savory = "Sweet"
+                elif intuitive7 in ["Fruit", "Dessert"]:
+                    sweet_savory = "Sweet"
+                elif any(k in food_name.lower() for k in ["sweet", "chocolate", "cake", "cookie", "pie", "ice cream", "candy", "jam", "honey", "sugar", "pudding", "dessert", "syrup", "fruit", "donut", "brownie", "cupcake", "muffin", "milkshake", "smoothie", "acai", "baklava"]):
+                    sweet_savory = "Sweet"
+                else:
+                    sweet_savory = "Savory"
+
             out: Dict[str, Any] = {
                 "Category": cat,
                 "Food": food_name,
@@ -430,9 +445,10 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "filename": e.get("image_file", ""),
                 "food": food_name,
                 "base_food": e.get("base_food", ""),
-                "food_classification": e.get("category", ""),
+                # NOTE: legacy food_classification is no longer exported —
+                # replaced by Category_Intuitive_7 (see classify_food_gemini).
                 "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
-                "sweet_vs_savory": e.get("Sweet_vs_savory", ""),
+                "sweet_vs_savory": sweet_savory,
                 "Category_WHO_10": e.get("Category_WHO_10", ""),
                 "Category_Intuitive_7": e.get("Category_Intuitive_7", ""),
                 "Category_Culinary_9": e.get("Category_Culinary_9", ""),
@@ -498,10 +514,10 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
 
     # Apply column ordering
     col_order = [
-        'filename', 'food', 'base_food', 'food_classification', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9', 
+        'filename', 'food', 'base_food', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9',
         'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory', 
         'prompt', 'model', 'seed', 'created', 'style_version', 'plate_reference', 
-        'human_calorie_density', 'human_healthiness', 'human_appeal', 
+        'human_calorie_density', 'human_healthiness', 'human_appeal', 'human_familiarity',
         'human_sweetness', 'human_saltiness', 'human_sourness', 'human_bitterness', 
         'human_savoriness', 'human_fattiness', 'human_spiciness',
         'caption', 'aware_observed_food', 'label_match', 'label_confidence', 
@@ -520,18 +536,32 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
     
     # 2. Merge with existing output (to preserve blind_ai and ll_metrics)
     if out_csv.exists():
-        old_df = pd.read_csv(out_csv)
+        old_df = pd.read_csv(out_csv, encoding="utf-8-sig")
         if 'filename' in old_df.columns and 'filename' in new_df.columns:
             merge_key = 'filename'
         else:
             merge_key = 'Food'
-            
+
+        # Guard against duplicate keys: a duplicated row in either frame would
+        # multiply rows in the left-merge and then self-perpetuate through
+        # every subsequent export.
+        for name, frame in (("existing CSV", old_df), ("new export", new_df)):
+            n_dup = int(frame.duplicated(subset=merge_key).sum())
+            if n_dup:
+                print(f"[WARN] Dropping {n_dup} duplicate '{merge_key}' row(s) from {name}.")
+        old_df = old_df.drop_duplicates(subset=merge_key, keep='first')
+        new_df = new_df.drop_duplicates(subset=merge_key, keep='first')
+
         cols_to_update = [c for c in new_df.columns if c != merge_key]
         old_df = old_df.drop(columns=[c for c in cols_to_update if c in old_df.columns])
         final_df = pd.merge(new_df, old_df, on=merge_key, how='left')
     else:
-        final_df = new_df
+        final_df = new_df.drop_duplicates(subset='filename' if 'filename' in new_df.columns else 'Food', keep='first')
         
+    # Drop legacy/unrecognized columns to keep output clean
+    legacy_cols_to_drop = ['food_classification', 'Category', 'Food', 'll_power_radial_30_json', 'll_lbp_hist_json']
+    final_df.drop(columns=[c for c in legacy_cols_to_drop if c in final_df.columns], inplace=True)
+
     final_order = [c for c in col_order if c in final_df.columns]
     final_order += [c for c in final_df.columns if c not in final_order]
     final_df = final_df[final_order]
