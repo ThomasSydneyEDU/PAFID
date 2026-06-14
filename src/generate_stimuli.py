@@ -348,6 +348,85 @@ CULINARY9_CATEGORIES = [
     "Snacks & Savory Junk",
 ]
 
+# Bump this whenever CLASSIFY_PROMPT_TEMPLATE changes. Entries in
+# stimuli_master.json stamped with the current version are skipped on
+# --classify-only reruns, making the classification step resumable.
+CLASSIFY_PROMPT_VERSION = "v2-2026-06-12-intuitive7-folk-categories"
+
+# --- NOVA classification (Monteiro et al., 2016) ---
+# Ported from manuscript/nova_classification_prompt.md in the FoodTriplet-Analysis
+# repo (the document used for the original manual batch classification of the
+# canonical 350 items). Same definitions and ambiguity rules, applied per food.
+# Stamped separately from the main 4-scheme prompt so the two can evolve
+# independently without re-triggering each other.
+NOVA_PROMPT_VERSION = "v1-2026-06-monteiro-2016"
+
+NOVA_CLASSIFY_PROMPT_TEMPLATE = (
+    'Classify the food item "{food}" into a NOVA group (1-4) based on the extent and purpose '
+    "of industrial food processing (Monteiro et al., 2016).\n\n"
+    "NOVA groups:\n"
+    "1 — Unprocessed or minimally processed foods: foods in their natural state, or altered by "
+    "processes that do not add substances (drying, roasting, freezing, boiling, pasteurisation, "
+    "fermentation). Examples: fresh/frozen fruit and vegetables, plain meat and fish, eggs, plain "
+    "milk, plain nuts and seeds, dried legumes, plain rice, oats, plain flour, plain yogurt.\n"
+    "2 — Processed culinary ingredients: substances extracted from whole foods and used in cooking, "
+    "not typically eaten alone. Examples: vegetable oils, butter, lard, sugar, honey, salt, vinegar, "
+    "plain starch. (Unlikely to apply to most plated foods.)\n"
+    "3 — Processed foods: foods made by adding salt, sugar, oil, or other Group 2 substances to "
+    "Group 1 foods; usually two or three ingredients; the alteration is recognisable. Examples: "
+    "canned tomatoes, salted nuts, smoked fish, preserved meats, simple cheeses, plain bread, wine.\n"
+    "4 — Ultra-processed foods: industrial formulations with many ingredients, typically including "
+    "additives not used in home cooking (emulsifiers, stabilisers, flavourings, colours, sweeteners, "
+    "preservatives); no whole-food equivalent. Examples: soft drinks, packaged chips/crisps, instant "
+    "noodles, reconstituted meat products, commercial breakfast cereals with additives, packaged "
+    "cakes and biscuits, flavoured yogurts, fast food items, candy/confectionery.\n\n"
+    "Rules for ambiguous cases:\n"
+    "- For foods marked '(prepared)', classify the typical home-cooked preparation (usually still "
+    "Group 1 or 3). Do not assume industrial processing simply because a food is cooked.\n"
+    "- Dried fruits are typically Group 1 (drying is minimal processing) unless they contain added "
+    "sugar or sulphites, in which case Group 3.\n"
+    "- Plain legumes cooked or canned are Group 1-3 depending on preparation; classify the typical "
+    "ready-to-eat form.\n"
+    "- Dishes (e.g. biryani, lasagna, pad thai, sushi) are typically assembled from Group 1-3 "
+    "ingredients in a home or restaurant kitchen; classify as Group 3 unless clearly an industrial "
+    "product (e.g. instant ramen, fast food).\n"
+    "- Classify the most typical, widely available form of the food, not the most processed "
+    "possible version.\n\n"
+    "Reply in exactly this format — two lines, no explanation:\n"
+    "NOVA: <integer 1-4>\n"
+    "NOTE: <one short phrase only if borderline/ambiguous, otherwise leave empty>"
+)
+
+
+def classify_nova_gemini(client, food: str, retries: int = 8, model: str = "gemini-2.5-flash"):
+    """Classify a single food into a NOVA group (1-4). Returns (group:int|None, note:str)."""
+    prompt = NOVA_CLASSIFY_PROMPT_TEMPLATE.format(food=food)
+    for attempt in range(retries):
+        try:
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+                config={"temperature": 0},
+            )
+            text = response.text.strip()
+            group, note = None, ""
+            for line in text.splitlines():
+                upper = line.upper()
+                if upper.startswith("NOVA:"):
+                    digits = re.sub(r"\D", "", line.split(":", 1)[1])
+                    if digits:
+                        group = max(1, min(4, int(digits[0])))
+                elif upper.startswith("NOTE:"):
+                    note = line.split(":", 1)[1].strip()
+            if group is not None:
+                return group, note
+            raise ValueError(f"Could not parse NOVA group from: {text[:120]!r}")
+        except Exception as e:
+            print(f"[WARN] NOVA classification error: {e}. Retrying...")
+            import time
+            time.sleep(min(60, (2 ** attempt)) + 0.25 * attempt)
+    return None, ""
+
 CLASSIFY_PROMPT_TEMPLATE = (
     'Classify the food item "{food}" using all four schemes below.\n\n'
     "WHO 10 categories — pick exactly one:\n"
@@ -361,21 +440,23 @@ CLASSIFY_PROMPT_TEMPLATE = (
     "- Beverages: any drink — juice, alcohol, coffee, tea, soda, water\n"
     "- Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation\n"
     "- Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates (e.g. pizza, curry, stir-fry, sushi, salad with multiple components)\n\n"
-    "AI Intuitive 7 categories — pick exactly one:\n"
-    "- Vegetable: Savory produce and plant foods typically used as vegetables in meals. Include culinary vegetables even if botanically fruits, such as tomato, avocado, cucumber, capsicum/pepper, eggplant.\n"
-    "- Plant protein: Plant-derived foods primarily treated as protein sources, such as tofu, tempeh, beans, lentils, chickpeas, edamame, legumes, nuts where they function as a protein-rich food.\n"
-    "- Animal protein: Meat, poultry, fish, seafood, eggs, and other animal-derived foods primarily treated as protein sources. A plain cooked fish fillet or grilled chicken breast should be Animal protein, not Dish.\n"
-    "- Fruit: Sweet fruits typically eaten as fruit, snacks, or desserts, such as apples, berries, bananas, oranges, grapes, melon.\n"
-    "- Dessert: Sweet prepared foods and treats, including cake, cookies, pastries, chocolate, ice cream, donuts, sweets/candy, sweet puddings.\n"
-    "- Grain: Grain/starch/carbohydrate staples when not primarily sweet or composite dishes, such as rice, plain pasta, plain bread, oats, noodles, cereals, tortillas, potatoes if being treated as a staple carbohydrate.\n"
-    "- Dish: Composite prepared foods/meals made from multiple ingredients or presented as a named recipe/meal, such as pizza, curry, stir-fry, burger, sandwich, lasagna, sushi, burrito, salad bowl, rice bowl.\n"
+    "AI Intuitive 7 categories — pick exactly one. These are folk categories: choose the bucket "
+    "an average person would put the food in, based on what the food fundamentally IS.\n"
+    "- Fruit: Foods recognised and eaten as fruit, whether sweet or sour, fresh or dried — e.g. apples, berries, bananas, citrus, grapes, melon, dried fruit.\n"
+    "- Vegetable: Produce used as a vegetable in meals, including starchy roots and tubers, and culinary vegetables that are botanically fruits (e.g. tomato, avocado, cucumber, capsicum/pepper, eggplant).\n"
+    "- Grain: Foods made primarily of cereal grains or flour that are not primarily sweet — e.g. rice, pasta, noodles, bread, oats, breakfast cereals, tortillas, plain or savoury baked goods.\n"
+    "- Animal protein: Foods derived from a single animal source — meat, poultry, fish, seafood, eggs, and dairy (cheese, yogurt). Includes processed or preserved single-source meats (e.g. sausage, ham, bacon, smoked fish).\n"
+    "- Plant protein: Plant-derived foods primarily treated as protein sources — e.g. tofu, tempeh, beans, lentils, chickpeas, edamame, legumes, nuts where they function as a protein-rich food.\n"
+    "- Dessert: Foods that are primarily sweet and eaten as a treat — e.g. cake, cookies, sweet pastries, chocolate, ice cream, candy, sweet puddings. The food must be primarily sweet: plain or savoury baked goods are Grain, not Dessert.\n"
+    "- Dish: Composite meals combining multiple ingredients into a named recipe — e.g. pizza, curry, stir-fry, burger, sandwich, lasagna, sushi, burrito, salad bowl, rice bowl. Only multi-ingredient prepared meals belong here.\n"
     "Decision rules for Intuitive 7:\n"
     "  * Use the food name, including any parenthetical preparation information.\n"
-    "  * Prefer culinary/common-sense categorisation over botanical classification.\n"
-    "  * Simple cooking alone does not make something a Dish. For example, grilled salmon is Animal protein; steamed broccoli is Vegetable; plain rice is Grain.\n"
-    "  * Multi-ingredient named meals should usually be Dish unless they are clearly desserts.\n"
-    "  * Sweet treats are Dessert even if they are grain-based.\n"
-    "  * Savory fruits like tomato and avocado should usually be Vegetable.\n\n"
+    "  * Judge by folk/culinary intuition, not botanical or nutritional classification.\n"
+    "  * The category follows the dominant base food. Cooking, drying, frying, or otherwise processing a single base food does not change its bucket: grilled salmon is Animal protein; roast potato is Vegetable; toast is Grain; dried apple is Fruit.\n"
+    "  * Dessert requires the food to be primarily sweet AND treat-like. Being baked or a pastry is not sufficient.\n"
+    "  * Dish is only for multi-ingredient composite meals. Neither simple preparation nor being a snack makes something a Dish.\n"
+    "  * Savoury snack foods are classified by their dominant base ingredient (e.g. grain-based crackers are Grain; potato-based crisps are Vegetable; nut mixes are Plant protein).\n"
+    "  * Dairy foods belong to Animal protein (the only animal-derived bucket).\n\n"
     "Culinary 9 categories — pick exactly one:\n"
     "- Produce - Sweet: Sweet fruits typically eaten as fruit/snacks/dessert. Examples: apple, banana, berries, orange, grapes, melon, mango.\n"
     "- Produce - Savory: Vegetables and savory produce used in meals/salads. Include botanically-fruit-but-culinarily-savory items. Examples: broccoli, carrot, lettuce, spinach, tomato, avocado, cucumber, capsicum/pepper, eggplant.\n"
@@ -418,7 +499,7 @@ CLASSIFY_PROMPT_TEMPLATE = (
 NAT_TRANS_VALUES = {"Natural", "Transformed"}
 
 
-def classify_food_gemini(client, food: str, retries: int = 5, model: str = "gemini-2.5-flash") -> tuple:
+def classify_food_gemini(client, food: str, retries: int = 8, model: str = "gemini-2.5-flash") -> tuple:
     prompt = CLASSIFY_PROMPT_TEMPLATE.format(food=food)
 
     for attempt in range(retries):
@@ -426,6 +507,7 @@ def classify_food_gemini(client, food: str, retries: int = 5, model: str = "gemi
             response = client.models.generate_content(
                 model=model,
                 contents=prompt,
+                config={"temperature": 0},  # deterministic-as-possible classification
             )
             text = response.text.strip()
             who10, intuitive7, culinary9, nat_trans, score_str = "unknown", "unknown", "unknown", "unknown", ""
@@ -832,51 +914,115 @@ def run_classify_only(df: pd.DataFrame, client, out_dir: Path = OUT_DIR, text_mo
         key = norm(entry.get("food", entry.get("Food", "")))
         master_index[key] = idx
 
-    total = len(df)
-    failures = 0
-
-    for i, (_, row) in enumerate(df.iterrows(), 1):
-        food = row["Food"]
-        print(f"[INFO] ({i}/{total}) Classifying: {food}")
-        who10, intuitive7, culinary9, nat_trans, score = classify_food_gemini(client, food, model=text_model)
-
-        if not who10:
-            print(f"[FAIL] Could not classify: {food}")
-            failures += 1
-            continue
-
-        print(f"      [CLASSIFY] WHO10='{who10}' | Intuitive7='{intuitive7}' | Culinary9='{culinary9}' | {nat_trans} | Score={score}")
-
-        key = norm(food)
-        if key in master_index:
-            # Update existing entry in-place, preserving all other fields
-            entry = master[master_index[key]]
-        else:
-            # Food not yet in master (e.g. newly added) — create minimal entry
-            print(f"      [INFO] No existing master entry for '{food}' — creating new entry.")
-            entry = {"food": food, "image_file": f"{slugify(food)}.png"}
-            master.append(entry)
-            master_index[key] = len(master) - 1
-
-        entry["Category_WHO_10"] = who10
-        entry["Category_Intuitive_7"] = intuitive7
-        entry["Category_Culinary_9"] = culinary9
-        entry["Natural_vs_transformed"] = nat_trans
-        entry["Transformation_score"] = score
-        if "Category_Simple_6" in entry:
-            del entry["Category_Simple_6"]
-
-    # Back up existing master before overwriting
+    # Back up existing master ONCE before any incremental writes
     if master_path.exists():
         bak_path = master_path.with_suffix(".json.bak")
         import shutil
         shutil.copy2(master_path, bak_path)
         print(f"[INFO] Backed up existing master to {bak_path.name}")
 
-    with master_path.open("w") as f:
-        json.dump(master, f, indent=2)
+    def _save():
+        with master_path.open("w") as f:
+            json.dump(master, f, indent=2)
 
-    print(f"[DONE] Classified {total - failures}/{total} foods. Master updated: {master_path}")
+    LABEL_FIELDS = ["Category_WHO_10", "Category_Intuitive_7", "Category_Culinary_9",
+                    "Natural_vs_transformed", "Transformation_score"]
+
+    def _already_done(entry: dict) -> bool:
+        """Entry was classified with the CURRENT prompt version and has valid labels."""
+        if entry.get("classify_prompt_version") != CLASSIFY_PROMPT_VERSION:
+            return False
+        return all(str(entry.get(k, "")).strip() not in ("", "unknown", "None") for k in LABEL_FIELDS)
+
+    def _nova_done(entry: dict) -> bool:
+        """Entry has a valid NOVA group under the current NOVA prompt version."""
+        if entry.get("nova_prompt_version") != NOVA_PROMPT_VERSION:
+            return False
+        try:
+            return int(entry.get("Category_NOVA_4")) in (1, 2, 3, 4)
+        except (TypeError, ValueError):
+            return False
+
+    import time as _time
+    total = len(df)
+    failures = 0
+    done = 0
+    nova_done_n = 0
+    skipped = 0
+
+    for i, (_, row) in enumerate(df.iterrows(), 1):
+        food = row["Food"]
+        key = norm(food)
+        entry = master[master_index[key]] if key in master_index else None
+
+        main_done = entry is not None and _already_done(entry)
+        nova_ok = entry is not None and _nova_done(entry)
+
+        # Resumable: skip foods fully classified under the current prompt versions
+        if main_done and nova_ok:
+            skipped += 1
+            continue
+
+        # --- Main 4-scheme classification ---
+        if not main_done:
+            print(f"[INFO] ({i}/{total}) Classifying: {food}")
+            who10, intuitive7, culinary9, nat_trans, score = classify_food_gemini(client, food, model=text_model)
+
+            # Treat exhausted-retry sentinel ('unknown') as a failure: do NOT write
+            # 'unknown' labels into the master — leave the entry untouched so a
+            # rerun retries it.
+            if (not who10) or who10 == "unknown" or intuitive7 == "unknown":
+                print(f"[FAIL] Could not classify: {food} (will retry on next run)")
+                failures += 1
+                continue
+
+            print(f"      [CLASSIFY] WHO10='{who10}' | Intuitive7='{intuitive7}' | Culinary9='{culinary9}' | {nat_trans} | Score={score}")
+
+            if entry is None:
+                # Food not yet in master (e.g. newly added) — create minimal entry
+                print(f"      [INFO] No existing master entry for '{food}' — creating new entry.")
+                entry = {"food": food, "image_file": f"{slugify(food)}.png"}
+                master.append(entry)
+                master_index[key] = len(master) - 1
+
+            entry["Category_WHO_10"] = who10
+            entry["Category_Intuitive_7"] = intuitive7
+            entry["Category_Culinary_9"] = culinary9
+            entry["Natural_vs_transformed"] = nat_trans
+            entry["Transformation_score"] = score
+            entry["classify_prompt_version"] = CLASSIFY_PROMPT_VERSION
+            if "Category_Simple_6" in entry:
+                del entry["Category_Simple_6"]
+            done += 1
+            _save()  # checkpoint after every API result
+            _time.sleep(1.5)
+
+        # --- NOVA classification (Monteiro et al., 2016) ---
+        if not nova_ok:
+            print(f"[INFO] ({i}/{total}) NOVA-classifying: {food}")
+            nova_group, nova_note = classify_nova_gemini(client, food, model=text_model)
+            if nova_group is None:
+                print(f"[FAIL] Could not NOVA-classify: {food} (will retry on next run)")
+                failures += 1
+                continue
+            print(f"      [NOVA] Group {nova_group}" + (f" ({nova_note})" if nova_note else ""))
+            entry["Category_NOVA_4"] = int(nova_group)
+            if nova_note:
+                entry["nova_notes"] = nova_note
+            entry["nova_prompt_version"] = NOVA_PROMPT_VERSION
+            entry["nova_source"] = text_model
+            nova_done_n += 1
+            _save()  # checkpoint after every API result
+            _time.sleep(1.5)
+
+    _save()
+    if skipped:
+        print(f"[INFO] Skipped {skipped} food(s) already fully classified "
+              f"(prompt '{CLASSIFY_PROMPT_VERSION}', NOVA '{NOVA_PROMPT_VERSION}').")
+    print(f"[DONE] Classified {done} food(s) + {nova_done_n} NOVA label(s) this run, "
+          f"{failures} failure(s). Master updated: {master_path}")
+    if failures:
+        print("[HINT] Re-run the same command to retry failed items — completed ones will be skipped.")
     return 0 if failures == 0 else 1
 
 

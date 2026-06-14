@@ -126,7 +126,7 @@ This repository includes two versions of the master metadata:
 
 ## AI-Assigned Labels
 
-Rather than requiring labels to be specified manually in the seed list, the pipeline uses Gemini to assign four labels per food item automatically:
+Rather than requiring labels to be specified manually in the seed list, the pipeline uses Gemini to assign six labels per food item automatically:
 
 | Column | Description |
 |---|---|
@@ -135,6 +135,7 @@ Rather than requiring labels to be specified manually in the seed list, the pipe
 | `Category_Culinary_9` | AI-assigned 9-group culinary category (e.g., Produce - Sweet, Composite Meals) |
 | `Natural_vs_transformed` | Whether the food is **Natural** (identifiable as a single biological source, even if minimally prepared) or **Transformed** (substantially altered through processing, combination, or cooking) |
 | `Transformation_score` | Continuous score 0–100 reflecting degree of processing (0–10 = raw/whole; 85–100 = highly manufactured) |
+| `Category_NOVA_4` | NOVA food-processing group 1–4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed. Classified with a separate prompt (ported from the original manual batch protocol) and versioned independently of the other four schemes, so updating one prompt does not re-trigger the other. |
 
 Classification uses `gemini-2.0-flash` via a single text call per food item and does not depend on the generated image.
 
@@ -145,7 +146,7 @@ Add new food items to `data/food_list_initial_seed.csv` (one food name per row, 
 ```bash
 python src/generate_stimuli.py --limit 5
 ```
-*   For each food, Gemini assigns all four labels (see above) before generating the image.
+*   For each food, Gemini assigns the first five labels (see above) before generating the image.
 *   **Safe Defaults**: By default, the script will **skip** existing PNG files in `rendered_images/`. Use `--overwrite` only if you explicitly wish to replace an image.
 *   **Outputs**: Images and per-item metadata saved to `rendered_images/stimuli_master.json`.
 
@@ -155,7 +156,7 @@ To assign or update labels on an existing set of images without regenerating the
 python src/generate_stimuli.py --classify-only
 ```
 *   Reads food names from `food_list_initial_seed.csv`.
-*   Calls Gemini text API to assign all four labels per food.
+*   Calls Gemini text API to assign all six labels per food (including NOVA).
 *   Updates `rendered_images/stimuli_master.json` in-place, preserving all existing fields (QC ratings, prompts, visual features, etc.).
 *   Creates a `.bak` backup of the master before writing.
 *   **Images are never touched.**
@@ -198,12 +199,20 @@ Resize images and generate trial metadata:
 python src/prepare_images.py --stimuli-dir rendered_images/
 ```
 
-### 6. Reset Pipeline
+### 7. Reset Pipeline
 If you want to undo your changes and return the database to the 350-item baseline:
 ```bash
 python src/reset_pipeline.py
 ```
 *   **Safety**: This script will ask for confirmation before deleting any non-canonical images or metadata you have generated.
+
+### 8. Rerun Pipeline Safely
+To quickly re-run all classification, rating, and feature extraction steps on existing images without re-rendering anything:
+```bash
+bash rerun_pipeline_safe.sh
+```
+*   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting the prompts in the source scripts.
+*   **Safety**: This script explicitly forces `--classify-only` and `--overwrite`, but never generates or touches the images themselves.
 
 
 ## Dataset Schema (Data Dictionary)
@@ -216,11 +225,12 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`base_food`**: The underlying ingredient or dish name before preparation.
 
 ### 2. Categorical Labels
-* **`Category_WHO_10`**: AI-assigned classification based on the 10 WHO food groups.
-* **`Category_Intuitive_7`**: AI-assigned 7-group intuitive category.
-* **`Category_Culinary_9`**: AI-assigned 9-group culinary category.
-* **`natural_vs_transformed`**: Binary classification: 'Natural' (whole/unprocessed) or 'Transformed' (cooked/milled/processed).
-* **`Transformation_score`**: AI-assigned 1-10 rating of how processed or altered the food is from its natural state.
+* **`Category_WHO_10`**: AI-assigned classification based on the 10 WHO food groups (Dairy and eggs, Fruits, Vegetables, Confectionery and sweets, Bakery wares and cereals, Meat, Fish, Beverages, Ready-to-eat savories, Prepared foods).
+* **`Category_Intuitive_7`**: AI-assigned 7-group intuitive category. These are "folk categories" — the bucket an average person would put the food in, based on what the food fundamentally is (Fruit, Vegetable, Grain, Animal protein, Plant protein, Dessert, Dish).
+* **`Category_Culinary_9`**: AI-assigned 9-group culinary category (Produce - Sweet, Produce - Savory, Carbohydrates & Staples, Animal Protein, Plant Protein, Dairy, Composite Meals, Desserts & Sweets, Snacks & Savory Junk).
+* **`natural_vs_transformed`**: Binary classification: 'Natural' (the food is still visually and conceptually identifiable as a single biological food source) or 'Transformed' (the food has been substantially altered from its original biological source).
+* **`Transformation_score`**: AI-assigned 1-100 rating of how processed or altered the food is from its natural state.
+* **`Category_NOVA_4`**: NOVA food-processing group 1-4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed.
 * **`sweet_vs_savory`**: Primary flavor profile categorization.
 
 ### 3. Generation Metadata
@@ -250,13 +260,13 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`qc_model` / `qc_at`**: The AI model used for the QC phase and the timestamp.
 
 ### 6. AI Ratings (Aware)
-* **`aware_ai_*`**: (Calorie density, healthiness, and all 8 taste profiles on a 0-100 scale). The AI's subjective estimation of the food *when told what the food is*.
+* **`aware_ai_*`**: (Calorie density, healthiness, and all 7 taste profiles on a 0-100 scale). The AI's subjective estimation of the food *when told what the food is*.
 
 ### 7. AI Ratings (Blind)
 * **`blind_model`**: The AI model used for the blind rating phase.
 * **`blind_observed_food`**: The AI's best guess of the food without knowing the target label.
 * **`blind_guess_similarity`**: 0-100 score of how close the blind guess is to the true label.
-* **`blind_ai_*`**: (Calorie density, healthiness, and 8 taste profiles). The AI's subjective estimation based *purely on visual appearance*.
+* **`blind_ai_*`**: (Calorie density, healthiness, and 7 taste profiles). The AI's subjective estimation based *purely on visual appearance*.
 
 ### 8. Low-Level Vision Metrics
 *(Standard computer vision metrics matching historical `FoodTriplet-Analysis` baselines)*
@@ -310,8 +320,16 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > - Ready-to-eat savories: nuts, seeds, crisps, pretzels, popcorn, trail mix — snack foods eaten without further preparation
 > - Prepared foods: multi-ingredient dishes and meals where no single ingredient dominates
 > 
-> **AI Intuitive 7 categories** — pick exactly one:
-> - Vegetable, Plant protein, Animal protein, Fruit, Dessert, Grain, Dish
+> **AI Intuitive 7 categories** — pick exactly one (folk categories: the bucket an average person would put the food in, based on what the food fundamentally is):
+> - Fruit: foods recognised and eaten as fruit, whether sweet or sour, fresh or dried
+> - Vegetable: produce used as a vegetable in meals, including starchy roots/tubers and culinarily-savoury botanical fruits
+> - Grain: foods made primarily of cereal grains or flour that are not primarily sweet
+> - Animal protein: single-animal-source foods — meat, poultry, fish, seafood, eggs, dairy; includes processed single-source meats
+> - Plant protein: plant foods treated primarily as protein sources
+> - Dessert: foods that are primarily sweet and eaten as a treat (sweetness required; plain baked goods are Grain)
+> - Dish: composite meals combining multiple ingredients into a named recipe (multi-ingredient meals only)
+>
+> Key decision rules: category follows the dominant base food (cooking/frying/drying a single base food does not change its bucket); savoury snacks classify by their base ingredient; dairy belongs to Animal protein.
 >
 > **Culinary 9 categories** — pick exactly one:
 > - Produce - Sweet, Produce - Savory, Carbohydrates & Staples, Animal Protein, Plant Protein, Dairy, Composite Meals, Desserts & Sweets, Snacks & Savory Junk

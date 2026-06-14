@@ -452,6 +452,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "Category_WHO_10": e.get("Category_WHO_10", ""),
                 "Category_Intuitive_7": e.get("Category_Intuitive_7", ""),
                 "Category_Culinary_9": e.get("Category_Culinary_9", ""),
+                "Category_NOVA_4": e.get("Category_NOVA_4", ""),
                 "Transformation_score": e.get("Transformation_score", ""),
                 "prompt": e.get("prompt", ""),
                 "model": e.get("model", ""),
@@ -515,7 +516,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
     # Apply column ordering
     col_order = [
         'filename', 'food', 'base_food', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9',
-        'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory', 
+        'Category_NOVA_4', 'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory',
         'prompt', 'model', 'seed', 'created', 'style_version', 'plate_reference', 
         'human_calorie_density', 'human_healthiness', 'human_appeal', 'human_familiarity',
         'human_sweetness', 'human_saltiness', 'human_sourness', 'human_bitterness', 

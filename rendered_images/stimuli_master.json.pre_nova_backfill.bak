@@ -41,10 +41,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "almonds.png",
@@ -88,10 +85,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "anchovies.png",
@@ -139,10 +133,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apple-prepared.png",
@@ -189,10 +180,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apple-raw.png",
@@ -236,10 +224,7 @@
     "Transformation_score": 0,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apple-pear-nashi.png",
@@ -283,10 +268,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apple-pie.png",
@@ -330,10 +312,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apricot-prepared.png",
@@ -384,10 +363,7 @@
     "Transformation_score": 25,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "apricot-raw.png",
@@ -431,10 +407,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "artichoke.png",
@@ -480,10 +453,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "asparagus-prepared.png",
@@ -532,10 +502,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "asparagus-raw.png",
@@ -579,10 +546,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "avocado.png",
@@ -626,10 +590,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bacon.png",
@@ -675,10 +636,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bagel.png",
@@ -724,10 +682,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "baguette.png",
@@ -773,10 +728,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "baked-salmon-fillet.png",
@@ -822,10 +774,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bamboo-shoots.png",
@@ -871,10 +820,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "banana.png",
@@ -918,10 +864,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "banana-chips.png",
@@ -967,10 +910,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "barley.png",
@@ -1017,10 +957,7 @@
     "Transformation_score": 45,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "barramundi.png",
@@ -1066,10 +1003,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "beef-steak.png",
@@ -1115,10 +1049,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "beef-stir-fry.png",
@@ -1167,10 +1098,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "beetroot-prepared.png",
@@ -1214,10 +1142,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bell-pepper-capsicum.png",
@@ -1261,10 +1186,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bibimbap.png",
@@ -1313,10 +1235,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "biryani.png",
@@ -1360,10 +1279,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "biscuit-us.png",
@@ -1409,10 +1325,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "black-beans.png",
@@ -1461,10 +1374,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "blackberry.png",
@@ -1508,10 +1418,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "blueberry.png",
@@ -1557,10 +1464,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bok-choy.png",
@@ -1607,10 +1511,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "borrito-bowl.png",
@@ -1659,10 +1560,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bread-white.png",
@@ -1708,10 +1606,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bread-wholegrain.png",
@@ -1757,10 +1652,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "breadstick.png",
@@ -1806,10 +1698,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "brioche.png",
@@ -1853,10 +1742,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "broccoli-prepared.png",
@@ -1900,10 +1786,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "broccoli-raw.png",
@@ -1947,10 +1830,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "brownie.png",
@@ -1996,10 +1876,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "brussels-sprouts.png",
@@ -2045,10 +1922,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "bulgogi.png",
@@ -2096,10 +1970,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "burrito.png",
@@ -2145,10 +2016,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "butter-chicken.png",
@@ -2196,10 +2064,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cabbage-prepared.png",
@@ -2245,10 +2110,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cabbage-raw.png",
@@ -2292,10 +2154,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "caesar-salad.png",
@@ -2343,10 +2202,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "calamari.png",
@@ -2392,10 +2248,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "candy.png",
@@ -2446,10 +2299,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cannellini-beans.png",
@@ -2493,10 +2343,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "carbonara.png",
@@ -2542,10 +2389,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "carrot-cooked.png",
@@ -2594,10 +2438,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "carrot-raw.png",
@@ -2641,10 +2482,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cashews.png",
@@ -2688,10 +2526,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "casserole.png",
@@ -2740,10 +2575,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cauliflower-prepared.png",
@@ -2789,10 +2621,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cauliflower-raw.png",
@@ -2836,10 +2665,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "celery.png",
@@ -2885,10 +2711,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cereal-flakes.png",
@@ -2934,10 +2757,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chapati.png",
@@ -2981,10 +2801,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chayote.png",
@@ -3031,10 +2848,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cheese-brie.png",
@@ -3080,10 +2894,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cheese-cheddar.png",
@@ -3131,10 +2942,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cheese-feta.png",
@@ -3180,10 +2988,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cheese-mozzarella.png",
@@ -3229,10 +3034,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cheesecake.png",
@@ -3276,10 +3078,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cherry.png",
@@ -3323,10 +3122,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-breast.png",
@@ -3372,10 +3168,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-noodle-soup.png",
@@ -3424,10 +3217,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-parmesan.png",
@@ -3475,10 +3265,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-thigh.png",
@@ -3524,10 +3311,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-tikka-wrap.png",
@@ -3573,10 +3357,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chicken-wings.png",
@@ -3626,10 +3407,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chickpeas.png",
@@ -3675,10 +3453,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chili-con-carne.png",
@@ -3726,10 +3501,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chilli-pepper.png",
@@ -3777,10 +3549,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chocolate-cake.png",
@@ -3824,10 +3593,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "chocolate-peanut-butter-pie.png",
@@ -3876,10 +3642,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "coconut.png",
@@ -3923,10 +3686,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cod.png",
@@ -3972,10 +3732,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "coleslaw.png",
@@ -4023,10 +3780,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "collard-greens.png",
@@ -4072,10 +3826,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cookie.png",
@@ -4119,10 +3870,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "corn.png",
@@ -4168,10 +3916,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cornbread.png",
@@ -4217,10 +3962,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "couscous.png",
@@ -4266,10 +4008,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "crab.png",
@@ -4313,10 +4052,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cracker.png",
@@ -4365,10 +4101,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cranberry.png",
@@ -4414,10 +4147,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "croissant.png",
@@ -4463,10 +4193,7 @@
     "Transformation_score": 85,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cucumber.png",
@@ -4512,10 +4239,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "cupcake.png",
@@ -4559,10 +4283,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "currant.png",
@@ -4611,10 +4332,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "curry-indian.png",
@@ -4665,10 +4383,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "custard.png",
@@ -4717,10 +4432,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dahl.png",
@@ -4769,10 +4481,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dark-chocolate.png",
@@ -4816,10 +4525,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "date.png",
@@ -4863,10 +4569,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "deli-ham-sliced.png",
@@ -4910,10 +4613,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "doner-kebab.png",
@@ -4963,10 +4663,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "donut.png",
@@ -5012,10 +4709,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dragon-fruit.png",
@@ -5059,10 +4753,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dried-apple.png",
@@ -5106,10 +4797,7 @@
     "Transformation_score": 18,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dried-apricot.png",
@@ -5153,10 +4841,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dried-cherry.png",
@@ -5202,10 +4887,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dried-fig.png",
@@ -5249,10 +4931,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dried-mango.png",
@@ -5298,10 +4977,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "duck.png",
@@ -5347,10 +5023,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "dumplings.png",
@@ -5396,10 +5069,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "durian.png",
@@ -5445,10 +5115,7 @@
     "Transformation_score": 10,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "edamame.png",
@@ -5492,10 +5159,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "eggplant-prepared.png",
@@ -5544,10 +5208,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "eggplant-raw.png",
@@ -5591,10 +5252,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "eggs-chicken.png",
@@ -5643,10 +5301,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "elderberry.png",
@@ -5692,10 +5347,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "empanada.png",
@@ -5741,10 +5393,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "endive.png",
@@ -5793,10 +5442,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "falafel.png",
@@ -5840,10 +5486,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fennel.png",
@@ -5889,10 +5532,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fig-raw.png",
@@ -5936,10 +5576,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fish-and-chips.png",
@@ -5985,10 +5622,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "flatbread.png",
@@ -6032,10 +5666,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "french-fries-chips.png",
@@ -6079,10 +5710,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fried-chicken.png",
@@ -6131,10 +5759,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fried-noodles.png",
@@ -6186,10 +5811,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fried-rice.png",
@@ -6235,10 +5857,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fried-tofu-bowl.png",
@@ -6288,10 +5907,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fruit-leather.png",
@@ -6337,10 +5953,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "fudge.png",
@@ -6389,10 +6002,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "garden-salad.png",
@@ -6440,10 +6050,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "garlic.png",
@@ -6492,10 +6099,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "gelato.png",
@@ -6544,10 +6148,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "gooseberry.png",
@@ -6593,10 +6194,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "granola.png",
@@ -6642,10 +6240,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "granola-bar.png",
@@ -6691,10 +6286,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "grapefruit.png",
@@ -6738,10 +6330,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "grapes-green.png",
@@ -6785,10 +6374,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "grapes-red.png",
@@ -6832,10 +6418,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "greek-salad.png",
@@ -6881,10 +6464,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "green-beans-raw.png",
@@ -6930,10 +6510,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "grilled-salmon.png",
@@ -6979,10 +6556,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "ground-beef.png",
@@ -7031,10 +6605,7 @@
     "Transformation_score": 45,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "guava.png",
@@ -7081,10 +6652,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "gyoza.png",
@@ -7130,10 +6698,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "ham.png",
@@ -7177,10 +6742,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "hamburger.png",
@@ -7226,10 +6788,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "honeydew.png",
@@ -7275,10 +6834,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "hot-dog.png",
@@ -7326,10 +6882,7 @@
     "Transformation_score": 85,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "ice-cream.png",
@@ -7378,10 +6931,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "injera.png",
@@ -7427,10 +6977,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "jackfruit.png",
@@ -7474,10 +7021,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "jalapeno.png",
@@ -7521,10 +7065,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "jelly.png",
@@ -7570,10 +7111,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kale-prepared.png",
@@ -7622,10 +7160,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "katsu.png",
@@ -7671,10 +7206,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kidney-beans.png",
@@ -7720,10 +7252,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kimchi-stew.png",
@@ -7773,10 +7302,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kiwi.png",
@@ -7820,10 +7346,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kohlrabi.png",
@@ -7870,10 +7393,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "kumquat.png",
@@ -7917,10 +7437,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "laksa.png",
@@ -7970,10 +7487,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lamb-chop.png",
@@ -8022,10 +7536,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lasagna.png",
@@ -8071,10 +7582,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lavash.png",
@@ -8120,10 +7628,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "leek.png",
@@ -8169,10 +7674,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lemon.png",
@@ -8221,10 +7723,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lentil-stew.png",
@@ -8274,10 +7773,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lentils.png",
@@ -8323,10 +7819,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lettuce.png",
@@ -8372,10 +7865,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lima-beans.png",
@@ -8421,10 +7911,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lime.png",
@@ -8468,10 +7955,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lobster.png",
@@ -8515,10 +7999,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lollipop.png",
@@ -8564,10 +8045,7 @@
     "Transformation_score": 95,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lotus-root.png",
@@ -8613,10 +8091,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "lychee.png",
@@ -8662,10 +8137,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mac-and-cheese.png",
@@ -8713,10 +8185,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "macaroni-pasta.png",
@@ -8763,10 +8232,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mackerel.png",
@@ -8813,10 +8279,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mandarin.png",
@@ -8860,10 +8323,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mango-raw.png",
@@ -8909,10 +8369,7 @@
     "Transformation_score": 0,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "matzo.png",
@@ -8958,10 +8415,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "meatballs.png",
@@ -9008,10 +8462,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "meatloaf.png",
@@ -9060,10 +8511,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "microgreens.png",
@@ -9112,10 +8560,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "milk-chocolate.png",
@@ -9159,10 +8604,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "miso-soup.png",
@@ -9211,10 +8653,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mortadella.png",
@@ -9260,10 +8699,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "muesli.png",
@@ -9307,10 +8743,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "muffin.png",
@@ -9356,10 +8789,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "muffin-english.png",
@@ -9403,10 +8833,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mulberry.png",
@@ -9452,10 +8879,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mushrooms-button.png",
@@ -9502,10 +8926,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mussels.png",
@@ -9551,10 +8972,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "mustard-greens.png",
@@ -9600,10 +9018,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "naan.png",
@@ -9647,10 +9062,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "nachos.png",
@@ -9699,10 +9111,7 @@
     "Transformation_score": 85,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "napa-cabbage.png",
@@ -9748,10 +9157,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "nasi-goreng.png",
@@ -9797,10 +9203,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "navy-beans.png",
@@ -9846,10 +9249,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "nectarine.png",
@@ -9893,10 +9293,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "noodles-wheat.png",
@@ -9945,10 +9342,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "oats.png",
@@ -9994,10 +9388,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "octopus.png",
@@ -10046,10 +9437,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "okra.png",
@@ -10093,10 +9481,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "olive.png",
@@ -10140,10 +9525,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "omelette.png",
@@ -10189,10 +9571,7 @@
     "Transformation_score": 70,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "onion-prepared.png",
@@ -10238,10 +9617,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "onion-raw.png",
@@ -10289,10 +9665,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "orange.png",
@@ -10338,10 +9711,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "oysters.png",
@@ -10387,10 +9757,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pad-thai.png",
@@ -10438,10 +9805,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "paella.png",
@@ -10489,10 +9853,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pancake.png",
@@ -10541,10 +9902,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "paneer.png",
@@ -10590,10 +9948,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "papaya.png",
@@ -10640,10 +9995,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "parsnip.png",
@@ -10689,10 +10041,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "passionfruit.png",
@@ -10736,10 +10085,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pasta-spaghetti.png",
@@ -10785,10 +10131,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pastry.png",
@@ -10834,10 +10177,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "peach-prepared.png",
@@ -10887,10 +10227,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "peach-raw.png",
@@ -10934,10 +10271,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pear-prepared.png",
@@ -10985,10 +10319,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pear-raw.png",
@@ -11032,10 +10363,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "peas.png",
@@ -11081,10 +10409,7 @@
     "Transformation_score": 25,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "penne.png",
@@ -11128,10 +10453,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "persimmon.png",
@@ -11175,10 +10497,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pesto-chicken.png",
@@ -11227,10 +10546,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pesto-pasta.png",
@@ -11278,10 +10594,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pho.png",
@@ -11329,10 +10642,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pickled-cucumber.png",
@@ -11378,10 +10688,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pineapple-prepared.png",
@@ -11427,10 +10734,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pineapple-raw.png",
@@ -11474,10 +10778,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pinto-beans.png",
@@ -11527,10 +10828,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pita.png",
@@ -11576,10 +10874,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pizza.png",
@@ -11625,10 +10920,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "plain-bagel.png",
@@ -11672,10 +10964,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "plantain.png",
@@ -11721,10 +11010,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "plum-prepared.png",
@@ -11773,10 +11059,7 @@
     "Transformation_score": 25,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "plum-raw.png",
@@ -11820,10 +11103,7 @@
     "Transformation_score": 0,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "polenta.png",
@@ -11869,10 +11149,7 @@
     "Transformation_score": 50,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "polenta-cake.png",
@@ -11918,10 +11195,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pomegranate.png",
@@ -11967,10 +11241,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "popcorn.png",
@@ -12014,10 +11285,7 @@
     "Transformation_score": 58,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pork-chop.png",
@@ -12061,10 +11329,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "portobello-mushrooms.png",
@@ -12108,10 +11373,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "potato-prepared.png",
@@ -12155,10 +11417,7 @@
     "Transformation_score": 35,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "potato-chips.png",
@@ -12205,10 +11464,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "potato-salad.png",
@@ -12254,10 +11510,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "prawns.png",
@@ -12301,10 +11554,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pretzel.png",
@@ -12348,10 +11598,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Snacks & Savory Junk",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "prosciutto.png",
@@ -12397,10 +11644,7 @@
     "Transformation_score": 85,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "prune.png",
@@ -12449,10 +11693,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pudding.png",
@@ -12501,10 +11742,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "puff-pastry.png",
@@ -12550,10 +11788,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pumpkin.png",
@@ -12599,10 +11834,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pumpkin-pie.png",
@@ -12648,10 +11880,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "pumpkin-soup.png",
@@ -12700,10 +11929,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "quail-eggs.png",
@@ -12747,10 +11973,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "quesadilla.png",
@@ -12796,10 +12019,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "quinoa.png",
@@ -12845,10 +12065,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "radicchio.png",
@@ -12897,10 +12114,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "radish.png",
@@ -12944,10 +12158,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "raisin.png",
@@ -12991,10 +12202,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "ramen.png",
@@ -13044,10 +12252,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "raspberry.png",
@@ -13091,10 +12296,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rendang.png",
@@ -13142,10 +12344,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rice-brown.png",
@@ -13189,10 +12388,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rice-white.png",
@@ -13236,10 +12432,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rice-noodles.png",
@@ -13288,10 +12481,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "risotto.png",
@@ -13340,10 +12530,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "roast-beef.png",
@@ -13392,10 +12579,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "roast-chicken.png",
@@ -13439,10 +12623,7 @@
     "Transformation_score": 35,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "roast-lamb.png",
@@ -13493,10 +12674,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rocket-arugula.png",
@@ -13543,10 +12721,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rockmelon-cantaloupe.png",
@@ -13592,10 +12767,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rogan-josh.png",
@@ -13643,10 +12815,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "roti.png",
@@ -13692,10 +12861,7 @@
     "Transformation_score": 65,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "rye.png",
@@ -13741,10 +12907,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "salami.png",
@@ -13790,10 +12953,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "salmon.png",
@@ -13839,10 +12999,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sandwich.png",
@@ -13891,10 +13048,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sardines.png",
@@ -13938,10 +13092,7 @@
     "Transformation_score": 45,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sashimi.png",
@@ -13990,10 +13141,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "satay.png",
@@ -14045,10 +13193,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sausage.png",
@@ -14095,10 +13240,7 @@
     "Transformation_score": 85,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "scallops.png",
@@ -14147,10 +13289,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "scone.png",
@@ -14199,10 +13338,7 @@
     "Transformation_score": 88,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "seaweed.png",
@@ -14248,10 +13384,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "shallot.png",
@@ -14300,10 +13433,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "shepherds-pie.png",
@@ -14351,10 +13481,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "shiitake-mushrooms.png",
@@ -14398,10 +13525,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "shrimp.png",
@@ -14447,10 +13571,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "shrimp-spring-rolls.png",
@@ -14498,10 +13619,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "snapper.png",
@@ -14547,10 +13665,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "snow-peas.png",
@@ -14594,10 +13709,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "soba-noodles.png",
@@ -14646,10 +13758,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sorbet.png",
@@ -14698,10 +13807,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sorghum.png",
@@ -14747,10 +13853,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sourdough.png",
@@ -14796,10 +13899,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "soursop.png",
@@ -14845,10 +13945,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "spaghetti-bolognese.png",
@@ -14896,10 +13993,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "spinach-prepared.png",
@@ -14948,10 +14042,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "spinach-raw.png",
@@ -14997,10 +14088,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "split-peas.png",
@@ -15049,10 +14137,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "spring-rolls.png",
@@ -15100,10 +14185,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "squid.png",
@@ -15149,10 +14231,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "starfruit.png",
@@ -15199,10 +14278,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "stew.png",
@@ -15252,10 +14328,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "stir-fry.png",
@@ -15304,10 +14377,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "strawberry.png",
@@ -15353,10 +14423,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sugar-snap-peas.png",
@@ -15402,10 +14469,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sushi.png",
@@ -15454,10 +14518,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sweet-and-sour-chicken.png",
@@ -15506,10 +14567,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sweet-breakfast-cereal.png",
@@ -15558,10 +14616,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "sweet-potato-prepared.png",
@@ -15605,10 +14660,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "swiss-chard.png",
@@ -15657,10 +14709,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "taco.png",
@@ -15709,10 +14758,7 @@
     "Transformation_score": 80,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tamarind.png",
@@ -15758,10 +14804,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "taro.png",
@@ -15808,10 +14851,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tart.png",
@@ -15855,10 +14895,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tempeh.png",
@@ -15904,10 +14941,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tempura.png",
@@ -15956,10 +14990,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "teriyaki-chicken.png",
@@ -16007,10 +15038,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tikka-masala.png",
@@ -16056,10 +15084,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "toffee.png",
@@ -16105,10 +15130,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Dessert",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tofu.png",
@@ -16154,10 +15176,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tom-yum-soup.png",
@@ -16205,10 +15224,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tomato-culinary-fruit.png",
@@ -16252,10 +15268,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tomato-bruschetta.png",
@@ -16304,10 +15317,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tomato-soup.png",
@@ -16355,10 +15365,7 @@
     "Transformation_score": 75,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tortilla-corn.png",
@@ -16407,10 +15414,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tortilla-flour.png",
@@ -16454,10 +15458,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "trout.png",
@@ -16503,10 +15504,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "tuna.png",
@@ -16553,10 +15551,7 @@
     "Transformation_score": 45,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "turkey.png",
@@ -16606,10 +15601,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "turnip.png",
@@ -16655,10 +15647,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "udon.png",
@@ -16705,15 +15694,11 @@
     "spiciness_0_100": 0.0,
     "qc_model": "gemini-2.5-pro",
     "qc_at": 1770880370,
-    "Category_WHO_10": "Prepared foods",
+    "Category_WHO_10": "Bakery wares and cereals",
     "Transformation_score": 65,
-    "Category_Intuitive_7": "Dish",
-    "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)",
-    "manual_correction_note": "Manual correction (2026-06-12): name-based classification (\"Udon\" = plain noodles -> Grain/staples/NOVA 1) did not match the stimulus image (udon noodle SOUP with pork, fish cake, green onions = composite dish). Corrected on image-content grounds."
+    "Category_Intuitive_7": "Grain",
+    "Category_Culinary_9": "Carbohydrates & Staples",
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "vegetable-curry.png",
@@ -16763,10 +15748,7 @@
     "Transformation_score": 78,
     "Category_Intuitive_7": "Dish",
     "Category_Culinary_9": "Composite Meals",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "venison.png",
@@ -16815,10 +15797,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Animal Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "vermicelli.png",
@@ -16867,10 +15846,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "waffle.png",
@@ -16916,10 +15892,7 @@
     "Transformation_score": 90,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Desserts & Sweets",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 4,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "walnuts.png",
@@ -16965,10 +15938,7 @@
     "Transformation_score": 20,
     "Category_Intuitive_7": "Plant protein",
     "Category_Culinary_9": "Plant Protein",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "water-chestnut.png",
@@ -17017,10 +15987,7 @@
     "Transformation_score": 10,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 3,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "watermelon.png",
@@ -17066,10 +16033,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Fruit",
     "Category_Culinary_9": "Produce - Sweet",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "wheat.png",
@@ -17113,10 +16077,7 @@
     "Transformation_score": 15,
     "Category_Intuitive_7": "Grain",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "yam.png",
@@ -17160,10 +16121,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Carbohydrates & Staples",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "yogurt-plain.png",
@@ -17212,10 +16170,7 @@
     "Transformation_score": 60,
     "Category_Intuitive_7": "Animal protein",
     "Category_Culinary_9": "Dairy",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "zucchini-prepared.png",
@@ -17261,10 +16216,7 @@
     "Transformation_score": 30,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "image_file": "zucchini-raw.png",
@@ -17308,10 +16260,7 @@
     "Transformation_score": 5,
     "Category_Intuitive_7": "Vegetable",
     "Category_Culinary_9": "Produce - Savory",
-    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories",
-    "Category_NOVA_4": 1,
-    "nova_prompt_version": "v1-2026-06-monteiro-2016",
-    "nova_source": "manual batch classification (manuscript/nova_classification_prompt.md, explore/new-category-models branch)"
+    "classify_prompt_version": "v2-2026-06-12-intuitive7-folk-categories"
   },
   {
     "food": "Acai Bowl",

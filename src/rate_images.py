@@ -95,14 +95,30 @@ def build_similarity_prompt(guessed: str, actual: str) -> str:
 # ---------------- Gemini helpers ----------------
 
 def get_gemini_client():
+    """Vertex AI (preferred) or AI Studio API key — same logic as run_qc.py."""
     try:
         from google import genai  # noqa: deferred import so --help etc. work without the package
     except ImportError:
         print("[ERROR] Missing google-genai. Install with: pip install -U google-genai", file=sys.stderr)
         raise
+
+    use_vertex = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in {"true", "1", "yes"}
+    if use_vertex:
+        project = os.getenv("GOOGLE_CLOUD_PROJECT")
+        location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+        if not project:
+            raise RuntimeError(
+                "GOOGLE_CLOUD_PROJECT is not set. Export it first, e.g. 'export GOOGLE_CLOUD_PROJECT=usyd-llm'"
+            )
+        print(f"[INFO] Using Gemini via Vertex AI: project={project}, location={location}")
+        return genai.Client(vertexai=True, project=project, location=location)
+
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("GEMINI_API_KEY is not set. Export it first, e.g. 'export GEMINI_API_KEY=...'.")
+        raise RuntimeError(
+            "No Gemini credentials: set GOOGLE_GENAI_USE_VERTEXAI=True (+ GOOGLE_CLOUD_PROJECT) "
+            "for Vertex AI, or export GEMINI_API_KEY for AI Studio."
+        )
     return genai.Client(api_key=api_key)
 
 

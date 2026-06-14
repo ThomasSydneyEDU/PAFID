@@ -4,8 +4,8 @@
     "food": "Anchovies",
     "base_food": "Anchovies",
     "category": "Protein",
-    "caption": "Several anchovy fillets are arranged on a white plate in a pool of oil.",
-    "observed_food": "Anchovy fillets in oil",
+    "caption": "Several cured anchovy fillets are arranged on a white plate in a pool of oil.",
+    "observed_food": "Anchovy fillets",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -14,7 +14,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is anchovy fillets, which matches the expected label 'Anchovies'."
+      "The food is clearly anchovies, matching the label.",
+      "The fish are served in oil."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/anchovies.png"
@@ -24,8 +25,8 @@
     "food": "Apricot (prepared)",
     "base_food": "Apricot (prepared)",
     "category": "Fruit",
-    "caption": "Cooked apricot halves with blanched almonds are served in a light syrup on a white plate.",
-    "observed_food": "Cooked apricot halves with almonds",
+    "caption": "Cooked apricot halves with almonds are served in a light syrup on a white plate.",
+    "observed_food": "Cooked apricots with almonds",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -35,9 +36,9 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Food is prepared apricots, matching the label.",
-      "Almonds are also present.",
-      "Food is served in a light syrup."
+      "The food is clearly prepared apricots, matching the label.",
+      "The dish is served in a syrup.",
+      "Almonds are present with the apricots."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/apricot-prepared.png"
@@ -47,8 +48,8 @@
     "food": "Asparagus (prepared)",
     "base_food": "Asparagus (prepared)",
     "category": "Vegetable",
-    "caption": "A serving of cooked asparagus spears is seasoned with pepper and drizzled with oil on a white plate.",
-    "observed_food": "cooked asparagus spears",
+    "caption": "Cooked asparagus spears are seasoned with oil and pepper on a white plate.",
+    "observed_food": "Cooked asparagus spears",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -57,18 +58,60 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The food is prepared asparagus, matching the label.",
-      "Oil is present on the asparagus."
+      "Label matches observed food.",
+      "Oil and pepper are visible."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/asparagus-prepared.png"
+  },
+  {
+    "image_file": "barramundi.png",
+    "food": "Barramundi",
+    "base_food": "Barramundi",
+    "category": "Protein",
+    "caption": "A pan-seared fish fillet with herbs and skin-on sits on a white plate.",
+    "observed_food": "Pan-seared fish fillet",
+    "label_match": "match",
+    "label_confidence": 0.8,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "The observed food is a cooked white fish fillet, which is consistent with the 'Barramundi' label.",
+      "The fish is dressed with oil and herbs."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/barramundi.png"
+  },
+  {
+    "image_file": "beef-steak.png",
+    "food": "Beef steak",
+    "base_food": "Beef steak",
+    "category": "Protein",
+    "caption": "A grilled beef steak is served on a white plate with rosemary and garlic.",
+    "observed_food": "Grilled beef steak",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "multiple_items"
+    ],
+    "qc_reasons": [
+      "Label is a correct match.",
+      "Garnish (rosemary, garlic) is present."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/beef-steak.png"
   },
   {
     "image_file": "beef-stir-fry.png",
     "food": "Beef stir fry",
     "base_food": "Beef stir fry",
     "category": "Dish",
-    "caption": "A beef and vegetable stir-fry with broccoli, peppers, and onions is served on a white plate.",
+    "caption": "A beef and vegetable stir-fry with a brown sauce is served on a white plate.",
     "observed_food": "Beef and vegetable stir-fry",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -79,7 +122,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The dish is clearly a beef stir-fry as labeled."
+      "The observed food is a beef stir-fry, which matches the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/beef-stir-fry.png"
@@ -89,7 +132,7 @@
     "food": "Bibimbap",
     "base_food": "Bibimbap",
     "category": "Dish",
-    "caption": "A plate of bibimbap with rice, various vegetables, beef, and a fried egg is shown on a white plate.",
+    "caption": "A plate of bibimbap with rice, various vegetables, beef, and a fried egg on top.",
     "observed_food": "Bibimbap",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -100,7 +143,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The image clearly shows a classic preparation of Bibimbap, matching the label."
+      "Observed food is a classic presentation of bibimbap, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/bibimbap.png"
@@ -110,8 +153,8 @@
     "food": "Black beans",
     "base_food": "Black beans",
     "category": "Protein",
-    "caption": "A white plate holds a serving of cooked black beans on a gray surface.",
-    "observed_food": "Cooked black beans",
+    "caption": "A white plate holds a serving of cooked black beans in a shallow liquid.",
+    "observed_food": "cooked black beans",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -120,8 +163,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Labels match the image of black beans.",
-      "Beans are in a small amount of liquid."
+      "The observed food is a perfect match for the expected label.",
+      "The beans are served in a small amount of their cooking or canning liquid."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/black-beans.png"
@@ -138,11 +181,11 @@
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "multiple_items",
-      "sauce_present"
+      "sauce_present",
+      "multiple_items"
     ],
     "qc_reasons": [
-      "The observed food is a burrito bowl, matching the expected label (despite the typo 'borrito')."
+      "Typo in expected label ('borrito') but food is a clear match."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/borrito-bowl.png"
@@ -152,8 +195,8 @@
     "food": "Bulgogi",
     "base_food": "Bulgogi",
     "category": "Dish",
-    "caption": "A serving of thinly sliced beef stir-fried with onions and scallions is presented on a white plate.",
-    "observed_food": "Stir-fried beef with onions and scallions",
+    "caption": "A serving of thinly sliced beef stir-fried with onions and scallions on a white plate.",
+    "observed_food": "Bulgogi",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -162,7 +205,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed food appears to be Bulgogi as labeled."
+      "The image shows a classic preparation of Bulgogi, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/bulgogi.png"
@@ -172,8 +215,8 @@
     "food": "Butter chicken",
     "base_food": "Butter chicken",
     "category": "Dish",
-    "caption": "A plate of chicken pieces in a creamy orange sauce, garnished with cream and herbs.",
-    "observed_food": "Butter chicken",
+    "caption": "Chunks of chicken in a creamy orange sauce are served on a white plate.",
+    "observed_food": "butter chicken",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -181,9 +224,7 @@
     "qc_issues": [
       "sauce_present"
     ],
-    "qc_reasons": [
-      "The dish visually matches the description of butter chicken."
-    ],
+    "qc_reasons": [],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/butter-chicken.png"
   },
@@ -192,7 +233,7 @@
     "food": "Caesar salad",
     "base_food": "Caesar salad",
     "category": "Dish",
-    "caption": "A Caesar salad with croutons and shaved cheese is served on a white plate.",
+    "caption": "A Caesar salad with croutons and cheese shavings is served on a white plate.",
     "observed_food": "Caesar salad",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -202,7 +243,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed food is a clear match for the expected label."
+      "Observed food matches the label.",
+      "A creamy dressing is visible on the salad."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/caesar-salad.png"
@@ -212,7 +254,7 @@
     "food": "Candy",
     "base_food": "Candy",
     "category": "Dessert",
-    "caption": "A white plate holds a colorful assortment of various candies.",
+    "caption": "A white plate holds a colorful assortment of various candies against a grey background.",
     "observed_food": "Assorted candies",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -223,20 +265,20 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "The observed food is a clear match for the label 'Candy'.",
-      "The plate contains multiple types of candy.",
-      "The portion of candy is large for a single serving."
+      "Observed food is a mix of candies, matching the label.",
+      "Multiple types of candy are present.",
+      "Portion is large for a single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/candy.png"
   },
   {
-    "image_file": "carrot-cooked.png",
-    "food": "Carrot (cooked)",
-    "base_food": "Carrot (cooked)",
-    "category": "Vegetable",
-    "caption": "A white plate holds a serving of cooked, sliced carrots on a grey background.",
-    "observed_food": "Cooked carrot slices",
+    "image_file": "carbonara.png",
+    "food": "Carbonara",
+    "base_food": "Carbonara",
+    "category": "Dish",
+    "caption": "A serving of spaghetti carbonara with bacon and black pepper is on a white plate.",
+    "observed_food": "Spaghetti carbonara",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -245,19 +287,18 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is a specific form of the expected food.",
-      "Carrots appear to be glazed or roasted with oil."
+      "The observed food is clearly spaghetti carbonara, matching the label."
     ],
     "file_exists": true,
-    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/carrot-cooked.png"
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/carbonara.png"
   },
   {
     "image_file": "casserole.png",
     "food": "Casserole",
     "base_food": "Casserole",
     "category": "Dish",
-    "caption": "A serving of baked casserole with chicken, potatoes, carrots, and peas is on a white plate.",
-    "observed_food": "Chicken and vegetable casserole",
+    "caption": "A slice of chicken and vegetable casserole with a baked topping is served on a white plate.",
+    "observed_food": "chicken and vegetable casserole",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -266,8 +307,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed food is a type of casserole, which matches the label.",
-      "The dish includes a visible sauce or gravy."
+      "The observed food is a type of casserole.",
+      "The dish includes a sauce or gravy."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/casserole.png"
@@ -277,8 +318,8 @@
     "food": "Cereal flakes",
     "base_food": "Cereal flakes",
     "category": "Grain",
-    "caption": "A white bowl filled with dry cereal flakes sits on a matching saucer against a grey background.",
-    "observed_food": "Cereal flakes",
+    "caption": "A white bowl filled with cereal flakes sits on a matching saucer against a grey background.",
+    "observed_food": "cereal flakes",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -286,17 +327,41 @@
     "qc_issues": [
       "bowl_present"
     ],
-    "qc_reasons": [],
+    "qc_reasons": [
+      "Observed food matches expected label.",
+      "Food is served in a bowl."
+    ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/cereal-flakes.png"
+  },
+  {
+    "image_file": "chayote.png",
+    "food": "Chayote",
+    "base_food": "Chayote",
+    "category": "Vegetable",
+    "caption": "A single half of a chayote squash rests on a plain white plate.",
+    "observed_food": "Half a chayote squash",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_small"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected label.",
+      "Portion is only half a vegetable."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chayote.png"
   },
   {
     "image_file": "cheese-cheddar.png",
     "food": "Cheese (cheddar)",
     "base_food": "Cheese (cheddar)",
     "category": "Protein",
-    "caption": "A block of orange cheddar cheese with three slices cut from it rests on a white plate.",
-    "observed_food": "Sliced cheddar cheese",
+    "caption": "A block of orange cheddar cheese with three slices rests on a white plate.",
+    "observed_food": "Cheddar cheese block and slices",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -305,18 +370,40 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "The portion shown is a large block of cheese, not a typical single serving."
+      "Label matches the observed food.",
+      "Portion is a large block of cheese, not a typical single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/cheese-cheddar.png"
+  },
+  {
+    "image_file": "cheese-feta.png",
+    "food": "Cheese (feta)",
+    "base_food": "Cheese (feta)",
+    "category": "Protein",
+    "caption": "Cubed white cheese is piled on a white plate against a plain grey background.",
+    "observed_food": "cubed feta cheese",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_large"
+    ],
+    "qc_reasons": [
+      "The observed food's appearance is consistent with cubed feta cheese.",
+      "The portion appears large for a single serving of cheese."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/cheese-feta.png"
   },
   {
     "image_file": "chicken-noodle-soup.png",
     "food": "Chicken noodle soup",
     "base_food": "Chicken noodle soup",
     "category": "Dish",
-    "caption": "A white bowl of chicken noodle soup with carrots and celery sits on a matching saucer.",
-    "observed_food": "Chicken noodle soup",
+    "caption": "A white bowl of chicken noodle soup sits on a saucer against a gray background.",
+    "observed_food": "chicken noodle soup",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -325,8 +412,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The observed food matches the expected label.",
-      "The food is served in a bowl."
+      "The observed food is a perfect match for the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chicken-noodle-soup.png"
@@ -337,7 +423,7 @@
     "base_food": "Chicken parmesan",
     "category": "Dish",
     "caption": "A breaded chicken cutlet with tomato sauce, melted cheese, and basil is on a white plate.",
-    "observed_food": "Chicken parmesan",
+    "observed_food": "chicken parmesan",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -346,7 +432,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "The observed food is a classic presentation of chicken parmesan."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chicken-parmesan.png"
@@ -356,8 +442,8 @@
     "food": "Chicken tikka wrap",
     "base_food": "Chicken tikka wrap",
     "category": "Dish",
-    "caption": "A grilled chicken wrap cut in half is served on a white plate with green sauce.",
-    "observed_food": "Chicken tikka wrap",
+    "caption": "A grilled chicken wrap, cut in half, is served on a white plate with a side of green sauce.",
+    "observed_food": "chicken tikka wrap",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -365,7 +451,10 @@
     "qc_issues": [
       "sauce_present"
     ],
-    "qc_reasons": [],
+    "qc_reasons": [
+      "The food appears to be a wrap with seasoned chicken and vegetables, consistent with a chicken tikka wrap.",
+      "A green sauce is present on the plate."
+    ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chicken-tikka-wrap.png"
   },
@@ -374,8 +463,8 @@
     "food": "Chicken wings",
     "base_food": "Chicken wings",
     "category": "Protein",
-    "caption": "A pile of glazed chicken wings is served on a white plate against a grey background.",
-    "observed_food": "glazed chicken wings",
+    "caption": "A serving of glazed chicken wings is presented on a round white plate against a grey background.",
+    "observed_food": "Glazed chicken wings",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -385,8 +474,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "The wings are coated in a visible glaze."
+      "Observed food matches expected label.",
+      "Wings are coated in a visible glaze."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chicken-wings.png"
@@ -396,7 +485,7 @@
     "food": "Chili con carne",
     "base_food": "Chili con carne",
     "category": "Dish",
-    "caption": "A serving of chili con carne with kidney beans is presented on a white plate.",
+    "caption": "A serving of chili con carne with ground meat and kidney beans is on a white plate.",
     "observed_food": "chili con carne",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -406,7 +495,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "The food is clearly chili con carne, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chili-con-carne.png"
@@ -416,7 +505,7 @@
     "food": "Chilli pepper",
     "base_food": "Chilli pepper",
     "category": "Vegetable",
-    "caption": "A single red chili pepper rests in the center of a plain white plate.",
+    "caption": "A single red chili pepper rests on a white plate against a grey background.",
     "observed_food": "red chili pepper",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -426,7 +515,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "The portion consists of a single chili pepper, which is not a typical serving size."
+      "Observed food matches the label.",
+      "A single chili pepper is not a typical meal serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chilli-pepper.png"
@@ -436,7 +526,7 @@
     "food": "chocolate peanut butter pie",
     "base_food": "chocolate peanut butter pie",
     "category": "Dessert",
-    "caption": "A slice of layered chocolate and peanut butter pie is drizzled with sauce on a white plate.",
+    "caption": "A slice of layered chocolate and peanut butter pie is presented on a white plate.",
     "observed_food": "chocolate peanut butter pie slice",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -446,8 +536,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Label matches visual evidence.",
-      "Sauce is present on top."
+      "The observed food is a slice of chocolate peanut butter pie, matching the label.",
+      "The pie is drizzled with chocolate and caramel sauce."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/chocolate-peanut-butter-pie.png"
@@ -457,8 +547,8 @@
     "food": "Coleslaw",
     "base_food": "Coleslaw",
     "category": "Dish",
-    "caption": "A serving of coleslaw made with shredded cabbage and carrots is presented on a white plate.",
-    "observed_food": "Coleslaw",
+    "caption": "A serving of creamy coleslaw is presented on a white plate against a grey background.",
+    "observed_food": "creamy coleslaw",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -467,7 +557,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is a perfect match for the expected label 'Coleslaw'.",
+      "The coleslaw is dressed in a creamy sauce."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/coleslaw.png"
@@ -477,8 +568,8 @@
     "food": "Cracker",
     "base_food": "Cracker",
     "category": "Grain",
-    "caption": "A single square cracker topped with salt crystals rests on a white plate.",
-    "observed_food": "salted cracker",
+    "caption": "A single square cracker with visible salt crystals rests on a white plate.",
+    "observed_food": "Salted cracker",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -487,8 +578,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Labels match the observed food.",
-      "Portion is a single cracker, which is smaller than a typical serving."
+      "The observed food is a cracker, which matches the label.",
+      "The portion consists of only a single cracker."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/cracker.png"
@@ -498,8 +589,8 @@
     "food": "Currant",
     "base_food": "Currant",
     "category": "Fruit",
-    "caption": "A pile of fresh red currants on their stems is served on a white plate.",
-    "observed_food": "red currants",
+    "caption": "A large pile of fresh redcurrants is served on a white plate against a grey background.",
+    "observed_food": "redcurrants",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -508,8 +599,8 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "The food is correctly identified as currants.",
-      "The portion size is large for a single serving."
+      "The observed food is a specific type of currant, which matches the label.",
+      "The portion is very large for a single serving of raw fruit."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/currant.png"
@@ -519,7 +610,7 @@
     "food": "Curry (Indian)",
     "base_food": "Curry (Indian)",
     "category": "Dish",
-    "caption": "A white bowl of chicken curry garnished with cilantro sits on a matching plate.",
+    "caption": "A bowl of chicken curry garnished with fresh cilantro is served on a white plate.",
     "observed_food": "chicken curry",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -530,9 +621,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The observed food is a type of Indian curry.",
-      "Food is served in a bowl.",
-      "The dish has a sauce component."
+      "The dish is clearly an Indian-style curry, which matches the provided label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/curry-indian.png"
@@ -542,18 +631,18 @@
     "food": "Custard",
     "base_food": "Custard",
     "category": "Dessert",
-    "caption": "A white bowl of smooth, yellow custard or purée sits on a matching white saucer.",
-    "observed_food": "yellow custard or purée",
+    "caption": "A white bowl of smooth, pale yellow cream or custard sits on a matching saucer.",
+    "observed_food": "yellow custard or pudding",
     "label_match": "match",
-    "label_confidence": 0.8,
+    "label_confidence": 0.9,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
       "bowl_present"
     ],
     "qc_reasons": [
-      "The food's appearance is consistent with custard.",
-      "The food could also be a puréed soup, creating some ambiguity."
+      "The observed food's appearance is highly consistent with the 'Custard' label.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/custard.png"
@@ -563,8 +652,8 @@
     "food": "Dahl",
     "base_food": "Dahl",
     "category": "Dish",
-    "caption": "A white bowl of thick lentil soup sits on a matching saucer against a grey background.",
-    "observed_food": "Dahl",
+    "caption": "A white bowl of lentil stew is presented on a matching saucer against a grey background.",
+    "observed_food": "lentil stew",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -573,7 +662,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The food appears to be dahl as labeled.",
+      "The observed food is a lentil stew, which is consistent with the 'Dahl' label.",
       "The food is served in a bowl."
     ],
     "file_exists": true,
@@ -584,7 +673,7 @@
     "food": "Doner kebab",
     "base_food": "Doner kebab",
     "category": "Dish",
-    "caption": "A plate of sliced doner kebab meat is served with flatbread and a fresh salad.",
+    "caption": "A plate of sliced doner meat is served with pita bread and a fresh salad.",
     "observed_food": "Doner kebab plate",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -595,8 +684,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Image shows a doner kebab plate, which matches the label.",
-      "Multiple components (meat, bread, salad) are present."
+      "The image shows a deconstructed doner kebab on a plate, which matches the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/doner-kebab.png"
@@ -616,32 +704,31 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is a specific preparation of the expected food.",
-      "Oil is visible on the eggplant."
+      "The observed food is clearly prepared eggplant.",
+      "The food is drizzled with oil, which is visible on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/eggplant-prepared.png"
   },
   {
-    "image_file": "eggs-chicken.png",
-    "food": "Eggs (chicken)",
-    "base_food": "Eggs (chicken)",
-    "category": "Protein",
-    "caption": "Two sunny-side-up fried eggs are served on a plain white plate.",
-    "observed_food": "Fried eggs",
+    "image_file": "elderberry.png",
+    "food": "Elderberry",
+    "base_food": "Elderberry",
+    "category": "Fruit",
+    "caption": "A white plate holds a pile of dark purple berries, some still attached to their stems.",
+    "observed_food": "Elderberries",
     "label_match": "match",
     "label_confidence": 1.0,
-    "portion_size_ok": true,
+    "portion_size_ok": false,
     "plate_rim_visible": true,
     "qc_issues": [
-      "multiple_items"
+      "portion_too_large"
     ],
     "qc_reasons": [
-      "Observed food is a prepared form of the expected food.",
-      "The plate contains two distinct items (eggs)."
+      "Portion is large for raw berries, which are typically processed."
     ],
     "file_exists": true,
-    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/eggs-chicken.png"
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/elderberry.png"
   },
   {
     "image_file": "endive.png",
@@ -658,8 +745,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Base food matches expected label.",
-      "A light dressing or oil is visible on the endives."
+      "The food is clearly endive, matching the label.",
+      "A light dressing is present on the vegetable."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/endive.png"
@@ -673,14 +760,15 @@
     "observed_food": "Fried chicken pieces",
     "label_match": "match",
     "label_confidence": 1.0,
-    "portion_size_ok": true,
+    "portion_size_ok": false,
     "plate_rim_visible": true,
     "qc_issues": [
-      "multiple_items"
+      "multiple_items",
+      "portion_too_large"
     ],
     "qc_reasons": [
-      "Observed food is a clear match for the label 'Fried chicken'.",
-      "The dish consists of multiple pieces of chicken."
+      "Label is a perfect match.",
+      "Portion appears large for a single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/fried-chicken.png"
@@ -690,21 +778,20 @@
     "food": "Fried noodles",
     "base_food": "Fried noodles",
     "category": "Dish",
-    "caption": "A white bowl of stir-fried noodles with chicken, shrimp, and vegetables on a matching saucer.",
+    "caption": "A white bowl of stir-fried noodles with chicken and shrimp sits on a matching saucer.",
     "observed_food": "Stir-fried noodles with chicken and shrimp",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "sauce_present",
-      "multiple_items",
-      "bowl_present"
+      "bowl_present",
+      "multiple_items"
     ],
     "qc_reasons": [
-      "Label is a good general description for the dish.",
-      "The dish contains multiple ingredients including noodles, chicken, and shrimp.",
-      "The food is served in a bowl."
+      "The label 'Fried noodles' is a correct, general description for the observed dish.",
+      "The food is served in a bowl.",
+      "The dish contains multiple components (noodles, protein, vegetables)."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/fried-noodles.png"
@@ -714,9 +801,9 @@
     "food": "Fried tofu bowl",
     "base_food": "Fried tofu bowl",
     "category": "Dish",
-    "caption": "Fried tofu and broccoli are served over white rice on a white plate.",
+    "caption": "Fried tofu and broccoli are served over white rice on a plate, garnished with sesame seeds and nori.",
     "observed_food": "Fried tofu with broccoli and rice",
-    "label_match": "match",
+    "label_match": "partial",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
@@ -725,8 +812,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The label is 'Fried tofu bowl' and the image shows fried tofu served over rice, which is consistent.",
-      "The food is served on a plate, not in a bowl, but this is a minor discrepancy."
+      "The food is served on a plate, not in a bowl as the label suggests."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/fried-tofu-bowl.png"
@@ -739,12 +825,13 @@
     "caption": "Several flat, rectangular strips of a brown, processed food are stacked on a white plate.",
     "observed_food": "Meat jerky strips",
     "label_match": "mismatch",
-    "label_confidence": 0.9,
+    "label_confidence": 0.8,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [],
     "qc_reasons": [
-      "The observed food has a fibrous, opaque texture more consistent with processed meat jerky than fruit leather."
+      "Observed food appears to be meat jerky, not fruit leather.",
+      "The texture and color are more consistent with a savory, processed meat product."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/fruit-leather.png"
@@ -754,8 +841,8 @@
     "food": "Fudge",
     "base_food": "Fudge",
     "category": "Dessert",
-    "caption": "Ten light brown fudge squares are stacked in a pyramid on a white plate.",
-    "observed_food": "fudge squares",
+    "caption": "Ten square pieces of brown fudge are stacked on a white plate.",
+    "observed_food": "fudge cubes",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -764,8 +851,8 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "The portion size appears large for a single serving."
+      "The observed food is clearly fudge, matching the label.",
+      "The portion of ten fudge cubes is large for a single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/fudge.png"
@@ -775,8 +862,8 @@
     "food": "Garden salad",
     "base_food": "Garden salad",
     "category": "Dish",
-    "caption": "A garden salad with lettuce, tomatoes, cucumbers, and onions is served on a white plate.",
-    "observed_food": "Garden salad with vinaigrette",
+    "caption": "A garden salad with tomatoes, cucumbers, and onions is served on a white plate with a light dressing.",
+    "observed_food": "Garden salad",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -785,7 +872,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Label matches observed food."
+      "The observed food is a classic garden salad, matching the label.",
+      "A light dressing is visible on the salad."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/garden-salad.png"
@@ -796,7 +884,7 @@
     "base_food": "Garlic",
     "category": "Vegetable",
     "caption": "Several roasted garlic cloves are piled in the center of a white plate.",
-    "observed_food": "Roasted garlic cloves",
+    "observed_food": "roasted garlic cloves",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -805,8 +893,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "The observed food is garlic, which matches the label.",
-      "The portion is very small and likely intended as a garnish or ingredient, not a full serving."
+      "Label is a match.",
+      "Portion is very small for a standalone serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/garlic.png"
@@ -816,29 +904,29 @@
     "food": "Gelato",
     "base_food": "Gelato",
     "category": "Dessert",
-    "caption": "Two scoops of green, nut-flecked ice cream are served in a white bowl on a saucer.",
-    "observed_food": "Pistachio gelato",
+    "caption": "Two scoops of green ice cream with nut pieces are served in a white bowl on a saucer.",
+    "observed_food": "pistachio ice cream",
     "label_match": "match",
-    "label_confidence": 1.0,
+    "label_confidence": 0.9,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food appears to be pistachio gelato, which matches the label.",
+      "The food appears to be pistachio ice cream or gelato, which is consistent with the 'Gelato' label.",
       "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/gelato.png"
   },
   {
-    "image_file": "ground-beef.png",
-    "food": "Ground beef",
-    "base_food": "Ground beef",
-    "category": "Protein",
-    "caption": "A serving of cooked ground beef is presented on a white plate.",
-    "observed_food": "cooked ground beef",
+    "image_file": "greek-salad.png",
+    "food": "Greek salad",
+    "base_food": "Greek salad",
+    "category": "Dish",
+    "caption": "A Greek salad with a block of feta cheese, herbs, and oil is served on a white plate.",
+    "observed_food": "Greek salad",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -847,8 +935,28 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Label matches observed food.",
-      "Rendered fat/liquid is visible at the bottom of the pile."
+      "The image clearly shows a Greek salad, matching the label."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/greek-salad.png"
+  },
+  {
+    "image_file": "ground-beef.png",
+    "food": "Ground beef",
+    "base_food": "Ground beef",
+    "category": "Protein",
+    "caption": "A serving of cooked ground meat is presented on a white plate.",
+    "observed_food": "Cooked ground beef",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "The food appears to be cooked ground beef as expected.",
+      "Some liquid, likely rendered fat, is visible on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/ground-beef.png"
@@ -859,7 +967,7 @@
     "base_food": "Hot dog",
     "category": "Dish",
     "caption": "A hot dog in a bun with ketchup, mustard, and relish is served on a white plate.",
-    "observed_food": "Hot dog",
+    "observed_food": "hot dog",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -868,7 +976,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches the expected label 'Hot dog'."
+      "Observed food is a hot dog as expected."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/hot-dog.png"
@@ -888,19 +996,40 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "Label matches the image.",
-      "The portion of four scoops is larger than a typical single serving."
+      "Label is a match.",
+      "Portion consists of four scoops, which is larger than a typical single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/ice-cream.png"
+  },
+  {
+    "image_file": "jalapeno.png",
+    "food": "Jalapeno",
+    "base_food": "Jalapeno",
+    "category": "Vegetable",
+    "caption": "Several whole and sliced green jalapeño peppers are arranged on a white plate.",
+    "observed_food": "jalapeño peppers",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_large"
+    ],
+    "qc_reasons": [
+      "Label matches observed food.",
+      "Portion is large for a single serving of raw peppers."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/jalapeno.png"
   },
   {
     "image_file": "kale-prepared.png",
     "food": "Kale (prepared)",
     "base_food": "Kale (prepared)",
     "category": "Vegetable",
-    "caption": "A serving of cooked kale with a light dressing is presented on a white plate.",
-    "observed_food": "Cooked kale",
+    "caption": "A serving of cooked kale dressed with oil is presented on a white plate.",
+    "observed_food": "Sautéed kale",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -909,8 +1038,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "A light oil dressing is visible on the kale."
+      "Label is a perfect match.",
+      "Oil dressing is visible on the kale and plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/kale-prepared.png"
@@ -920,19 +1049,18 @@
     "food": "Kimchi stew",
     "base_food": "Kimchi stew",
     "category": "Dish",
-    "caption": "A white bowl of kimchi stew with tofu, meat, and green onions is served on a matching plate.",
+    "caption": "A bowl of red stew with kimchi, tofu, meat, and green onions.",
     "observed_food": "Kimchi stew",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "bowl_present",
-      "multiple_items",
-      "sauce_present"
+      "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is a clear match for the label.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/kimchi-stew.png"
@@ -942,7 +1070,7 @@
     "food": "Laksa",
     "base_food": "Laksa",
     "category": "Dish",
-    "caption": "A bowl of laksa noodle soup with shrimp, fish cake, bean sprouts, and a hard-boiled egg.",
+    "caption": "A bowl of laksa noodle soup with shrimp, fish cake, and a hard-boiled egg.",
     "observed_food": "Laksa noodle soup",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -950,11 +1078,11 @@
     "plate_rim_visible": true,
     "qc_issues": [
       "sauce_present",
+      "multiple_items",
       "bowl_present"
     ],
     "qc_reasons": [
-      "The dish is clearly identifiable as Laksa.",
-      "A dollop of chili paste is visible on the side."
+      "The observed dish is a classic presentation of Laksa, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/laksa.png"
@@ -964,7 +1092,7 @@
     "food": "Lamb chop",
     "base_food": "Lamb chop",
     "category": "Protein",
-    "caption": "A single cooked lamb chop is centered on a white plate against a grey background.",
+    "caption": "A single, cooked lamb chop rests on a white plate against a plain grey background.",
     "observed_food": "Lamb chop",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -974,29 +1102,50 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "The portion consists of a single, small lamb chop."
+      "Observed food matches expected label.",
+      "Portion is a single lamb chop, which is smaller than a typical main course serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lamb-chop.png"
+  },
+  {
+    "image_file": "lasagna.png",
+    "food": "Lasagna",
+    "base_food": "Lasagna",
+    "category": "Dish",
+    "caption": "A square slice of layered lasagna with melted cheese is served on a white plate.",
+    "observed_food": "slice of lasagna",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "Observed food is a slice of lasagna, which matches the label.",
+      "The dish contains visible meat sauce."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lasagna.png"
   },
   {
     "image_file": "lemon.png",
     "food": "Lemon",
     "base_food": "Lemon",
     "category": "Fruit",
-    "caption": "Slices and wedges of fresh lemon are arranged on a white plate.",
-    "observed_food": "lemon slices and wedges",
+    "caption": "A white plate holds several lemon slices and wedges on a plain grey background.",
+    "observed_food": "Lemon slices and wedges",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
     "plate_rim_visible": true,
     "qc_issues": [
-      "portion_too_large"
+      "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food is lemon, which matches the label.",
-      "The portion is very large for a typical garnish or ingredient use."
+      "Observed food matches expected food.",
+      "Portion is not a typical serving size for a meal."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lemon.png"
@@ -1006,29 +1155,69 @@
     "food": "Lentil stew",
     "base_food": "Lentil stew",
     "category": "Dish",
-    "caption": "A white bowl of lentil stew with carrots and potatoes is served on a matching plate.",
-    "observed_food": "Lentil stew with vegetables",
+    "caption": "A white bowl of lentil stew with carrots and potatoes sits on a matching saucer.",
+    "observed_food": "Lentil stew",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "bowl_present",
-      "multiple_items",
-      "sauce_present"
+      "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "The observed food is a perfect match for the label 'Lentil stew'."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lentil-stew.png"
+  },
+  {
+    "image_file": "lime.png",
+    "food": "Lime",
+    "base_food": "Lime",
+    "category": "Fruit",
+    "caption": "A white plate holds a pile of freshly cut lime wedges and slices.",
+    "observed_food": "lime wedges and slices",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_large"
+    ],
+    "qc_reasons": [
+      "Observed food is lime, matching the label.",
+      "The portion is very large for a single serving of lime to be eaten as a fruit."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lime.png"
+  },
+  {
+    "image_file": "lychee.png",
+    "food": "Lychee",
+    "base_food": "Lychee",
+    "category": "Fruit",
+    "caption": "Several peeled and pitted lychees are arranged on a small white plate.",
+    "observed_food": "Peeled lychees",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_small"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected label.",
+      "Portion size appears small for a typical serving."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/lychee.png"
   },
   {
     "image_file": "mac-and-cheese.png",
     "food": "Mac and cheese",
     "base_food": "Mac and cheese",
     "category": "Dish",
-    "caption": "A serving of baked macaroni and cheese is presented on a white plate.",
+    "caption": "A serving of baked macaroni and cheese is presented on a white plate against a grey background.",
     "observed_food": "macaroni and cheese",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1038,7 +1227,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is a clear match for the expected label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/mac-and-cheese.png"
@@ -1048,8 +1237,8 @@
     "food": "Meatballs",
     "base_food": "Meatballs",
     "category": "Dish",
-    "caption": "A white plate holds several meatballs in a red sauce, garnished with cheese and herbs.",
-    "observed_food": "meatballs in tomato sauce",
+    "caption": "A white plate holds several meatballs in tomato sauce, garnished with cheese and parsley.",
+    "observed_food": "Meatballs in tomato sauce",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1058,7 +1247,11 @@
       "sauce_present",
       "multiple_items"
     ],
-    "qc_reasons": [],
+    "qc_reasons": [
+      "Observed food matches the 'Meatballs' label.",
+      "The dish includes a sauce.",
+      "There are multiple meatballs on the plate."
+    ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/meatballs.png"
   },
@@ -1067,7 +1260,7 @@
     "food": "Meatloaf",
     "base_food": "Meatloaf",
     "category": "Dish",
-    "caption": "A single slice of glazed meatloaf is presented on a white plate.",
+    "caption": "A single slice of glazed meatloaf is presented on a plain white plate.",
     "observed_food": "slice of meatloaf",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1077,8 +1270,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The food appears to be meatloaf as expected.",
-      "A glaze or sauce is visible on the meatloaf."
+      "The image clearly shows a slice of meatloaf as expected.",
+      "The meatloaf has a glaze or sauce on it."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/meatloaf.png"
@@ -1088,8 +1281,8 @@
     "food": "Microgreens",
     "base_food": "Microgreens",
     "category": "Vegetable",
-    "caption": "A small pile of mixed microgreens is centered on a white plate.",
-    "observed_food": "Mixed microgreens",
+    "caption": "A small pile of fresh, mixed microgreens is served on a white plate.",
+    "observed_food": "mixed microgreens",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1098,8 +1291,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food is a clear match for the 'Microgreens' label.",
-      "The portion size is very small, more typical of a garnish."
+      "The observed food perfectly matches the 'Microgreens' label.",
+      "The portion size is very small, more typical of a garnish than a standalone serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/microgreens.png"
@@ -1109,8 +1302,8 @@
     "food": "Miso soup",
     "base_food": "Miso soup",
     "category": "Dish",
-    "caption": "A white bowl of miso soup with tofu, seaweed, and green onions is served on a matching saucer.",
-    "observed_food": "Miso soup",
+    "caption": "A bowl of miso soup with tofu, seaweed, and scallions sits on a white saucer.",
+    "observed_food": "miso soup",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1119,8 +1312,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The image clearly shows miso soup, which matches the expected label.",
-      "The soup is served in a bowl."
+      "Observed food matches expected label.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/miso-soup.png"
@@ -1130,8 +1323,8 @@
     "food": "Nachos",
     "base_food": "Nachos",
     "category": "Dish",
-    "caption": "A plate of nachos is topped with melted cheese, guacamole, sour cream, and various vegetables.",
-    "observed_food": "Nachos",
+    "caption": "A plate of nachos is topped with cheese, guacamole, sour cream, jalapeños, tomatoes, and onions.",
+    "observed_food": "Nachos with toppings",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1140,8 +1333,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The image clearly shows a prepared dish of nachos, matching the label.",
-      "Guacamole and sour cream are present as toppings."
+      "label is a perfect match",
+      "contains guacamole and sour cream"
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/nachos.png"
@@ -1151,8 +1344,8 @@
     "food": "Noodles (wheat)",
     "base_food": "Noodles (wheat)",
     "category": "Grain",
-    "caption": "A white bowl of plain, cooked noodles sits on a matching white plate.",
-    "observed_food": "Cooked noodles",
+    "caption": "A bowl of plain, cooked noodles is presented on a matching plate against a gray background.",
+    "observed_food": "plain cooked noodles",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1161,8 +1354,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Food is served in a bowl.",
-      "The food appears to be plain cooked noodles, consistent with the label."
+      "The image shows plain noodles, which matches the label.",
+      "The food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/noodles-wheat.png"
@@ -1172,8 +1365,8 @@
     "food": "Octopus",
     "base_food": "Octopus",
     "category": "Protein",
-    "caption": "Sliced cooked octopus with herbs and an oil dressing is served on a white plate.",
-    "observed_food": "Sliced cooked octopus",
+    "caption": "Cooked octopus pieces are served on a white plate, drizzled with oil and garnished with herbs.",
+    "observed_food": "Cooked octopus pieces",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1182,8 +1375,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The food is clearly octopus as labeled.",
-      "The dish is dressed with an oil-based sauce."
+      "The image clearly shows cooked octopus, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/octopus.png"
@@ -1193,8 +1385,8 @@
     "food": "Onion (raw)",
     "base_food": "Onion (raw)",
     "category": "Vegetable",
-    "caption": "A single peeled and cut raw onion is presented on a white plate.",
-    "observed_food": "Cut raw onion",
+    "caption": "A peeled, cut raw onion is presented on a white plate.",
+    "observed_food": "Raw onion, cut",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1203,7 +1395,7 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "A whole raw onion is an unusually large portion for a single serving."
+      "Portion is large for a single serving of raw onion."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/onion-raw.png"
@@ -1220,10 +1412,10 @@
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "multiple_items"
+      "sauce_present"
     ],
     "qc_reasons": [
-      "The observed dish is a clear example of Pad Thai, matching the label."
+      "The image clearly shows a standard preparation of Pad Thai, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pad-thai.png"
@@ -1233,8 +1425,8 @@
     "food": "Paella",
     "base_food": "Paella",
     "category": "Dish",
-    "caption": "A plate of paella with chicken, shrimp, mussels, sausage, and vegetables on yellow rice.",
-    "observed_food": "Paella",
+    "caption": "A plate of paella with chicken, sausage, and seafood on a white plate.",
+    "observed_food": "Paella with chicken, sausage, and seafood",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1243,7 +1435,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Label matches observed food."
+      "The image clearly shows a dish of paella.",
+      "The dish contains multiple distinct ingredients."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/paella.png"
@@ -1253,8 +1446,69 @@
     "food": "Pancake",
     "base_food": "Pancake",
     "category": "Grain",
-    "caption": "A pancake topped with a pat of butter and syrup is served on a white plate.",
-    "observed_food": "pancake with butter and syrup",
+    "caption": "A stack of pancakes with a pat of butter and syrup is on a white plate.",
+    "observed_food": "pancakes with butter and syrup",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present",
+      "multiple_items"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected food.",
+      "Syrup and butter are present as toppings."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pancake.png"
+  },
+  {
+    "image_file": "paneer.png",
+    "food": "Paneer",
+    "base_food": "Paneer",
+    "category": "Protein",
+    "caption": "A white plate holds a pile of plain, off-white food cubes on a grey background.",
+    "observed_food": "cubed tofu or paneer",
+    "label_match": "unclear",
+    "label_confidence": 0.5,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [],
+    "qc_reasons": [
+      "The food item could be either paneer or firm tofu; they are visually indistinguishable in this raw, cubed form."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/paneer.png"
+  },
+  {
+    "image_file": "passionfruit.png",
+    "food": "Passionfruit",
+    "base_food": "Passionfruit",
+    "category": "Fruit",
+    "caption": "A single passionfruit cut in half is presented on a white plate.",
+    "observed_food": "halved passionfruit",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_small"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected food.",
+      "Portion consists of a single fruit, which is a small amount of food."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/passionfruit.png"
+  },
+  {
+    "image_file": "pastry.png",
+    "food": "Pastry",
+    "base_food": "Pastry",
+    "category": "Dessert",
+    "caption": "A flaky pastry filled with mixed berries is served on a white plate.",
+    "observed_food": "Mixed berry pastry",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1263,19 +1517,19 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "label matches",
-      "syrup is present"
+      "The observed food is a type of pastry, matching the label.",
+      "The berry filling has a jam-like or saucy consistency."
     ],
     "file_exists": true,
-    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pancake.png"
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pastry.png"
   },
   {
     "image_file": "peach-prepared.png",
     "food": "Peach (prepared)",
     "base_food": "Peach (prepared)",
     "category": "Fruit",
-    "caption": "A single glazed and spiced peach half is served on a white plate.",
-    "observed_food": "Glazed peach half",
+    "caption": "A single roasted peach half with a glaze and spices sits on a white plate.",
+    "observed_food": "Roasted peach half with glaze",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1285,8 +1539,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Label is a perfect match for the visible food.",
-      "Portion is very small, likely a component of a larger dish."
+      "The food is clearly a prepared peach as labeled.",
+      "The portion consists of a single half of a peach."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/peach-prepared.png"
@@ -1296,8 +1550,8 @@
     "food": "Pear (prepared)",
     "base_food": "Pear (prepared)",
     "category": "Fruit",
-    "caption": "Two cooked pear halves are served on a white plate with a sweet, spiced syrup.",
-    "observed_food": "Baked pear halves with syrup",
+    "caption": "Two halves of a baked pear are served with a sweet glaze on a white plate.",
+    "observed_food": "Baked pears with glaze",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1306,17 +1560,39 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed food is clearly prepared pears, matching the label."
+      "The image clearly shows prepared pears, matching the label.",
+      "The pears are served with a syrupy glaze."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pear-prepared.png"
+  },
+  {
+    "image_file": "penne.png",
+    "food": "Penne",
+    "base_food": "Penne",
+    "category": "Grain",
+    "caption": "A serving of penne pasta tossed with herbs is presented on a white plate.",
+    "observed_food": "Penne pasta with herbs",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "The observed food is penne pasta, which matches the label.",
+      "Pasta is coated in a light, oil-based sauce or dressing."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/penne.png"
   },
   {
     "image_file": "pesto-chicken.png",
     "food": "Pesto chicken",
     "base_food": "Pesto chicken",
     "category": "Dish",
-    "caption": "Cooked chicken breast is topped with pesto sauce and pine nuts, served with roasted tomatoes.",
+    "caption": "Pesto chicken with roasted cherry tomatoes is served on a white plate.",
     "observed_food": "Pesto chicken with roasted tomatoes",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1327,7 +1603,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The main dish matches the label."
+      "The dish is clearly identifiable as pesto chicken."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pesto-chicken.png"
@@ -1337,8 +1613,8 @@
     "food": "Pesto pasta",
     "base_food": "Pesto pasta",
     "category": "Dish",
-    "caption": "A serving of fusilli pasta with pesto sauce is garnished with pine nuts, cheese, and basil.",
-    "observed_food": "Pesto pasta with pine nuts and basil",
+    "caption": "A plate of fusilli pasta with pesto sauce, garnished with pine nuts, cheese, and a basil leaf.",
+    "observed_food": "Pesto pasta",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1347,7 +1623,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is a clear example of the expected label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pesto-pasta.png"
@@ -1357,8 +1633,8 @@
     "food": "Pho",
     "base_food": "Pho",
     "category": "Dish",
-    "caption": "A bowl of beef noodle soup is garnished with fresh herbs, bean sprouts, and a lime wedge.",
-    "observed_food": "Pho with rare beef",
+    "caption": "A bowl of Vietnamese pho with rare beef, herbs, bean sprouts, and a lime wedge.",
+    "observed_food": "Vietnamese beef pho",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1367,7 +1643,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is clearly pho, matching the label.",
+      "Food is served in a bowl on an underplate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pho.png"
@@ -1377,8 +1654,8 @@
     "food": "Pinto beans",
     "base_food": "Pinto beans",
     "category": "Protein",
-    "caption": "A white plate is filled with a large portion of uncooked pinto beans on a grey background.",
-    "observed_food": "uncooked pinto beans",
+    "caption": "A pile of uncooked pinto beans is served on a white plate.",
+    "observed_food": "Dry pinto beans",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1387,9 +1664,9 @@
       "portion_too_large"
     ],
     "qc_reasons": [
-      "The food is correctly identified as pinto beans.",
-      "The preparation is raw, which is compatible with the 'unknown' label.",
-      "The portion is much larger than a typical single serving."
+      "The observed food is pinto beans, matching the label.",
+      "The food appears to be dry and uncooked.",
+      "The portion of dry beans is very large for a single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pinto-beans.png"
@@ -1399,8 +1676,8 @@
     "food": "Plum (prepared)",
     "base_food": "Plum (prepared)",
     "category": "Fruit",
-    "caption": "A white plate holds several cooked plum halves sitting in a reddish syrup.",
-    "observed_food": "Stewed plum halves",
+    "caption": "Stewed, halved plums are served in a light syrup on a white plate.",
+    "observed_food": "Stewed plums",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1409,37 +1686,18 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The food is clearly prepared plums, matching the label.",
-      "The plums are served in a syrup or sauce."
+      "Observed food is clearly prepared plums as described."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/plum-prepared.png"
   },
   {
-    "image_file": "potato-salad.png",
-    "food": "Potato salad",
-    "base_food": "Potato salad",
-    "category": "Dish",
-    "caption": "A serving of potato salad with egg, celery, and herbs is presented on a white plate.",
-    "observed_food": "Potato salad",
-    "label_match": "match",
-    "label_confidence": 1.0,
-    "portion_size_ok": true,
-    "plate_rim_visible": true,
-    "qc_issues": [
-      "sauce_present"
-    ],
-    "qc_reasons": [],
-    "file_exists": true,
-    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/potato-salad.png"
-  },
-  {
-    "image_file": "prune.png",
-    "food": "Prune",
-    "base_food": "Prune",
+    "image_file": "plum-raw.png",
+    "food": "Plum (raw)",
+    "base_food": "Plum (raw)",
     "category": "Fruit",
-    "caption": "A single dark, wrinkled prune is centered on a plain white plate.",
-    "observed_food": "prune",
+    "caption": "A single, whole purple plum is centered on a white plate.",
+    "observed_food": "raw plum",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1448,8 +1706,91 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "The observed food is a prune, which matches the label.",
-      "The portion consists of a single prune, which is very small for a typical serving."
+      "Observed food matches the label.",
+      "The portion consists of a single piece of fruit, which is smaller than a typical serving."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/plum-raw.png"
+  },
+  {
+    "image_file": "portobello-mushrooms.png",
+    "food": "Portobello mushrooms",
+    "base_food": "Portobello mushrooms",
+    "category": "Vegetable",
+    "caption": "A white plate holds a serving of cooked whole and sliced portobello mushrooms.",
+    "observed_food": "cooked portobello mushrooms",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected label.",
+      "Mushrooms appear to be dressed in oil."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/portobello-mushrooms.png"
+  },
+  {
+    "image_file": "potato-salad.png",
+    "food": "Potato salad",
+    "base_food": "Potato salad",
+    "category": "Dish",
+    "caption": "A serving of potato salad with egg, celery, and onion is on a white plate.",
+    "observed_food": "potato salad",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "Observed food matches expected label."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/potato-salad.png"
+  },
+  {
+    "image_file": "prosciutto.png",
+    "food": "Prosciutto",
+    "base_food": "Prosciutto",
+    "category": "Protein",
+    "caption": "Several folded slices of cured ham are arranged on a white plate.",
+    "observed_food": "prosciutto slices",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_small"
+    ],
+    "qc_reasons": [
+      "Observed food is a perfect match for the expected label.",
+      "The portion appears to be an appetizer size, not a full serving."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/prosciutto.png"
+  },
+  {
+    "image_file": "prune.png",
+    "food": "Prune",
+    "base_food": "Prune",
+    "category": "Fruit",
+    "caption": "A single, wrinkled, dark purple plum sits centered on a white plate.",
+    "observed_food": "wrinkled plum",
+    "label_match": "partial",
+    "label_confidence": 0.9,
+    "portion_size_ok": false,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "portion_too_small"
+    ],
+    "qc_reasons": [
+      "Observed food is a fresh, wrinkled plum, not a fully dried prune.",
+      "A single piece of fruit is a small portion."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/prune.png"
@@ -1469,8 +1810,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The food is clearly identifiable as pudding, matching the label.",
-      "The pudding is served in a bowl."
+      "Observed food is vanilla pudding, which matches the 'Pudding' label.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pudding.png"
@@ -1480,8 +1821,8 @@
     "food": "Pumpkin soup",
     "base_food": "Pumpkin soup",
     "category": "Dish",
-    "caption": "A bowl of smooth, orange-colored soup is presented on a matching saucer against a grey background.",
-    "observed_food": "Pureed vegetable soup",
+    "caption": "A white bowl of smooth, orange vegetable soup sits on a matching saucer.",
+    "observed_food": "pumpkin soup",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1490,8 +1831,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The visual appearance is highly consistent with pumpkin soup.",
-      "Food is served in a bowl."
+      "The image shows a smooth, orange puréed soup consistent with pumpkin soup.",
+      "The food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/pumpkin-soup.png"
@@ -1501,8 +1842,8 @@
     "food": "Radicchio",
     "base_food": "Radicchio",
     "category": "Vegetable",
-    "caption": "A small pile of torn radicchio leaves is served on a white plate.",
-    "observed_food": "torn radicchio",
+    "caption": "A small pile of torn radicchio leaves sits on a white plate.",
+    "observed_food": "Torn radicchio leaves",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1511,8 +1852,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food is clearly radicchio, matching the label.",
-      "The portion size appears smaller than a typical single serving."
+      "The observed food is radicchio, which matches the label.",
+      "The portion size appears small for a typical single serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/radicchio.png"
@@ -1522,19 +1863,19 @@
     "food": "Ramen",
     "base_food": "Ramen",
     "category": "Dish",
-    "caption": "A bowl of ramen with pork, a soft-boiled egg, and other toppings is served on a saucer.",
-    "observed_food": "Ramen",
+    "caption": "A bowl of ramen with pork, egg, bamboo shoots, and other toppings in a white bowl.",
+    "observed_food": "Ramen with pork and egg",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "bowl_present",
-      "multiple_items"
+      "sauce_present",
+      "multiple_items",
+      "bowl_present"
     ],
     "qc_reasons": [
-      "The observed food is clearly ramen, matching the label.",
-      "The dish is served in a bowl."
+      "The image clearly shows a bowl of ramen as expected."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/ramen.png"
@@ -1544,7 +1885,7 @@
     "food": "Rendang",
     "base_food": "Rendang",
     "category": "Dish",
-    "caption": "A serving of slow-cooked meat chunks in a thick, dark sauce is presented on a white plate.",
+    "caption": "Chunks of dark, stewed meat in a thick sauce are served on a white plate.",
     "observed_food": "Beef rendang",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1554,7 +1895,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The dish visually matches the description of Rendang."
+      "The dish is clearly identifiable as Rendang."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/rendang.png"
@@ -1564,18 +1905,18 @@
     "food": "Rice noodles",
     "base_food": "Rice noodles",
     "category": "Grain",
-    "caption": "A white bowl of plain, cooked flat noodles sits on a matching white saucer.",
-    "observed_food": "Cooked rice noodles",
+    "caption": "A white bowl of plain cooked rice noodles sits on a matching white saucer against a grey background.",
+    "observed_food": "Plain cooked rice noodles",
     "label_match": "match",
-    "label_confidence": 0.9,
+    "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
       "bowl_present"
     ],
     "qc_reasons": [
-      "The observed food appears to be cooked rice noodles, which matches the label.",
-      "The food is served in a bowl."
+      "Labels match the observed food.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/rice-noodles.png"
@@ -1585,8 +1926,8 @@
     "food": "Risotto",
     "base_food": "Risotto",
     "category": "Dish",
-    "caption": "A bowl of yellow risotto is garnished with butter, shaved cheese, parsley, and saffron threads.",
-    "observed_food": "Risotto",
+    "caption": "A bowl of saffron risotto is garnished with butter, cheese, parsley, and saffron threads on a grey background.",
+    "observed_food": "saffron risotto",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1595,8 +1936,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "The observed food is clearly risotto, matching the expected label.",
-      "The food is served in a bowl."
+      "Observed food is a specific type of the expected food.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/risotto.png"
@@ -1616,8 +1957,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Label matches observed food.",
-      "A small amount of jus is present on the plate."
+      "Label is a perfect match.",
+      "A small amount of sauce/jus is visible on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/roast-beef.png"
@@ -1627,20 +1968,19 @@
     "food": "Roast lamb",
     "base_food": "Roast lamb",
     "category": "Dish",
-    "caption": "Sliced roast lamb is served with roasted potatoes, carrots, and a light sauce.",
-    "observed_food": "Sliced roast lamb with roasted potatoes and carrots",
+    "caption": "Sliced roast lamb with roasted potatoes and carrots is served on a white plate.",
+    "observed_food": "Roast lamb with potatoes and carrots",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "multiple_items",
-      "sauce_present"
+      "sauce_present",
+      "multiple_items"
     ],
     "qc_reasons": [
-      "The observed food is a roast lamb dish as expected.",
-      "Dish includes multiple components (meat, vegetables).",
-      "A sauce or gravy is present on the plate."
+      "Label correctly identifies the main protein.",
+      "Dish includes side vegetables and sauce."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/roast-lamb.png"
@@ -1650,7 +1990,7 @@
     "food": "Rogan josh",
     "base_food": "Rogan josh",
     "category": "Dish",
-    "caption": "A serving of bone-in meat curry in a rich red sauce, garnished with cilantro and ginger.",
+    "caption": "A plate of bone-in meat curry is garnished with fresh cilantro and ginger.",
     "observed_food": "Rogan josh",
     "label_match": "match",
     "label_confidence": 0.9,
@@ -1660,7 +2000,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed dish is visually consistent with Rogan josh."
+      "The dish visually matches the characteristics of Rogan Josh, a type of meat curry."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/rogan-josh.png"
@@ -1680,7 +2020,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is a specific type of the expected food.",
+      "Observed food is a sandwich, matching the label.",
       "A white sauce is visible in the sandwich."
     ],
     "file_exists": true,
@@ -1691,8 +2031,8 @@
     "food": "Sashimi",
     "base_food": "Sashimi",
     "category": "Dish",
-    "caption": "A white plate holds an assortment of raw fish and scallop sashimi.",
-    "observed_food": "Sashimi assortment",
+    "caption": "A plate of assorted raw fish and scallop sashimi is presented on a white plate.",
+    "observed_food": "Assorted sashimi",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1701,8 +2041,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Label is a match.",
-      "Multiple types of seafood are present on the plate."
+      "The image shows a classic assortment of sashimi, matching the label.",
+      "The dish contains multiple types of seafood (tuna, salmon, scallops)."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/sashimi.png"
@@ -1712,7 +2052,7 @@
     "food": "Satay",
     "base_food": "Satay",
     "category": "Dish",
-    "caption": "Grilled meat skewers are served on a white plate with a dipping sauce and fresh garnishes.",
+    "caption": "Grilled meat skewers are served with peanut sauce, cucumber, onion, and lime on a white plate.",
     "observed_food": "Chicken satay skewers",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1724,9 +2064,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food is satay, matching the label.",
-      "Dish includes a dipping sauce in a separate bowl.",
-      "Garnishes of cucumber, onion, and lime are present."
+      "Observed food is clearly satay.",
+      "Sauce and garnishes are present."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/satay.png"
@@ -1737,17 +2076,17 @@
     "base_food": "Scallops",
     "category": "Protein",
     "caption": "Four seared scallops are served on a white plate with a light sauce and garnish.",
-    "observed_food": "seared scallops",
+    "observed_food": "Seared scallops",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "sauce_present",
-      "multiple_items"
+      "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is scallops, matching the label."
+      "Observed food is seared scallops, which matches the expected label.",
+      "A light sauce or oil is present on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/scallops.png"
@@ -1757,7 +2096,7 @@
     "food": "Scone",
     "base_food": "Scone",
     "category": "Grain",
-    "caption": "A single scone filled with jam and cream is presented on a white plate.",
+    "caption": "A single scone filled with jam and cream sits on a white plate against a grey background.",
     "observed_food": "scone with jam and cream",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1767,8 +2106,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The image shows a scone, which matches the expected label.",
-      "The 'sauce_present' flag is for the jam and cream filling."
+      "Observed food is a scone, matching the label.",
+      "Jam and cream are present as fillings."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/scone.png"
@@ -1779,7 +2118,7 @@
     "base_food": "Shallot",
     "category": "Vegetable",
     "caption": "Several whole and one halved raw shallot are arranged on a white plate.",
-    "observed_food": "raw shallots",
+    "observed_food": "Raw shallots",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -1788,8 +2127,9 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food matches the expected label.",
-      "The image shows raw ingredients, not a typical meal-sized portion."
+      "Observed food matches expected label.",
+      "Item is a raw ingredient, not a prepared dish.",
+      "Portion is not a typical serving size for a meal."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/shallot.png"
@@ -1799,8 +2139,8 @@
     "food": "Shepherds pie",
     "base_food": "Shepherds pie",
     "category": "Dish",
-    "caption": "A serving of shepherd's pie with a browned mashed potato topping sits on a white plate.",
-    "observed_food": "Shepherd's pie",
+    "caption": "A square portion of shepherd's pie with a browned potato topping sits on a white plate.",
+    "observed_food": "shepherd's pie",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1809,7 +2149,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The observed food is a clear example of the expected label."
+      "The image shows a classic shepherd's pie."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/shepherds-pie.png"
@@ -1819,7 +2159,7 @@
     "food": "shrimp spring rolls",
     "base_food": "shrimp spring rolls",
     "category": "Grain",
-    "caption": "A pile of six fried shrimp spring rolls is served on a white plate.",
+    "caption": "Several fried shrimp spring rolls are stacked on a white plate against a grey background.",
     "observed_food": "fried shrimp spring rolls",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1829,7 +2169,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Observed food matches the expected label."
+      "Label matches the observed food.",
+      "Multiple spring rolls are present."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/shrimp-spring-rolls.png"
@@ -1839,8 +2180,8 @@
     "food": "Soba noodles",
     "base_food": "Soba noodles",
     "category": "Grain",
-    "caption": "A white bowl contains a serving of plain soba noodles on a matching saucer.",
-    "observed_food": "Soba noodles",
+    "caption": "A white bowl of plain soba noodles sits on a matching saucer.",
+    "observed_food": "soba noodles",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1849,8 +2190,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches the expected label.",
-      "Food is in a bowl, not directly on a plate."
+      "Observed food matches the expected label 'Soba noodles'.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/soba-noodles.png"
@@ -1861,7 +2202,7 @@
     "base_food": "Sorbet",
     "category": "Dessert",
     "caption": "A single scoop of red sorbet is served in a white bowl on a matching saucer.",
-    "observed_food": "Red sorbet",
+    "observed_food": "berry sorbet",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1870,8 +2211,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "Food is in a bowl."
+      "The food appears to be a scoop of sorbet as labeled.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/sorbet.png"
@@ -1881,7 +2222,7 @@
     "food": "Spaghetti bolognese",
     "base_food": "Spaghetti bolognese",
     "category": "Dish",
-    "caption": "A plate of spaghetti bolognese is topped with grated cheese and a sprig of fresh basil.",
+    "caption": "A plate of spaghetti with meat sauce is garnished with grated cheese and fresh basil.",
     "observed_food": "Spaghetti bolognese",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -1891,7 +2232,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "The observed food is a clear example of the expected spaghetti bolognese."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/spaghetti-bolognese.png"
@@ -1901,8 +2242,8 @@
     "food": "Spinach (prepared)",
     "base_food": "Spinach (prepared)",
     "category": "Vegetable",
-    "caption": "A serving of cooked spinach with oil and garlic is presented on a white plate.",
-    "observed_food": "sautéed spinach",
+    "caption": "A serving of cooked spinach with garlic is presented on a white plate.",
+    "observed_food": "Sautéed spinach with garlic",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1911,8 +2252,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Label is a good match for the visible food.",
-      "Oil is visible on the plate."
+      "The image clearly shows prepared spinach as labeled.",
+      "Oil is visible on and around the spinach."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/spinach-prepared.png"
@@ -1923,7 +2264,7 @@
     "base_food": "Split peas",
     "category": "Protein",
     "caption": "A serving of cooked yellow split peas is presented on a white plate.",
-    "observed_food": "Cooked yellow split peas",
+    "observed_food": "cooked yellow split peas",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1932,8 +2273,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is cooked yellow split peas, which matches the label.",
-      "The peas are in a thick, sauce-like liquid."
+      "The food appears to be cooked yellow split peas, matching the label.",
+      "The split peas are cooked in a thick liquid, creating a sauce-like consistency."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/split-peas.png"
@@ -1943,8 +2284,8 @@
     "food": "Spring rolls",
     "base_food": "Spring rolls",
     "category": "Dish",
-    "caption": "Six fried spring rolls are stacked in a small pyramid on a white plate.",
-    "observed_food": "Spring rolls",
+    "caption": "Five fried spring rolls are stacked on a white plate against a grey background.",
+    "observed_food": "fried spring rolls",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -1953,7 +2294,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The food is clearly identifiable as spring rolls, matching the label."
+      "Observed food matches expected label.",
+      "Multiple units of the same food item are present."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/spring-rolls.png"
@@ -1963,14 +2305,13 @@
     "food": "Stew",
     "base_food": "Stew",
     "category": "Dish",
-    "caption": "A white bowl of beef and vegetable stew is served on a matching saucer.",
-    "observed_food": "Beef and vegetable stew",
+    "caption": "A white bowl of beef stew with potatoes and carrots is served on a matching saucer.",
+    "observed_food": "beef stew",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "sauce_present",
       "bowl_present"
     ],
     "qc_reasons": [
@@ -1996,7 +2337,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The image clearly shows a stir-fry dish as labeled."
+      "The observed food is a stir-fry as expected."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/stir-fry.png"
@@ -2006,8 +2347,8 @@
     "food": "Sushi",
     "base_food": "Sushi",
     "category": "Dish",
-    "caption": "A white plate holds an assortment of nigiri and maki sushi with wasabi and ginger.",
-    "observed_food": "Assorted sushi",
+    "caption": "An assortment of nigiri and maki sushi is arranged on a white plate with wasabi and ginger.",
+    "observed_food": "Sushi assortment",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2016,7 +2357,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Label matches observed food.",
+      "Observed food is a sushi platter, matching the label.",
       "Multiple types of sushi are present."
     ],
     "file_exists": true,
@@ -2027,8 +2368,8 @@
     "food": "Sweet and sour chicken",
     "base_food": "Sweet and sour chicken",
     "category": "Dish",
-    "caption": "A plate of sweet and sour chicken with pineapple, peppers, and onions on a grey background.",
-    "observed_food": "Sweet and sour chicken",
+    "caption": "Fried, battered meat with pineapple and peppers in a red sauce is served on a white plate.",
+    "observed_food": "sweet and sour chicken",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2038,7 +2379,7 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "Observed food matches expected label."
+      "The dish is a classic visual representation of sweet and sour chicken."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/sweet-and-sour-chicken.png"
@@ -2048,8 +2389,8 @@
     "food": "sweet breakfast cereal",
     "base_food": "sweet breakfast cereal",
     "category": "Grain",
-    "caption": "A white bowl of colorful, ring-shaped cereal with milk sits on a matching saucer.",
-    "observed_food": "multi-colored ring-shaped cereal with milk",
+    "caption": "A white bowl of colorful, ring-shaped breakfast cereal with milk sits on a saucer.",
+    "observed_food": "Colorful ring-shaped breakfast cereal",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2058,8 +2399,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food is a type of sweet breakfast cereal, matching the label.",
-      "Food is served in a bowl."
+      "Image shows a bowl of sweet, ring-shaped breakfast cereal, matching the label."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/sweet-breakfast-cereal.png"
@@ -2069,8 +2409,8 @@
     "food": "Swiss chard",
     "base_food": "Swiss chard",
     "category": "Vegetable",
-    "caption": "A serving of cooked Swiss chard with colorful stems is presented on a white plate.",
-    "observed_food": "cooked Swiss chard",
+    "caption": "A serving of sautéed rainbow chard is presented on a white plate.",
+    "observed_food": "Sautéed rainbow Swiss chard",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2079,8 +2419,8 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "The food is clearly cooked Swiss chard, matching the label.",
-      "A light sauce or cooking liquid is visible on the plate."
+      "Observed food is a preparation of Swiss chard, matching the label.",
+      "A small amount of cooking liquid/oil is visible on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/swiss-chard.png"
@@ -2090,8 +2430,8 @@
     "food": "Taco",
     "base_food": "Taco",
     "category": "Dish",
-    "caption": "A single hard-shell taco with ground meat, lettuce, cheese, and tomatoes is on a white plate.",
-    "observed_food": "hard-shell beef taco",
+    "caption": "A single hard-shell taco with fillings is centered on a white plate.",
+    "observed_food": "Hard-shell taco",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -2100,18 +2440,39 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "The observed food is a taco as expected.",
-      "The portion size of a single taco is small for a typical meal."
+      "Observed food is a taco, which matches the label.",
+      "A single taco is a small portion for a meal."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/taco.png"
+  },
+  {
+    "image_file": "tart.png",
+    "food": "Tart",
+    "base_food": "Tart",
+    "category": "Dessert",
+    "caption": "A single fruit tart with mixed berries and mint is served on a white plate.",
+    "observed_food": "mixed berry tart",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present"
+    ],
+    "qc_reasons": [
+      "Label is a perfect match.",
+      "A clear glaze is visible on the fruit."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tart.png"
   },
   {
     "image_file": "tempura.png",
     "food": "Tempura",
     "base_food": "Tempura",
     "category": "Dish",
-    "caption": "A plate of assorted tempura, including shrimp and vegetables, is on a grey surface.",
+    "caption": "A plate of assorted tempura, including shrimp and vegetables, is presented on a white plate.",
     "observed_food": "Assorted tempura",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -2121,8 +2482,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The food is clearly identifiable as tempura, matching the label.",
-      "The dish consists of multiple tempura items (shrimp, vegetables)."
+      "Observed food is clearly tempura as labeled.",
+      "Dish consists of multiple distinct items (shrimp, vegetables)."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tempura.png"
@@ -2132,8 +2493,8 @@
     "food": "Teriyaki chicken",
     "base_food": "Teriyaki chicken",
     "category": "Dish",
-    "caption": "Sliced teriyaki chicken with sesame seeds and green onions is served on a white plate.",
-    "observed_food": "Sliced teriyaki chicken",
+    "caption": "Sliced grilled chicken with a dark glaze is garnished with sesame seeds and green onions on a white plate.",
+    "observed_food": "teriyaki chicken",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2142,7 +2503,7 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Observed food is a perfect match for the expected label."
+      "The food appears to be teriyaki chicken as labeled."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/teriyaki-chicken.png"
@@ -2152,8 +2513,8 @@
     "food": "Tikka masala",
     "base_food": "Tikka masala",
     "category": "Dish",
-    "caption": "A plate of chicken tikka masala is garnished with fresh cilantro and swirls of cream.",
-    "observed_food": "Chicken tikka masala",
+    "caption": "A plate of tikka masala with grilled meat, a creamy sauce, and fresh herbs.",
+    "observed_food": "Tikka masala",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2161,7 +2522,9 @@
     "qc_issues": [
       "sauce_present"
     ],
-    "qc_reasons": [],
+    "qc_reasons": [
+      "Observed food matches expected label."
+    ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tikka-masala.png"
   },
@@ -2170,8 +2533,8 @@
     "food": "Tom yum soup",
     "base_food": "Tom yum soup",
     "category": "Dish",
-    "caption": "A white bowl of Thai shrimp soup with mushrooms, tomatoes, and herbs on a matching saucer.",
-    "observed_food": "Tom yum soup",
+    "caption": "A white bowl of shrimp soup contains mushrooms, tomatoes, lemongrass, and cilantro.",
+    "observed_food": "Tom yum soup with shrimp",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2180,7 +2543,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "The observed food is a clear example of the expected Tom Yum soup."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tom-yum-soup.png"
@@ -2190,7 +2553,7 @@
     "food": "Tomato bruschetta",
     "base_food": "Tomato bruschetta",
     "category": "Dish",
-    "caption": "A single piece of tomato bruschetta with fresh basil is presented on a white plate.",
+    "caption": "A single piece of tomato bruschetta is presented on a white plate against a plain grey background.",
     "observed_food": "Tomato bruschetta",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -2200,8 +2563,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food matches expected label.",
-      "Portion is a single piece, which is smaller than a typical appetizer serving."
+      "Observed food matches the label.",
+      "Portion consists of a single piece, which is small for a typical appetizer serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tomato-bruschetta.png"
@@ -2211,7 +2574,7 @@
     "food": "Tomato soup",
     "base_food": "Tomato soup",
     "category": "Dish",
-    "caption": "A white bowl of smooth, red soup is served on a matching saucer against a grey background.",
+    "caption": "A white bowl of smooth, reddish-orange soup is presented on a matching saucer.",
     "observed_food": "tomato soup",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -2221,7 +2584,8 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food matches the label.",
+      "Food is served in a bowl."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tomato-soup.png"
@@ -2231,18 +2595,18 @@
     "food": "Tortilla (corn)",
     "base_food": "Tortilla (corn)",
     "category": "Grain",
-    "caption": "A single, plain corn tortilla rests on a white plate against a grey background.",
-    "observed_food": "corn tortilla",
+    "caption": "A stack of plain corn tortillas is served on a white plate.",
+    "observed_food": "corn tortillas",
     "label_match": "match",
     "label_confidence": 1.0,
-    "portion_size_ok": false,
+    "portion_size_ok": true,
     "plate_rim_visible": true,
     "qc_issues": [
-      "portion_too_small"
+      "multiple_items"
     ],
     "qc_reasons": [
-      "Observed food matches expected food.",
-      "Portion is a single tortilla, which is small for a typical serving."
+      "Observed food is a stack of corn tortillas, which matches the label.",
+      "The image shows a stack of tortillas, not a single item."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/tortilla-corn.png"
@@ -2252,8 +2616,8 @@
     "food": "Turkey",
     "base_food": "Turkey",
     "category": "Protein",
-    "caption": "Sliced roasted poultry with dark meat and a light sauce, garnished with a fresh herb sprig.",
-    "observed_food": "Sliced roasted poultry (white and dark meat)",
+    "caption": "Sliced roasted poultry with light and dark meat is served in a light sauce with a thyme garnish.",
+    "observed_food": "Sliced roasted turkey",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2263,8 +2627,8 @@
       "multiple_items"
     ],
     "qc_reasons": [
-      "The food appears to be roasted turkey, which matches the label.",
-      "The plate contains both white and dark meat, a sauce, and a herb garnish."
+      "Observed food is sliced roasted turkey, matching the label.",
+      "Both light and dark meat are present."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/turkey.png"
@@ -2274,31 +2638,8 @@
     "food": "Udon",
     "base_food": "Udon",
     "category": "Grain",
-    "caption": "A bowl of udon noodle soup is topped with pork, fish cake, and green onions.",
+    "caption": "A white bowl of udon noodle soup with pork, fish cake, and green onions on a saucer.",
     "observed_food": "Udon noodle soup",
-    "label_match": "match",
-    "label_confidence": 1.0,
-    "portion_size_ok": true,
-    "plate_rim_visible": true,
-    "qc_issues": [
-      "multiple_items",
-      "bowl_present"
-    ],
-    "qc_reasons": [
-      "Observed food is udon noodle soup, which matches the expected label 'Udon'.",
-      "The dish contains multiple components.",
-      "The food is served in a bowl."
-    ],
-    "file_exists": true,
-    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/udon.png"
-  },
-  {
-    "image_file": "vegetable-curry.png",
-    "food": "Vegetable curry",
-    "base_food": "Vegetable curry",
-    "category": "Dish",
-    "caption": "A white bowl of vegetable curry with cauliflower, potatoes, carrots, and peas on a matching saucer.",
-    "observed_food": "Vegetable curry",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2309,7 +2650,29 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food matches expected food."
+      "Observed food is a dish made with the expected base food.",
+      "Food is served in a bowl."
+    ],
+    "file_exists": true,
+    "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/udon.png"
+  },
+  {
+    "image_file": "vegetable-curry.png",
+    "food": "Vegetable curry",
+    "base_food": "Vegetable curry",
+    "category": "Dish",
+    "caption": "A bowl of vegetable curry with potatoes, cauliflower, and carrots, garnished with fresh cilantro.",
+    "observed_food": "vegetable curry",
+    "label_match": "match",
+    "label_confidence": 1.0,
+    "portion_size_ok": true,
+    "plate_rim_visible": true,
+    "qc_issues": [
+      "sauce_present",
+      "bowl_present"
+    ],
+    "qc_reasons": [
+      "The observed food is a clear example of vegetable curry."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/vegetable-curry.png"
@@ -2319,8 +2682,8 @@
     "food": "Venison",
     "base_food": "Venison",
     "category": "Protein",
-    "caption": "Slices of medium-rare red meat are arranged on a white plate with herbs and a light sauce.",
-    "observed_food": "sliced roasted red meat",
+    "caption": "Sliced medium-rare meat with herbs and a light sauce on a white plate.",
+    "observed_food": "Sliced roasted red meat",
     "label_match": "match",
     "label_confidence": 0.8,
     "portion_size_ok": true,
@@ -2329,8 +2692,9 @@
       "sauce_present"
     ],
     "qc_reasons": [
-      "Food could be beef or venison; appearance is consistent with the 'venison' label.",
-      "A light sauce is present on the plate."
+      "The observed food is sliced red meat, consistent with the 'Venison' label.",
+      "The specific type of red meat cannot be definitively identified from the image.",
+      "A light sauce or jus is present on the plate."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/venison.png"
@@ -2340,8 +2704,8 @@
     "food": "Vermicelli",
     "base_food": "Vermicelli",
     "category": "Grain",
-    "caption": "A white bowl of plain, cooked vermicelli noodles sits on a matching saucer.",
-    "observed_food": "cooked vermicelli noodles",
+    "caption": "A white bowl of plain, cooked vermicelli noodles sits on a matching saucer against a grey background.",
+    "observed_food": "plain vermicelli noodles",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": true,
@@ -2350,7 +2714,7 @@
       "bowl_present"
     ],
     "qc_reasons": [
-      "Observed food is a clear match for the 'Vermicelli' label.",
+      "Observed food is a perfect match for the label 'Vermicelli'.",
       "Food is served in a bowl."
     ],
     "file_exists": true,
@@ -2361,8 +2725,8 @@
     "food": "Water chestnut",
     "base_food": "Water chestnut",
     "category": "Vegetable",
-    "caption": "One whole and one halved peeled water chestnut are presented on a white plate.",
-    "observed_food": "peeled water chestnuts",
+    "caption": "One whole and one halved peeled white vegetable are arranged on a white plate.",
+    "observed_food": "Peeled water chestnuts",
     "label_match": "match",
     "label_confidence": 1.0,
     "portion_size_ok": false,
@@ -2371,8 +2735,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food matches the expected label 'Water chestnut'.",
-      "The portion size is very small."
+      "Food appears to be peeled water chestnuts as labeled.",
+      "Portion is very small for a typical serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/water-chestnut.png"
@@ -2382,7 +2746,7 @@
     "food": "Yogurt (plain)",
     "base_food": "Yogurt (plain)",
     "category": "Protein",
-    "caption": "A dollop of plain white yogurt is swirled on a white plate.",
+    "caption": "A dollop of thick, white, creamy food is swirled on a white plate.",
     "observed_food": "Plain yogurt",
     "label_match": "match",
     "label_confidence": 1.0,
@@ -2392,8 +2756,8 @@
       "portion_too_small"
     ],
     "qc_reasons": [
-      "Observed food matches expected label.",
-      "The portion size appears smaller than a typical single serving."
+      "Observed food matches the label.",
+      "The portion appears small for a standalone serving."
     ],
     "file_exists": true,
     "path": "/Users/tcar5787/Documents/GitHub/PAFID/rendered_images/yogurt-plain.png"
