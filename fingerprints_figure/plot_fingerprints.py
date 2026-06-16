@@ -59,14 +59,20 @@ LABELS = [
 
 CATEGORY_COL = "Category_Culinary_9"
 
-FILL_COLOR  = "#7F77DD"
-FILL_ALPHA  = 0.18
-LINE_COLOR  = "#7F77DD"
-POINT_COLOR = "#7F77DD"
-LABEL_COLOR = "#5f5e5a"
-XFM_COLOR   = "#BA7517"   # amber — highlights transformation score axis
-GRID_COLOR  = "#cccccc"
-BG_COLOR    = "white"
+FILL_COLOR    = "#7F77DD"
+FILL_ALPHA    = 0.18
+LINE_COLOR    = "#7F77DD"
+POINT_COLOR   = "#7F77DD"
+LABEL_COLOR   = "#5f5e5a"
+XFM_COLOR     = "#BA7517"   # amber — highlights transformation score axis
+FLAVOUR_COLOR = "#2E86AB"   # blue — flavour/sensory ratings
+APPRAISAL_COLOR = "#C0392B" # red — food attributes (healthiness, calorie density)
+GRID_COLOR    = "#cccccc"
+BG_COLOR      = "white"
+
+FLAVOUR_LABELS    = {"Sweetness", "Saltiness", "Savoriness", "Sourness",
+                     "Bitterness", "Spiciness", "Fattiness"}
+APPRAISAL_LABELS  = {"Healthiness", "Calorie density"}
 
 
 def build_radar(ax: plt.Axes, values: list[float], title: str, n: int) -> None:
@@ -98,8 +104,15 @@ def build_radar(ax: plt.Axes, values: list[float], title: str, n: int) -> None:
     ax.set_xticks(angles)
     tick_labels = ax.set_xticklabels(LABELS, fontsize=7.5)
     for label in tick_labels:
-        if label.get_text() == "Transformation":
+        text = label.get_text()
+        if text == "Transformation":
             label.set_color(XFM_COLOR)
+            label.set_fontweight("semibold")
+        elif text in FLAVOUR_LABELS:
+            label.set_color(FLAVOUR_COLOR)
+            label.set_fontweight("semibold")
+        elif text in APPRAISAL_LABELS:
+            label.set_color(APPRAISAL_COLOR)
             label.set_fontweight("semibold")
         else:
             label.set_color(LABEL_COLOR)
@@ -145,6 +158,22 @@ def main() -> None:
     fig.suptitle(
         "Culinary food category fingerprints",
         fontsize=13, fontweight="medium", color="#2c2c2a", y=0.98,
+    )
+
+    # Legend for axis label colour coding
+    import matplotlib.patches as mpatches
+    legend_elements = [
+        mpatches.Patch(color=FLAVOUR_COLOR,    label="Flavour ratings"),
+        mpatches.Patch(color=APPRAISAL_COLOR,  label="Food attributes"),
+        mpatches.Patch(color=XFM_COLOR,        label="Transformation score"),
+    ]
+    fig.legend(
+        handles=legend_elements,
+        loc="lower center",
+        ncol=3,
+        fontsize=8.5,
+        frameon=False,
+        bbox_to_anchor=(0.5, -0.02),
     )
 
     plt.subplots_adjust(
