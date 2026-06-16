@@ -17,9 +17,9 @@ PAFID/
 │   ├── Foodpictures_information_dynamic.csv
 │   └── Foodpictures_information_reference.csv
 ├── assets/                    # Reference assets
-│   └── plates/                # Reference plate images for visual consistency
 ├── rendered_images/           # Generated high-res images and metadata
 ├── resized_images/            # Experiment-ready images and JS trial scripts
+├── run_pipeline.sh            # Main pipeline runner (use --safe-rerun to skip image generation)
 └── requirements.txt           # Python dependencies
 ```
 
@@ -137,7 +137,7 @@ Rather than requiring labels to be specified manually in the seed list, the pipe
 | `Transformation_score` | Continuous score 0–100 reflecting degree of processing (0–10 = raw/whole; 85–100 = highly manufactured) |
 | `Category_NOVA_4` | NOVA food-processing group 1–4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed. Classified with a separate prompt (ported from the original manual batch protocol) and versioned independently of the other four schemes, so updating one prompt does not re-trigger the other. |
 
-Classification uses `gemini-2.0-flash` via a single text call per food item and does not depend on the generated image.
+Classification uses `gemini-2.5-flash` (temperature 0) via a single text call per food item and does not depend on the generated image.
 
 ## Usage Pipeline
 
@@ -207,12 +207,12 @@ python src/reset_pipeline.py
 *   **Safety**: This script will ask for confirmation before deleting any non-canonical images or metadata you have generated.
 
 ### 8. Rerun Pipeline Safely
-To quickly re-run all classification, rating, and feature extraction steps on existing images without re-rendering anything:
+To re-run all classification, rating, and feature extraction steps on existing images without re-rendering anything:
 ```bash
-bash rerun_pipeline_safe.sh
+bash run_pipeline.sh --safe-rerun
 ```
-*   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting the prompts in the source scripts.
-*   **Safety**: This script explicitly forces `--classify-only` and `--overwrite`, but never generates or touches the images themselves.
+*   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting prompts. Classification is resumable (skips items already classified under the current prompt version); QC and blind ratings are fully overwritten.
+*   **Safety**: Images are never generated or modified.
 
 
 ## Dataset Schema (Data Dictionary)
@@ -231,7 +231,6 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`natural_vs_transformed`**: Binary classification: 'Natural' (the food is still visually and conceptually identifiable as a single biological food source) or 'Transformed' (the food has been substantially altered from its original biological source).
 * **`Transformation_score`**: AI-assigned 1-100 rating of how processed or altered the food is from its natural state.
 * **`Category_NOVA_4`**: NOVA food-processing group 1-4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed.
-* **`sweet_vs_savory`**: Primary flavor profile categorization.
 
 ### 3. Generation Metadata
 * **`prompt`**: The exact text prompt sent to the LLM to generate the image.
@@ -239,7 +238,6 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`seed`**: The RNG seed used during generation (if supported/applicable).
 * **`created`**: Unix timestamp of when the image was generated.
 * **`style_version`**: Identifier for the photographic styling parameters used.
-* **`plate_reference`**: Internal reference to any background plate assets utilized.
 
 ### 4. Empirical Human Ground Truth
 *(Note: These 0-100 scales represent mean human ratings from real psychophysics surveys)*
@@ -372,7 +370,29 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > 4) Flag obvious visual QC issues.
 > 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes."
 
-### 4. Blind AI Ratings (`rate_images.py`)
+### 4. NOVA Classification (`generate_stimuli.py`)
+Called separately from the 4-scheme prompt above, once per food item, using `gemini-2.5-flash` (temperature 0). Versioned independently (`v1-2026-06-monteiro-2016`) so updating one prompt does not re-trigger the other.
+
+> Classify the food item **{food}** into a NOVA group (1-4) based on the extent and purpose of industrial food processing (Monteiro et al., 2016).
+>
+> NOVA groups:
+> 1 — Unprocessed or minimally processed foods: foods in their natural state, or altered by processes that do not add substances (drying, roasting, freezing, boiling, pasteurisation, fermentation). Examples: fresh/frozen fruit and vegetables, plain meat and fish, eggs, plain milk, plain nuts and seeds, dried legumes, plain rice, oats, plain flour, plain yogurt.
+> 2 — Processed culinary ingredients: substances extracted from whole foods and used in cooking, not typically eaten alone. Examples: vegetable oils, butter, lard, sugar, honey, salt, vinegar, plain starch. (Unlikely to apply to most plated foods.)
+> 3 — Processed foods: foods made by adding salt, sugar, oil, or other Group 2 substances to Group 1 foods; usually two or three ingredients; the alteration is recognisable. Examples: canned tomatoes, salted nuts, smoked fish, preserved meats, simple cheeses, plain bread, wine.
+> 4 — Ultra-processed foods: industrial formulations with many ingredients, typically including additives not used in home cooking (emulsifiers, stabilisers, flavourings, colours, sweeteners, preservatives); no whole-food equivalent. Examples: soft drinks, packaged chips/crisps, instant noodles, reconstituted meat products, commercial breakfast cereals with additives, packaged cakes and biscuits, flavoured yogurts, fast food items, candy/confectionery.
+>
+> Rules for ambiguous cases:
+> - For foods marked '(prepared)', classify the typical home-cooked preparation (usually still Group 1 or 3). Do not assume industrial processing simply because a food is cooked.
+> - Dried fruits are typically Group 1 (drying is minimal processing) unless they contain added sugar or sulphites, in which case Group 3.
+> - Plain legumes cooked or canned are Group 1-3 depending on preparation; classify the typical ready-to-eat form.
+> - Dishes (e.g. biryani, lasagna, pad thai, sushi) are typically assembled from Group 1-3 ingredients in a home or restaurant kitchen; classify as Group 3 unless clearly an industrial product (e.g. instant ramen, fast food).
+> - Classify the most typical, widely available form of the food, not the most processed possible version.
+>
+> Reply in exactly this format — two lines, no explanation:
+> NOVA: \<integer 1-4\>
+> NOTE: \<one short phrase only if borderline/ambiguous, otherwise leave empty\>
+
+### 5. Blind AI Ratings (`rate_images.py`)
 **System Instruction:**
 > "You are a neutral observer providing visual assessments of food stimuli. Be factual. Do not mention brands. Do not add opinions beyond the requested ratings. For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* based only on what is visually inferable from the image and typical culinary expectations. These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
 

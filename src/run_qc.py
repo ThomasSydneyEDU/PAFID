@@ -419,21 +419,6 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
 
             e = by_food.get(food_key, {})
 
-            culinary9 = e.get("Category_Culinary_9", "")
-            intuitive7 = e.get("Category_Intuitive_7", "")
-            
-            # Dynamically resolve sweet_vs_savory if not explicitly present in master
-            sweet_savory = e.get("Sweet_vs_savory", "")
-            if not sweet_savory:
-                if culinary9 in ["Produce - Sweet", "Desserts & Sweets"]:
-                    sweet_savory = "Sweet"
-                elif intuitive7 in ["Fruit", "Dessert"]:
-                    sweet_savory = "Sweet"
-                elif any(k in food_name.lower() for k in ["sweet", "chocolate", "cake", "cookie", "pie", "ice cream", "candy", "jam", "honey", "sugar", "pudding", "dessert", "syrup", "fruit", "donut", "brownie", "cupcake", "muffin", "milkshake", "smoothie", "acai", "baklava"]):
-                    sweet_savory = "Sweet"
-                else:
-                    sweet_savory = "Savory"
-
             out: Dict[str, Any] = {
                 "Category": cat,
                 "Food": food_name,
@@ -448,7 +433,6 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 # NOTE: legacy food_classification is no longer exported —
                 # replaced by Category_Intuitive_7 (see classify_food_gemini).
                 "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
-                "sweet_vs_savory": sweet_savory,
                 "Category_WHO_10": e.get("Category_WHO_10", ""),
                 "Category_Intuitive_7": e.get("Category_Intuitive_7", ""),
                 "Category_Culinary_9": e.get("Category_Culinary_9", ""),
@@ -459,7 +443,6 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "seed": e.get("seed", ""),
                 "created": e.get("created", ""),
                 "style_version": e.get("style_version", ""),
-                "plate_reference": e.get("plate_reference", ""),
                 "caption": e.get("caption", ""),
                 "aware_observed_food": e.get("observed_food", ""),
                 "label_match": e.get("label_match", ""),
@@ -516,8 +499,8 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
     # Apply column ordering
     col_order = [
         'filename', 'food', 'base_food', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9',
-        'Category_NOVA_4', 'natural_vs_transformed', 'Transformation_score', 'sweet_vs_savory',
-        'prompt', 'model', 'seed', 'created', 'style_version', 'plate_reference', 
+        'Category_NOVA_4', 'natural_vs_transformed', 'Transformation_score',
+        'prompt', 'model', 'seed', 'created', 'style_version',
         'human_calorie_density', 'human_healthiness', 'human_appeal', 'human_familiarity',
         'human_sweetness', 'human_saltiness', 'human_sourness', 'human_bitterness', 
         'human_savoriness', 'human_fattiness', 'human_spiciness',

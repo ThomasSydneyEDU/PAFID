@@ -165,16 +165,6 @@ def bowl_clause_for(spec: RenderSpec) -> str:
     """Return an instruction string for when the item is traditionally served in a bowl."""
     if not needs_bowl(spec.food):
         return ""
-
-    # If a plate reference image is used, the bowl must visually match that plate.
-    if spec.plate_image is not None:
-        return (
-            "If this food is traditionally served in a bowl, place it in a simple plain white bowl that MATCHES the reference plate style (same white tone and minimal design). "
-            "The bowl should sit centered ON TOP of the same reference plate (do not replace the plate). "
-            "No patterns, no branding, no colored rims; keep it minimal and consistent."
-        )
-
-    # Otherwise keep a consistent minimalist set.
     return (
         "If this food is traditionally served in a bowl, place it in a simple plain white bowl that matches the plate (same plain white tone and minimal design). "
         "The bowl should be centered on the plate. No patterns, no branding, no colored rims."
@@ -217,19 +207,7 @@ NEGATIVE_PROMPT = (
 
 
 def build_prompt(spec: RenderSpec) -> str:
-    if spec.plate_image is not None:
-        plate_clause = (
-            "Using the provided reference image of an empty plain white plate, place the food on that EXACT SAME plate. "
-            "The plate must be IDENTICAL to the reference: do not change the plate shape, rim width, rim height, curvature, color temperature, texture, gloss, lighting reflections, shadows, background, camera angle, or framing. "
-            "Preserve the apparent ellipse of the plate exactly as in the reference image; this ellipse DEFINES the viewing angle. "
-            "Do not adjust camera tilt, height, or perspective to accommodate the food. "
-            "Do not stylize, redraw, resize, rotate, crop, warp, or substitute the plate. "
-            "Only add the food item onto the plate while preserving all plate pixels and appearance. "
-            "Maintain the same camera angle and framing; keep some rim visible."
-        )
-    else:
-        plate_clause = f"Placed on a simple plain white round plate on a {DEFAULT_BG}, {DEFAULT_LIGHTING}."
-
+    plate_clause = f"Placed on a simple plain white round plate on a {DEFAULT_BG}, {DEFAULT_LIGHTING}."
     vessel_clause = bowl_clause_for(spec)
 
     # Granular food realism (e.g., rice, couscous)
@@ -580,35 +558,10 @@ def generate_image_b64_gemini(client, prompt: str, size: str, quality: str, mode
     except Exception:
         types = None  # type: ignore
 
-    parts = []
-
-    if plate_image is not None:
-        img_bytes = plate_image.read_bytes()
-        suffix = plate_image.suffix.lower()
-        mime = "image/png" if suffix == ".png" else "image/jpeg"
-
-        # Prefer strongly-typed parts if available; otherwise use dict fallback.
-        if types is not None and hasattr(types, "Part") and hasattr(types.Part, "from_bytes"):
-            try:
-                # Newer google-genai versions often require keyword-only args
-                parts.append(types.Part.from_bytes(data=img_bytes, mime_type=mime))
-            except TypeError:
-                # Some versions use different keyword names
-                parts.append(types.Part.from_bytes(bytes=img_bytes, mime_type=mime))
-        else:
-            parts.append({"inline_data": {"mime_type": mime, "data": base64.b64encode(img_bytes).decode("utf-8")}})
-
     if types is not None and hasattr(types, "Part") and hasattr(types.Part, "from_text") and hasattr(types, "Content"):
-        parts.append(types.Part.from_text(text=prompt))
-        contents = [types.Content(role="user", parts=parts)]
+        contents = [types.Content(role="user", parts=[types.Part.from_text(text=prompt)])]
     else:
-        # Dict-based fallback
-        dict_parts = []
-        for p in parts:
-            if isinstance(p, dict):
-                dict_parts.append(p)
-        dict_parts.append({"text": prompt})
-        contents = [{"role": "user", "parts": dict_parts}]
+        contents = [{"role": "user", "parts": [{"text": prompt}]}]
 
     print(f"      [DEBUG] Calling Gemini API (model: {model})...")
     response = client.models.generate_content(
@@ -686,7 +639,6 @@ def write_meta(
         "created": int(time.time()),
         "source": f"ai-{backend}",
         "style_version": style_version,
-        "plate_reference": None,
     }
 
     # Load existing list if present
