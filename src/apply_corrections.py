@@ -33,7 +33,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CORRECTIONS = ROOT / "data" / "category_corrections.csv"
+DEFAULT_CORRECTIONS = ROOT / "data" / "QC" / "category_corrections.csv"
 MASTER_PATH = ROOT / "rendered_images" / "stimuli_master.json"
 DYNAMIC_CSV = ROOT / "data" / "Foodpictures_information_dynamic.csv"
 

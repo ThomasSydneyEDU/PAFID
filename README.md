@@ -21,9 +21,9 @@ PAFID/
 │   ├── Foodpictures_information_reference.csv   # Static 351-item baseline
 │   ├── human_ratings.csv                        # Aggregate human ratings (mean per image)
 │   ├── human_ratings_individual.csv             # Trial-level human ratings (per participant × image)
-│   ├── food_category_flags_to_review.xlsx       # Open category audit — 38 items flagged for review
-│   ├── food_category_flags_to_review.csv        # Same audit in CSV form
-│   └── category_corrections.csv                 # Confirmed manual corrections (applied via apply_corrections.py)
+│   └── QC/                                      # Category audit and correction files
+│       ├── food_category_flags_to_review.csv    # 38-item audit (action/confirmed_value/generation_notes columns)
+│       └── category_corrections.csv             # Confirmed manual corrections (applied via apply_corrections.py)
 ├── assets/                    # Reference assets (e.g. style guides, design notes)
 ├── rendered_images/           # Generated high-res images and metadata
 ├── resized_images/            # Experiment-ready images and JS trial scripts
@@ -322,7 +322,7 @@ The seed list includes 3 demo items at the end as an example. You can remove the
 
 ## Known Issues
 
-`data/food_category_flags_to_review.xlsx` contains an open audit of the canonical 350-item database. **38 items** have been flagged for human review and have not yet been corrected.
+`data/QC/food_category_flags_to_review.csv` contains an open audit of the canonical 350-item database. **38 items** have been flagged for human review and have not yet been corrected.
 
 Flags fall into two categories:
 
@@ -351,7 +351,7 @@ Both are handled through a two-script workflow designed to be run iteratively, w
 
 **1. Fill in the flags file.**
 
-Open `data/food_category_flags_to_review.csv`. For each flagged item, set the `action` column to one of:
+Open `data/QC/food_category_flags_to_review.csv`. For each flagged item, set the `action` column to one of:
 
 | Action | Meaning |
 |---|---|
@@ -410,7 +410,7 @@ This is a deliberate manual step. Once done, `Foodpictures_information_reference
 
 Corrections are stored separately from the AI-generated reference file so that:
 - `data/Foodpictures_information_reference.csv` remains a faithful record of the original AI classifications until intentionally updated by the authors.
-- `data/category_corrections.csv` provides a complete, auditable log of every human override.
+- `data/QC/category_corrections.csv` provides a complete, auditable log of every human override.
 - Corrections can be re-applied from scratch at any time by running `apply_corrections.py`.
 
 ## Citation

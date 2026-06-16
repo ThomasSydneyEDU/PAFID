@@ -40,8 +40,8 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-FLAGS_CSV = ROOT / "data" / "food_category_flags_to_review.csv"
-CORRECTIONS_CSV = ROOT / "data" / "category_corrections.csv"
+FLAGS_CSV = ROOT / "data" / "QC" / "food_category_flags_to_review.csv"
+CORRECTIONS_CSV = ROOT / "data" / "QC" / "category_corrections.csv"
 
 # Columns that correct_labels actions are permitted to modify.
 LABEL_COLUMNS = {
