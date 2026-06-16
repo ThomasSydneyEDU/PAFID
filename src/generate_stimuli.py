@@ -1026,7 +1026,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=str,
         default=DEFAULT_BACKEND,
         choices=["openai", "gemini"],
-        help="Image backend to use: 'openai' (gpt-image-1) or 'gemini' (Gemini image models, default gemini-2.5-flash-image).",
+        help="Image backend to use: 'openai' (gpt-image-1) or 'gemini' (Gemini image models, default gemini-3-pro-image-preview).",
     )
     p.add_argument("--seed", type=int, default=None, help="Optional seed for determinism (if supported)")
     p.add_argument("--n", type=int, default=1, help="Images per item (currently saves the first; extend as needed)")

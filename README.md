@@ -14,7 +14,8 @@ PAFID/
 │   ├── extract_visual_features.py  # Computes low-level visual statistics
 │   ├── run_editorial_review.py  # Iterative image/label review (regenerate or preview corrections)
 │   ├── apply_corrections.py  # Commits confirmed label corrections to master + dynamic CSV
-│   └── reset_pipeline.py     # Resets the database to the 350-item canonical baseline
+│   ├── reset_pipeline.py     # Resets the database to the 350-item canonical baseline
+│   └── generate_nonfood_stimuli.py  # Generates non-food object foils (not part of PAFID release)
 ├── data/                      # Input lists and metadata
 │   ├── food_list_initial_seed.csv               # Seed list (Food column only)
 │   ├── Foodpictures_information_dynamic.csv     # Working metadata (pipeline output)
@@ -26,7 +27,7 @@ PAFID/
 │       └── category_corrections.csv             # Confirmed manual corrections (applied via apply_corrections.py)
 ├── assets/                    # Reference assets (e.g. style guides, design notes)
 ├── rendered_images/           # Generated high-res images and metadata
-├── resized_images/            # Experiment-ready images and JS trial scripts
+├── resized_images/            # Experiment-ready images
 ├── run_pipeline.sh            # Main pipeline runner (use --safe-rerun to skip image generation)
 └── requirements.txt           # Python dependencies
 ```
@@ -207,7 +208,7 @@ python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-can
 *   **Caveat (HOG PCs):** `ll_hog_pc01–10` are PCA components fit on the image set processed in that run, so values from different runs are not in a shared basis. Scalar features (luminance, contrast, Lab/HSV stats, edge energy) are directly comparable across runs; HOG PCs are not. For analyses mixing old and new stimuli, recompute HOG PCs across the full image set (`--overwrite`) or treat them per-run.
 
 ### 6. Prepare for Experiments
-Resize images and generate trial metadata:
+Resize images for experiments:
 ```bash
 python src/prepare_images.py --stimuli-dir rendered_images/
 ```
@@ -412,6 +413,26 @@ Corrections are stored separately from the AI-generated reference file so that:
 - `data/Foodpictures_information_reference.csv` remains a faithful record of the original AI classifications until intentionally updated by the authors.
 - `data/QC/category_corrections.csv` provides a complete, auditable log of every human override.
 - Corrections can be re-applied from scratch at any time by running `apply_corrections.py`.
+
+## Non-Food Object Foils
+
+`src/generate_nonfood_stimuli.py` generates photorealistic images of non-food inanimate objects (e.g., river pebbles, seashells, marbles, bark chips) rendered on the same plain white plate and grey background as the PAFID food stimuli. These images are intended as visual control stimuli — objects that share low-level visual properties with food images but are clearly not food.
+
+**These foils are not part of the PAFID data release.** No non-food images are included in `data/` or `rendered_images/`. The script is provided so researchers can generate their own foil set using the same photographic pipeline as the main stimuli.
+
+Usage:
+```bash
+# Render the built-in foil list (12 objects)
+python src/generate_nonfood_stimuli.py
+
+# Dry run
+python src/generate_nonfood_stimuli.py --dry-run
+
+# Use a custom CSV (columns: Category, Food)
+python src/generate_nonfood_stimuli.py --csv my_objects.csv
+```
+
+Output is written to `data/rendered_images_nonfood/` and never touches the main `rendered_images/` directory.
 
 ## Citation
 If you use this database or pipeline in your research, please cite:
