@@ -12,7 +12,9 @@ LLM Image Render Pipeline for Food Stimuli
 Usage examples:
   python src/generate_stimuli.py --dry-run --limit 5
   python src/generate_stimuli.py --category Fruit --size 1024 --quality high --seed 42 --n 1
-  python src/generate_stimuli.py --resume
+
+Resumable by default: existing PNGs are skipped unless --overwrite is passed.
+If the run is interrupted, simply re-run the same command to continue from where it left off.
 
 Env vars required:
   GEMINI_API_KEY   # your project API key
@@ -123,6 +125,7 @@ class RenderSpec:
     culinary9_category: str = ""
     nat_vs_trans: str = ""
     transformation_score: int = -1
+    nova_category: int = -1
 
     # Optional / defaulted fields
     additional_prompt: str = ""
@@ -631,6 +634,7 @@ def write_meta(
         "Category_Culinary_9": spec.culinary9_category,
         "Natural_vs_transformed": spec.nat_vs_trans,
         "Transformation_score": spec.transformation_score,
+        "Category_NOVA_4": spec.nova_category if spec.nova_category != -1 else None,
         "prompt": prompt,
         "model": spec.model,
         "size": spec.size,
@@ -1134,8 +1138,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         if not args.dry_run and backend == "gemini":
             who10, intuitive7, culinary9, nat_trans, score = classify_food_gemini(client, food_name)
             print(f"      [CLASSIFY] WHO10='{who10}' | Intuitive7='{intuitive7}' | Culinary9='{culinary9}' | {nat_trans} | Score={score}")
+            nova_group, nova_note = classify_nova_gemini(client, food_name)
+            nova_group = nova_group if nova_group is not None else -1
+            print(f"      [NOVA] Group {nova_group}" + (f" ({nova_note})" if nova_note else ""))
         else:
             who10, intuitive7, culinary9, nat_trans, score = "", "", "", "", -1
+            nova_group = -1
 
         # Base spec
         spec = RenderSpec(
@@ -1145,6 +1153,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             culinary9_category=culinary9,
             nat_vs_trans=nat_trans,
             transformation_score=score,
+            nova_category=nova_group,
             additional_prompt=str(row.get("Additional Prompt", "") or ""),
             size=args.size,
             quality=args.quality,
