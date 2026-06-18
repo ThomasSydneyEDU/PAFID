@@ -134,6 +134,7 @@ class RenderSpec:
     model: str = DEFAULT_MODEL
     seed: Optional[int] = None
     out_dir_override: Optional[Path] = None
+    stimulus_set: Optional[str] = None
 
     @property
     def out_dir(self) -> Path:
@@ -644,6 +645,8 @@ def write_meta(
         "source": f"ai-{backend}",
         "style_version": style_version,
     }
+    if spec.stimulus_set is not None:
+        entry["stimulus_set"] = spec.stimulus_set
 
     # Load existing list if present
     if master_path.exists():
@@ -1033,6 +1036,18 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     p.add_argument("--overwrite", action="store_true", help="Overwrite existing files (default: skip if PNG exists)")
     p.add_argument("--dry-run", action="store_true", help="Do not call API; just print prompts and write metadata")
     p.add_argument("--classify-only", action="store_true", help="Run Gemini text classification only — update per-item JSON metadata without generating or touching images")
+    p.add_argument("--food-list", type=str, default=None,
+                   help="Path to an external CSV of food names (Food column required). "
+                        "Overrides the default food_list_initial_seed.csv. "
+                        "The seed list is never modified.")
+    p.add_argument("--output-dir", type=str, default=None,
+                   help="Directory for generated images and stimuli_master.json. "
+                        "Defaults to rendered_images/ inside the PAFID repo. "
+                        "Use this to redirect outputs to an external project.")
+    p.add_argument("--stimulus-set", type=str, default=None,
+                   help="Label stored in stimuli_master.json under 'stimulus_set' for each "
+                        "generated item (e.g. 'foodspace_extension_2026'). "
+                        "Used for provenance tracking and source-aware resets.")
 
     return p.parse_args(argv)
 
@@ -1063,8 +1078,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     # Echo the backend and model that will actually be used.
     print(f"[INFO] Using backend '{backend}' with model '{args.model}'")
 
+    # Resolve food list and output directory — honour external overrides
+    csv_path = Path(args.food_list).expanduser().resolve() if args.food_list else CSV_PATH
+    out_dir  = Path(args.output_dir).expanduser().resolve() if args.output_dir else OUT_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.food_list:
+        print(f"[INFO] Food list: {csv_path}  (external — seed list unchanged)")
+    if args.output_dir:
+        print(f"[INFO] Output dir: {out_dir}  (external — PAFID rendered_images/ unchanged)")
+    if args.stimulus_set:
+        print(f"[INFO] Stimulus set label: '{args.stimulus_set}'")
+
     try:
-        df = load_items(CSV_PATH)
+        df = load_items(csv_path)
     except Exception as e:
         print(f"[ERROR] {e}")
         return 2
@@ -1116,6 +1143,8 @@ def main(argv: Optional[List[str]] = None) -> int:
         spec = RenderSpec(
             food=row["Food"],
             additional_prompt=str(row.get("Additional Prompt", "") or ""),
+            out_dir_override=out_dir if args.output_dir else None,
+            stimulus_set=args.stimulus_set,
         )
         has_extra = bool(spec.additional_prompt.strip())
         if not args.overwrite and spec.image_path.exists() and not has_extra:
@@ -1158,6 +1187,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             size=args.size,
             quality=args.quality,
             model=args.model,
+            out_dir_override=out_dir if args.output_dir else None,
+            stimulus_set=args.stimulus_set,
             seed=args.seed,
         )
 
@@ -1169,12 +1200,14 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     print(f"[DONE] {success}/{total} succeeded")
 
-    # Final integrity check: only run when processing the full dataset
-    # (no category/food filters, no offsets/limits, no one-per-category).
+    # Final integrity check: only run when processing the full canonical dataset.
+    # Skip when an external --food-list is in use (the extension list is a subset,
+    # not the full seed, so a stem-comparison would produce false positives).
     if (
         not args.food
         and args.offset == 0
         and args.limit is None
+        and not args.food_list
     ):
         print("[INFO] Running final integrity check on stimuli directory...")
         try:

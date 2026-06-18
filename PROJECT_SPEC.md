@@ -10,7 +10,8 @@
 
 The canonical database contains **350 food items**. The pipeline is designed to allow extension projects to add new foods to this set without modifying the canonical baseline.
 
-Companion paper: Stella et al. (in preparation).
+Repository: https://github.com/ThomasSydneyEDU/PAFID  
+Companion paper: Stella et al. (in preparation — no citation yet).
 
 ---
 
@@ -140,7 +141,7 @@ PAFID repo is unmodified. Outputs land in the calling project.
 - End-to-end test of new-stimulus path once extension support is implemented
 
 ### QC backlog
-- 38 items flagged in `data/QC/food_category_flags_to_review.csv` — image/label mismatches and category disagreements — require human review and actioning before the companion paper baseline is frozen
+- 38 items flagged in `data/QC/food_category_flags_to_review.csv` — image/label mismatches and category disagreements. **Decision: these will not be manually corrected.** They are a documented, transparent part of the database. The README explains their nature and how to handle them in downstream analyses. This is preferable to silent corrections that obscure the limitations of AI-based labelling.
 
 ---
 
@@ -148,11 +149,10 @@ PAFID repo is unmodified. Outputs land in the calling project.
 
 PAFID v1 (canonical release) is done when:
 
-1. All 38 flagged QC items are actioned (`accept`, `correct_labels`, or `regenerate`) and corrections applied via `apply_corrections.py`
-2. `Foodpictures_information_reference.csv` is frozen to the post-correction 350-item baseline
-3. README reflects current model names, correct section numbering, and accurate file references
-4. Companion paper methods section documents: current classification prompts with version stamps, NOVA scheme provenance, models used per stage, HOG-PC caveat
-5. Extension support (planned changes above) is implemented and end-to-end tested with one food item
+1. `Foodpictures_information_reference.csv` is frozen to the current 350-item baseline (38 flagged items are retained as documented known issues, not corrected)
+2. README reflects current model names, correct section numbering, accurate file references, and a clear statement that the 38 flagged items are an intentional part of the documented database
+3. Companion paper methods section documents: current classification prompts with version stamps, NOVA scheme provenance, models used per stage, HOG-PC caveat
+4. Extension support (planned changes above) is implemented and end-to-end tested with one food item
 
 ---
 

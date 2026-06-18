@@ -641,6 +641,12 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
                    help="Include entries whose image file is missing in qc_issues.json (default: skip missing)")
     p.add_argument("--ignore-issues", type=str, default="",
                    help="Comma-separated qc_issues tags to ignore for flagging (e.g. 'sauce_present,multiple_items')")
+    p.add_argument("--food-list", type=str, default=None,
+                   help="Path to external food-list CSV used as input for the merged CSV export. "
+                        "Overrides the default food_list_initial_seed.csv.")
+    p.add_argument("--dynamic-csv", type=str, default=None,
+                   help="Output path for the merged QC+AI CSV (Foodpictures_information_dynamic.csv). "
+                        "Overrides the default data/ location. Use to write output to an external project.")
     return p.parse_args(argv)
 
 
@@ -793,8 +799,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"[WARN] Wrote: {missing_path}")
 
     # --- Export merged CSV (Category/Food from list + QC/judgements from stimuli_master) ---
-    print(f"[INFO] Stimulus list CSV expected at: {DEFAULT_INPUT_LIST_CSV}")
-    export_qc_plus_ai_csv(data, DEFAULT_INPUT_LIST_CSV, QC_PLUS_AI_CSV)
+    input_list_csv = Path(args.food_list).expanduser().resolve() if args.food_list else DEFAULT_INPUT_LIST_CSV
+    dynamic_csv    = Path(args.dynamic_csv).expanduser().resolve() if args.dynamic_csv else QC_PLUS_AI_CSV
+    dynamic_csv.parent.mkdir(parents=True, exist_ok=True)
+    print(f"[INFO] Stimulus list CSV: {input_list_csv}")
+    print(f"[INFO] Dynamic CSV output: {dynamic_csv}")
+    export_qc_plus_ai_csv(data, input_list_csv, dynamic_csv)
 
     # Exit code: 0 if all processed, 1 if any issues flagged (useful for automation)
     return 0 if len(issues) == 0 else 1

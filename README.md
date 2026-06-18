@@ -1,5 +1,8 @@
 # PAFID: Public AI-Generated Food Image Database Pipeline
 
+**Repository:** https://github.com/ThomasSydneyEDU/PAFID  
+**Companion paper:** Stella et al. (in preparation)
+
 PAFID is a modular, extensible pipeline for generating, validating, and rating photorealistic food stimuli using Generative AI. This repository provides the tools to extend the existing 350-item canonical database with new cultural or nutritional variants.
 
 ## Directory Structure
@@ -323,14 +326,14 @@ The seed list includes 3 demo items at the end as an example. You can remove the
 
 ## Known Issues
 
-`data/QC/food_category_flags_to_review.csv` contains an open audit of the canonical 350-item database. **38 items** have been flagged for human review and have not yet been corrected.
+`data/QC/food_category_flags_to_review.csv` contains an audit of the canonical 350-item database. **38 items** have been flagged across two categories:
 
-Flags fall into two categories:
-
-- **Image/label mismatch** — the blind or aware AI observer identified a different food than expected (e.g. fruit leather image shows meat jerky strips; paneer image described as tofu). These items may need image regeneration or label correction.
+- **Image/label mismatch** — the blind or aware AI observer identified a different food than expected (e.g. fruit leather image shows meat jerky strips; paneer image described as tofu).
 - **Category disagreement** — the assigned category label appears inconsistent with the image, caption, or other schemes (e.g. borderline Intuitive 7 assignments).
 
-Each row in the spreadsheet includes the current labels, a suggested correction direction, the rationale, and the QC captions that triggered the flag. Until these are resolved, downstream analyses using the affected items' category labels should be treated with caution. See the [Manual Category Verification](#manual-category-verification) section for the recommended review workflow.
+**These 38 items have been intentionally left uncorrected.** They are a transparent, documented part of the database that reflects the real-world limitations of AI-based image generation and labelling. Each row in the spreadsheet records the current labels, the flagged issue, the rationale, and the QC captions that triggered the flag. Researchers using these items' category labels in downstream analyses should consult the flags file and apply appropriate caution or exclusions.
+
+The `Manual Category Verification` workflow below remains available if you wish to correct items in your own fork or extension of the database.
 
 ## Manual Category Verification
 
