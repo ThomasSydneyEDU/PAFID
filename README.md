@@ -11,15 +11,24 @@ PAFID/
 │   ├── run_qc.py              # Automated Quality Control & aware ratings
 │   ├── prepare_images.py      # Resizes and packages images for experiments
 │   ├── rate_images.py         # Conducts blind AI ratings
-│   └── extract_visual_features.py  # Computes low-level visual statistics
+│   ├── extract_visual_features.py  # Computes low-level visual statistics
+│   ├── run_editorial_review.py  # Iterative image/label review (regenerate or preview corrections)
+│   ├── apply_corrections.py  # Commits confirmed label corrections to master + dynamic CSV
+│   ├── reset_pipeline.py     # Resets the database to the 350-item canonical baseline
+│   └── generate_nonfood_stimuli.py  # Generates non-food object foils (not part of PAFID release)
 ├── data/                      # Input lists and metadata
-│   ├── food_list_initial_seed.csv          # Seed list (Food column only)
-│   ├── Foodpictures_information_dynamic.csv
-│   └── Foodpictures_information_reference.csv
-├── assets/                    # Reference assets
-│   └── plates/                # Reference plate images for visual consistency
+│   ├── food_list_initial_seed.csv               # Seed list (Food column only)
+│   ├── Foodpictures_information_dynamic.csv     # Working metadata (pipeline output)
+│   ├── Foodpictures_information_reference.csv   # Static 351-item baseline
+│   ├── human_ratings.csv                        # Aggregate human ratings (mean per image)
+│   ├── human_ratings_individual.csv             # Trial-level human ratings (per participant × image)
+│   └── QC/                                      # Category audit and correction files
+│       ├── food_category_flags_to_review.csv    # 38-item audit (action/confirmed_value/generation_notes columns)
+│       └── category_corrections.csv             # Confirmed manual corrections (applied via apply_corrections.py)
+├── assets/                    # Reference assets (e.g. style guides, design notes)
 ├── rendered_images/           # Generated high-res images and metadata
-├── resized_images/            # Experiment-ready images and JS trial scripts
+├── resized_images/            # Experiment-ready images
+├── run_pipeline.sh            # Main pipeline runner (use --safe-rerun to skip image generation)
 └── requirements.txt           # Python dependencies
 ```
 
@@ -30,17 +39,16 @@ You can download the code using Git or by downloading a ZIP file.
 
 **Option A: Using Git**
 ```bash
-git clone https://github.com/YourUsername/YourRepo.git
-cd YourRepo/PAFID
+git clone https://github.com/ThomasSydneyEDU/PAFID.git
+cd PAFID
 ```
-*(Note: Replace `YourUsername/YourRepo` with the actual URL to this repository once published.)*
 
 **Option B: Downloading as a ZIP**
 1. Click the green "**Code**" button at the top of the GitHub repository page.
 2. Select "**Download ZIP**".
 3. Extract the ZIP file to your computer.
 4. Open your terminal (Mac/Linux) or Command Prompt/PowerShell (Windows).
-5. Navigate to the extracted `PAFID` folder using the `cd` command (e.g., `cd Downloads/FoodStimGeneration-main/PAFID`).
+5. Navigate to the extracted `PAFID` folder using the `cd` command (e.g., `cd Downloads/PAFID-main`).
 
 ### 2. Set Up a Virtual Environment (Recommended)
 To avoid conflicts with other Python projects on your computer, create a virtual environment.
@@ -124,6 +132,10 @@ This repository includes two versions of the master metadata:
 *   `data/Foodpictures_information_dynamic.csv`: The **working version** that the pipeline updates with new ratings and visual features.
 *   `data/Foodpictures_information_reference.csv`: A **static copy** of the original study results (351 items) for alignment and reference.
 
+Two human ratings files are also included:
+*   `data/human_ratings.csv`: **Aggregate ratings** — mean scores per image across all participants. This is what the pipeline merges into `Foodpictures_information_dynamic.csv`.
+*   `data/human_ratings_individual.csv`: **Trial-level ratings** — one row per participant × image (126 participants, ~7,500 rows). Use this for individual-differences analyses or recomputing aggregates with different exclusion criteria.
+
 ## AI-Assigned Labels
 
 Rather than requiring labels to be specified manually in the seed list, the pipeline uses Gemini to assign six labels per food item automatically:
@@ -137,7 +149,7 @@ Rather than requiring labels to be specified manually in the seed list, the pipe
 | `Transformation_score` | Continuous score 0–100 reflecting degree of processing (0–10 = raw/whole; 85–100 = highly manufactured) |
 | `Category_NOVA_4` | NOVA food-processing group 1–4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed. Classified with a separate prompt (ported from the original manual batch protocol) and versioned independently of the other four schemes, so updating one prompt does not re-trigger the other. |
 
-Classification uses `gemini-2.0-flash` via a single text call per food item and does not depend on the generated image.
+Classification uses `gemini-2.5-flash` (temperature 0) via a single text call per food item and does not depend on the generated image.
 
 ## Usage Pipeline
 
@@ -146,7 +158,7 @@ Add new food items to `data/food_list_initial_seed.csv` (one food name per row, 
 ```bash
 python src/generate_stimuli.py --limit 5
 ```
-*   For each food, Gemini assigns the first five labels (see above) before generating the image.
+*   For each food, Gemini assigns all six labels (see above) before generating the image — the 4-scheme classification and NOVA are called in sequence.
 *   **Safe Defaults**: By default, the script will **skip** existing PNG files in `rendered_images/`. Use `--overwrite` only if you explicitly wish to replace an image.
 *   **Outputs**: Images and per-item metadata saved to `rendered_images/stimuli_master.json`.
 
@@ -166,6 +178,8 @@ Useful flags:
 python src/generate_stimuli.py --classify-only --food "Apple"   # single item
 python src/generate_stimuli.py --classify-only --limit 10       # first N items
 ```
+
+> **Resumable by default.** All pipeline steps are safe to re-run after an interruption or API failure — each script skips items that are already complete. For QC and blind ratings, "complete" means the relevant fields are already populated in the CSV; for classification, it means the entry carries the current prompt version stamp. Simply re-run the same command to pick up where you left off. Use `--overwrite` only when you explicitly want to re-process everything.
 
 ### 3. Quality Control & Aware Ratings
 Verify the generated images and get "aware" AI ratings (where the AI knows the food label):
@@ -194,25 +208,30 @@ python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-can
 *   **Caveat (HOG PCs):** `ll_hog_pc01–10` are PCA components fit on the image set processed in that run, so values from different runs are not in a shared basis. Scalar features (luminance, contrast, Lab/HSV stats, edge energy) are directly comparable across runs; HOG PCs are not. For analyses mixing old and new stimuli, recompute HOG PCs across the full image set (`--overwrite`) or treat them per-run.
 
 ### 6. Prepare for Experiments
-Resize images and generate trial metadata:
+Resize images for experiments:
 ```bash
 python src/prepare_images.py --stimuli-dir rendered_images/
 ```
 
 ### 7. Reset Pipeline
-If you want to undo your changes and return the database to the 350-item baseline:
+If you have extended the database and want to discard your additions and return to the canonical 350-item baseline:
 ```bash
 python src/reset_pipeline.py
 ```
-*   **Safety**: This script will ask for confirmation before deleting any non-canonical images or metadata you have generated.
+The script will ask for confirmation, then:
+- Restores `Foodpictures_information_dynamic.csv` from the reference CSV (creating a `.bak` first).
+- Removes non-canonical images and metadata entries from `rendered_images/`.
+- Clears the `resized_images/` cache.
+
+> **Note for PAFID authors:** `reset_pipeline.py` resets to whichever state `Foodpictures_information_reference.csv` currently holds. The reference CSV should be frozen to the post-correction baseline (see [Manual Category Verification](#manual-category-verification) step 4) before this script is distributed.
 
 ### 8. Rerun Pipeline Safely
-To quickly re-run all classification, rating, and feature extraction steps on existing images without re-rendering anything:
+To re-run all classification, rating, and feature extraction steps on existing images without re-rendering anything:
 ```bash
-bash rerun_pipeline_safe.sh
+bash run_pipeline.sh --safe-rerun
 ```
-*   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting the prompts in the source scripts.
-*   **Safety**: This script explicitly forces `--classify-only` and `--overwrite`, but never generates or touches the images themselves.
+*   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting prompts. Classification is resumable (skips items already classified under the current prompt version); QC and blind ratings are fully overwritten.
+*   **Safety**: Images are never generated or modified.
 
 
 ## Dataset Schema (Data Dictionary)
@@ -231,7 +250,6 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`natural_vs_transformed`**: Binary classification: 'Natural' (the food is still visually and conceptually identifiable as a single biological food source) or 'Transformed' (the food has been substantially altered from its original biological source).
 * **`Transformation_score`**: AI-assigned 1-100 rating of how processed or altered the food is from its natural state.
 * **`Category_NOVA_4`**: NOVA food-processing group 1-4 (Monteiro et al., 2016): 1 = unprocessed/minimally processed, 2 = processed culinary ingredients, 3 = processed foods, 4 = ultra-processed.
-* **`sweet_vs_savory`**: Primary flavor profile categorization.
 
 ### 3. Generation Metadata
 * **`prompt`**: The exact text prompt sent to the LLM to generate the image.
@@ -239,7 +257,6 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 * **`seed`**: The RNG seed used during generation (if supported/applicable).
 * **`created`**: Unix timestamp of when the image was generated.
 * **`style_version`**: Identifier for the photographic styling parameters used.
-* **`plate_reference`**: Internal reference to any background plate assets utilized.
 
 ### 4. Empirical Human Ground Truth
 *(Note: These 0-100 scales represent mean human ratings from real psychophysics surveys)*
@@ -278,7 +295,7 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 
 ## Extending the Database
 
-To add new foods to the database, follow these steps:
+To add new foods to the database:
 
 1. **Add to the Seed List:** Append new food names to the bottom of `data/food_list_initial_seed.csv`. The only required column is `Food`.
     ```csv
@@ -287,12 +304,135 @@ To add new foods to the database, follow these steps:
     Peking Duck
     Baklava
     ```
-2. **Generate Images and Classifications:** Run `python src/generate_stimuli.py` (you can use `--limit N` or `--food "Specific Food"` to only generate the new items). The script will automatically use Gemini to classify the food into WHO and Simple categories, determine if it is Natural or Transformed, and then generate the image.
-3. **Generate AI Ratings:** Run `python src/run_qc.py --stimuli-dir rendered_images/` followed by `python src/rate_images.py --stimuli-dir rendered_images/`. This will merge the new AI aware and blind ratings into the dynamic CSV without overwriting existing data.
-4. **Calculate Visual Features:** Run `python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical` to compute and append the low-level CV metrics (`ll_`).
-5. **(Optional) Add Empirical Human Data:** If you have collected your own human psychophysics ratings, you can integrate them by formatting your aggregate means into a CSV named `data/human_ratings.csv`. The file must contain a `filename` column matching the images, alongside your data (e.g., `human_calorie_density`, `human_healthiness`). Once saved, simply re-run Step 3 (`python src/run_qc.py --stimuli-dir rendered_images/`) and the script will automatically detect and merge your human data into the master dynamic dataset. *(Note: The original `Food survey/` directory used by the authors is excluded from version control for privacy).*
+2. **Run the pipeline:** All scripts are incremental by default — existing images, ratings, and visual features are preserved and only new items are processed.
+    ```bash
+    bash run_pipeline.sh
+    ```
+
+That's it. For finer control (e.g. generating or rating a single food), use the individual scripts directly:
+
+- **Generate a single item:** `python src/generate_stimuli.py --food "Peking Duck"`
+- **Generate the next N items only:** `python src/generate_stimuli.py --limit N`
+- **QC/ratings (incremental by default):** `python src/run_qc.py --stimuli-dir rendered_images/`
+- **Blind ratings (incremental by default):** `python src/rate_images.py --stimuli-dir rendered_images/`
+- **Visual features (incremental by default):** `python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical`
+
+**(Optional) Add Empirical Human Data:** Format your aggregate mean ratings into `data/human_ratings.csv` with a `filename` column matching the images (e.g. `human_calorie_density`, `human_healthiness`). Re-running `python src/run_qc.py --stimuli-dir rendered_images/` will automatically detect and merge them into the dynamic CSV. *(Note: The original `Food survey/` directory used by the authors is excluded from version control for privacy.)*
 
 The seed list includes 3 demo items at the end as an example. You can remove them or use them as a template.
+
+## Known Issues
+
+`data/QC/food_category_flags_to_review.csv` contains an open audit of the canonical 350-item database. **38 items** have been flagged for human review and have not yet been corrected.
+
+Flags fall into two categories:
+
+- **Image/label mismatch** — the blind or aware AI observer identified a different food than expected (e.g. fruit leather image shows meat jerky strips; paneer image described as tofu). These items may need image regeneration or label correction.
+- **Category disagreement** — the assigned category label appears inconsistent with the image, caption, or other schemes (e.g. borderline Intuitive 7 assignments).
+
+Each row in the spreadsheet includes the current labels, a suggested correction direction, the rationale, and the QC captions that triggered the flag. Until these are resolved, downstream analyses using the affected items' category labels should be treated with caution. See the [Manual Category Verification](#manual-category-verification) section for the recommended review workflow.
+
+## Manual Category Verification
+
+AI-assigned category labels are accurate for the vast majority of items but can fail on visually ambiguous or unusual foods. The manual verification step is an author-conducted audit that handles two types of issues:
+
+- **Image quality / regeneration** — an image needs to be regenerated with an improved prompt.
+- **Label correction** — the image is acceptable but a category label is wrong.
+
+Both are handled through a two-script workflow designed to be run iteratively, with a final one-time commit step.
+
+### Scripts
+
+| Script | Purpose | When to run |
+|---|---|---|
+| `src/run_editorial_review.py` | Iterative review: regenerates images, previews label corrections | Repeatedly, until all items are actioned |
+| `src/apply_corrections.py` | Commits confirmed label corrections to master + dynamic CSV | Once, when all corrections are verified |
+
+### Step-by-step workflow
+
+**1. Fill in the flags file.**
+
+Open `data/QC/food_category_flags_to_review.csv`. For each flagged item, set the `action` column to one of:
+
+| Action | Meaning |
+|---|---|
+| `accept` | Reviewed — no change needed |
+| `correct_labels` | Label correction required; fill in `confirmed_value` |
+| `regenerate` | Image needs regeneration; optionally fill in `generation_notes` |
+
+For `correct_labels` rows, set `confirmed_value` to the corrected label and record which `columns_to_review` column it applies to. For `regenerate` rows, add any extra prompt instructions to `generation_notes` (e.g. "ensure food is centered on plate").
+
+**2. Run the editorial review script.**
+
+```bash
+python src/run_editorial_review.py
+```
+
+- `regenerate` items: calls `generate_stimuli.py --food "X" --overwrite` (with `generation_notes` appended to the prompt), then re-runs QC, blind ratings, and visual-feature extraction for that item.
+- `correct_labels` items: prints a preview of the pending correction. No files are written.
+- `accept` items: skipped.
+- Items without an `action`: printed as still pending.
+
+The script is **idempotent** — safe to run multiple times. Repeat until all items have an action set and any regenerated images are satisfactory.
+
+```bash
+# Dry-run to preview all actions without API calls
+python src/run_editorial_review.py --dry-run
+
+# Process a single item
+python src/run_editorial_review.py --food "Fruit leather"
+```
+
+**3. Commit label corrections.**
+
+Once all `correct_labels` entries have a confirmed value and you are satisfied with any regenerated images, commit the corrections:
+
+```bash
+# Preview first
+python src/apply_corrections.py --dry-run
+
+# Apply
+python src/apply_corrections.py
+```
+
+The script writes to `stimuli_master.json` and `Foodpictures_information_dynamic.csv`, creates `.bak` backups, and records each correction under `manual_corrections` in the master JSON. It will **refuse** to touch `Foodpictures_information_reference.csv`.
+
+**4. Freeze the canonical baseline (one-time author step).**
+
+After corrections are applied and verified, freeze the reference CSV to reflect the corrected labels:
+
+```bash
+cp data/Foodpictures_information_dynamic.csv data/Foodpictures_information_reference.csv
+```
+
+This is a deliberate manual step. Once done, `Foodpictures_information_reference.csv` is the permanent 350-item baseline used by `reset_pipeline.py`. No pipeline script ever writes to it after this point.
+
+### Design rationale
+
+Corrections are stored separately from the AI-generated reference file so that:
+- `data/Foodpictures_information_reference.csv` remains a faithful record of the original AI classifications until intentionally updated by the authors.
+- `data/QC/category_corrections.csv` provides a complete, auditable log of every human override.
+- Corrections can be re-applied from scratch at any time by running `apply_corrections.py`.
+
+## Non-Food Object Foils
+
+`src/generate_nonfood_stimuli.py` generates photorealistic images of non-food inanimate objects (e.g., river pebbles, seashells, marbles, bark chips) rendered on the same plain white plate and grey background as the PAFID food stimuli. These images are intended as visual control stimuli — objects that share low-level visual properties with food images but are clearly not food.
+
+**These foils are not part of the PAFID data release.** No non-food images are included in `data/` or `rendered_images/`. The script is provided so researchers can generate their own foil set using the same photographic pipeline as the main stimuli.
+
+Usage:
+```bash
+# Render the built-in foil list (12 objects)
+python src/generate_nonfood_stimuli.py
+
+# Dry run
+python src/generate_nonfood_stimuli.py --dry-run
+
+# Use a custom CSV (columns: Category, Food)
+python src/generate_nonfood_stimuli.py --csv my_objects.csv
+```
+
+Output is written to `data/rendered_images_nonfood/` and never touches the main `rendered_images/` directory.
 
 ## Citation
 If you use this database or pipeline in your research, please cite:
@@ -372,7 +512,29 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > 4) Flag obvious visual QC issues.
 > 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes."
 
-### 4. Blind AI Ratings (`rate_images.py`)
+### 4. NOVA Classification (`generate_stimuli.py`)
+Called separately from the 4-scheme prompt above, once per food item, using `gemini-2.5-flash` (temperature 0). Versioned independently (`v1-2026-06-monteiro-2016`) so updating one prompt does not re-trigger the other.
+
+> Classify the food item **{food}** into a NOVA group (1-4) based on the extent and purpose of industrial food processing (Monteiro et al., 2016).
+>
+> NOVA groups:
+> 1 — Unprocessed or minimally processed foods: foods in their natural state, or altered by processes that do not add substances (drying, roasting, freezing, boiling, pasteurisation, fermentation). Examples: fresh/frozen fruit and vegetables, plain meat and fish, eggs, plain milk, plain nuts and seeds, dried legumes, plain rice, oats, plain flour, plain yogurt.
+> 2 — Processed culinary ingredients: substances extracted from whole foods and used in cooking, not typically eaten alone. Examples: vegetable oils, butter, lard, sugar, honey, salt, vinegar, plain starch. (Unlikely to apply to most plated foods.)
+> 3 — Processed foods: foods made by adding salt, sugar, oil, or other Group 2 substances to Group 1 foods; usually two or three ingredients; the alteration is recognisable. Examples: canned tomatoes, salted nuts, smoked fish, preserved meats, simple cheeses, plain bread, wine.
+> 4 — Ultra-processed foods: industrial formulations with many ingredients, typically including additives not used in home cooking (emulsifiers, stabilisers, flavourings, colours, sweeteners, preservatives); no whole-food equivalent. Examples: soft drinks, packaged chips/crisps, instant noodles, reconstituted meat products, commercial breakfast cereals with additives, packaged cakes and biscuits, flavoured yogurts, fast food items, candy/confectionery.
+>
+> Rules for ambiguous cases:
+> - For foods marked '(prepared)', classify the typical home-cooked preparation (usually still Group 1 or 3). Do not assume industrial processing simply because a food is cooked.
+> - Dried fruits are typically Group 1 (drying is minimal processing) unless they contain added sugar or sulphites, in which case Group 3.
+> - Plain legumes cooked or canned are Group 1-3 depending on preparation; classify the typical ready-to-eat form.
+> - Dishes (e.g. biryani, lasagna, pad thai, sushi) are typically assembled from Group 1-3 ingredients in a home or restaurant kitchen; classify as Group 3 unless clearly an industrial product (e.g. instant ramen, fast food).
+> - Classify the most typical, widely available form of the food, not the most processed possible version.
+>
+> Reply in exactly this format — two lines, no explanation:
+> NOVA: \<integer 1-4\>
+> NOTE: \<one short phrase only if borderline/ambiguous, otherwise leave empty\>
+
+### 5. Blind AI Ratings (`rate_images.py`)
 **System Instruction:**
 > "You are a neutral observer providing visual assessments of food stimuli. Be factual. Do not mention brands. Do not add opinions beyond the requested ratings. For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* based only on what is visually inferable from the image and typical culinary expectations. These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
 

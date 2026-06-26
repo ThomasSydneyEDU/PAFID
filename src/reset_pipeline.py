@@ -32,7 +32,11 @@ def confirm_reset():
     return response == 'y'
 
 def reset_csv():
-    print(f"Reseting {DYN_CSV.name} from {REF_CSV.name}...")
+    print(f"Restoring {DYN_CSV.name} from {REF_CSV.name}...")
+    bak = DYN_CSV.with_suffix(".csv.bak")
+    if DYN_CSV.exists():
+        shutil.copy2(DYN_CSV, bak)
+        print(f"  Backup saved: {bak.name}")
     shutil.copy2(REF_CSV, DYN_CSV)
 
 def get_canonical_filenames():
@@ -43,7 +47,7 @@ def prune_rendered_images(safe_list):
     print("Pruning non-canonical files and metadata in rendered_images/...")
     count = 0
     # Core files to always keep
-    core_files = {"stimuli_master.json", "original master json"}
+    core_files = {"stimuli_master.json"}
     
     for item in RENDERED_DIR.iterdir():
         if item.name in core_files or item.name.startswith('.'):
@@ -65,6 +69,9 @@ def prune_rendered_images(safe_list):
     master_path = RENDERED_DIR / "stimuli_master.json"
     if master_path.exists():
         try:
+            bak = master_path.with_suffix(".json.bak")
+            shutil.copy2(master_path, bak)
+            print(f"  Backup saved: {bak.name}")
             with master_path.open("r") as f:
                 data = json.load(f)
             
@@ -112,7 +119,7 @@ def main():
         safe_list = get_canonical_filenames()
         prune_rendered_images(safe_list)
         clear_resized_cache()
-        print("\nReset complete! Your PAFID database is back to its factory state.")
+        print("\nReset complete. The database has been restored to the canonical 350-item baseline.")
     except Exception as e:
         print(f"Error during reset: {e}")
 
