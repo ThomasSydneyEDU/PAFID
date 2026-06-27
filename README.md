@@ -10,12 +10,13 @@ PAFID is a modular, extensible pipeline for generating, validating, and rating p
 ```text
 PAFID/
 ├── src/                       # Core pipeline scripts
-│   ├── generate_stimuli.py    # Generates images and assigns AI labels from a food list
-│   ├── run_qc.py              # Automated Quality Control & aware ratings
-│   ├── prepare_images.py      # Resizes and packages images for experiments
-│   ├── rate_images.py         # Conducts blind AI ratings
-│   ├── extract_visual_features.py  # Computes low-level visual statistics
-│   ├── run_editorial_review.py  # Iterative image/label review (regenerate or preview corrections)
+│   ├── classify_food.py       # Classifies food items into categories and processing levels (Stage 1)
+│   ├── generate_images.py     # Generates standardized culinary images from food lists (Stage 2)
+│   ├── run_qc.py              # Automated Quality Control checklist (Stage 2)
+│   ├── prepare_images.py      # Resizes and packages images for experiments (Stage 6)
+│   ├── rate_images.py         # Conducts blind and aware AI ratings (Stage 4)
+│   ├── extract_visual_features.py  # Computes low-level visual statistics (Stage 5)
+│   ├── run_editorial_review.py  # Iterative image/label review (regenerate or preview corrections) (Stage 3)
 │   ├── apply_corrections.py  # Commits confirmed label corrections to master + dynamic CSV
 │   ├── reset_pipeline.py     # Resets the database to the 350-item canonical baseline
 │   └── generate_nonfood_stimuli.py  # Generates non-food object foils (not part of PAFID release)
@@ -156,35 +157,34 @@ Classification uses `gemini-2.5-flash` (temperature 0) via a single text call pe
 
 ## Usage Pipeline
 
-### 1. Generate Stimuli
-Add new food items to `data/food_list_initial_seed.csv` (one food name per row, `Food` column only). Then run:
+The automated pipeline consists of sequential, modular steps. All pipeline scripts are resumable and incremental, skipping already completed items by default.
+
+### 1. Classify Food Items (Stage 1)
+To classify taxonomic categories (culinary/folk) and processing attributes (NOVA, Transformed, and continuous transformation score) of your food list before generating images:
 ```bash
-python src/generate_stimuli.py --limit 5
+python3 src/classify_food.py --limit 5
 ```
-*   For each food, Gemini assigns all six labels (see above) before generating the image — the 4-scheme classification and NOVA are called in sequence.
+*   Reads food names from `data/food_list_initial_seed.csv`.
+*   Calls Gemini text API to assign categories and NOVA levels.
+*   Outputs/updates metadata inside `rendered_images/stimuli_master.json` in-place, creating a `.json.bak` backup.
+*   **Useful flags:**
+    ```bash
+    python3 src/classify_food.py --food "Apple (raw)"   # single item
+    python3 src/classify_food.py --limit 10            # first N items
+    ```
+
+### 2. Generate Stimulus Images (Stage 2)
+To build visual prompts using structural and culinary heuristics (plate clauses, vessel, granular loose mounds) and render the standardized culinary images:
+```bash
+python3 src/generate_images.py --limit 5
+```
+*   Reads expected classifications from `stimuli_master.json` and generates the corresponding high-resolution `1024x1024` PNG images.
 *   **Safe Defaults**: By default, the script will **skip** existing PNG files in `rendered_images/`. Use `--overwrite` only if you explicitly wish to replace an image.
-*   **Outputs**: Images and per-item metadata saved to `rendered_images/stimuli_master.json`.
+*   **Outputs**: Saves high-res images to `rendered_images/` and appends rendering details (model, prompts, size, seed) into `stimuli_master.json`.
 
-### 2. Classify Without Generating Images
-To assign or update labels on an existing set of images without regenerating them:
-```bash
-python src/generate_stimuli.py --classify-only
-```
-*   Reads food names from `food_list_initial_seed.csv`.
-*   Calls Gemini text API to assign all six labels per food (including NOVA).
-*   Updates `rendered_images/stimuli_master.json` in-place, preserving all existing fields (QC ratings, prompts, visual features, etc.).
-*   Creates a `.bak` backup of the master before writing.
-*   **Images are never touched.**
+> **Resumable by default.** All pipeline steps are safe to re-run after an interruption or API failure — each script skips items that are already complete. For classification, it means the entry carries the current prompt version stamp. For generation, it means the PNG file already exists. Simply re-run the same command to pick up where you left off. Use `--overwrite` only when you explicitly want to re-process everything.
 
-Useful flags:
-```bash
-python src/generate_stimuli.py --classify-only --food "Apple"   # single item
-python src/generate_stimuli.py --classify-only --limit 10       # first N items
-```
-
-> **Resumable by default.** All pipeline steps are safe to re-run after an interruption or API failure — each script skips items that are already complete. For QC and blind ratings, "complete" means the relevant fields are already populated in the CSV; for classification, it means the entry carries the current prompt version stamp. Simply re-run the same command to pick up where you left off. Use `--overwrite` only when you explicitly want to re-process everything.
-
-### 3. Quality Control & Aware Ratings
+### 3. Quality Control (Stage 3)
 Verify the generated images and get "aware" AI ratings (where the AI knows the food label):
 ```bash
 python src/run_qc.py --stimuli-dir rendered_images/
@@ -316,8 +316,9 @@ To add new foods directly to the canonical database:
 
 For finer control (e.g. generating or rating a single food), use the individual scripts directly:
 
-- **Generate a single item:** `python src/generate_stimuli.py --food "Peking Duck"`
-- **Generate the next N items only:** `python src/generate_stimuli.py --limit N`
+- **Classify a single item:** `python3 src/classify_food.py --food "Peking Duck"`
+- **Generate a single image:** `python3 src/generate_images.py --food "Peking Duck"`
+- **Generate the next N items only:** `python3 src/generate_images.py --limit N`
 - **QC/ratings (incremental by default):** `python src/run_qc.py --stimuli-dir rendered_images/`
 - **Blind ratings (incremental by default):** `python src/rate_images.py --stimuli-dir rendered_images/`
 - **Visual features (incremental by default):** `python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical`
@@ -422,7 +423,7 @@ For `correct_labels` rows, set `confirmed_value` to the corrected label and reco
 python src/run_editorial_review.py
 ```
 
-- `regenerate` items: calls `generate_stimuli.py --food "X" --overwrite` (with `generation_notes` appended to the prompt), then re-runs QC, blind ratings, and visual-feature extraction for that item.
+- `regenerate` items: calls `generate_images.py --food "X" --overwrite` (with `generation_notes` appended to the prompt), then re-runs QC, blind ratings, and visual-feature extraction for that item.
 - `correct_labels` items: prints a preview of the pending correction. No files are written.
 - `accept` items: skipped.
 - Items without an `action`: printed as still pending.
@@ -496,11 +497,11 @@ If you use this database or pipeline in your research, please cite:
 
 To ensure full transparency, below are the core system prompts utilized by the pipeline to interact with the LLMs.
 
-### 1. Image Generation Prompt (`generate_stimuli.py`)
+### 1. Image Generation Prompt (`generate_images.py`)
 > "A photorealistic studio photograph of **{food}**, single subject, no packaging, no brand labels or text. Placed on a simple plain white round plate on a plain matte light grey background, even, soft studio lighting. **{vessel_clause}** Render the image on a square 1024x1024 pixel canvas (1:1 aspect ratio). Do not change the aspect ratio or return a rectangular image. Center the plate within the square frame with equal margins on all sides; ensure the entire plate (and bowl, if present) is fully visible with no cropping. Maintain a FIXED three-quarter camera geometry corresponding to approximately a 40–45° downward tilt from vertical (classic food photography angle). The round plate must appear as an ellipse with a consistent major-to-minor axis ratio across all images. Do NOT vary camera tilt, camera height, focal length, or perspective to better show the food. The camera is positioned above and slightly in front of the plate, angled down toward the centre (not top-down, not side-on). Show a typical single-serving portion size of **{food}** as commonly served to one adult (not a tiny sample and not an oversized platter). Keep the portion neatly arranged and fully visible on the plate with some rim still visible (do not cover the entire plate). The **{food}** is shown in a typical ready-to-eat, edible form appropriate to the requested preparation. The food must be physically grounded on the plate with natural contact shadows and occlusion at the base; avoid white halos, cutout edges, pasted-on appearance, or floating pieces. Ensure consistent lighting direction and shadow softness between the food and the plate. Use realistic surface micro-texture (e.g., pores, fibers, grain separation) and avoid waxy or plastic-looking surfaces. Ensure physically plausible scale and proportions (e.g., slices must match the size of the whole item). High detail, natural colors, minimal shadows, sharp focus, stock-photo style. No logos, no brand names, no watermarks, no text, no human hands, no patterned plates, no cutting boards, no trays, no complex props, no busy backgrounds, no steam to indicate temperature, no multiple items, no multiple servings, no family-style platters, no collages, no extreme side views, no fisheye or distorted perspective, no camera angle changes, no perspective drift, no adaptive framing **{no_bowl_clause}**"
 
-### 2. Text Classification Prompt (`generate_stimuli.py`)
-> "Classify the food item **{food}** using all four schemes below.
+### 2. Culinary & Folk Classification Prompt (`classify_food.py`)
+> "Classify the food item **{food}** using all three schemes below.
 > 
 > **WHO 10 categories** — pick exactly one:
 > - Dairy and eggs: milk, cheese, yogurt, butter, cream, eggs
@@ -527,30 +528,14 @@ To ensure full transparency, below are the core system prompts utilized by the p
 >
 > **Culinary 9 categories** — pick exactly one:
 > - Produce - Sweet, Produce - Savory, Carbohydrates & Staples, Animal Protein, Plant Protein, Dairy, Composite Meals, Desserts & Sweets, Snacks & Savory Junk
-> 
-> **Natural vs Transformed** — pick exactly one:
-> - Natural: the food is still visually and conceptually identifiable as a single biological food source
-> - Transformed: the food has been substantially altered from its original biological source
-> 
-> **Transformation score** — assign a single integer from 0 to 100 using this scale:
->   0–10:  Whole, raw, unmodified (e.g. apple, banana, carrot, tomato)
->  10–25:  Minimally prepared but source-identifiable (e.g. sliced fruit, peeled orange, roasted nuts, dried fruit)
->  25–40:  Simply cooked single-source food (e.g. boiled egg, steamed vegetables, grilled fish, plain rice)
->  40–55:  Mechanically altered single-source food (e.g. mashed potato, minced meat, fruit puree, smoothie)
->  55–70:  Biochemically or structurally transformed (e.g. cheese, yoghurt, tofu, bread, pasta)
->  70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)
->  85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)
-> 
-> Reply in exactly this format — five lines, no explanation:
+> Reply in exactly this format — three lines, no explanation:
 > WHO10: <category>
 > INTUITIVE7: <category>
-> CULINARY9: <category>
-> NAT_TRANS: <Natural or Transformed>
-> SCORE: <score>"
+> CULINARY9: <category>"
 
-### 3. Aware AI Ratings / Quality Control (`run_qc.py`)
+### 3. Visual Quality Control (`run_qc.py`)
 **System Instruction:**
-> "You are doing neutral, visual quality control for experimental food stimuli. Be factual. Do not mention brands. Do not mention the prompt. Do not add opinions beyond the requested ratings. For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* based only on what is visually inferable from the image and typical culinary expectations (ingredients, cooking method, portion, sauces). These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
+> "You are doing neutral, visual quality control for experimental food stimuli. Be factual. Do not mention brands. Do not mention the prompt. Do not add opinions."
 
 **Task Prompt (Image included):**
 > "You will be shown an image of food on a plate.
@@ -563,19 +548,18 @@ To ensure full transparency, below are the core system prompts utilized by the p
 > 1) Write a brief neutral caption (1 sentence, <= 20 words) describing what is visible.
 > 2) Identify the observed food.
 > 3) Compare observed vs expected and rate label match.
-> 4) Flag obvious visual QC issues.
-> 5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity and health attributes."
+> 4) Flag obvious visual QC issues."
 
-### 4. NOVA Classification (`generate_stimuli.py`)
-Called separately from the 4-scheme prompt above, once per food item, using `gemini-2.5-flash` (temperature 0). Versioned independently (`v1-2026-06-monteiro-2016`) so updating one prompt does not re-trigger the other.
+### 4. NOVA & Processing Classification Prompt (`classify_food.py`)
+Called separately from the culinary/folk prompt above, once per food item, using `gemini-2.5-flash` (temperature 0). Versioned independently (`v2-2026-06-processing-focus`).
 
-> Classify the food item **{food}** into a NOVA group (1-4) based on the extent and purpose of industrial food processing (Monteiro et al., 2016).
+> Classify the food item **{food}** using the processing schemes below.
 >
-> NOVA groups:
-> 1 — Unprocessed or minimally processed foods: foods in their natural state, or altered by processes that do not add substances (drying, roasting, freezing, boiling, pasteurisation, fermentation). Examples: fresh/frozen fruit and vegetables, plain meat and fish, eggs, plain milk, plain nuts and seeds, dried legumes, plain rice, oats, plain flour, plain yogurt.
-> 2 — Processed culinary ingredients: substances extracted from whole foods and used in cooking, not typically eaten alone. Examples: vegetable oils, butter, lard, sugar, honey, salt, vinegar, plain starch. (Unlikely to apply to most plated foods.)
-> 3 — Processed foods: foods made by adding salt, sugar, oil, or other Group 2 substances to Group 1 foods; usually two or three ingredients; the alteration is recognisable. Examples: canned tomatoes, salted nuts, smoked fish, preserved meats, simple cheeses, plain bread, wine.
-> 4 — Ultra-processed foods: industrial formulations with many ingredients, typically including additives not used in home cooking (emulsifiers, stabilisers, flavourings, colours, sweeteners, preservatives); no whole-food equivalent. Examples: soft drinks, packaged chips/crisps, instant noodles, reconstituted meat products, commercial breakfast cereals with additives, packaged cakes and biscuits, flavoured yogurts, fast food items, candy/confectionery.
+> **1) NOVA group (1-4)** based on the extent and purpose of industrial food processing (Monteiro et al., 2016):
+> - 1 — Unprocessed or minimally processed foods: foods in their natural state, or altered by processes that do not add substances (drying, roasting, freezing, boiling, pasteurisation, fermentation). Examples: fresh/frozen fruit and vegetables, plain meat and fish, eggs, plain milk, plain nuts and seeds, dried legumes, plain rice, oats, plain flour, plain yogurt.
+> - 2 — Processed culinary ingredients: substances extracted from whole foods and used in cooking, not typically eaten alone. Examples: vegetable oils, butter, lard, sugar, honey, salt, vinegar, plain starch.
+> - 3 — Processed foods: foods made by adding salt, sugar, oil, or other Group 2 substances to Group 1 foods; usually two or three ingredients; the alteration is recognisable. Examples: canned tomatoes, salted nuts, smoked fish, preserved meats, simple cheeses, plain bread, wine.
+> - 4 — Ultra-processed foods: industrial formulations with many ingredients, typically including additives not used in home cooking (emulsifiers, stabilisers, flavourings, colours, sweeteners, preservatives); no whole-food equivalent. Examples: soft drinks, packaged chips/crisps, instant noodles, reconstituted meat products, commercial breakfast cereals with additives, packaged cakes and biscuits, flavoured yogurts, fast food items, candy/confectionery.
 >
 > Rules for ambiguous cases:
 > - For foods marked '(prepared)', classify the typical home-cooked preparation (usually still Group 1 or 3). Do not assume industrial processing simply because a food is cooked.
@@ -584,8 +568,23 @@ Called separately from the 4-scheme prompt above, once per food item, using `gem
 > - Dishes (e.g. biryani, lasagna, pad thai, sushi) are typically assembled from Group 1-3 ingredients in a home or restaurant kitchen; classify as Group 3 unless clearly an industrial product (e.g. instant ramen, fast food).
 > - Classify the most typical, widely available form of the food, not the most processed possible version.
 >
-> Reply in exactly this format — two lines, no explanation:
+> **2) Natural vs Transformed** — pick exactly one:
+> - Natural: the food is still visually and conceptually identifiable as a single biological food source, even if it has undergone minor preparation such as washing, peeling, cutting, drying, freezing, or simple cooking.
+> - Transformed: the food has been substantially altered from its original biological source through combination, reforming, refining, fermentation, baking, frying, industrial processing, or preparation into a dish or product.
+> 
+> **3) Transformation score** — assign a single integer from 0 to 100 using this scale:
+>   0–10:  Whole, raw, unmodified (e.g. apple, banana, carrot, tomato)
+>  10–25:  Minimally prepared but source-identifiable (e.g. sliced fruit, peeled orange, roasted nuts, dried fruit)
+>  25–40:  Simply cooked single-source food (e.g. boiled egg, steamed vegetables, grilled fish, plain rice)
+>  40–55:  Mechanically altered single-source food (e.g. mashed potato, minced meat, fruit puree, smoothie)
+>  55–70:  Biochemically or structurally transformed (e.g. cheese, yoghurt, tofu, bread, pasta)
+>  70–85:  Composite prepared dish (e.g. soup, curry, sandwich, sushi, dumplings)
+>  85–100: Highly transformed or manufactured food (e.g. pizza, cake, sausage, chocolate bar, cereal, candy)
+>
+> Reply in exactly this format — four lines, no explanation:
 > NOVA: \<integer 1-4\>
+> NAT_TRANS: \<Natural or Transformed\>
+> SCORE: \<integer 0-100\>
 > NOTE: \<one short phrase only if borderline/ambiguous, otherwise leave empty\>
 
 ### 5. Blind AI Ratings (`rate_images.py`)

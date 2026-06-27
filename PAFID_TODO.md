@@ -6,16 +6,16 @@ truth for `Foodpictures_information_dynamic.csv`.
 
 ## Companion paper (Stella et al.)
 
-- [ ] **Document the CURRENT classification prompt (v2)**, not the original. The
+- [ ] **Document the CURRENT classification prompt (v3)**, not the original. The
       Intuitive 7 definitions were rewritten on 2026-06-12 (folk categories,
       base-food rule, sweetness+treat requirement for Dessert, Dish = multi-ingredient
       meals only, snacks by base ingredient, dairy → Animal protein). The live prompt
-      is in `src/generate_stimuli.py` (`CLASSIFY_PROMPT_TEMPLATE`, version
-      `v2-2026-06-12-intuitive7-folk-categories`); the main manuscript Methods now
+      is in `src/classify_food.py` (`CLASSIFY_PROMPT_TEMPLATE`, version
+      `v3-2026-06-culinary-folk`); the main manuscript Methods now
       points to the companion paper for it.
 - [ ] **Document the NOVA scheme** as the fifth label: definitions ported from the
       original manual batch protocol (Monteiro et al., 2016), now automated per food
-      (`NOVA_CLASSIFY_PROMPT_TEMPLATE`, version `v1-2026-06-monteiro-2016`).
+      (`NOVA_CLASSIFY_PROMPT_TEMPLATE`, version `v2-2026-06-processing-focus` inside `src/classify_food.py`).
       Provenance of the 350 existing labels = manual batch classification
       (FoodTriplet-Analysis: `manuscript/nova_classification_prompt.md`).
 - [ ] **Document the udon manual correction** (name-based classification said plain

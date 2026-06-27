@@ -37,17 +37,17 @@ PAFID automates all of this. The image generation prompt enforces a fixed photog
 
 ## What PAFID does (current capabilities)
 
-The pipeline has seven sequential stages, all resumable and incremental by default:
+The pipeline has seven sequential stages (Stage 0 through Stage 6), all resumable and incremental by default:
 
-| Stage | Script | What it does |
+| Stage | Script / Executor | What it does |
 |---|---|---|
-| 1. Generate | `generate_stimuli.py` | Renders images via Gemini; assigns 5 label schemes per food |
-| 2. QC / aware ratings | `run_qc.py` | Checks image quality; rates food with label visible |
-| 3. Blind ratings | `rate_images.py` | Rates food from image alone (no label shown) |
-| 4. Visual features | `extract_visual_features.py` | Extracts low-level stats (luminance, contrast, HOG PCs, etc.) |
-| 5. Prepare images | `prepare_images.py` | Resizes images for experiment deployment |
-| 6. Editorial review | `run_editorial_review.py` | Iterative correction of labels and image regeneration |
-| 7. Apply corrections | `apply_corrections.py` | Commits verified corrections to master + dynamic CSV |
+| 0. Food Selection | *Manual* | Naming food stimuli and compiling the seed list |
+| 1. Text Classification | `classify_food.py` | Classifies food categories (taxonomical) and processing attributes |
+| 2. Image Generation & QC | `generate_images.py` + `run_qc.py` | Generates standardized images and immediately audits visual quality |
+| 3. Editorial Review | `run_editorial_review.py` | Iterative correction of labels and closed-loop image re-rendering |
+| 4. AI Ratings | `rate_images.py` | Performs separate, scientifically blinded Blind and Aware ratings |
+| 5. Visual features | `extract_visual_features.py` | Extracts low-level computer vision stats (luminance, contrast, HOG PCs) |
+| 6. Prepare images | `prepare_images.py` | Lanczos resamples images down to 384x384 for experiment deployment |
 
 All metadata consolidates into `data/Foodpictures_information_dynamic.csv` (the working dataset) and `rendered_images/stimuli_master.json` (the per-item ground truth).
 
@@ -83,7 +83,7 @@ All metadata consolidates into `data/Foodpictures_information_dynamic.csv` (the 
 - `rendered_images/` canonical entries — existing images for the 350 original foods must never be overwritten by an extension run.
 - **Filename ↔ food name mapping** — slugified filenames are the join key between images and all downstream metadata. Renaming a food or its image breaks all analyses referencing it.
 - **Dynamic CSV schema** — column names and types must remain stable. New columns may be added; existing columns must not be renamed or removed without a migration.
-- **Prompt versioning** — classification prompts carry version stamps (`v2-2026-06-12-intuitive7-folk-categories`, `v1-2026-06-monteiro-2016`). Updating a prompt must bump its version; the pipeline uses version stamps to determine what needs re-running.
+- **Prompt versioning** — classification prompts carry version stamps (`v3-2026-06-culinary-folk`, `v2-2026-06-processing-focus`). Updating a prompt must bump its version; the pipeline uses version stamps to determine what needs re-running.
 
 ---
 
@@ -93,13 +93,13 @@ The following changes are planned to support external projects (e.g. FoodSpace-E
 
 1. **`food_list_initial_seed.csv` hardened as read-only** — the pipeline will never append to it. This makes the seed a permanent, auditable record of the canonical 350.
 
-2. **`--food-list <path>` flag** — `generate_stimuli.py` and `run_pipeline.sh` will accept an external CSV of new food names at runtime. The calling project provides its own list; PAFID does not look for a hardcoded extension file.
+2. **`--food-list <path>` flag** — `classify_food.py`, `generate_images.py`, and `run_pipeline.sh` will accept an external CSV of new food names at runtime. The calling project provides its own list; PAFID does not look for a hardcoded extension file.
 
 3. **`--output-dir <path>` flag** — outputs (generated images, per-item metadata, updated dynamic CSV) will be redirectable to the calling project's directory. PAFID's own `rendered_images/` and `resized_images/` will only ever contain the canonical 350. This keeps PAFID's repo clean when extension projects run the pipeline.
 
-4. **`--source <label>` flag** — a `source` column will be added to `Foodpictures_information_dynamic.csv`. Original 350 foods get `pafid_v1`; foods added via `--food-list` get a caller-supplied label (e.g. `foodspace_extension_2026`). This enables downstream projects to filter by provenance and is useful for triplet generation and RSA analyses.
+4. **`--stimulus-set <label>` flag** — a `stimulus_set` column (serving as a provenance label) will be added to `Foodpictures_information_dynamic.csv`. Original 350 foods get `pafid_v1`; foods added via `--food-list` get a caller-supplied label (e.g. `foodspace_extension_2026`). This enables downstream projects to filter by provenance and is useful for triplet generation and RSA analyses.
 
-5. **`reset_pipeline.py` source-aware reset** — the reset script will support resetting only rows with a given source label, leaving other sources untouched. A full reset (restoring to canonical 350 only) remains available.
+5. **`reset_pipeline.py` source-aware reset** — the reset script will support resetting only rows with a given stimulus set label, leaving other sources untouched. A full reset (restoring to canonical 350 only) remains available.
 
 ### Extension usage (from a calling project)
 
@@ -108,7 +108,7 @@ cd ../PAFID
 bash run_pipeline.sh \
   --food-list ../FoodSpace-Extension/outputs/curated_nominees.csv \
   --output-dir ../FoodSpace-Extension/stimuli \
-  --source foodspace_extension_2026
+  --stimulus-set foodspace_extension_2026
 ```
 
 PAFID repo is unmodified. Outputs land in the calling project.
