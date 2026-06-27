@@ -77,11 +77,7 @@ def backoff_sleep(attempt: int) -> None:
 
 SYSTEM_INSTRUCTIONS = (
     "You are doing neutral, visual quality control for experimental food stimuli. "
-    "Be factual. Do not mention brands. Do not mention the prompt. Do not add opinions beyond the requested ratings. "
-    "For any 0–100 ratings (calories/health/flavour), provide best-effort *subjective judgements* "
-    "based only on what is visually inferable from the image and typical culinary expectations "
-    "(ingredients, cooking method, portion, sauces). "
-    "These are not objective measurements. For 'fatty', judge fatty-tasting richness/oiliness/creaminess (mouthfeel), not fat content. If highly uncertain, use 50."
+    "Be factual. Do not mention brands. Do not mention the prompt. Do not add opinions."
 )
 
 
@@ -104,7 +100,6 @@ Tasks:
 2) Identify the observed food.
 3) Compare observed vs expected and rate label match.
 4) Flag obvious visual QC issues.
-5) Provide 0–100 ratings as *subjective judgements* of perceived flavour intensity (best-effort inferences from visible cues + typical culinary expectations).
 
 Return ONLY valid JSON with exactly these keys:
 - caption: string (1 sentence, <= 20 words)
@@ -119,24 +114,10 @@ Return ONLY valid JSON with exactly these keys:
    "not_on_plate","background_busy","hands_present"]
 - qc_reasons: array of <= 3 short strings explaining label_match and any issues
 
-- calorie_density_0_100: number 0-100 (0=very low calorie, 100=very high calorie density)
-- healthiness_0_100: number 0-100 (0=very unhealthy, 100=very healthy)
-- sweetness_0_100: number 0-100 (subjective perceived sweetness; 0=not sweet, 100=very sweet)
-- saltiness_0_100: number 0-100 (subjective perceived saltiness; 0=not salty, 100=very salty)
-- sourness_0_100: number 0-100 (subjective perceived sourness; 0=not sour, 100=very sour)
-- bitterness_0_100: number 0-100 (subjective perceived bitterness; 0=not bitter, 100=very bitter)
-- savoriness_0_100: number 0-100 (subjective perceived savoury/umami; 0=not savoury, 100=very savoury)
-- fatty_flavour_0_100: number 0-100 ("fatty" as flavour/mouthfeel: perceived richness/oiliness/creamy mouthfeel, NOT fat content; 0=not fatty-tasting, 100=very fatty-tasting)
-- spiciness_0_100: number 0-100 (subjective perceived chilli heat; 0=not spicy, 100=very spicy)
-
 Guidance:
 - If uncertain, set label_match="unclear".
 - Use "partial" if it's clearly related but not exact (e.g., wrong cut/prep form).
 - Do NOT invent brands or extra items.
-- For 0–100 ratings: these are subjective judgements of *perceived flavour/mouthfeel intensity* (not objective facts).
-  "Fatty" specifically means fatty-tasting richness/oiliness/creaminess (mouthfeel), not nutritional fat content.
-  Infer only from visible cues and typical culinary expectations (ingredients, cooking method, portion size, sauces).
-  If highly uncertain, use 50.
 """
 
 
@@ -238,27 +219,6 @@ def _normalize_qc_json(data: Dict[str, Any]) -> Dict[str, Any]:
     if not isinstance(reasons, list):
         reasons = []
     out["qc_reasons"] = [str(x).strip() for x in reasons if str(x).strip()][:3]
-
-    # --- Subjective 0–100 judgements (keep if present) ---
-    rating_keys = [
-        "calorie_density_0_100",
-        "healthiness_0_100",
-        "sweetness_0_100",
-        "saltiness_0_100",
-        "sourness_0_100",
-        "bitterness_0_100",
-        "savoriness_0_100",
-        "fatty_flavour_0_100",
-        "spiciness_0_100",
-    ]
-    for k in rating_keys:
-        out[k] = _clamp_0_100(data.get(k, None))
-
-    # If all ratings are missing, warn (caller can still proceed)
-    if all(out.get(k) is None for k in rating_keys):
-        out["_ratings_missing"] = True
-    else:
-        out["_ratings_missing"] = False
 
     return out
 
@@ -722,25 +682,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             entry["qc_issues"] = qc["qc_issues"]
             entry["qc_reasons"] = qc["qc_reasons"]
 
-            # Subjective 0–100 judgements
-            for k in [
-                "calorie_density_0_100",
-                "healthiness_0_100",
-                "sweetness_0_100",
-                "saltiness_0_100",
-                "sourness_0_100",
-                "bitterness_0_100",
-                "savoriness_0_100",
-                "fatty_flavour_0_100",
-                "spiciness_0_100",
-            ]:
-                entry[k] = qc.get(k, None)
-
             entry["qc_model"] = args.model
             entry["qc_at"] = int(time.time())
-
-            if qc.get("_ratings_missing"):
-                print(f"[WARN] Ratings missing in model output for {img_name} (all 0–100 judgement fields were absent or unparsable).")
 
             done += 1
             if done % 10 == 0:

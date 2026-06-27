@@ -50,6 +50,13 @@ BLIND_FIELDS = [
     "blind_ai_spiciness", "blind_model",
 ]
 
+AWARE_FIELDS = [
+    "aware_ai_calorie_density", "aware_ai_healthiness",
+    "aware_ai_sweetness", "aware_ai_saltiness", "aware_ai_sourness",
+    "aware_ai_bitterness", "aware_ai_savoriness", "aware_ai_fattiness",
+    "aware_ai_spiciness", "aware_model",
+]
+
 # ---------------- Prompts (documented in README; keep in sync) ----------------
 
 SYSTEM_INSTRUCTIONS = (
@@ -81,6 +88,29 @@ Return ONLY valid JSON with exactly these keys:
 
 Guidance:
 - Do NOT invent brands or extra items.
+- If highly uncertain about a rating, use 50.
+"""
+
+AWARE_PROMPT_TEMPLATE = """You will be shown an image of food on a plate.
+
+EXPECTED LABEL (from dataset):
+- expected_food: "{food}"
+
+Tasks:
+1) Provide 0-100 ratings as *subjective judgements* of perceived flavour intensity and health attributes of the depicted food (best-effort inferences from visible cues + typical culinary expectations, knowing the food is "{food}").
+
+Return ONLY valid JSON with exactly these keys:
+- calorie_density_0_100: number 0-100 (0=very low calorie, 100=very high calorie density)
+- healthiness_0_100: number 0-100 (0=very unhealthy, 100=very healthy)
+- sweetness_0_100: number 0-100 (subjective perceived sweetness; 0=not sweet, 100=very sweet)
+- saltiness_0_100: number 0-100 (subjective perceived saltiness; 0=not salty, 100=very salty)
+- sourness_0_100: number 0-100 (subjective perceived sourness; 0=not sour, 100=very sour)
+- bitterness_0_100: number 0-100 (subjective perceived bitterness; 0=not bitter, 100=very bitter)
+- savoriness_0_100: number 0-100 (subjective perceived savoury/umami; 0=not savoury, 100=very savoury)
+- fatty_flavour_0_100: number 0-100 ("fatty" as flavour/mouthfeel: perceived richness/oiliness/creamy mouthfeel, NOT fat content; 0=not fatty-tasting, 100=very fatty-tasting)
+- spiciness_0_100: number 0-100 (subjective perceived chilli heat; 0=not spicy, 100=very spicy)
+
+Guidance:
 - If highly uncertain about a rating, use 50.
 """
 
@@ -177,6 +207,35 @@ def get_blind_ratings(client, path: Path, model: str, max_attempts: int = 5) -> 
     raise RuntimeError(f"Blind rating failed for {Path(path).name}: {last_err}")
 
 
+def get_aware_ratings(client, path: Path, food: str, model: str, max_attempts: int = 5) -> Dict[str, Any]:
+    img = Path(path).read_bytes()
+    mime = "image/png" if Path(path).suffix.lower() == ".png" else "image/jpeg"
+    prompt = AWARE_PROMPT_TEMPLATE.format(food=food)
+    contents = [{"role": "user", "parts": [
+        {"inline_data": {"mime_type": mime, "data": base64.b64encode(img).decode("utf-8")}},
+        {"text": prompt},
+    ]}]
+    config = {
+        "system_instruction": SYSTEM_INSTRUCTIONS,
+        "response_mime_type": "application/json",
+        "temperature": 0.2,
+    }
+    last_err: Optional[Exception] = None
+    for attempt in range(max_attempts):
+        try:
+            res = client.models.generate_content(model=model, contents=contents, config=config)
+            parsed = json.loads(_strip_json_fences(res.text))
+            if not isinstance(parsed, dict):
+                raise ValueError("Model did not return a JSON object.")
+            return parsed
+        except Exception as e:
+            last_err = e
+            print(f"[WARN] Aware rating attempt {attempt+1} failed for {Path(path).name}: {e}")
+            if attempt < max_attempts - 1:
+                backoff_sleep(attempt)
+    raise RuntimeError(f"Aware rating failed for {Path(path).name}: {last_err}")
+
+
 def get_similarity(client, guessed: str, actual: str, model: str, max_attempts: int = 3) -> float:
     for attempt in range(max_attempts):
         try:
@@ -203,7 +262,7 @@ def write_rows(csv_path: Path, fieldnames, rows) -> None:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Blind AI ratings (image only, no food label) with Gemini")
+    parser = argparse.ArgumentParser(description="AI ratings (Blind and Aware) with Gemini")
     parser.add_argument("--stimuli-dir", type=str, required=True,
                         help="Folder containing the stimulus images (e.g. rendered_images/)")
     parser.add_argument("--csv", type=str, default=str(DEFAULT_CSV),
@@ -212,7 +271,7 @@ def main():
                         help=f"Gemini model (default: {DEFAULT_MODEL}; matches the canonical database)")
     parser.add_argument("--limit", type=int, default=None, help="Rate at most N new items")
     parser.add_argument("--overwrite", action="store_true",
-                        help="Re-rate rows that already have blind ratings")
+                        help="Re-rate rows that already have ratings")
     args = parser.parse_args()
 
     csv_path = Path(args.csv)
@@ -228,21 +287,55 @@ def main():
         return 1
 
     fieldnames = list(rows[0].keys())
-    for fld in BLIND_FIELDS:
+    for fld in BLIND_FIELDS + AWARE_FIELDS:
         if fld not in fieldnames:
             fieldnames.append(fld)
 
-    todo = [r for r in rows if args.overwrite or not (r.get("blind_observed_food") or "").strip()]
+    # Load stimuli_master.json for in-place synchronization
+    master_path = Path(args.stimuli_dir) / "stimuli_master.json"
+    master_data = None
+    master_by_food = {}
+    if master_path.exists():
+        try:
+            with master_path.open("r", encoding="utf-8") as f:
+                master_data = json.load(f)
+            if isinstance(master_data, list):
+                master_by_food = {str(e.get("food", "")).strip().lower(): e for e in master_data}
+                print(f"[INFO] Loaded stimuli_master.json ({len(master_data)} entries) for synchronization.")
+            else:
+                master_data = None
+        except Exception as e:
+            print(f"[WARN] Could not load stimuli_master.json for in-place update: {e}")
+
+    todo = [
+        r for r in rows
+        if args.overwrite or
+        not (r.get("blind_observed_food") or "").strip() or
+        not (r.get("aware_ai_healthiness") or "").strip()
+    ]
     print(f"[INFO] CSV: {csv_path}")
     print(f"[INFO] Model: {args.model}")
     print(f"[INFO] Rows: {len(rows)} total, {len(todo)} to rate (overwrite={args.overwrite})")
 
     if not todo:
-        print("[DONE] Nothing to do — all rows already have blind ratings.")
+        print("[DONE] Nothing to do — all rows already have ratings.")
         return 0
 
     client = get_gemini_client()
     done = 0
+
+    def _save_checkpoints():
+        write_rows(csv_path, fieldnames, rows)
+        if master_data is not None:
+            try:
+                # Backup stimuli_master.json before overwriting
+                bak = master_path.with_suffix(".json.bak")
+                if not bak.exists() and master_path.exists():
+                    bak.write_text(master_path.read_text(encoding="utf-8"), encoding="utf-8")
+                with master_path.open("w", encoding="utf-8") as mf:
+                    json.dump(master_data, mf, indent=2, ensure_ascii=False)
+            except Exception as se:
+                print(f"[WARN] Failed to write stimuli_master.json: {se}")
 
     for r in todo:
         if args.limit and done >= args.limit:
@@ -254,35 +347,81 @@ def main():
             continue
 
         food_name = (r.get("food") or r.get("Food") or "").strip()
-        print(f"Blind rating: {food_name or r['filename']}")
-        try:
-            res = get_blind_ratings(client, img, args.model)
-            guessed = str(res.get("observed_food", "")).strip()
-            sim = get_similarity(client, guessed, food_name, args.model)
+        food_key = food_name.lower()
+        master_entry = master_by_food.get(food_key)
 
-            r.update({
-                "blind_observed_food": guessed,
-                "blind_guess_similarity": sim,
-                "blind_ai_calorie_density": _clamp_0_100(res.get("calorie_density_0_100")),
-                "blind_ai_healthiness": _clamp_0_100(res.get("healthiness_0_100")),
-                "blind_ai_sweetness": _clamp_0_100(res.get("sweetness_0_100")),
-                "blind_ai_saltiness": _clamp_0_100(res.get("saltiness_0_100")),
-                "blind_ai_sourness": _clamp_0_100(res.get("sourness_0_100")),
-                "blind_ai_bitterness": _clamp_0_100(res.get("bitterness_0_100")),
-                "blind_ai_savoriness": _clamp_0_100(res.get("savoriness_0_100")),
-                "blind_ai_fattiness": _clamp_0_100(res.get("fatty_flavour_0_100")),
-                "blind_ai_spiciness": _clamp_0_100(res.get("spiciness_0_100")),
-                "blind_model": args.model,
-            })
+        print(f"Rating item: {food_name or r['filename']}")
+        try:
+            # 1. Blind Condition
+            run_blind = args.overwrite or not (r.get("blind_observed_food") or "").strip()
+            if run_blind:
+                print("  -> Generating Blind AI Ratings (image only)...")
+                res_blind = get_blind_ratings(client, img, args.model)
+                guessed = str(res_blind.get("observed_food", "")).strip()
+                sim = get_similarity(client, guessed, food_name, args.model)
+
+                blind_updates = {
+                    "blind_observed_food": guessed,
+                    "blind_guess_similarity": sim,
+                    "blind_ai_calorie_density": _clamp_0_100(res_blind.get("calorie_density_0_100")),
+                    "blind_ai_healthiness": _clamp_0_100(res_blind.get("healthiness_0_100")),
+                    "blind_ai_sweetness": _clamp_0_100(res_blind.get("sweetness_0_100")),
+                    "blind_ai_saltiness": _clamp_0_100(res_blind.get("saltiness_0_100")),
+                    "blind_ai_sourness": _clamp_0_100(res_blind.get("sourness_0_100")),
+                    "blind_ai_bitterness": _clamp_0_100(res_blind.get("bitterness_0_100")),
+                    "blind_ai_savoriness": _clamp_0_100(res_blind.get("savoriness_0_100")),
+                    "blind_ai_fattiness": _clamp_0_100(res_blind.get("fatty_flavour_0_100")),
+                    "blind_ai_spiciness": _clamp_0_100(res_blind.get("spiciness_0_100")),
+                    "blind_model": args.model,
+                }
+                r.update(blind_updates)
+                if master_entry is not None:
+                    master_entry.update(blind_updates)
+
+            # 2. Aware Condition
+            run_aware = args.overwrite or not (r.get("aware_ai_healthiness") or "").strip()
+            if run_aware:
+                print("  -> Generating Aware AI Ratings (image + label)...")
+                res_aware = get_aware_ratings(client, img, food_name, args.model)
+
+                aware_csv_updates = {
+                    "aware_ai_calorie_density": _clamp_0_100(res_aware.get("calorie_density_0_100")),
+                    "aware_ai_healthiness": _clamp_0_100(res_aware.get("healthiness_0_100")),
+                    "aware_ai_sweetness": _clamp_0_100(res_aware.get("sweetness_0_100")),
+                    "aware_ai_saltiness": _clamp_0_100(res_aware.get("saltiness_0_100")),
+                    "aware_ai_sourness": _clamp_0_100(res_aware.get("sourness_0_100")),
+                    "aware_ai_bitterness": _clamp_0_100(res_aware.get("bitterness_0_100")),
+                    "aware_ai_savoriness": _clamp_0_100(res_aware.get("savoriness_0_100")),
+                    "aware_ai_fattiness": _clamp_0_100(res_aware.get("fatty_flavour_0_100")),
+                    "aware_ai_spiciness": _clamp_0_100(res_aware.get("spiciness_0_100")),
+                    "aware_model": args.model,
+                }
+                r.update(aware_csv_updates)
+
+                # Store into master JSON with keys run_qc.py reads for re-export
+                if master_entry is not None:
+                    master_entry.update({
+                        "calorie_density_0_100": _clamp_0_100(res_aware.get("calorie_density_0_100")),
+                        "healthiness_0_100": _clamp_0_100(res_aware.get("healthiness_0_100")),
+                        "sweetness_0_100": _clamp_0_100(res_aware.get("sweetness_0_100")),
+                        "saltiness_0_100": _clamp_0_100(res_aware.get("saltiness_0_100")),
+                        "sourness_0_100": _clamp_0_100(res_aware.get("sourness_0_100")),
+                        "bitterness_0_100": _clamp_0_100(res_aware.get("bitterness_0_100")),
+                        "savoriness_0_100": _clamp_0_100(res_aware.get("savoriness_0_100")),
+                        "fatty_flavour_0_100": _clamp_0_100(res_aware.get("fatty_flavour_0_100")),
+                        "spiciness_0_100": _clamp_0_100(res_aware.get("spiciness_0_100")),
+                        "aware_model": args.model,
+                    })
+
             done += 1
             if done % 10 == 0:
-                write_rows(csv_path, fieldnames, rows)
+                _save_checkpoints()
                 print(f"[INFO] Progress saved: {done}/{len(todo)}")
         except Exception as e:
             print(f"[FAIL] {r.get('filename')}: {e}")
 
-    write_rows(csv_path, fieldnames, rows)
-    print(f"[DONE] Rated {done} item(s). Updated: {csv_path}")
+    _save_checkpoints()
+    print(f"[DONE] Rated {done} item(s). Updated: {csv_path} and {master_path}")
     return 0
 
 

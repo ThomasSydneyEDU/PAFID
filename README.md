@@ -298,7 +298,9 @@ The generated `Foodpictures_information_dynamic.csv` contains the following colu
 
 ## Extending the Database
 
-To add new foods to the database:
+### Option A — Extend within PAFID (append to seed list)
+
+To add new foods directly to the canonical database:
 
 1. **Add to the Seed List:** Append new food names to the bottom of `data/food_list_initial_seed.csv`. The only required column is `Food`.
     ```csv
@@ -312,7 +314,7 @@ To add new foods to the database:
     bash run_pipeline.sh
     ```
 
-That's it. For finer control (e.g. generating or rating a single food), use the individual scripts directly:
+For finer control (e.g. generating or rating a single food), use the individual scripts directly:
 
 - **Generate a single item:** `python src/generate_stimuli.py --food "Peking Duck"`
 - **Generate the next N items only:** `python src/generate_stimuli.py --limit N`
@@ -323,6 +325,55 @@ That's it. For finer control (e.g. generating or rating a single food), use the 
 **(Optional) Add Empirical Human Data:** Format your aggregate mean ratings into `data/human_ratings.csv` with a `filename` column matching the images (e.g. `human_calorie_density`, `human_healthiness`). Re-running `python src/run_qc.py --stimuli-dir rendered_images/` will automatically detect and merge them into the dynamic CSV. *(Note: The original `Food survey/` directory used by the authors is excluded from version control for privacy.)*
 
 The seed list includes 3 demo items at the end as an example. You can remove them or use them as a template.
+
+### Option B — Extend from an external project (recommended for companion studies)
+
+If you want to generate additional stimuli for a separate project without modifying the PAFID repository, use the extension flags. All outputs are redirected to your project directory; PAFID's `rendered_images/`, `data/`, and `food_list_initial_seed.csv` are never touched.
+
+**Required flags:**
+
+| Flag | Description |
+|---|---|
+| `--food-list=<path>` | CSV of food names to generate (one `Food` column). The PAFID seed list is never modified. |
+| `--output-dir=<path>` | Directory where images, `stimuli_master.json`, and all derived outputs are written. |
+| `--stimulus-set=<label>` | Provenance label stored in `stimuli_master.json` (e.g. `my_study_2026`). Used to identify and selectively remove extension items later. |
+
+**Example** (called from your external project directory):
+
+```bash
+source .venv/bin/activate
+bash path/to/PAFID/run_pipeline.sh \
+  --food-list=outputs/my_foods.csv \
+  --output-dir=stimuli \
+  --stimulus-set=my_study_2026
+```
+
+This produces the full pipeline output (images, QC ratings, blind ratings, visual features, resized stimuli) entirely inside your project's `stimuli/` directory:
+
+```
+stimuli/
+├── energy-ball.png                        # Generated images
+├── stimuli_master.json                    # Per-image metadata
+├── Foodpictures_information_dynamic.csv   # Full data table
+├── visual_metrics.csv                     # Low-level vision features
+└── resized/
+    ├── images/                            # 384×384 experiment-ready images
+    ├── Filtered_Foodpictures_information.csv
+    └── Filtered_ImageList.json
+```
+
+**Undoing an extension run:**
+
+To remove only the items from a specific extension set (leaving the canonical 350 untouched):
+
+```bash
+python src/reset_pipeline.py --stimulus-set my_study_2026
+```
+
+**Notes:**
+- The pipeline is incremental — re-running skips items that already exist. Safe to resume after interruption.
+- QC issues (flagged in `stimuli/qc_issues.json`) are warnings only; the pipeline continues regardless.
+- The `--stimulus-set` label is stored in `stimuli_master.json` per image, enabling source-aware reset and downstream filtering.
 
 ## Known Issues
 

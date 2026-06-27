@@ -20,6 +20,9 @@
 
 set -euo pipefail
 
+# Resolve the directory this script lives in so src/ paths work regardless of cwd
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 SAFE_RERUN=false
 SKIP_PREPARE=false
 FOOD_LIST=""
@@ -83,40 +86,43 @@ echo "============================================================"
 if $SAFE_RERUN; then
     echo ""
     echo "[1/4] Classifying items and updating metadata (skipping rendering)..."
-    python src/generate_stimuli.py --classify-only $EXT_GENERATE
+    python3 "$SCRIPT_DIR/src/"classify_food.py $EXT_GENERATE
 
     echo ""
-    echo "[2/4] Running Quality Control & Aware AI Ratings (overwrite)..."
-    python src/run_qc.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_QC
+    echo "[2/4] Running Quality Control (overwrite)..."
+    python3 "$SCRIPT_DIR/src/"run_qc.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_QC || \
+        echo "[WARN] QC flagged some items — see qc_issues.json. Continuing pipeline."
 
     echo ""
-    echo "[3/4] Running Blind AI Ratings (overwrite)..."
-    python src/rate_images.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_RATE
+    echo "[3/4] Running Perceptual AI Ratings (Blind & Aware; overwrite)..."
+    python3 "$SCRIPT_DIR/src/"rate_images.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_RATE
 
     echo ""
     echo "[4/4] Extracting Visual Features and merging to canonical CSV..."
-    python src/extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
+    python3 "$SCRIPT_DIR/src/"extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
 else
     echo ""
-    echo "[1/5] Generating stimuli and classifying..."
-    python src/generate_stimuli.py $EXT_GENERATE
+    echo "[1/5] Classifying food categories and processing attributes..."
+    python3 "$SCRIPT_DIR/src/"classify_food.py $EXT_GENERATE
 
     echo ""
-    echo "[2/5] Running Quality Control & Aware AI Ratings..."
-    python src/run_qc.py --stimuli-dir "$STIMULI_DIR" $EXT_QC
+    echo "[2/5] Generating food stimulus images & running automated Quality Control..."
+    python3 "$SCRIPT_DIR/src/"generate_images.py $EXT_GENERATE
+    python3 "$SCRIPT_DIR/src/"run_qc.py --stimuli-dir "$STIMULI_DIR" $EXT_QC || \
+        echo "[WARN] QC flagged some items — see qc_issues.json. Continuing pipeline."
 
     echo ""
-    echo "[3/5] Running Blind AI Ratings..."
-    python src/rate_images.py --stimuli-dir "$STIMULI_DIR" $EXT_RATE
+    echo "[3/5] Running Perceptual AI Ratings (Blind & Aware)..."
+    python3 "$SCRIPT_DIR/src/"rate_images.py --stimuli-dir "$STIMULI_DIR" $EXT_RATE
 
     echo ""
     echo "[4/5] Extracting Visual Features and merging to canonical CSV..."
-    python src/extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
+    python3 "$SCRIPT_DIR/src/"extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
 
     if ! $SKIP_PREPARE; then
         echo ""
         echo "[5/5] Preparing images for experiments..."
-        python src/prepare_images.py --stimuli-dir "$STIMULI_DIR" $EXT_PREPARE
+        python3 "$SCRIPT_DIR/src/"prepare_images.py --stimuli-dir "$STIMULI_DIR" $EXT_PREPARE
     else
         echo ""
         echo "[5/5] Skipping prepare_images (--skip-prepare)."
