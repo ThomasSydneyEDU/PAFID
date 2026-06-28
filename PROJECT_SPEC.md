@@ -49,6 +49,82 @@ The pipeline has seven sequential stages (Stage 0 through Stage 6), all resumabl
 | 5. Visual features | `extract_visual_features.py` | Extracts low-level computer vision stats (luminance, contrast, HOG PCs) |
 | 6. Prepare images | `prepare_images.py` | Lanczos resamples images down to 384x384 for experiment deployment |
 
+### Visual Pipeline Workflow
+
+```mermaid
+flowchart TD
+    %% Define Styles
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef model fill:#fbf,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5;
+    classDef storage fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef review fill:#fdb,stroke:#333,stroke-width:2px;
+
+    %% --- STAGE 0 ---
+    subgraph Stage0 ["Stage 0: Food Selection (Manual)"]
+        A1[food_list_initial_seed.csv <br><i>Canonical 350 list</i>]:::input
+        A2[--food-list CSV <br><i>External extensions</i>]:::input
+    end
+
+    %% --- STAGE 1 ---
+    subgraph Stage1 ["Stage 1: Text Classification (classify_food.py)"]
+        B1[Load Food Name]:::process
+        B2[AI Classification Prompt <br><b>gemini-2.5-flash</b>, Temp: 0]:::model
+        B3[Assign Culinary/Folk Schemes <br><i>WHO 10, Intuitive 7, Culinary 9</i>]:::process
+        B4[Assign Processing Schemes <br><i>NOVA 4, Nat/Trans, Score 0-100</i>]:::process
+    end
+
+    %% --- STAGE 2 ---
+    subgraph Stage2 ["Stage 2: Image Generation & QC (generate_images.py + run_qc.py)"]
+        C1[Standardized Visual Prompts <br><i>matte grey BG, white plate, camera angle</i>]:::process
+        C2[Prompt Heuristics <br><i>vessels, loose mounds, cut pieces</i>]:::process
+        C3[Render Image <br><b>gemini-3-pro-image-preview</b> <br>or OpenAI DALL-E]:::model
+        C4[Save PNG & Metadata]:::storage
+        C5[Automated Quality Control <br><b>gemini-2.5-pro</b>]:::model
+        C6[Check naturalism, plate rims, <br>portion, flag visual issues]:::process
+    end
+
+    %% --- STAGE 3 ---
+    subgraph Stage3 ["Stage 3: Editorial Review (run_editorial_review.py)"]
+        D1[Review flagged items <br><i>food_category_flags_to_review.csv</i>]:::review
+        D2[Apply custom prompt corrections]:::review
+        D3[Iterative re-generation & QC]:::process
+    end
+
+    %% --- STAGE 4 ---
+    subgraph Stage4 ["Stage 4: AI Ratings (rate_images.py)"]
+        E1[Blind Perceptual Ratings <br><i>Image only guess + rate</i>]:::process
+        E2[Label-Aware Ratings <br><i>Image + label rating</i>]:::process
+        E3[Double Synchronization <br><i>CSV + stimuli_master.json</i>]:::process
+    end
+
+    %% --- STAGE 5 & 6 ---
+    subgraph Stage5_6 ["Stages 5 & 6: Feature Extraction & Resizing"]
+        F1[extract_visual_features.py <br><i>Luminance, Contrast, CIELAB, HOG PCA</i>]:::process
+        F2[prepare_images.py <br><i>Lanczos resample PNGs to 384x384</i>]:::process
+    end
+
+    %% --- METADATA CONSOLIDATION ---
+    subgraph Consolidation ["Metadata Consolidation & Freeze"]
+        G1[(stimuli_master.json <br><i>Ground truth JSON</i>)]:::storage
+        G2[(Foodpictures_information_dynamic.csv <br><i>Working dynamic CSV</i>)]:::storage
+        G3[(Foodpictures_information_reference.csv <br><i>Frozen canonical baseline</i>)]:::storage
+    end
+
+    %% --- CONNECTIONS ---
+    A1 & A2 --> B1
+    B1 --> B2 --> B3 & B4
+    B3 & B4 --> G1
+    G1 --> C1 & C2
+    C1 & C2 --> C3 --> C4 --> C5 --> C6
+    C6 -->|Flags| D1 --> D2 --> D3 --> S3_Loop[Re-run Image & QC] --> C4
+    C4 --> E1 & E2 --> E3
+    E3 -->|Sync| G1 & G2
+    C4 --> F1 & F2
+    F1 & F2 --> G2
+    G2 -.->|Manual One-Time Freeze| G3
+```
+
 All metadata consolidates into `data/Foodpictures_information_dynamic.csv` (the working dataset) and `rendered_images/stimuli_master.json` (the per-item ground truth).
 
 ---
