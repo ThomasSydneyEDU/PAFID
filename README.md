@@ -5,6 +5,104 @@
 
 PAFID is a modular, extensible pipeline for generating, validating, and rating photorealistic food stimuli using Generative AI. This repository provides the tools to extend the existing 350-item canonical database with new cultural or nutritional variants.
 
+## Pipeline Overview
+
+PAFID runs as **seven sequential stages (Stage 0 through Stage 6)**, all resumable and incremental by default — every script skips items that are already complete, so an interrupted run can simply be restarted. The table below is the authoritative stage list; the [Usage Pipeline](#usage-pipeline) section gives the runnable command for each.
+
+| Stage | Script / Executor | What it does |
+|---|---|---|
+| 0. Food Selection | *Manual* | Name the food stimuli and compile the seed list (`data/food_list_initial_seed.csv`) |
+| 1. Text Classification | `classify_food.py` | Assigns taxonomic categories (WHO 10, Intuitive 7, Culinary 9) and processing attributes (NOVA 4, Natural-vs-transformed, 0–100 score) from the food name |
+| 2. Image Generation & QC | `generate_images.py` + `run_qc.py` | Renders standardized 1024×1024 images, then immediately audits them and writes neutral captions + flags |
+| 3. Editorial Review | `run_editorial_review.py` | Human-in-the-loop: applies author-written fixes and re-renders flagged items in a closed loop |
+| 4. AI Ratings | `rate_images.py` | Separate, scientifically blinded **blind** and **aware** perceptual ratings |
+| 5. Visual Features | `extract_visual_features.py` | Low-level vision stats (luminance, contrast, CIELAB, edge energy, HOG PCs) |
+| 6. Prepare Images | `prepare_images.py` | Lanczos-resamples images down to 384×384 for experiment deployment |
+
+All metadata consolidates into two artefacts: `data/Foodpictures_information_dynamic.csv` (the working dataset) and `rendered_images/stimuli_master.json` (the per-item ground truth).
+
+### Workflow diagram
+
+```mermaid
+flowchart TD
+    %% Define Styles
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef process fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef model fill:#fbf,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5;
+    classDef storage fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef review fill:#fdb,stroke:#333,stroke-width:2px;
+
+    %% --- STAGE 0 ---
+    subgraph Stage0 ["Stage 0: Food Selection (Manual)"]
+        A1[food_list_initial_seed.csv <br><i>Canonical 350 list</i>]:::input
+        A2[--food-list CSV <br><i>External extensions</i>]:::input
+    end
+
+    %% --- STAGE 1 ---
+    subgraph Stage1 ["Stage 1: Text Classification (classify_food.py)"]
+        B1[Load Food Name]:::process
+        B2[AI Classification Prompt <br><b>gemini-2.5-flash</b>, Temp: 0]:::model
+        B3[Assign Culinary/Folk Schemes <br><i>WHO 10, Intuitive 7, Culinary 9</i>]:::process
+        B4[Assign Processing Schemes <br><i>NOVA 4, Nat/Trans, Score 0-100</i>]:::process
+    end
+
+    %% --- STAGE 2 ---
+    subgraph Stage2 ["Stage 2: Image Generation & QC (generate_images.py + run_qc.py)"]
+        C1[Standardized Visual Prompts <br><i>matte grey BG, white plate, camera angle</i>]:::process
+        C2[Prompt Heuristics <br><i>vessels, loose mounds, cut pieces</i>]:::process
+        C3[Render Image <br><b>gemini-3-pro-image-preview</b> <br>or OpenAI DALL-E]:::model
+        C4[Save PNG & Metadata]:::storage
+        C5[Automated Quality Control <br><b>gemini-2.5-pro</b>]:::model
+        C6[Check naturalism, plate rims, <br>portion, flag visual issues]:::process
+    end
+
+    %% --- STAGE 3 ---
+    subgraph Stage3 ["Stage 3: Editorial Review (run_editorial_review.py)"]
+        D1[Review flagged items <br><i>food_category_flags_to_review.csv</i>]:::review
+        D2[Apply custom prompt corrections]:::review
+        D3[Iterative re-generation & QC]:::process
+    end
+
+    %% --- STAGE 4 ---
+    subgraph Stage4 ["Stage 4: AI Ratings (rate_images.py)"]
+        E1[Blind Perceptual Ratings <br><i>Image only guess + rate</i>]:::process
+        E2[Label-Aware Ratings <br><i>Image + label rating</i>]:::process
+        E3[Double Synchronization <br><i>CSV + stimuli_master.json</i>]:::process
+    end
+
+    %% --- STAGE 5 & 6 ---
+    subgraph Stage5_6 ["Stages 5 & 6: Feature Extraction & Resizing"]
+        F1[extract_visual_features.py <br><i>Luminance, Contrast, CIELAB, HOG PCA</i>]:::process
+        F2[prepare_images.py <br><i>Lanczos resample PNGs to 384x384</i>]:::process
+    end
+
+    %% --- METADATA CONSOLIDATION ---
+    subgraph Consolidation ["Metadata Consolidation & Freeze"]
+        G1[(stimuli_master.json <br><i>Ground truth JSON</i>)]:::storage
+        G2[(Foodpictures_information_dynamic.csv <br><i>Working dynamic CSV</i>)]:::storage
+        G3[(Foodpictures_information_reference.csv <br><i>Frozen canonical baseline</i>)]:::storage
+    end
+
+    %% --- CONNECTIONS ---
+    A1 & A2 --> B1
+    B1 --> B2 --> B3 & B4
+    B3 & B4 --> G1
+    G1 --> C1 & C2
+    C1 & C2 --> C3 --> C4 --> C5 --> C6
+    C6 -->|Flags| D1 --> D2 --> D3 --> S3_Loop[Re-run Image & QC] --> C4
+    C4 --> E1 & E2 --> E3
+    E3 -->|Sync| G1 & G2
+    C4 --> F1 & F2
+    F1 & F2 --> G2
+    G2 -.->|Manual One-Time Freeze| G3
+```
+
+### Why it's structured this way
+
+- **Blind and aware ratings are separate API calls (Stage 4).** In a single combined prompt, self-attention on the text label would leak into the blind evaluation. Running them separately keeps the blind condition strictly blind — this is methodologically essential.
+- **Generation and QC are combined into one stage (Stage 2).** Coupling rendering with its audit creates a clean closed-loop feedback phase: QC flags feed directly into the Stage 3 editorial review, which re-renders and re-checks until issues are resolved.
+- **Classification is isolated from generation (Stage 1 vs 2).** Decoupling metadata assignment from image rendering — and physical image QC from subjective ratings — keeps each concern auditable and independently re-runnable.
+
 ## Directory Structure
 
 ```text
@@ -23,7 +121,7 @@ PAFID/
 ├── data/                      # Input lists and metadata
 │   ├── food_list_initial_seed.csv               # Seed list (Food column only)
 │   ├── Foodpictures_information_dynamic.csv     # Working metadata (pipeline output)
-│   ├── Foodpictures_information_reference.csv   # Static 351-item baseline
+│   ├── Foodpictures_information_reference.csv   # Static 350-item baseline
 │   ├── human_ratings.csv                        # Aggregate human ratings (mean per image)
 │   ├── human_ratings_individual.csv             # Trial-level human ratings (per participant × image)
 │   └── QC/                                      # Category audit and correction files
@@ -134,7 +232,7 @@ For quick personal use. Go to [Google AI Studio](https://aistudio.google.com/app
 
 This repository includes two versions of the master metadata:
 *   `data/Foodpictures_information_dynamic.csv`: The **working version** that the pipeline updates with new ratings and visual features.
-*   `data/Foodpictures_information_reference.csv`: A **static copy** of the original study results (351 items) for alignment and reference.
+*   `data/Foodpictures_information_reference.csv`: A **static copy** of the original study results (350 items) for alignment and reference.
 
 Two human ratings files are also included:
 *   `data/human_ratings.csv`: **Aggregate ratings** — mean scores per image across all participants. This is what the pipeline merges into `Foodpictures_information_dynamic.csv`.
@@ -173,7 +271,7 @@ python3 src/classify_food.py --limit 5
     python3 src/classify_food.py --limit 10            # first N items
     ```
 
-### 2. Generate Stimulus Images (Stage 2)
+### 2. Generate Stimulus Images & Quality Control (Stage 2)
 To build visual prompts using structural and culinary heuristics (plate clauses, vessel, granular loose mounds) and render the standardized culinary images:
 ```bash
 python3 src/generate_images.py --limit 5
@@ -184,14 +282,22 @@ python3 src/generate_images.py --limit 5
 
 > **Resumable by default.** All pipeline steps are safe to re-run after an interruption or API failure — each script skips items that are already complete. For classification, it means the entry carries the current prompt version stamp. For generation, it means the PNG file already exists. Simply re-run the same command to pick up where you left off. Use `--overwrite` only when you explicitly want to re-process everything.
 
-### 3. Quality Control (Stage 3)
-Verify the generated images and get "aware" AI ratings (where the AI knows the food label):
+**Quality control (same stage).** Immediately after rendering, audit the generated images and get "aware" AI ratings (where the AI knows the food label):
 ```bash
 python src/run_qc.py --stimuli-dir rendered_images/
 ```
 *   **Merges results** into `data/Foodpictures_information_dynamic.csv`.
+*   Flags problem items into `data/QC/food_category_flags_to_review.csv` and `qc_issues.json` for the editorial review in Stage 3.
 
-### 4. Blind AI Ratings
+### 3. Editorial Review (Stage 3)
+Human-in-the-loop correction of flagged items. Authors inspect the visual flags from Stage 2 and write prompt fixes into the `generation_notes` column of `data/QC/food_category_flags_to_review.csv`, then apply them in a closed loop:
+```bash
+python src/run_editorial_review.py
+```
+*   Reads the manual suggestions, re-renders the affected images with the custom prompt additions, and re-runs QC on them to verify the fixes.
+*   Optional step — only needed when Stage 2 surfaces issues you want to correct. The canonical 350 ship with 38 flagged items deliberately left uncorrected (see [Known Issues](#known-issues)).
+
+### 4. Blind AI Ratings (Stage 4)
 Acquire "blind" AI ratings (where the AI only sees the image and must guess what the food is):
 ```bash
 python src/rate_images.py --stimuli-dir rendered_images/
@@ -201,7 +307,7 @@ python src/rate_images.py --stimuli-dir rendered_images/
 *   **Model:** defaults to `gemini-2.5-pro`, the model used for the canonical 350-item database — keep this default so ratings for new stimuli remain comparable. Override with `--model`.
 *   A second API call scores the similarity (0–100) between the AI's blind guess and the true food name (`blind_guess_similarity`).
 
-### 5. Extract Visual Features
+### 5. Extract Visual Features (Stage 5)
 Compute low-level visual statistics (luminance, contrast, edge energy, etc.):
 ```bash
 python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical
@@ -210,7 +316,7 @@ python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-can
 *   **Incremental:** only rows with missing `ll_` values (newly added stimuli) are filled — the canonical 350-item baseline values are preserved. Use `--overwrite` to recompute every row.
 *   **Caveat (HOG PCs):** `ll_hog_pc01–10` are PCA components fit on the image set processed in that run, so values from different runs are not in a shared basis. Scalar features (luminance, contrast, Lab/HSV stats, edge energy) are directly comparable across runs; HOG PCs are not. For analyses mixing old and new stimuli, recompute HOG PCs across the full image set (`--overwrite`) or treat them per-run.
 
-### 6. Prepare for Experiments
+### 6. Prepare for Experiments (Stage 6)
 Resize images for experiments:
 ```bash
 python src/prepare_images.py --stimuli-dir rendered_images/
@@ -235,6 +341,28 @@ bash run_pipeline.sh --safe-rerun
 ```
 *   **Purpose**: Useful for backfilling new metadata columns or re-scoring the dataset after adjusting prompts. Classification is resumable (skips items already classified under the current prompt version); QC and blind ratings are fully overwritten.
 *   **Safety**: Images are never generated or modified.
+
+### Testing on a subset
+
+Before committing to a full run (or after changing a prompt or script), validate the pipeline end-to-end on a handful of foods written to a throwaway directory, so nothing touches the canonical outputs:
+
+```bash
+source .venv/bin/activate
+
+# Stage 1 — classification
+python3 src/classify_food.py --limit 5 --output-dir test_outputs
+
+# Stage 2 — generation (dry-run skips the image API) + QC
+python3 src/generate_images.py --limit 5 --output-dir test_outputs --dry-run
+python3 src/run_qc.py --stimuli-dir test_outputs --limit 5 --overwrite \
+    --dynamic-csv test_outputs/Foodpictures_information_dynamic.csv
+
+# Stage 4 — ratings
+python3 src/rate_images.py --stimuli-dir test_outputs \
+    --csv test_outputs/Foodpictures_information_dynamic.csv --limit 5
+```
+
+Inspect `test_outputs/stimuli_master.json` and `test_outputs/Foodpictures_information_dynamic.csv` to confirm the metadata and rating columns are populated, then delete `test_outputs/`.
 
 
 ## Dataset Schema (Data Dictionary)
@@ -386,6 +514,12 @@ python src/reset_pipeline.py --stimulus-set my_study_2026
 **These 38 items have been intentionally left uncorrected.** They are a transparent, documented part of the database that reflects the real-world limitations of AI-based image generation and labelling. Each row in the spreadsheet records the current labels, the flagged issue, the rationale, and the QC captions that triggered the flag. Researchers using these items' category labels in downstream analyses should consult the flags file and apply appropriate caution or exclusions.
 
 The `Manual Category Verification` workflow below remains available if you wish to correct items in your own fork or extension of the database.
+
+### Known label quirks (intentionally not corrected)
+
+- **"borrito bowl" spelling.** One canonical item is labelled `borrito bowl` (a typo for "burrito bowl") in the `food` / `base_food` fields, and its image is `borrito-bowl.png`. This is left as-is on purpose: the slugified filename `borrito-bowl.png` is the immutable join key used by the collected human ratings (`data/human_ratings*.csv`), the low-level feature table, and the original survey archive (where it maps to Qualtrics image `IM_z9SvLwAR07gVxR9`). The filename is therefore a historical record of the exact image shown to participants, and renaming it would desync the database from the provenance of its own ratings. QC correctly identified the item as a burrito bowl regardless of the label typo.
+
+- **Caption-based composite-dish scan.** `data/QC/caption_mismatch_scan.csv` records an automated audit that flags items classified as a single-source food (not Dish / Composite Meals / Prepared foods) whose QC caption contains composite-dish cues ("served with", "topped with", "with X and Y", etc.) — the pattern behind the documented udon correction. 28 of 266 single-source items match, but on review the large majority are single foods with ordinary garnish or seasoning (e.g. "beef steak with rosemary and garlic"), which are acceptable. The clearest genuine composite plate is "Roast lamb" (caption: sliced lamb *with roasted potatoes and carrots*). These are surfaced for transparency rather than corrected, consistent with the policy above.
 
 ## Manual Category Verification
 

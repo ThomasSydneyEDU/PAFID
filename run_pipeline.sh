@@ -17,6 +17,10 @@
 #                  re-scoring after prompt changes. Images are never touched.
 #   --skip-prepare Skip the prepare_images.py step (resizing + trial metadata).
 #                  Implied by --safe-rerun.
+#   --editorial-review  Run Stage 3 (run_editorial_review.py) after generation+QC.
+#                  Human-in-the-loop: applies the actions authors have written into
+#                  data/QC/food_category_flags_to_review.csv (regenerate / correct_labels
+#                  / accept). Off by default; only meaningful for the canonical set.
 
 set -euo pipefail
 
@@ -25,6 +29,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 SAFE_RERUN=false
 SKIP_PREPARE=false
+EDITORIAL_REVIEW=false
 FOOD_LIST=""
 OUTPUT_DIR=""
 STIMULUS_SET=""
@@ -33,12 +38,13 @@ for arg in "$@"; do
     case $arg in
         --safe-rerun)        SAFE_RERUN=true ;;
         --skip-prepare)      SKIP_PREPARE=true ;;
+        --editorial-review)  EDITORIAL_REVIEW=true ;;
         --food-list=*)       FOOD_LIST="${arg#*=}" ;;
         --output-dir=*)      OUTPUT_DIR="${arg#*=}" ;;
         --stimulus-set=*)    STIMULUS_SET="${arg#*=}" ;;
         *)
             echo "[ERROR] Unknown flag: $arg"
-            echo "Usage: bash run_pipeline.sh [--safe-rerun] [--skip-prepare]"
+            echo "Usage: bash run_pipeline.sh [--safe-rerun] [--skip-prepare] [--editorial-review]"
             echo "       [--food-list=<path>] [--output-dir=<path>] [--stimulus-set=<label>]"
             exit 1
             ;;
@@ -110,6 +116,15 @@ else
     python3 "$SCRIPT_DIR/src/"generate_images.py $EXT_GENERATE
     python3 "$SCRIPT_DIR/src/"run_qc.py --stimuli-dir "$STIMULI_DIR" $EXT_QC || \
         echo "[WARN] QC flagged some items — see qc_issues.json. Continuing pipeline."
+
+    if $EDITORIAL_REVIEW; then
+        echo ""
+        echo "[Stage 3] Applying editorial review (run_editorial_review.py)..."
+        if [ -n "$OUTPUT_DIR" ]; then
+            echo "[WARN] Editorial review acts on the canonical baseline only and ignores --output-dir."
+        fi
+        python3 "$SCRIPT_DIR/src/"run_editorial_review.py
+    fi
 
     echo ""
     echo "[3/5] Running Perceptual AI Ratings (Blind & Aware)..."

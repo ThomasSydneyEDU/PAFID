@@ -390,6 +390,9 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
                 "filename": e.get("image_file", ""),
                 "food": food_name,
                 "base_food": e.get("base_food", ""),
+                # Provenance label: 'pafid_v1' for the canonical 350; caller-supplied
+                # for extension runs. Empty when the master entry predates tagging.
+                "stimulus_set": e.get("stimulus_set", ""),
                 # NOTE: legacy food_classification is no longer exported —
                 # replaced by Category_Intuitive_7 (see classify_food_gemini).
                 "natural_vs_transformed": e.get("Natural_vs_transformed", ""),
@@ -458,7 +461,7 @@ def export_qc_plus_ai_csv(stimuli_entries: List[Dict[str, Any]], input_list_csv:
 
     # Apply column ordering
     col_order = [
-        'filename', 'food', 'base_food', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9',
+        'filename', 'food', 'base_food', 'stimulus_set', 'Category_WHO_10', 'Category_Intuitive_7', 'Category_Culinary_9',
         'Category_NOVA_4', 'natural_vs_transformed', 'Transformation_score',
         'prompt', 'model', 'seed', 'created', 'style_version',
         'human_calorie_density', 'human_healthiness', 'human_appeal', 'human_familiarity',

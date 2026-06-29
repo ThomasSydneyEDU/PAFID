@@ -472,7 +472,10 @@ def main():
     p.add_argument("--seed", type=int, default=None, help="Optional seed for determinism")
     p.add_argument("--overwrite", action="store_true", help="Overwrite existing PNG files")
     p.add_argument("--dry-run", action="store_true", help="Do not call image API; just print prompts and sync metadata")
-    p.add_argument("--stimulus-set", type=str, default=None, help="Stimulus set label inside stimuli_master.json")
+    p.add_argument("--stimulus-set", type=str, default="pafid_v1",
+                   help="Provenance label stored in stimuli_master.json and the dynamic CSV. "
+                        "Defaults to 'pafid_v1' (the canonical set); extension runs pass their own label "
+                        "(e.g. foodspace_extension_2026).")
     p.add_argument("--extra-prompt", type=str, default=None, help="Additional prompt instructions to append (from editorial review)")
     args = p.parse_args()
 
