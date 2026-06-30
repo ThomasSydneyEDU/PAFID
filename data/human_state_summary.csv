@@ -1,0 +1,10 @@
+group,metric,n,mean,sd,min,median,max
+Overall,Hunger,126,41.95,29.73,0.0,43.0,100.0
+Overall,Thirst,126,45.06,27.69,0.0,50.0,100.0
+Overall,MinutesSinceEaten,126,192.87,198.65,0.0,120.0,960.0
+MTURK,Hunger,92,45.1,29.84,0.0,50.0,100.0
+MTURK,Thirst,92,42.83,27.71,0.0,50.0,100.0
+MTURK,MinutesSinceEaten,92,205.39,198.88,0.0,120.0,900.0
+SONA,Hunger,34,33.44,28.12,0.0,27.5,100.0
+SONA,Thirst,34,51.09,27.1,4.0,52.0,100.0
+SONA,MinutesSinceEaten,34,159.0,196.97,0.0,90.0,960.0
