@@ -48,18 +48,21 @@ from PIL import Image
 def get_paths(
     stimuli_dir_arg: Optional[str] = None,
     master_arg: Optional[str] = None,
+    output_dir_arg: Optional[str] = None,
 ) -> dict[str, Path]:
   """
   Return key project paths inferred from this file's location, allowing
-  optional overrides for the stimuli directory and master file.
+  optional overrides for the stimuli directory, master file, and output directory.
   """
   this_file = Path(__file__).resolve()
   repo_root = this_file.parents[1]
 
   if stimuli_dir_arg is not None:
-    stim_dir = Path(stimuli_dir_arg)
+    stim_dir = Path(stimuli_dir_arg).expanduser()
     if not stim_dir.is_absolute():
-      stim_dir = (repo_root / stim_dir).resolve()
+      stim_dir = (Path.cwd() / stim_dir).resolve()
+    else:
+      stim_dir = stim_dir.resolve()
   else:
     stim_dir = repo_root / "rendered_images"
 
@@ -71,7 +74,11 @@ def get_paths(
     json_path = stim_dir / "stimuli_master.json"
 
   csv_path = repo_root / "data" / "Foodpictures_information_dynamic.csv"
-  expt_dir = repo_root / "resized_images"
+
+  if output_dir_arg is not None:
+    expt_dir = Path(output_dir_arg).expanduser().resolve()
+  else:
+    expt_dir = repo_root / "resized_images"
 
   return {
     "json_path": json_path,
@@ -160,6 +167,14 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     default=None,
     help="Path to stimuli_master.json. If omitted, uses <stimuli-dir>/stimuli_master.json.",
   )
+  parser.add_argument(
+    "--output-dir",
+    type=str,
+    default=None,
+    help="Directory for resized images and experiment-ready outputs. "
+         "Defaults to resized_images/ inside the PAFID repo. "
+         "Use to redirect outputs to an external project.",
+  )
   return parser.parse_args(argv)
 
 
@@ -174,6 +189,7 @@ def main() -> None:
   paths = get_paths(
     stimuli_dir_arg=args.stimuli_dir,
     master_arg=args.master,
+    output_dir_arg=args.output_dir,
   )
   json_path: Path = paths["json_path"]
   csv_path: Path = paths["csv_path"]
@@ -234,9 +250,9 @@ def main() -> None:
     resize_image(src, dst, target_size=384)
   print("[INFO] Image resizing complete.")
 
-  # 5. Write resized_images outputs
-  filtered_csv_path = expt_dir / "Filtered_Foodpictures_information.csv"
-  filtered_json_path = expt_dir / "Filtered_ImageList.json"
+  # 5. Write outputs — CSVs go alongside the images dir, not buried inside it
+  filtered_csv_path = expt_dir.parent / "Filtered_Foodpictures_information.csv"
+  filtered_json_path = expt_dir.parent / "Filtered_ImageList.json"
 
   df.to_csv(filtered_csv_path, index=False)
   build_image_list_json(filenames, filtered_json_path)

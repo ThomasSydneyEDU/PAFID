@@ -5,30 +5,75 @@
 #   bash run_pipeline.sh              # Full run: generate + classify + QC + blind + features + prepare
 #   bash run_pipeline.sh --safe-rerun # Skip image generation; re-classify and overwrite QC/ratings/features
 #
-# Flags:
+# Extension flags (redirect outputs to an external project without touching PAFID):
+#   --food-list=<path>      External CSV of food names (Food column). Seed list is never modified.
+#   --output-dir=<path>     Directory for images, stimuli_master.json, and all derived outputs.
+#   --stimulus-set=<label>  Provenance label stored in stimuli_master.json (e.g. foodspace_extension_2026).
+#
+# Other flags:
 #   --safe-rerun   Skip image generation. Re-runs classification (resumable via
 #                  version stamps), then overwrites QC, blind ratings, and visual
 #                  features. Useful for backfilling new metadata columns or
 #                  re-scoring after prompt changes. Images are never touched.
 #   --skip-prepare Skip the prepare_images.py step (resizing + trial metadata).
 #                  Implied by --safe-rerun.
+#   --editorial-review  Run Stage 3 (run_editorial_review.py) after generation+QC.
+#                  Human-in-the-loop: applies the actions authors have written into
+#                  data/QC/food_category_flags_to_review.csv (regenerate / correct_labels
+#                  / accept). Off by default; only meaningful for the canonical set.
 
 set -euo pipefail
 
+# Resolve the directory this script lives in so src/ paths work regardless of cwd
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 SAFE_RERUN=false
 SKIP_PREPARE=false
+EDITORIAL_REVIEW=false
+FOOD_LIST=""
+OUTPUT_DIR=""
+STIMULUS_SET=""
 
 for arg in "$@"; do
     case $arg in
-        --safe-rerun)   SAFE_RERUN=true ;;
-        --skip-prepare) SKIP_PREPARE=true ;;
+        --safe-rerun)        SAFE_RERUN=true ;;
+        --skip-prepare)      SKIP_PREPARE=true ;;
+        --editorial-review)  EDITORIAL_REVIEW=true ;;
+        --food-list=*)       FOOD_LIST="${arg#*=}" ;;
+        --output-dir=*)      OUTPUT_DIR="${arg#*=}" ;;
+        --stimulus-set=*)    STIMULUS_SET="${arg#*=}" ;;
         *)
             echo "[ERROR] Unknown flag: $arg"
-            echo "Usage: bash run_pipeline.sh [--safe-rerun] [--skip-prepare]"
+            echo "Usage: bash run_pipeline.sh [--safe-rerun] [--skip-prepare] [--editorial-review]"
+            echo "       [--food-list=<path>] [--output-dir=<path>] [--stimulus-set=<label>]"
             exit 1
             ;;
     esac
 done
+
+# Build optional extension flags to pass through to each script
+EXT_GENERATE=""
+STIMULI_DIR="rendered_images/"
+EXT_QC=""
+EXT_RATE=""
+EXT_FEATURES=""
+EXT_PREPARE=""
+
+if [ -n "$FOOD_LIST" ]; then
+    EXT_GENERATE="$EXT_GENERATE --food-list=$FOOD_LIST"
+    EXT_QC="$EXT_QC --food-list=$FOOD_LIST"
+fi
+if [ -n "$OUTPUT_DIR" ]; then
+    EXT_GENERATE="$EXT_GENERATE --output-dir=$OUTPUT_DIR"
+    STIMULI_DIR="$OUTPUT_DIR"
+    EXT_QC="$EXT_QC --dynamic-csv=$OUTPUT_DIR/Foodpictures_information_dynamic.csv"
+    EXT_RATE="--csv=$OUTPUT_DIR/Foodpictures_information_dynamic.csv"
+    EXT_FEATURES="--canonical-csv=$OUTPUT_DIR/Foodpictures_information_dynamic.csv"
+    EXT_PREPARE="--output-dir=$OUTPUT_DIR/resized"
+fi
+if [ -n "$STIMULUS_SET" ]; then
+    EXT_GENERATE="$EXT_GENERATE --stimulus-set=$STIMULUS_SET"
+fi
 
 # Vertex AI credentials — adjust project if needed
 export GOOGLE_GENAI_USE_VERTEXAI=true
@@ -37,6 +82,8 @@ export GOOGLE_CLOUD_PROJECT=usyd-llm
 echo "============================================================"
 if $SAFE_RERUN; then
     echo " PAFID Pipeline — SAFE RERUN (no image generation)"
+elif [ -n "$OUTPUT_DIR" ]; then
+    echo " PAFID Pipeline — EXTENSION RUN (outputs → $OUTPUT_DIR)"
 else
     echo " PAFID Pipeline — FULL RUN"
 fi
@@ -45,40 +92,52 @@ echo "============================================================"
 if $SAFE_RERUN; then
     echo ""
     echo "[1/4] Classifying items and updating metadata (skipping rendering)..."
-    python src/generate_stimuli.py --classify-only
+    python3 "$SCRIPT_DIR/src/"classify_food.py $EXT_GENERATE
 
     echo ""
-    echo "[2/4] Running Quality Control & Aware AI Ratings (overwrite)..."
-    python src/run_qc.py --stimuli-dir rendered_images/ --overwrite
+    echo "[2/4] Running Quality Control (overwrite)..."
+    python3 "$SCRIPT_DIR/src/"run_qc.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_QC || \
+        echo "[WARN] QC flagged some items — see qc_issues.json. Continuing pipeline."
 
     echo ""
-    echo "[3/4] Running Blind AI Ratings (overwrite)..."
-    python src/rate_images.py --stimuli-dir rendered_images/ --overwrite
+    echo "[3/4] Running Perceptual AI Ratings (Blind & Aware; overwrite)..."
+    python3 "$SCRIPT_DIR/src/"rate_images.py --stimuli-dir "$STIMULI_DIR" --overwrite $EXT_RATE
 
     echo ""
     echo "[4/4] Extracting Visual Features and merging to canonical CSV..."
-    python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical
+    python3 "$SCRIPT_DIR/src/"extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
 else
     echo ""
-    echo "[1/5] Generating stimuli and classifying..."
-    python src/generate_stimuli.py
+    echo "[1/5] Classifying food categories and processing attributes..."
+    python3 "$SCRIPT_DIR/src/"classify_food.py $EXT_GENERATE
 
     echo ""
-    echo "[2/5] Running Quality Control & Aware AI Ratings..."
-    python src/run_qc.py --stimuli-dir rendered_images/
+    echo "[2/5] Generating food stimulus images & running automated Quality Control..."
+    python3 "$SCRIPT_DIR/src/"generate_images.py $EXT_GENERATE
+    python3 "$SCRIPT_DIR/src/"run_qc.py --stimuli-dir "$STIMULI_DIR" $EXT_QC || \
+        echo "[WARN] QC flagged some items — see qc_issues.json. Continuing pipeline."
+
+    if $EDITORIAL_REVIEW; then
+        echo ""
+        echo "[Stage 3] Applying editorial review (run_editorial_review.py)..."
+        if [ -n "$OUTPUT_DIR" ]; then
+            echo "[WARN] Editorial review acts on the canonical baseline only and ignores --output-dir."
+        fi
+        python3 "$SCRIPT_DIR/src/"run_editorial_review.py
+    fi
 
     echo ""
-    echo "[3/5] Running Blind AI Ratings..."
-    python src/rate_images.py --stimuli-dir rendered_images/
+    echo "[3/5] Running Perceptual AI Ratings (Blind & Aware)..."
+    python3 "$SCRIPT_DIR/src/"rate_images.py --stimuli-dir "$STIMULI_DIR" $EXT_RATE
 
     echo ""
     echo "[4/5] Extracting Visual Features and merging to canonical CSV..."
-    python src/extract_visual_features.py --stimuli-dir rendered_images/ --merge-canonical
+    python3 "$SCRIPT_DIR/src/"extract_visual_features.py --stimuli-dir "$STIMULI_DIR" --merge-canonical $EXT_FEATURES
 
     if ! $SKIP_PREPARE; then
         echo ""
         echo "[5/5] Preparing images for experiments..."
-        python src/prepare_images.py --stimuli-dir rendered_images/
+        python3 "$SCRIPT_DIR/src/"prepare_images.py --stimuli-dir "$STIMULI_DIR" $EXT_PREPARE
     else
         echo ""
         echo "[5/5] Skipping prepare_images (--skip-prepare)."
@@ -87,5 +146,9 @@ fi
 
 echo ""
 echo "============================================================"
-echo "Pipeline complete! Check data/Foodpictures_information_dynamic.csv"
+if [ -n "$OUTPUT_DIR" ]; then
+    echo "Pipeline complete! Check $OUTPUT_DIR/Foodpictures_information_dynamic.csv"
+else
+    echo "Pipeline complete! Check data/Foodpictures_information_dynamic.csv"
+fi
 echo "============================================================"

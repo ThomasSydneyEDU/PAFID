@@ -88,7 +88,7 @@ On Windows (PowerShell):
 Do **not** set `GOOGLE_GENAI_USE_VERTEXAI`, or set it to `False`:
 
 ```bash
-python src/generate_stimuli.py --classify-only
+python3 src/classify_food.py --limit 5
 ```
 
 At startup you should see:

@@ -77,7 +77,7 @@ def load_flags(path: Path) -> pd.DataFrame:
 def run_generate(food: str, generation_notes: str | None, dry_run: bool) -> None:
     """Re-generate image for one food item, then re-run downstream scripts."""
     cmd_gen = [
-        sys.executable, str(ROOT / "src" / "generate_stimuli.py"),
+        sys.executable, str(ROOT / "src" / "generate_images.py"),
         "--food", food,
         "--overwrite",
     ]
@@ -89,7 +89,7 @@ def run_generate(food: str, generation_notes: str | None, dry_run: bool) -> None
         print(f"  Running: {' '.join(cmd_gen)}")
         result = subprocess.run(cmd_gen, cwd=ROOT)
         if result.returncode != 0:
-            print(f"  [WARN] generate_stimuli.py exited with code {result.returncode}")
+            print(f"  [WARN] generate_images.py exited with code {result.returncode}")
             return
 
     # Re-run QC for this item only.

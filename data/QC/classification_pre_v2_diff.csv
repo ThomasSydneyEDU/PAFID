@@ -1,0 +1,154 @@
+filename,food,column,pre_v2,current,delta
+almonds.png,Almonds,Category_Culinary_9,Plant Protein,Snacks & Savory Junk,
+almonds.png,Almonds,Transformation_score,20,15,-5
+anchovies.png,Anchovies,Transformation_score,58,60,+2
+apple-raw.png,Apple (raw),Transformation_score,5,0,-5
+apricot-prepared.png,Apricot (prepared),Transformation_score,30,25,-5
+avocado.png,Avocado,Category_WHO_10,Vegetables,Fruits,
+banana-chips.png,Banana chips,Category_Culinary_9,Desserts & Sweets,Snacks & Savory Junk,
+banana-chips.png,Banana chips,Transformation_score,88,90,+2
+barley.png,Barley,Transformation_score,25,45,+20
+barramundi.png,Barramundi,Transformation_score,18,15,-3
+beef-steak.png,Beef steak,Transformation_score,35,30,-5
+beef-stir-fry.png,Beef stir fry,Transformation_score,75,78,+3
+biryani.png,Biryani,Transformation_score,80,78,-2
+biscuit-us.png,Biscuit (US),Transformation_score,60,65,+5
+borrito-bowl.png,borrito bowl,Transformation_score,75,78,+3
+breadstick.png,Breadstick,Category_Culinary_9,Carbohydrates & Staples,Snacks & Savory Junk,
+breadstick.png,Breadstick,Transformation_score,60,65,+5
+brioche.png,Brioche,Category_WHO_10,Confectionery and sweets,Bakery wares and cereals,
+brioche.png,Brioche,Transformation_score,85,88,+3
+brussels-sprouts.png,Brussels sprouts,Transformation_score,30,5,-25
+bulgogi.png,Bulgogi,Transformation_score,78,80,+2
+calamari.png,Calamari,Category_Culinary_9,Composite Meals,Animal Protein,
+carbonara.png,Carbonara,Transformation_score,80,75,-5
+casserole.png,Casserole,Transformation_score,75,80,+5
+chapati.png,Chapati,Transformation_score,60,65,+5
+chicken-breast.png,Chicken breast,Transformation_score,30,15,-15
+chicken-parmesan.png,Chicken parmesan,Transformation_score,78,80,+2
+chicken-tikka-wrap.png,Chicken tikka wrap,Transformation_score,78,80,+2
+chicken-wings.png,Chicken wings,Category_Culinary_9,Animal Protein,Composite Meals,
+chicken-wings.png,Chicken wings,natural_vs_transformed,Natural,Transformed,
+chicken-wings.png,Chicken wings,Transformation_score,35,75,+40
+chili-con-carne.png,Chili con carne,Transformation_score,78,75,-3
+cod.png,Cod,Transformation_score,20,15,-5
+collard-greens.png,Collard greens,Transformation_score,15,30,+15
+corn.png,Corn,Transformation_score,5,30,+25
+cracker.png,Cracker,Transformation_score,85,88,+3
+cranberry.png,Cranberry,Transformation_score,15,5,-10
+currant.png,Currant,Transformation_score,15,5,-10
+curry-indian.png,Curry (Indian),Transformation_score,75,80,+5
+custard.png,Custard,Transformation_score,88,90,+2
+deli-ham-sliced.png,Deli ham (sliced),Transformation_score,85,90,+5
+doner-kebab.png,Doner kebab,Transformation_score,80,88,+8
+dried-apple.png,Dried apple,Transformation_score,20,18,-2
+dried-mango.png,Dried mango,Transformation_score,20,15,-5
+duck.png,Duck,Transformation_score,20,15,-5
+durian.png,Durian,Transformation_score,15,10,-5
+eggplant-prepared.png,Eggplant (prepared),Transformation_score,35,30,-5
+empanada.png,Empanada,Transformation_score,88,78,-10
+fish-and-chips.png,Fish and chips,Transformation_score,80,78,-2
+french-fries-chips.png,French fries (chips),Transformation_score,88,90,+2
+fried-chicken.png,Fried chicken,Category_WHO_10,Meat,Prepared foods,
+fried-noodles.png,Fried noodles,Transformation_score,75,80,+5
+fried-rice.png,Fried rice,Transformation_score,75,78,+3
+fried-tofu-bowl.png,Fried tofu bowl,Transformation_score,75,78,+3
+fruit-leather.png,Fruit leather,Category_WHO_10,Fruits,Confectionery and sweets,
+fruit-leather.png,Fruit leather,Transformation_score,60,90,+30
+garlic.png,Garlic,Transformation_score,5,15,+10
+granola-bar.png,Granola bar,Category_WHO_10,Confectionery and sweets,Bakery wares and cereals,
+gyoza.png,Gyoza,Transformation_score,75,80,+5
+ham.png,Ham,Transformation_score,80,65,-15
+honeydew.png,Honeydew,Transformation_score,15,5,-10
+hot-dog.png,Hot dog,Transformation_score,90,85,-5
+injera.png,Injera,Transformation_score,65,60,-5
+lamb-chop.png,Lamb chop,Transformation_score,30,20,-10
+lasagna.png,Lasagna,Transformation_score,90,80,-10
+lemon.png,Lemon,Category_Culinary_9,Produce - Sweet,Produce - Savory,
+lima-beans.png,Lima beans,Transformation_score,35,30,-5
+lollipop.png,Lollipop,Transformation_score,90,95,+5
+lotus-root.png,Lotus root,Transformation_score,30,15,-15
+mac-and-cheese.png,Mac and cheese,Transformation_score,85,75,-10
+mackerel.png,Mackerel,Transformation_score,30,5,-25
+mango-raw.png,Mango (raw),Transformation_score,5,0,-5
+matzo.png,Matzo,Category_Culinary_9,Carbohydrates & Staples,Snacks & Savory Junk,
+matzo.png,Matzo,Transformation_score,65,60,-5
+meatballs.png,Meatballs,Transformation_score,85,90,+5
+meatloaf.png,Meatloaf,Transformation_score,80,88,+8
+mortadella.png,Mortadella,Category_Culinary_9,Composite Meals,Animal Protein,
+muesli.png,Muesli,Transformation_score,88,90,+2
+muffin.png,Muffin,Transformation_score,90,88,-2
+nasi-goreng.png,Nasi goreng,Transformation_score,80,78,-2
+oats.png,Oats,Transformation_score,50,60,+10
+octopus.png,Octopus,Transformation_score,5,30,+25
+olive.png,Olive,natural_vs_transformed,Natural,Transformed,
+olive.png,Olive,Transformation_score,20,60,+40
+omelette.png,Omelette,Transformation_score,75,70,-5
+peach-prepared.png,Peach (prepared),Transformation_score,28,30,+2
+pear-prepared.png,Pear (prepared),Transformation_score,25,20,-5
+peas.png,Peas,Transformation_score,30,25,-5
+pesto-pasta.png,Pesto pasta,Transformation_score,75,80,+5
+pineapple-prepared.png,Pineapple (prepared),Transformation_score,15,20,+5
+pinto-beans.png,Pinto beans,Transformation_score,30,20,-10
+plain-bagel.png,Plain Bagel,Transformation_score,65,60,-5
+plantain.png,Plantain,Category_WHO_10,Fruits,Vegetables,
+plantain.png,Plantain,Category_Culinary_9,Produce - Savory,Carbohydrates & Staples,
+plantain.png,Plantain,Transformation_score,5,30,+25
+plum-prepared.png,Plum (prepared),natural_vs_transformed,Transformed,Natural,
+plum-prepared.png,Plum (prepared),Transformation_score,40,25,-15
+plum-raw.png,Plum (raw),Transformation_score,5,0,-5
+polenta.png,Polenta,Transformation_score,58,50,-8
+popcorn.png,Popcorn,Transformation_score,60,58,-2
+pork-chop.png,Pork chop,Transformation_score,30,20,-10
+portobello-mushrooms.png,Portobello mushrooms,Transformation_score,15,5,-10
+potato-prepared.png,Potato (prepared),Transformation_score,30,35,+5
+pretzel.png,Pretzel,Transformation_score,88,90,+2
+prosciutto.png,Prosciutto,Transformation_score,65,85,+20
+puff-pastry.png,Puff pastry,Category_WHO_10,Confectionery and sweets,Bakery wares and cereals,
+puff-pastry.png,Puff pastry,Category_Culinary_9,Desserts & Sweets,Carbohydrates & Staples,
+pumpkin-pie.png,Pumpkin pie,Transformation_score,92,90,-2
+ramen.png,Ramen,Transformation_score,75,80,+5
+rendang.png,Rendang,Transformation_score,78,80,+2
+rice-brown.png,Rice (brown),Transformation_score,20,30,+10
+rice-white.png,Rice (white),Transformation_score,30,60,+30
+risotto.png,Risotto,Transformation_score,80,78,-2
+roast-lamb.png,Roast lamb,Transformation_score,35,30,-5
+roti.png,Roti,Transformation_score,60,65,+5
+rye.png,Rye,Transformation_score,5,15,+10
+salmon.png,Salmon,Transformation_score,30,20,-10
+sardines.png,Sardines,Transformation_score,60,45,-15
+sausage.png,Sausage,Category_Culinary_9,Composite Meals,Animal Protein,
+sausage.png,Sausage,Transformation_score,90,85,-5
+scallops.png,Scallops,Transformation_score,35,20,-15
+scone.png,Scone,Category_WHO_10,Confectionery and sweets,Bakery wares and cereals,
+scone.png,Scone,Transformation_score,85,88,+3
+seaweed.png,Seaweed,Transformation_score,15,20,+5
+shepherds-pie.png,Shepherds pie,Transformation_score,80,75,-5
+shrimp.png,Shrimp,Transformation_score,30,20,-10
+snow-peas.png,Snow peas,Transformation_score,15,5,-10
+sorbet.png,Sorbet,Transformation_score,88,90,+2
+sorghum.png,Sorghum,Transformation_score,20,15,-5
+spaghetti-bolognese.png,Spaghetti bolognese,Transformation_score,78,75,-3
+split-peas.png,Split peas,Transformation_score,45,20,-25
+squid.png,Squid,Transformation_score,15,20,+5
+stir-fry.png,Stir fry,Transformation_score,78,75,-3
+sugar-snap-peas.png,Sugar snap peas,Transformation_score,15,5,-10
+sweet-and-sour-chicken.png,Sweet and sour chicken,Transformation_score,78,75,-3
+taco.png,Taco,Transformation_score,78,80,+2
+tamarind.png,Tamarind,Transformation_score,20,15,-5
+tempura.png,Tempura,Transformation_score,80,75,-5
+tikka-masala.png,Tikka masala,Transformation_score,78,75,-3
+tomato-culinary-fruit.png,Tomato (culinary fruit),Category_WHO_10,Vegetables,Fruits,
+tortilla-corn.png,Tortilla (corn),Transformation_score,65,60,-5
+trout.png,Trout,Transformation_score,30,20,-10
+tuna.png,Tuna,Transformation_score,35,45,+10
+turkey.png,Turkey,Transformation_score,20,30,+10
+udon.png,Udon,Category_WHO_10,Bakery wares and cereals,Prepared foods,
+udon.png,Udon,Category_Culinary_9,Carbohydrates & Staples,Composite Meals,
+udon.png,Udon,Transformation_score,60,65,+5
+vegetable-curry.png,Vegetable curry,Transformation_score,75,78,+3
+venison.png,Venison,Transformation_score,30,15,-15
+waffle.png,Waffle,Category_WHO_10,Confectionery and sweets,Bakery wares and cereals,
+water-chestnut.png,Water chestnut,Transformation_score,5,10,+5
+wheat.png,Wheat,Transformation_score,5,15,+10
+zucchini-raw.png,Zucchini (raw),Transformation_score,0,5,+5

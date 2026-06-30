@@ -10,7 +10,8 @@
 
 The canonical database contains **350 food items**. The pipeline is designed to allow extension projects to add new foods to this set without modifying the canonical baseline.
 
-Companion paper: Stella et al. (in preparation).
+Repository: https://github.com/ThomasSydneyEDU/PAFID  
+Companion paper: Stella et al. (in preparation — no citation yet).
 
 ---
 
@@ -36,17 +37,9 @@ PAFID automates all of this. The image generation prompt enforces a fixed photog
 
 ## What PAFID does (current capabilities)
 
-The pipeline has seven sequential stages, all resumable and incremental by default:
+The pipeline has seven sequential stages (Stage 0 through Stage 6), all resumable and incremental by default. The authoritative stage list, the workflow diagram, and the design rationale live in the [Pipeline Overview](README.md#pipeline-overview) section of the README — see there for the full breakdown and the runnable command for each stage.
 
-| Stage | Script | What it does |
-|---|---|---|
-| 1. Generate | `generate_stimuli.py` | Renders images via Gemini; assigns 5 label schemes per food |
-| 2. QC / aware ratings | `run_qc.py` | Checks image quality; rates food with label visible |
-| 3. Blind ratings | `rate_images.py` | Rates food from image alone (no label shown) |
-| 4. Visual features | `extract_visual_features.py` | Extracts low-level stats (luminance, contrast, HOG PCs, etc.) |
-| 5. Prepare images | `prepare_images.py` | Resizes images for experiment deployment |
-| 6. Editorial review | `run_editorial_review.py` | Iterative correction of labels and image regeneration |
-| 7. Apply corrections | `apply_corrections.py` | Commits verified corrections to master + dynamic CSV |
+In brief: Stage 0 selects and names the foods (manual); Stage 1 classifies them from text (`classify_food.py`); Stage 2 generates standardized images and audits them (`generate_images.py` + `run_qc.py`); Stage 3 applies human-in-the-loop editorial fixes (`run_editorial_review.py`); Stage 4 produces blind and aware AI ratings (`rate_images.py`); Stage 5 extracts low-level visual features (`extract_visual_features.py`); and Stage 6 resizes images for experiments (`prepare_images.py`).
 
 All metadata consolidates into `data/Foodpictures_information_dynamic.csv` (the working dataset) and `rendered_images/stimuli_master.json` (the per-item ground truth).
 
@@ -82,7 +75,7 @@ All metadata consolidates into `data/Foodpictures_information_dynamic.csv` (the 
 - `rendered_images/` canonical entries — existing images for the 350 original foods must never be overwritten by an extension run.
 - **Filename ↔ food name mapping** — slugified filenames are the join key between images and all downstream metadata. Renaming a food or its image breaks all analyses referencing it.
 - **Dynamic CSV schema** — column names and types must remain stable. New columns may be added; existing columns must not be renamed or removed without a migration.
-- **Prompt versioning** — classification prompts carry version stamps (`v2-2026-06-12-intuitive7-folk-categories`, `v1-2026-06-monteiro-2016`). Updating a prompt must bump its version; the pipeline uses version stamps to determine what needs re-running.
+- **Prompt versioning** — classification prompts carry version stamps (`v3-2026-06-culinary-folk`, `v2-2026-06-processing-focus`). Updating a prompt must bump its version; the pipeline uses version stamps to determine what needs re-running.
 
 ---
 
@@ -92,13 +85,13 @@ The following changes are planned to support external projects (e.g. FoodSpace-E
 
 1. **`food_list_initial_seed.csv` hardened as read-only** — the pipeline will never append to it. This makes the seed a permanent, auditable record of the canonical 350.
 
-2. **`--food-list <path>` flag** — `generate_stimuli.py` and `run_pipeline.sh` will accept an external CSV of new food names at runtime. The calling project provides its own list; PAFID does not look for a hardcoded extension file.
+2. **`--food-list <path>` flag** — `classify_food.py`, `generate_images.py`, and `run_pipeline.sh` will accept an external CSV of new food names at runtime. The calling project provides its own list; PAFID does not look for a hardcoded extension file.
 
 3. **`--output-dir <path>` flag** — outputs (generated images, per-item metadata, updated dynamic CSV) will be redirectable to the calling project's directory. PAFID's own `rendered_images/` and `resized_images/` will only ever contain the canonical 350. This keeps PAFID's repo clean when extension projects run the pipeline.
 
-4. **`--source <label>` flag** — a `source` column will be added to `Foodpictures_information_dynamic.csv`. Original 350 foods get `pafid_v1`; foods added via `--food-list` get a caller-supplied label (e.g. `foodspace_extension_2026`). This enables downstream projects to filter by provenance and is useful for triplet generation and RSA analyses.
+4. **`--stimulus-set <label>` flag** — a `stimulus_set` column (serving as a provenance label) will be added to `Foodpictures_information_dynamic.csv`. Original 350 foods get `pafid_v1`; foods added via `--food-list` get a caller-supplied label (e.g. `foodspace_extension_2026`). This enables downstream projects to filter by provenance and is useful for triplet generation and RSA analyses.
 
-5. **`reset_pipeline.py` source-aware reset** — the reset script will support resetting only rows with a given source label, leaving other sources untouched. A full reset (restoring to canonical 350 only) remains available.
+5. **`reset_pipeline.py` source-aware reset** — the reset script will support resetting only rows with a given stimulus set label, leaving other sources untouched. A full reset (restoring to canonical 350 only) remains available.
 
 ### Extension usage (from a calling project)
 
@@ -107,7 +100,7 @@ cd ../PAFID
 bash run_pipeline.sh \
   --food-list ../FoodSpace-Extension/outputs/curated_nominees.csv \
   --output-dir ../FoodSpace-Extension/stimuli \
-  --source foodspace_extension_2026
+  --stimulus-set foodspace_extension_2026
 ```
 
 PAFID repo is unmodified. Outputs land in the calling project.
@@ -140,7 +133,7 @@ PAFID repo is unmodified. Outputs land in the calling project.
 - End-to-end test of new-stimulus path once extension support is implemented
 
 ### QC backlog
-- 38 items flagged in `data/QC/food_category_flags_to_review.csv` — image/label mismatches and category disagreements — require human review and actioning before the companion paper baseline is frozen
+- 38 items flagged in `data/QC/food_category_flags_to_review.csv` — image/label mismatches and category disagreements. **Decision: these will not be manually corrected.** They are a documented, transparent part of the database. The README explains their nature and how to handle them in downstream analyses. This is preferable to silent corrections that obscure the limitations of AI-based labelling.
 
 ---
 
@@ -148,11 +141,10 @@ PAFID repo is unmodified. Outputs land in the calling project.
 
 PAFID v1 (canonical release) is done when:
 
-1. All 38 flagged QC items are actioned (`accept`, `correct_labels`, or `regenerate`) and corrections applied via `apply_corrections.py`
-2. `Foodpictures_information_reference.csv` is frozen to the post-correction 350-item baseline
-3. README reflects current model names, correct section numbering, and accurate file references
-4. Companion paper methods section documents: current classification prompts with version stamps, NOVA scheme provenance, models used per stage, HOG-PC caveat
-5. Extension support (planned changes above) is implemented and end-to-end tested with one food item
+1. `Foodpictures_information_reference.csv` is frozen to the current 350-item baseline (38 flagged items are retained as documented known issues, not corrected)
+2. README reflects current model names, correct section numbering, accurate file references, and a clear statement that the 38 flagged items are an intentional part of the documented database
+3. Companion paper methods section documents: current classification prompts with version stamps, NOVA scheme provenance, models used per stage, HOG-PC caveat
+4. Extension support (planned changes above) is implemented and end-to-end tested with one food item
 
 ---
 

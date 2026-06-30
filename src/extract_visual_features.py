@@ -115,6 +115,9 @@ def main():
     parser.add_argument("--stimuli-dir", type=str, required=True, help="Folder containing images.")
     parser.add_argument("--output-csv", type=str, default=None, help="Path to save CSV output. Defaults to <stimuli-dir>/visual_metrics.csv")
     parser.add_argument("--merge-canonical", action="store_true", help="Merge results into data/Foodpictures_information_dynamic.csv")
+    parser.add_argument("--canonical-csv", type=str, default=None,
+                        help="Override the path to Foodpictures_information_dynamic.csv used by "
+                             "--merge-canonical. Use when outputs are directed to an external project.")
     parser.add_argument("--overwrite", action="store_true",
                         help="Replace ll_ values for ALL rows when merging. Default is incremental: "
                              "only rows with missing ll_ values (i.e. new stimuli) are filled, preserving "
@@ -200,7 +203,11 @@ def main():
 
     if args.merge_canonical:
         src_dir = Path(__file__).resolve().parent
-        canonical_path = src_dir.parent / "data" / "Foodpictures_information_dynamic.csv"
+        canonical_path = (
+            Path(args.canonical_csv).expanduser().resolve()
+            if args.canonical_csv
+            else src_dir.parent / "data" / "Foodpictures_information_dynamic.csv"
+        )
         if canonical_path.exists():
             print(f"[INFO] Merging results into: {canonical_path}")
             try:
