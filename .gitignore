@@ -1,5 +1,10 @@
 # Ignore generated outputs
 
+# Non-food foils are a per-project utility output, not part of the PAFID
+# release. Ignored as a backstop in case generate_nonfood_stimuli.py is ever
+# run without --out-dir pointed at an external project folder.
+data/rendered_images_nonfood/
+
 # Ignore pipeline/safety backups
 *.bak
 

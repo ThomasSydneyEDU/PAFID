@@ -21,7 +21,9 @@ Usage examples
 
 Env vars required
 -----------------
-  GEMINI_API_KEY   — for Gemini backend (default)
+  Gemini backend (default) — either:
+    GOOGLE_GENAI_USE_VERTEXAI=True, GOOGLE_CLOUD_PROJECT, GOOGLE_CLOUD_LOCATION (optional, default "global")
+    or GEMINI_API_KEY (AI Studio)
   OPENAI_API_KEY   — for OpenAI backend
 
 Notes
@@ -194,9 +196,27 @@ def get_gemini_client():
     except Exception:
         print("[ERROR] Missing google-genai package. Install with: pip install -U google-genai", file=sys.stderr)
         raise
+
+    use_vertex = os.getenv("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in {"true", "1", "yes"}
+
+    if use_vertex:
+        project = os.getenv("GOOGLE_CLOUD_PROJECT")
+        location = os.getenv("GOOGLE_CLOUD_LOCATION", "global")
+        if not project:
+            raise RuntimeError(
+                "GOOGLE_CLOUD_PROJECT is not set. "
+                "Export it first, e.g., 'export GOOGLE_CLOUD_PROJECT=usyd-llm'"
+            )
+        print(f"[INFO] Using Gemini via Vertex AI: project={project}, location={location}")
+        return genai.Client(vertexai=True, project=project, location=location)
+
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        raise RuntimeError("GEMINI_API_KEY is not set.")
+        raise RuntimeError(
+            "GEMINI_API_KEY is not set. Export it first, e.g., 'export GEMINI_API_KEY=...', "
+            "or use Vertex AI by setting GOOGLE_GENAI_USE_VERTEXAI=True and GOOGLE_CLOUD_PROJECT."
+        )
+    print("[INFO] Using Gemini Developer API with GEMINI_API_KEY")
     return genai.Client(api_key=api_key)
 
 
